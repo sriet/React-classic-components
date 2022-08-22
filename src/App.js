@@ -1,13 +1,14 @@
 import "./App.css";
+import * as React from "react";
 import Box from "@mui/material/Box";
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import IconButton from "@mui/material/IconButton";
-import * as React from "react";
 
 import StockPlan from "./components/StockPlan";
 import AddPlan from "./components/AddPlan";
+import Detail from "./components/Detail";
 import Gauge from "./components/Gauge";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -44,6 +45,7 @@ function MyApp() {
       </div>
       <StockPlan />
       <AddPlan />
+      <Detail />
       <Gauge />
     </Box>
   );
