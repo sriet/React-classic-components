@@ -9,7 +9,13 @@ import {
   Typography,
   Divider,
   Button,
-  Link
+  Link,
+  Input,
+  OutlinedInput,
+  Select,
+  MenuItem,
+  NativeSelect,
+  InputAdornment
  } from '@mui/material';
  import EastIcon from '@mui/icons-material/East';
  import RefreshIcon from '@mui/icons-material/Refresh';
@@ -34,7 +40,7 @@ const TypoItem = styled(Typography)(({ theme }) => ({
 const PriceLabel = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(0, 0),
   textAlign: 'left',
   color: theme.palette.text.secondary,
   fontWeight: 'light',
@@ -91,99 +97,95 @@ const BtnDetail = styled(Typography)(({ theme }) => ({
   fontWeight: 'light',
   fontSize: '12px',
 }));
+const StockInput = styled(OutlinedInput)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  fontSize:'16px',
+  width:'100%',
+  "> input": {
+    padding: '6px 8px 6px 8px',
+  }
+
+}));
+
+const StockSelect = styled(NativeSelect)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  width:'100%',
+  fontSize:'16px',
+  "> select": {
+    padding: '6px 8px 6px 8px',
+  }
+
+}));
 
 const StockPlan = () => {
+    
   return (
     <Container>
       <Paper sx={{ flexGrow: 1, m: 5 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TypoItem variant="subtitle2" gutterBottom>
-              Stripe Stock Plan
+              Add Plan
             </TypoItem>
           </Grid>
           <Grid item xs={12}>
-            <Grid container spacing={2}>
-              <Grid item xs={3}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <PriceLabel>Total Value</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$128,012</PriceValue>
-                  </Grid>
+            <Grid container spacing={0}>
+                <Grid item xs minWidth='200px'>
+                    <Grid container spacing={2} px={2}>
+                        <Grid item xs={12}>
+                            <PriceLabel>ID</PriceLabel>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <StockInput placeholder='Placeholder' />
+                        </Grid>
+                    </Grid>
                 </Grid>
-              </Grid>
-              <Grid item xs={3}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <PriceLabel>Current Value</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$128,012</PriceValue>
-                  </Grid>
+                <Grid item xs container sx={{
+                    minWidth:'300px'
+                }}>
+                    <Grid item xs={4}>
+                        <Grid container spacing={2} px={2}>
+                            <Grid item xs={12}>
+                                <PriceLabel>Type</PriceLabel>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <StockSelect
+                                    input={<OutlinedInput/>}
+                                >
+                                    <option >ISO</option>
+                                    <option >ISOa</option>
+                                    <option >ISOb</option>
+                                </StockSelect>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={4} minWidth='67px'>
+                        <Grid container spacing={2} px={2}>
+                            <Grid item xs={12}>
+                                <PriceLabel>Price</PriceLabel>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <StockInput 
+                                startAdornment={<InputAdornment position="start">$</InputAdornment>} 
+                                />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={4} minWidth='67px'>
+                        <Grid container spacing={2} px={2}>
+                            <Grid item xs={12}>
+                                <PriceLabel>Date</PriceLabel>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <StockInput type='date' />
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Grid>
-              </Grid>
-              <Grid item xs={3}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <PriceLabel>409A Value (Jun 2022)</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$128,012</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
-
             </Grid>
-            <Divider variant="middle" />
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container spacing={2}>
-              <Grid item xs={3}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <IsoItem>7,239 ISOs, 2 Grants <ArrowItem /></IsoItem>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <IsoPrice>$128,012</IsoPrice>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={9}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <ProgressBar percent={80} />
-                  </Grid>
-                  <Grid item xs={12}></Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} sx={{paddingBottom: 2}}>
-            <Grid container spacing={2} sx={{textAlign: 'left'}}>
-              <Grid item xs={6}>
-                <Grid container spacing={2} sx={{textAlign: 'left'}}>
-                  <Grid item sx={{display: 'flex', alignItems: 'center'}}>
-                    <BottomLabel>Last updated 23 days ago</BottomLabel>
-                  </Grid>
-                  <Grid item>
-                    <BottomLabel>
-                      <Link href="#" color="inherit" sx={{display: 'flex', alignItems: 'center'}}>
-                        <RefreshIcon sx={{fontSize: '15px'}}/> Updated Equity
-                      </Link>
-                    </BottomLabel>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={6}>
-              <BtnDetail>
-                <Link href="#" color="inherit">
-                  View Details
-                </Link>
-              </BtnDetail>
-              </Grid>
-            </Grid>
+            <Divider variant='middle' />
           </Grid>
         </Grid>
       </Paper>

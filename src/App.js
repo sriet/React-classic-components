@@ -1,6 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import StockPlan from './components/StockPlan';
+import AddPlan from './components/AddPlan'
 import Box from '@mui/material/Box';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -23,7 +24,6 @@ function MyApp() {
         bgcolor: 'background.default',
         color: 'text.primary',
         borderRadius: 1,
-        p: 3,
       }}
     >
       <div>
@@ -33,6 +33,7 @@ function MyApp() {
         </IconButton>
       </div>
       <StockPlan />
+      <AddPlan />
     </Box>
   );
 }
