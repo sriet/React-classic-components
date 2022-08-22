@@ -2,6 +2,7 @@ import './App.css';
 import * as React from 'react';
 import StockPlan from './components/StockPlan';
 import AddPlan from './components/AddPlan'
+import Detail from './components/Detail'
 import Box from '@mui/material/Box';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -34,6 +35,7 @@ function MyApp() {
       </div>
       <StockPlan />
       <AddPlan />
+      <Detail />
     </Box>
   );
 }
