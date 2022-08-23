@@ -87,7 +87,7 @@ const Last = () => {
                     </Link>
                   </Stack>
                 </Stack>
-                <Stack item sx={{ alignItems: "center" }} >
+                <Stack sx={{ alignItems: "center" }} >
                   <Link
                     sx={{
                       cursor: "pointer",
