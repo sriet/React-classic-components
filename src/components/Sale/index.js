@@ -54,7 +54,6 @@ const Sale = () => {
   const [inputType, setInputType] = React.useState("Type2");
   const showRefContent = () => {
     setInputType(inputTypeRef.current.value);
-    console.log(inputTypeRef.current.value);
   };
 
   const classes = useStyles();
@@ -302,7 +301,14 @@ const Sale = () => {
 
           <Grid item xs={12}>
             <Grid container pb="12px" sx={{ alignItems: "center" }}>
-              <Link sx={{ flexGrow: 1, color: "red", cursor: "pointer" }}>
+              <Link
+                sx={{
+                  flexGrow: 1,
+                  color: "red",
+                  textDecorationColor: "red",
+                  cursor: "pointer",
+                }}
+              >
                 Delete Sale
               </Link>
               <Button
@@ -311,12 +317,18 @@ const Sale = () => {
                   borderRadius: "4px",
                   color: "gray",
                   mr: "12px",
+                  textTransform: "none",
                 }}
               >
                 Cancel
               </Button>
               <Button
-                sx={{ borderRadius: "4px", color: "white", bgcolor: "#2F80ED" }}
+                sx={{
+                  borderRadius: "4px",
+                  color: "white",
+                  bgcolor: "#2F80ED",
+                  textTransform: "none",
+                }}
               >
                 Save
               </Button>

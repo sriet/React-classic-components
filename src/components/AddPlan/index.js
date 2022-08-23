@@ -9,8 +9,6 @@ import {
   Link,
   OutlinedInput,
   InputAdornment,
-  Box,
-  TextField,
 } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
@@ -39,6 +37,7 @@ const useStyles = makeStyles({
     "& fieldset": { border: "1px solid transparent" },
   },
 });
+
 const AddPlan = () => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
@@ -223,10 +222,24 @@ const AddPlan = () => {
           </Grid>
           <Grid item xs={12}>
             <Grid container pb="12px">
-              <Link sx={{ color: "red", flexGrow: 1, cursor: "pointer" }}>
+              <Link
+                sx={{
+                  color: "red",
+                  flexGrow: 1,
+                  cursor: "pointer",
+                  textDecorationColor: "red",
+                }}
+              >
                 Delete
               </Link>
-              <Link sx={{ color: "gray", cursor: "pointer", pr: "16px" }}>
+              <Link
+                sx={{
+                  color: "gray",
+                  cursor: "pointer",
+                  pr: "16px",
+                  textDecorationColor: "gray",
+                }}
+              >
                 Cancel
               </Link>
               <Link sx={{ cursor: "pointer" }}>Save</Link>
