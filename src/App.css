@@ -76,3 +76,9 @@
  width: 100%;
 }
 
+.dateStyle fieldset {
+  border: none !important;
+
+}
+
+

@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import moment from "moment";
 import {
   Container,
@@ -30,8 +30,13 @@ const useStyles = makeStyles({
   },
   dateStyle: {
     position: "absolute !important",
-    left: "0",
     pointerEvents: "none",
+    width: "92% !important",
+    height: "92%",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    "& fieldset": { border: "1px solid transparent" },
   },
 });
 const AddPlan = () => {

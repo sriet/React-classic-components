@@ -16,6 +16,8 @@ import {
   Table,
   Button,
 } from "@mui/material";
+import moment from "moment";
+
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
@@ -26,23 +28,28 @@ import {
   StockInput,
   StockSelect,
 } from "../commons/styledComponents";
-import moment from "moment";
+
+//styles
+const useStyles = makeStyles({
+  mt10: {
+    marginTop: "10px",
+  },
+  relative: {
+    position: "relative",
+  },
+  dateStyle: {
+    position: "absolute !important",
+    pointerEvents: "none",
+    width: "92% !important",
+    height: "92%",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    "& fieldset": { border: "1px solid transparent" },
+  },
+});
 
 const Sale = () => {
-  //styles
-  const useStyles = makeStyles({
-    mt10: {
-      marginTop: "10px",
-    },
-    relative: {
-      position: "relative",
-    },
-    dateStyle: {
-      position: "absolute !important",
-      left: "0",
-      pointerEvents: "none",
-    },
-  });
   const inputTypeRef = React.useRef();
   const [inputType, setInputType] = React.useState("Type2");
   const showRefContent = () => {
@@ -51,7 +58,7 @@ const Sale = () => {
   };
 
   const classes = useStyles();
-  const [expiryDate, setExpiryDate] = React.useState(
+  const [date, setDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
   );
 
@@ -142,12 +149,23 @@ const Sale = () => {
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
+                <Grid container className={classes.mt10}>
                   <Grid item xs={12}>
                     <PriceLabel>Sale Date</PriceLabel>
                   </Grid>
-                  <Grid item xs={12}>
-                    <StockInput type="date" />
+                  <Grid item xs={12} className={classes.relative}>
+                    <StockInput
+                      type="date"
+                      value={date}
+                      onChange={(e) =>
+                        setDate(moment(e.target.value).format("MM/DD/YY"))
+                      }
+                    />
+                    <StockInput
+                      type="text"
+                      className={classes.dateStyle}
+                      value={date}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
