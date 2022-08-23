@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
+import { styled, makeStyles } from "@mui/material/styles";
 import moment from "moment";
 import {
   Container,
@@ -14,6 +14,12 @@ import {
   Box,
   TextField,
 } from "@mui/material";
+
+const useStyles = makeStyles({
+  date: {
+    position: "absolute",
+  },
+});
 
 const BoxPanel = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -63,6 +69,8 @@ const StockSelect = styled(NativeSelect)(({ theme }) => ({
 }));
 
 const StockPlan = () => {
+  const classes = useStyles();
+
   const NewIcon = (props) => (
     <svg
       width="10"
@@ -140,14 +148,7 @@ const StockPlan = () => {
                     <PriceLabel>Date</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    {/* <StockInput type="date" defaultValue="2019-08-10" /> */}
-                    <TextField
-                      name="someDate"
-                      label="Some Date"
-                      InputLabelProps={{ shrink: true, required: true }}
-                      type="date"
-                      defaultValue="2019-08-10"
-                    />
+                    <StockInput type="date" defaultValue="2019-08-10" />
                   </Grid>
                 </Grid>
               </Grid>
@@ -173,7 +174,13 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockInput
                       type="date"
-                      defaultValue={moment("2019-08-10").format("MM/DD/YY")}
+                      defaultValue={moment("2019-08-15").format("MM/DD/YY")}
+                    />
+                    <StockInput
+                      type="text"
+                      readOnly={true}
+                      className={classes.date}
+                      defaultValue={moment("2019-08-15").format("MM/DD/YY")}
                     />
                   </Grid>
                 </Grid>
