@@ -2,27 +2,17 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import {
-  Box,
   Container,
   Grid,
   Paper,
   Typography,
   Divider,
-  Button,
   Link
  } from '@mui/material';
  import EastIcon from '@mui/icons-material/East';
  import RefreshIcon from '@mui/icons-material/Refresh';
  import ProgressBar from '../commons/progressbar';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-  elevation: 0
-}));
 const TypoItem = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
