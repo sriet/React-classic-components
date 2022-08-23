@@ -1,5 +1,7 @@
 import * as React from "react";
+import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
+import moment from "moment";
 import {
   Container,
   Grid,
@@ -8,11 +10,6 @@ import {
   Link,
   OutlinedInput,
   InputAdornment,
-  TableCell,
-  TableRow,
-  TableBody,
-  TableHead,
-  Table,
   Button,
 } from "@mui/material";
 
@@ -22,12 +19,35 @@ import {
   TypoItem,
   PriceLabel,
   PriceValue,
-  StockTableInput,
   StockInput,
   StockSelect,
 } from "../commons/styledComponents";
 
+const useStyles = makeStyles({
+  mt10: {
+    marginTop: "10px",
+  },
+  relative: {
+    position: "relative",
+  },
+  dateStyle: {
+    position: "absolute !important",
+    pointerEvents: "none",
+    width: "92% !important",
+    height: "90%",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    "& fieldset": { border: "1px solid transparent" },
+  },
+});
+
 const Last = () => {
+  const classes = useStyles();
+  const [date, setDate] = React.useState(
+    moment("2020-10-12").format("MM/DD/YY")
+  );
+
   const inputTypeRef = React.useRef();
   const [inputType, setInputType] = React.useState("Type2");
   const showRefContent = () => {
@@ -122,12 +142,23 @@ const Last = () => {
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
+                <Grid container className={classes.mt10}>
                   <Grid item xs={12}>
                     <PriceLabel>Sale Date</PriceLabel>
                   </Grid>
-                  <Grid item xs={12}>
-                    <StockInput type="date" />
+                  <Grid item xs={12} className={classes.relative}>
+                    <StockInput
+                      type="date"
+                      value={date}
+                      onChange={(e) =>
+                        setDate(moment(e.target.value).format("MM/DD/YY"))
+                      }
+                    />
+                    <StockInput
+                      type="text"
+                      className={classes.dateStyle}
+                      value={date}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
