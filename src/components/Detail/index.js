@@ -63,7 +63,7 @@ const StockPlan = () => {
   return (
     <Container>
       <BoxPanel>
-        <Grid spacing='8px'>
+        <Grid container spacing='8px'>
             <Grid item xs={12}>
                 <TypoItem variant="subtitle2" gutterBottom>
                 Detail
