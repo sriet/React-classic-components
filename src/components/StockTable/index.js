@@ -14,19 +14,9 @@ import {
  } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
+import { BoxPanel } from '../commons/styledComponents';
 
-const BoxPanel = styled(Box)(({ theme }) => ({
-backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-...theme.typography.body2,
-margin: theme.spacing(5),
-width:'50%',
-borderRadius:'4px',
-padding:'12px 16px',
-textAlign: 'left',
-color: theme.palette.text.secondary,
-elevation: 0
-}));
-const StockTableRow = styled(TableRow)(({ theme }) => ({
+const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   width:'100%',
@@ -36,7 +26,7 @@ const StockTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
-const StockPlan = () => {
+const StockTable = () => {
 
     const tableData =[
         {
@@ -115,7 +105,7 @@ const StockPlan = () => {
 
     return (
         <Container>
-        <BoxPanel>
+        <BoxPanel width='50%' sx={{border:0}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
@@ -131,12 +121,12 @@ const StockPlan = () => {
                             <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, py:'4px' } }}>
                                 {tableData.map((row, index) => (
                                     (row.Completed===1 && 
-                                    <StockTableRow key={index}>
+                                    <CompletedTableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
                                         <TableCell align="right"><CheckIcon fontSize='14px'/></TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
-                                    </StockTableRow>) ||
+                                    </CompletedTableRow>) ||
                                     <TableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
@@ -160,8 +150,8 @@ const StockPlan = () => {
     );
 }
 
-StockPlan.propTypes = {
+StockTable.propTypes = {
   children: PropTypes.any
 }
 
-export default StockPlan;
+export default StockTable;

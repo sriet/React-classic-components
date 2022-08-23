@@ -18,7 +18,7 @@ import {
 import { SelectIcon } from "../commons/icon/multipleIcons"
 import { BoxPanel, TypoItem, PriceLabel, PriceValue, StockTableInput, StockInput, StockSelect } from '../commons/styledComponents';
 
-const Sale = () => {
+const Last = () => {
 
     const inputTypeRef = React.useRef()
     const [inputType, setInputType] = React.useState('Type2')
@@ -33,7 +33,7 @@ const Sale = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TypoItem variant="subtitle2">
-                    Sale
+                    Last
                     </TypoItem>
                 </Grid>
                 <Grid item xs={12}>
@@ -126,68 +126,7 @@ const Sale = () => {
                     </Grid>
                     <Divider sx={{my:'16px'}} />
                 </Grid>
-                
-                <Grid item xs={12} display={inputType==='Type2'?'block':'none'}>
-                    <Grid container spacing={2}>
-                        <Table sx={{ marginLeft:2 }}>
-                            <TableHead>
-                                <TableRow sx={{ '> th, td': {color:'#828282', py:'8px', } }}>
-                                    <TableCell width='5%'>Id</TableCell>
-                                    <TableCell width='15%' align="right">Date</TableCell>
-                                    <TableCell width='15%' align="right">Total</TableCell>
-                                    <TableCell width='20%' align="right">Amount</TableCell>
-                                    <TableCell width='45%' align="right">Value</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, pt:'8px', pb:'0px' } }}>
-                                <TableRow>
-                                    <TableCell component="th" scope="row">1</TableCell>
-                                    <TableCell align="right">4/15/2021</TableCell>
-                                    <TableCell align="right">8</TableCell>
-                                    <TableCell align="right">
-                                        <StockTableInput value={'8'} />
-                                    </TableCell>
-                                    <TableCell align="right">$18,968</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell component="th" scope="row">2</TableCell>
-                                    <TableCell align="right">7/15/2021</TableCell>
-                                    <TableCell align="right">2</TableCell>
-                                    <TableCell align="right">
-                                        <StockTableInput value={'8'} />
-                                    </TableCell>
-                                    <TableCell align="right">$0</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell component="th" scope="row">3</TableCell>
-                                    <TableCell align="right">10/15/2021</TableCell>
-                                    <TableCell align="right">2</TableCell>
-                                    <TableCell align="right">
-                                        <StockTableInput value={'8'} />
-                                    </TableCell>
-                                    <TableCell align="right">$4,742</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell component="th" scope="row">4</TableCell>
-                                    <TableCell align="right">1/15/2021</TableCell>
-                                    <TableCell align="right">2</TableCell>
-                                    <TableCell align="right">
-                                        <StockTableInput value={'8'} />
-                                    </TableCell>
-                                    <TableCell align="right">$4,742</TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                        <Grid item xs={12}>
-                            <Grid container px={2}>
-                                <Typography fontSize='14px' sx={{ flexGrow:1 }} ><b>Total</b></Typography>
-                                <Typography fontSize='14px' width='50%' align="right"><b>$28,452</b></Typography>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Divider sx={{my:'16px'}} />
-                </Grid>
-                
+
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
                     <Grid item xs={3}>
@@ -238,8 +177,8 @@ const Sale = () => {
     );
 }
 
-Sale.propTypes = {
+Last.propTypes = {
   children: PropTypes.any
 }
 
-export default Sale;
+export default Last;

@@ -1,60 +1,19 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 import moment from "moment";
 import {
   Container,
   Grid,
-  Typography,
   Divider,
   Link,
   OutlinedInput,
-  NativeSelect,
   InputAdornment,
-  Box,
 } from "@mui/material";
 import { SelectIcon } from "../commons/icon/multipleIcons"
+import { BoxPanel, PriceLabel, StockInput, StockSelect } from "../commons/styledComponents";
 
-const BoxPanel = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  margin: theme.spacing(5),
-  border: "1px solid #BDBDBD",
-  borderRadius: "4px",
-  padding: "12px 16px",
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  elevation: 0,
-}));
-const PriceLabel = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(0, 0),
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  fontWeight: "light",
-  fontSize: "12px",
-}));
-const StockInput = styled(OutlinedInput)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  fontSize: "16px",
-  width: "100%",
-  "> input": {
-    padding: "6px 8px 6px 8px",
-  },
-}));
-const StockSelect = styled(NativeSelect)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  width: "100%",
-  fontSize: "16px",
-  "> select": {
-    padding: "6px 8px 6px 8px",
-  },
-}));
-
-const StockPlan = () => {
+const AppPlan = () => {
 
   return (
     <Container>
@@ -228,8 +187,8 @@ const StockPlan = () => {
   );
 };
 
-StockPlan.propTypes = {
+AppPlan.propTypes = {
   children: PropTypes.any,
 };
 
-export default StockPlan;
+export default AppPlan;

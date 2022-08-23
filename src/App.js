@@ -10,8 +10,9 @@ import StockPlan from "./components/StockPlan";
 import AddPlan from "./components/AddPlan";
 import Detail from "./components/Detail";
 import Sale from "./components/Sale";
-import Table from "./components/Table";
+import StockTable from "./components/StockTable";
 import Gauge from "./components/Gauge";
+import Last from "./components/Last";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -53,9 +54,11 @@ function MyApp() {
       Frame23
       <Sale />
       Frame26
-      <Table />
+      <StockTable />
       Frame31
       <Gauge />
+      Frame32
+      <Last />
     </Box>
   );
 }

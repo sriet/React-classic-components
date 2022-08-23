@@ -1,69 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
 import {
   Container,
   Grid,
-  Typography,
   OutlinedInput,
-  NativeSelect,
   InputAdornment,
-  Box,
  } from '@mui/material';
 import { SelectIcon } from "../commons/icon/multipleIcons"
+import { GrayBoxPanel, TypoItem, PriceLabel, StockInput, StockSelect } from '../commons/styledComponents';
 
-const BoxPanel = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
-  ...theme.typography.body2,
-  margin: theme.spacing(3),  
-  borderRadius:'4px',
-  padding:'16px 35px',
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-  elevation: 0
-}));
-const TypoItem = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
-  ...theme.typography.body2,
-  fontSize:"20px",
-  padding: theme.spacing(0, 0),
-  textAlign: 'left',
-  color: theme.palette.mode === 'dark' ? '#fff' : '#000',
-  fontWeight: 'bold'
-}));
-const PriceLabel = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
-  ...theme.typography.body2,
-  padding: theme.spacing(0, 0),
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-  fontWeight: 'light',
-  fontSize: '12px'
-}));
-const StockInput = styled(OutlinedInput)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  fontSize:'16px',
-  width:'100%',
-  "> input": {
-    padding: '6px 8px 6px 8px',
-  }
-}));
-const StockSelect = styled(NativeSelect)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  width:'100%',
-  fontSize:'16px',
-  "> select": {
-    padding: '6px 8px 6px 8px',
-  }
-}));
 
-const StockPlan = () => {
+const Detail = () => {
     
   return (
     <Container>
-      <BoxPanel>
+      <GrayBoxPanel>
         <Grid container spacing='8px'>
             <Grid item xs={12}>
                 <TypoItem variant="subtitle2" gutterBottom>
@@ -131,13 +82,13 @@ const StockPlan = () => {
                 </Grid>
             </Grid>
         </Grid>
-      </BoxPanel>
+      </GrayBoxPanel>
     </Container>
   );
 }
 
-StockPlan.propTypes = {
+Detail.propTypes = {
   children: PropTypes.any
 }
 
-export default StockPlan;
+export default Detail;
