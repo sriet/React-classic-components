@@ -11,8 +11,20 @@ import {
   OutlinedInput,
   NativeSelect,
   InputAdornment,
+  Box,
  } from '@mui/material';
 
+const BoxPanel = styled(Box)(({ theme }) => ({
+backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+...theme.typography.body2,
+margin: theme.spacing(5), 
+border:'1px solid #BDBDBD', 
+borderRadius:'4px',
+padding:'12px 16px',
+textAlign: 'left',
+color: theme.palette.text.secondary,
+elevation: 0
+}));
 const TypoItem = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -53,8 +65,8 @@ const StockPlan = () => {
     
   return (
     <Container>
-      <Paper sx={{ flexGrow: 1, m: 5 }}>
-        <Grid container spacing={2} px={2}>
+      <BoxPanel>
+        <Grid container spacing={2}>
             <Grid item xs={12}>
                 <TypoItem variant="subtitle2" gutterBottom>
                 Add Plan
@@ -63,7 +75,7 @@ const StockPlan = () => {
             <Grid item xs={12}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={7.5} >
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>ID</PriceLabel>
                             </Grid>
@@ -73,7 +85,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={4} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Type</PriceLabel>
                             </Grid>
@@ -89,7 +101,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={4} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Price</PriceLabel>
                             </Grid>
@@ -101,7 +113,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={4} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Date</PriceLabel>
                             </Grid>
@@ -115,7 +127,7 @@ const StockPlan = () => {
             <Grid item xs={12}>
                 <Grid container spacing={2}>
                     <Grid item xs={7} md={4.8}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Amount</PriceLabel>
                             </Grid>
@@ -125,7 +137,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={5} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Expiry Date</PriceLabel>
                             </Grid>
@@ -135,7 +147,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Duration</PriceLabel>
                             </Grid>
@@ -151,7 +163,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Amount</PriceLabel>
                             </Grid>
@@ -167,7 +179,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3} md={1.2}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Yes/No</PriceLabel>
                             </Grid>
@@ -182,7 +194,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Extended?</PriceLabel>
                             </Grid>
@@ -207,7 +219,7 @@ const StockPlan = () => {
                 </Grid>
             </Grid>
         </Grid>
-      </Paper>
+      </BoxPanel>
     </Container>
   );
 }

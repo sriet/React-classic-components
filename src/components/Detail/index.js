@@ -11,26 +11,30 @@ import {
   OutlinedInput,
   NativeSelect,
   InputAdornment,
+  Box,
  } from '@mui/material';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+const BoxPanel = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  margin: theme.spacing(3),  
+  borderRadius:'4px',
+  padding:'16px 35px',
   textAlign: 'left',
   color: theme.palette.text.secondary,
   elevation: 0
 }));
 const TypoItem = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
   ...theme.typography.body2,
-  padding: theme.spacing(1, 0),
+  fontSize:"20px",
+  padding: theme.spacing(0, 0),
   textAlign: 'left',
-  color: theme.palette.text.secondary,
+  color: theme.palette.mode === 'dark' ? '#fff' : '#000',
   fontWeight: 'bold'
 }));
 const PriceLabel = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
   ...theme.typography.body2,
   padding: theme.spacing(0, 0),
   textAlign: 'left',
@@ -61,8 +65,8 @@ const StockPlan = () => {
     
   return (
     <Container>
-      <Paper sx={{ flexGrow: 1, m: 5 }}>
-        <Grid container spacing={2} py="20px" px={2}>
+      <BoxPanel>
+        <Grid spacing='8px'>
             <Grid item xs={12}>
                 <TypoItem variant="subtitle2" gutterBottom>
                 Detail
@@ -71,7 +75,7 @@ const StockPlan = () => {
             <Grid item xs={12}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Instance Name</PriceLabel>
                             </Grid>
@@ -81,7 +85,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={5} md={2.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>User</PriceLabel>
                             </Grid>
@@ -97,7 +101,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={4} md={2}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Company</PriceLabel>
                             </Grid>
@@ -113,7 +117,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3} md={1.5}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='10px'>
                             <Grid item xs={12}>
                                 <PriceLabel>Current Price</PriceLabel>
                             </Grid>
@@ -127,7 +131,7 @@ const StockPlan = () => {
                 </Grid>
             </Grid>
         </Grid>
-      </Paper>
+      </BoxPanel>
     </Container>
   );
 }
