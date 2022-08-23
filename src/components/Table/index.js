@@ -5,7 +5,6 @@ import {
   Container,
   Grid,
   Typography,
-  Divider,
   Box,
   TableCell,
   TableRow,
@@ -131,13 +130,13 @@ const StockPlan = () => {
                             </TableHead>
                             <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, py:'4px' } }}>
                                 {tableData.map((row, index) => (
-                                    row.Completed==1 && 
+                                    (row.Completed===1 && 
                                     <StockTableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
                                         <TableCell align="right"><CheckIcon fontSize='14px'/></TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
-                                    </StockTableRow> ||
+                                    </StockTableRow>) ||
                                     <TableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>

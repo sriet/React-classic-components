@@ -21,63 +21,75 @@ import {
 import { SelectIcon } from "../commons/icon/multipleIcons"
 
 const BoxPanel = styled(Box)(({ theme }) => ({
-backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-...theme.typography.body2,
-margin: theme.spacing(5), 
-border:'1px solid #BDBDBD', 
-borderRadius:'4px',
-padding:'12px 16px',
-textAlign: 'left',
-color: theme.palette.text.secondary,
-elevation: 0
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    margin: theme.spacing(5), 
+    border:'1px solid #BDBDBD', 
+    borderRadius:'4px',
+    padding:'12px 16px',
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    elevation: 0
 }));
 const TypoItem = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1, 0),
-  fontSize:'20px',
-  textAlign: 'left',
-  color: theme.palette.mode === 'dark' ? '#fff' : '#000',
-  fontWeight: 'bold'
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    fontSize:'20px',
+    lineHeight:'18px',
+    textAlign: 'left',
+    color: theme.palette.mode === 'dark' ? '#fff' : '#000',
+    fontWeight: 'bold'
 }));
 const PriceLabel = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(0, 0),
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-  fontWeight: 'light',
-  fontSize: '12px'
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(0, 0),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    fontWeight: 'light',
+    fontSize: '12px',
+    lineHeight:'24px'
 }));
 const PriceValue = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-  fontWeight: 'bold',
-  fontSize: '32px'
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    fontWeight: 'bold',
+    fontSize: '32px',
+    lineHeight:'38.73px'
+}));
+const StockTableInput = styled(OutlinedInput)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    fontsize:'14px',
+    direction:'rtl',
+    width:'100%',
+    "> input": {
+        padding: '6px 8px 6px 8px',
+    }
 }));
 const StockInput = styled(OutlinedInput)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
-  fontSize:'14px',
-  width:'100%',
-  direction:'rtl',
+  fontSize: "16px",
+  width: "100%",
   "> input": {
-    padding: '6px 8px 6px 8px',
-  }
+    padding: "6px 8px 6px 8px",
+  },
 }));
 const StockSelect = styled(NativeSelect)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  width:'100%',
-  fontSize:'16px',
-  "> select": {
-    padding: '6px 8px 6px 8px',
-  }
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    width:'100%',
+    fontSize:'16px',
+    "> select": {
+        padding: '6px 8px 6px 8px',
+    }
 }));
 
 const StockPlan = () => {
+
     const inputTypeRef = React.useRef()
     const [inputType, setInputType] = React.useState('Type2')
     const showRefContent = () => {
@@ -90,7 +102,7 @@ const StockPlan = () => {
         <BoxPanel>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <TypoItem variant="subtitle2" gutterBottom>
+                    <TypoItem variant="subtitle2">
                     Sale
                     </TypoItem>
                 </Grid>
@@ -136,7 +148,7 @@ const StockPlan = () => {
                                     <PriceLabel>ID</PriceLabel>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Typography fontSize='16px' fontWeight='500' py={1}>12</Typography>
+                                    <StockInput value='12' />
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -189,7 +201,7 @@ const StockPlan = () => {
                     <Grid container spacing={2}>
                         <Table sx={{ marginLeft:2 }}>
                             <TableHead>
-                                <TableRow>
+                                <TableRow sx={{ '> th, td': {color:'#828282', py:'8px', } }}>
                                     <TableCell width='5%'>Id</TableCell>
                                     <TableCell width='15%' align="right">Date</TableCell>
                                     <TableCell width='15%' align="right">Total</TableCell>
@@ -197,13 +209,13 @@ const StockPlan = () => {
                                     <TableCell width='45%' align="right">Value</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, py:'4px' } }}>
+                            <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, pt:'8px', pb:'0px' } }}>
                                 <TableRow>
                                     <TableCell component="th" scope="row">1</TableCell>
                                     <TableCell align="right">4/15/2021</TableCell>
                                     <TableCell align="right">8</TableCell>
                                     <TableCell align="right">
-                                        <StockInput value={'8'} />
+                                        <StockTableInput value={'8'} />
                                     </TableCell>
                                     <TableCell align="right">$18,968</TableCell>
                                 </TableRow>
@@ -212,7 +224,7 @@ const StockPlan = () => {
                                     <TableCell align="right">7/15/2021</TableCell>
                                     <TableCell align="right">2</TableCell>
                                     <TableCell align="right">
-                                        <StockInput value={'8'} />
+                                        <StockTableInput value={'8'} />
                                     </TableCell>
                                     <TableCell align="right">$0</TableCell>
                                 </TableRow>
@@ -221,7 +233,7 @@ const StockPlan = () => {
                                     <TableCell align="right">10/15/2021</TableCell>
                                     <TableCell align="right">2</TableCell>
                                     <TableCell align="right">
-                                        <StockInput value={'8'} />
+                                        <StockTableInput value={'8'} />
                                     </TableCell>
                                     <TableCell align="right">$4,742</TableCell>
                                 </TableRow>
@@ -230,7 +242,7 @@ const StockPlan = () => {
                                     <TableCell align="right">1/15/2021</TableCell>
                                     <TableCell align="right">2</TableCell>
                                     <TableCell align="right">
-                                        <StockInput value={'8'} />
+                                        <StockTableInput value={'8'} />
                                     </TableCell>
                                     <TableCell align="right">$4,742</TableCell>
                                 </TableRow>
@@ -249,7 +261,7 @@ const StockPlan = () => {
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
                     <Grid item xs={3}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='4px'>
                         <Grid item xs={12}>
                             <PriceLabel>Summary 1</PriceLabel>
                         </Grid>
@@ -259,7 +271,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='4px'>
                         <Grid item xs={12}>
                             <PriceLabel>Summary 2</PriceLabel>
                         </Grid>
@@ -269,7 +281,7 @@ const StockPlan = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={3}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing='4px'>
                         <Grid item xs={12}>
                             <PriceLabel>Summary 3</PriceLabel>
                         </Grid>
@@ -280,13 +292,13 @@ const StockPlan = () => {
                     </Grid>
 
                     </Grid>
-                    <Divider sx={{my:'16px'}} />
+                    <Divider sx={{mt:'16px'}} />
                 </Grid>
                 
                 <Grid item xs={12}>
                     <Grid container pb='12px' sx={{alignItems:'center'}}>
                         <Link sx={{flexGrow:1, color:'red', cursor:'pointer',}}>Delete Sale</Link>
-                        <Button sx={{border:'1px solid gray', borderRadius:'4px', color:'gray', mr:'12px'}}>Cancel</Button>
+                        <Button sx={{border:'1px solid gray', borderRadius:'4px', color:'gray', mr:'12px' }}>Cancel</Button>
                         <Button sx={{borderRadius:'4px', color:'white', bgcolor:'#2F80ED'}}>Save</Button>
                     </Grid>
                 </Grid>
