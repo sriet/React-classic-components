@@ -28,7 +28,7 @@ const Last = () => {
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={4}>
+              <Grid item xs={'auto'} md={4}>
                 <Grid container spacing="4px">
                   <Grid item xs={12}>
                     <PriceLabel>Dimention 1</PriceLabel>
@@ -39,7 +39,7 @@ const Last = () => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={'auto'} md={4}>
                 <Grid container spacing="4px">
                   <Grid item xs={12}>
                     <PriceLabel>Dimention 2</PriceLabel>
@@ -50,7 +50,7 @@ const Last = () => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={'auto'} md={4}>
                 <Grid container spacing="4px">
                   <Grid item xs={12}>
                     <PriceLabel>Dimention 3</PriceLabel>
