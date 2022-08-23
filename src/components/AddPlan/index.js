@@ -12,8 +12,8 @@ import {
   NativeSelect,
   InputAdornment,
   Box,
+  TextField,
 } from "@mui/material";
-import { SelectIcon } from "../commons/icon/multipleIcons"
 
 const BoxPanel = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -25,6 +25,14 @@ const BoxPanel = styled(Box)(({ theme }) => ({
   textAlign: "left",
   color: theme.palette.text.secondary,
   elevation: 0,
+}));
+const TypoItem = styled(Typography)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1, 0),
+  textAlign: "left",
+  color: theme.palette.text.secondary,
+  fontWeight: "bold",
 }));
 const PriceLabel = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -55,11 +63,34 @@ const StockSelect = styled(NativeSelect)(({ theme }) => ({
 }));
 
 const StockPlan = () => {
+  const NewIcon = (props) => (
+    <svg
+      width="10"
+      height="7"
+      viewBox="0 0 10 7"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ position: "absolute", right: "12px" }}
+    >
+      <path
+        d="M1 1.5L5 5.5L9 1.5"
+        stroke="black"
+        strokeWidth="1.33333"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 
   return (
     <Container>
       <BoxPanel>
         <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TypoItem variant="subtitle2" gutterBottom>
+              Add Plan
+            </TypoItem>
+          </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
               <Grid item xs={12} md={7.5}>
@@ -80,7 +111,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>ISO</option>
                       <option>ISOa</option>
@@ -109,10 +140,13 @@ const StockPlan = () => {
                     <PriceLabel>Date</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput
+                    {/* <StockInput type="date" defaultValue="2019-08-10" /> */}
+                    <TextField
+                      name="someDate"
+                      label="Some Date"
+                      InputLabelProps={{ shrink: true, required: true }}
                       type="date"
-                      required
-                      pattern="\d{2}-\d{2}-\d{2}"
+                      defaultValue="2019-08-10"
                     />
                   </Grid>
                 </Grid>
@@ -152,7 +186,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>48mo</option>
                       <option>60mo</option>
@@ -169,7 +203,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>12mo</option>
                       <option>6mo</option>
@@ -186,7 +220,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>Yes</option>
                       <option>No</option>
@@ -202,7 +236,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>Yes</option>
                       <option>No</option>
@@ -215,11 +249,11 @@ const StockPlan = () => {
           </Grid>
           <Grid item xs={12}>
             <Grid container pb="12px">
-              <Link sx={{ color: "red", flexGrow: 1, cursor: "pointer" }}>Delete</Link>
+              <Link sx={{ flexGrow: 1, cursor: "pointer" }}>Delete</Link>
               <Link sx={{ color: "gray", cursor: "pointer", pr: "16px" }}>
                 Cancel
               </Link>
-              <Link sx={{ cursor: "pointer" }}>Save</Link>
+              <Link sx={{ color: "red", cursor: "pointer" }}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
