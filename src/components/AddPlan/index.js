@@ -1,21 +1,26 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 import moment from "moment";
 import {
   Container,
   Grid,
-  Typography,
   Divider,
   Link,
   OutlinedInput,
-  NativeSelect,
   InputAdornment,
   Box,
+  TextField,
 } from "@mui/material";
 
-//styles
+import { SelectIcon } from "../commons/icon/multipleIcons";
+import {
+  BoxPanel,
+  PriceLabel,
+  StockInput,
+  StockSelect,
+} from "../commons/styledComponents";
+
 const useStyles = makeStyles({
   mt10: {
     marginTop: "10px",
@@ -29,55 +34,7 @@ const useStyles = makeStyles({
     pointerEvents: "none",
   },
 });
-
-const BoxPanel = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  margin: theme.spacing(5),
-  border: "1px solid #BDBDBD",
-  borderRadius: "4px",
-  padding: "12px 16px",
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  elevation: 0,
-}));
-const TypoItem = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1, 0),
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  fontWeight: "bold",
-}));
-const PriceLabel = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(0, 0),
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  fontWeight: "light",
-  fontSize: "12px",
-}));
-const StockInput = styled(OutlinedInput)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  fontSize: "16px",
-  width: "100%",
-  "> input": {
-    padding: "6px 8px 6px 8px",
-  },
-}));
-const StockSelect = styled(NativeSelect)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  width: "100%",
-  fontSize: "16px",
-  "> select": {
-    padding: "6px 8px 6px 8px",
-  },
-}));
-
-const StockPlan = () => {
+const AddPlan = () => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
   );
@@ -87,34 +44,10 @@ const StockPlan = () => {
 
   const classes = useStyles();
 
-  const NewIcon = (props) => (
-    <svg
-      width="10"
-      height="7"
-      viewBox="0 0 10 7"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ position: "absolute", right: "12px" }}
-    >
-      <path
-        d="M1 1.5L5 5.5L9 1.5"
-        stroke="black"
-        strokeWidth="1.33333"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
   return (
     <Container>
       <BoxPanel>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TypoItem variant="subtitle2" gutterBottom>
-              Add Plan
-            </TypoItem>
-          </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
               <Grid item xs={12} md={7.5}>
@@ -135,7 +68,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>ISO</option>
                       <option>ISOa</option>
@@ -222,7 +155,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>48mo</option>
                       <option>60mo</option>
@@ -239,7 +172,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>12mo</option>
                       <option>6mo</option>
@@ -256,7 +189,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>Yes</option>
                       <option>No</option>
@@ -272,7 +205,7 @@ const StockPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>Yes</option>
                       <option>No</option>
@@ -285,11 +218,13 @@ const StockPlan = () => {
           </Grid>
           <Grid item xs={12}>
             <Grid container pb="12px">
-              <Link sx={{ flexGrow: 1, cursor: "pointer" }}>Delete</Link>
+              <Link sx={{ color: "red", flexGrow: 1, cursor: "pointer" }}>
+                Delete
+              </Link>
               <Link sx={{ color: "gray", cursor: "pointer", pr: "16px" }}>
                 Cancel
               </Link>
-              <Link sx={{ color: "red", cursor: "pointer" }}>Save</Link>
+              <Link sx={{ cursor: "pointer" }}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
@@ -298,8 +233,8 @@ const StockPlan = () => {
   );
 };
 
-StockPlan.propTypes = {
+AddPlan.propTypes = {
   children: PropTypes.any,
 };
 
-export default StockPlan;
+export default AddPlan;
