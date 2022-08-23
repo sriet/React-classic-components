@@ -18,6 +18,7 @@ import Breakdown from "./components/Breakdown";
 import Upcoming from "./components/Upcoming";
 import ClientsBar from "./components/ClientsBar";
 import ClientCard from "./components/ClientCard";
+import Google from "./components/Google";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -75,6 +76,8 @@ function MyApp() {
       <ClientsBar />
       Frame15
       <ClientCard />
+      Frame14
+      <Google />
     </Box>
   );
 }
