@@ -15,6 +15,9 @@ import Gauge from "./components/Gauge";
 import Last from "./components/Last";
 import GraphTypes from "./components/GraphTypes";
 import Breakdown from "./components/Breakdown";
+import Upcoming from "./components/Upcoming";
+import ClientsBar from "./components/ClientsBar";
+import ClientCard from "./components/ClientCard";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -32,6 +35,7 @@ function MyApp() {
         bgcolor: "background.default",
         color: "text.primary",
         borderRadius: 1,
+        paddingBottom:'100px'
       }}
     >
       <div>
@@ -65,6 +69,12 @@ function MyApp() {
       <GraphTypes />
       Frame19
       <Breakdown />
+      Frame29
+      <Upcoming />
+      Frame03
+      <ClientsBar />
+      Frame15
+      <ClientCard />
     </Box>
   );
 }

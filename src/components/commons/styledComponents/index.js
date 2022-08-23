@@ -36,7 +36,7 @@ export const TypoItem = styled(Typography)(({ theme }) => ({
     padding: theme.spacing(0, 0),
     textAlign: 'left',
     color: theme.palette.mode === 'dark' ? '#fff' : '#000',
-    fontWeight: 'bold'
+    fontWeight: '700'
 }));
 
 export const PriceLabel = styled(Typography)(({ theme }) => ({
@@ -88,4 +88,19 @@ export const StockSelect = styled(NativeSelect)(({ theme }) => ({
     "> select": {
         padding: "6px 8px 6px 8px",
     },
+}));
+
+export const AvatarTypo = styled(Typography)(({ theme }) => ({
+    backgroundColor: '#E0E0E0',
+    ...theme.typography.body2,
+    fontSize:"12px",
+    padding: theme.spacing(0, 0),
+    textAlign: 'left',
+    color: theme.palette.mode === 'dark' ? '#fff' : '#000',
+    width:'32px',
+    height:'32px',
+    borderRadius:'50%', 
+    justifyContent:'center', 
+    alignItems:'center', 
+    display:'flex',
 }));
