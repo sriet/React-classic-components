@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Container, Paper } from "@mui/material";
+import { Container, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 import StrokeGauge from "../commons/strokeGauge";
 import ObliqueGauge from "../commons/obliqueGauge";
@@ -13,9 +14,21 @@ const Gauge = () => {
   const strokeValue = 55;
   const obliqueValue = 66;
 
+  const BoxPanel = styled(Box)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    margin: theme.spacing(5),
+    border: "1px solid #BDBDBD",
+    borderRadius: "4px",
+    padding: "12px 16px",
+    textAlign: "left",
+    color: theme.palette.text.secondary,
+    elevation: 0,
+  }));
+
   return (
     <Container>
-      <Paper sx={{ flexGrow: 1, m: 5 }}>
+      <BoxPanel sx={{ flexGrow: 1, m: 5 }}>
         <StrokeGauge
           max={max}
           min={min}
@@ -38,7 +51,7 @@ const Gauge = () => {
           width={width}
           height={height}
         />
-      </Paper>
+      </BoxPanel>
     </Container>
   );
 };
