@@ -323,6 +323,8 @@ const Sale = () => {
                 Cancel
               </Button>
               <Button
+                variant="contained"
+                color="primary"
                 sx={{
                   borderRadius: "4px",
                   color: "white",
