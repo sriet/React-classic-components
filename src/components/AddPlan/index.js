@@ -139,7 +139,11 @@ const StockPlan = () => {
                     <PriceLabel>Date</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput type="date" />
+                    <StockInput
+                      type="date"
+                      required
+                      pattern="\d{2}-\d{2}-\d{2}"
+                    />
                   </Grid>
                 </Grid>
               </Grid>
