@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-// import { styled, makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/material/styles";
 import moment from "moment";
 import {
   Container,
@@ -11,13 +11,14 @@ import {
   InputAdornment,
 } from "@mui/material";
 
+import { SelectIcon } from "../commons/icon/multipleIcons";
+import { BoxPanel, PriceLabel, StockInput, StockSelect } from "../commons/styledComponents";
+
 const useStyles = makeStyles({
   date: {
     position: "absolute",
   },
 });
-import { BoxPanel, PriceLabel, StockInput, StockSelect } from "../commons/styledComponents";
-
 const AppPlan = () => {
 
   return (
@@ -118,7 +119,7 @@ const AppPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>48mo</option>
                       <option>60mo</option>
@@ -135,7 +136,7 @@ const AppPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={NewIcon}
+                      IconComponent={SelectIcon}
                     >
                       <option>12mo</option>
                       <option>6mo</option>
