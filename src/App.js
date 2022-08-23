@@ -46,7 +46,7 @@ function MyApp() {
           )}
         </IconButton>
       </div>
-      <StockPlan />
+      {/* <StockPlan /> */}
       Frame24
       <AddPlan />
       Frame25

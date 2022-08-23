@@ -53,8 +53,8 @@ export const PriceValue = styled(Typography)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     textAlign: 'left',
-    color: theme.palette.text.secondary,
-    fontWeight: 'bold',
+    color: theme.palette.mode === 'dark' ? '#fff' : '#333333',
+    fontWeight: '400',
     fontSize: '32px',
     lineHeight:'38.73px'
 }));
@@ -89,7 +89,3 @@ export const StockSelect = styled(NativeSelect)(({ theme }) => ({
         padding: "6px 8px 6px 8px",
     },
 }));
-
-// export const StyledStockSelect = ( props ) => {
-//     return <StockSelect input={<OutlinedInput/>} IconComponent={SelectIcon}> {...props} </StockSelect>;
-//   }

@@ -3,208 +3,101 @@ import PropTypes from "prop-types";
 import {
   Container,
   Grid,
-  Typography,
-  Divider,
   Link,
-  OutlinedInput,
-  InputAdornment,
-  TableCell,
-  TableRow,
-  TableBody,
-  TableHead,
-  Table,
-  Button,
+  Typography,
+  Stack,
 } from "@mui/material";
-
-import { SelectIcon } from "../commons/icon/multipleIcons";
+import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
+import { InfoCircleIcon, AlertSquareIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
   TypoItem,
   PriceLabel,
   PriceValue,
-  StockTableInput,
-  StockInput,
-  StockSelect,
 } from "../commons/styledComponents";
 
 const Last = () => {
-  const inputTypeRef = React.useRef();
-  const [inputType, setInputType] = React.useState("Type2");
-  const showRefContent = () => {
-    setInputType(inputTypeRef.current.value);
-    console.log(inputTypeRef.current.value);
-  };
 
   return (
     <Container>
-      <BoxPanel>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TypoItem variant="subtitle2">Last</TypoItem>
+      <BoxPanel width='70%'>
+        <Grid container spacing={3}>
+          <Grid container item xs={12}>
+            <TypoItem sx={{flexGrow:1}} variant="subtitle2">Last</TypoItem>
+            <TypoItem variant="subtitle2">Title</TypoItem>
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={4} md={2}>
-                <Grid container spacing="10px">
+              <Grid item xs={4}>
+                <Grid container spacing="4px">
                   <Grid item xs={12}>
-                    <PriceLabel>Employer</PriceLabel>
+                    <PriceLabel>Dimention 1</PriceLabel>
                   </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                    >
-                      <option>Employer</option>
-                      <option>Employer</option>
-                      <option>Employer</option>
-                    </StockSelect>
+                  <Grid container sx={{alignItems:'center'}} item xs={12}>
+                    <PriceValue pr='5.5px'>$7,500</PriceValue>
+                    <InfoCircleIcon />
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={3} md={1.5}>
-                <Grid container spacing="10px">
+              <Grid item xs={4}>
+                <Grid container spacing="4px">
                   <Grid item xs={12}>
-                    <PriceLabel>Dropdown</PriceLabel>
+                    <PriceLabel>Dimention 2</PriceLabel>
                   </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                    >
-                      <option>12345</option>
-                      <option>123456</option>
-                      <option>1234567</option>
-                    </StockSelect>
+                  <Grid container sx={{alignItems:'center'}} item xs={12}>
+                    <PriceValue pr='5.5px' sx={{color:'#EB5757'}}>-$3,225</PriceValue>
+                    <InfoCircleIcon />
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={5} md={4}>
-                <Grid container spacing="10px">
+              <Grid item xs={4}>
+                <Grid container spacing="4px">
                   <Grid item xs={12}>
-                    <PriceLabel>ID</PriceLabel>
+                    <PriceLabel>Dimention 3</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput value="12" />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Sale</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      IconComponent={SelectIcon}
-                      inputRef={inputTypeRef}
-                      input={<OutlinedInput />}
-                      onChange={showRefContent}
-                    >
-                      <option>Type2</option>
-                      <option>Start #1</option>
-                      <option>Type4</option>
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Sale Price</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockInput
-                      startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                      }
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Sale Date</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockInput type="date" />
+                    <PriceValue>$4,275</PriceValue>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <Divider sx={{ my: "16px" }} />
           </Grid>
 
           <Grid item xs={12}>
-            <Grid container spacing={2}>
-              <Grid item xs={3}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Summary 1</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$2,154</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Summary 2</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$781</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Summary 3</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$28,452</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Divider sx={{ mt: "16px" }} />
-          </Grid>
-
-          <Grid item xs={12}>
-            <Grid container pb="12px" sx={{ alignItems: "center" }}>
-              <Link
-                sx={{
-                  flexGrow: 1,
-                  color: "red",
-                  cursor: "pointer",
-                  textDecorationColor: "red",
-                }}
-              >
-                Delete Sale
-              </Link>
-              <Button
-                sx={{
-                  border: "1px solid gray",
-                  borderRadius: "4px",
-                  color: "gray",
-                  mr: "12px",
-                  textTransform: "none",
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                sx={{
-                  borderRadius: "4px",
-                  color: "white",
-                  bgcolor: "#2F80ED",
-                  textTransform: "none",
-                }}
-              >
-                Save
-              </Button>
-            </Grid>
+              <Stack direction='row'>
+                <Stack direction='row' sx={{flexGrow:1}}>
+                  <Stack direction='row' sx={{ alignItems: "center" }} spacing='5px'>
+                    <AlertSquareIcon />
+                    <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
+                      Last updated 48 days ago ·
+                    </Typography>
+                  </Stack>
+                  <Stack direction='row' color='#2F80ED' sx={{ alignItems: "center" }} >
+                    <Link
+                      sx={{
+                        display:'flex',
+                        cursor: "pointer",
+                        textDecorationColor: "#2F80ED",
+                      }}
+                    >
+                      <RefreshOutlinedIcon fontSize="9px" />
+                      <Typography fontSize='12px' lineHeight="15px">
+                        Add
+                      </Typography>
+                    </Link>
+                  </Stack>
+                </Stack>
+                <Stack item sx={{ alignItems: "center" }} >
+                  <Link
+                    sx={{
+                      cursor: "pointer",
+                      textDecorationColor: "#2F80ED",
+                    }}
+                  >
+                    View All
+                  </Link>
+                </Stack>
+              </Stack>
           </Grid>
         </Grid>
       </BoxPanel>
