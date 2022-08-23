@@ -1,13 +1,15 @@
-import './App.css';
-import * as React from 'react';
-import StockPlan from './components/StockPlan';
-import AddPlan from './components/AddPlan'
-import Detail from './components/Detail'
-import Box from '@mui/material/Box';
-import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import IconButton from '@mui/material/IconButton';
+import "./App.css";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import IconButton from "@mui/material/IconButton";
+
+import StockPlan from "./components/StockPlan";
+import AddPlan from "./components/AddPlan";
+import Detail from "./components/Detail";
+import Gauge from "./components/Gauge";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -17,39 +19,50 @@ function MyApp() {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        bgcolor: 'background.default',
-        color: 'text.primary',
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        bgcolor: "background.default",
+        color: "text.primary",
         borderRadius: 1,
       }}
     >
       <div>
-        {theme.palette.mode} mode
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+        {/* {theme.palette.mode} mode
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={colorMode.toggleColorMode}
+          color="inherit"
+        >
+          {theme.palette.mode === "dark" ? (
+            <Brightness7Icon />
+          ) : (
+            <Brightness4Icon />
+          )}
+        </IconButton> */}
       </div>
-      <StockPlan />
+      {/* <StockPlan /> */}
+      Frame24
       <AddPlan />
+      Frame25
       <Detail />
+      Frame31
+      <Gauge />
     </Box>
   );
 }
 
 function App() {
-
-  const [mode, setMode] = React.useState('light');
+  const [mode, setMode] = React.useState("light");
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
-    [],
+    []
   );
 
   const theme = React.useMemo(
@@ -59,7 +72,7 @@ function App() {
           mode,
         },
       }),
-    [mode],
+    [mode]
   );
 
   return (
