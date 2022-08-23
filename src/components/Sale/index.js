@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
+import { makeStyles } from "@mui/styles";
 import {
   Container,
   Grid,
@@ -17,8 +18,24 @@ import {
   TableHead,
   Table,
   Button,
+  makeStyles,
  } from '@mui/material';
 import { SelectIcon } from "../commons/icon/multipleIcons"
+
+//styles
+const useStyles = makeStyles({
+    mt10: {
+      marginTop: "10px",
+    },
+    relative: {
+      position: "relative",
+    },
+    dateStyle: {
+      position: "absolute !important",
+      left: "0",
+      pointerEvents: "none",
+    },
+  });
 
 const BoxPanel = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -31,6 +48,7 @@ const BoxPanel = styled(Box)(({ theme }) => ({
     color: theme.palette.text.secondary,
     elevation: 0
 }));
+
 const TypoItem = styled(Typography)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -40,6 +58,7 @@ const TypoItem = styled(Typography)(({ theme }) => ({
     color: theme.palette.mode === 'dark' ? '#fff' : '#000',
     fontWeight: 'bold'
 }));
+
 const PriceLabel = styled(Typography)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -50,6 +69,7 @@ const PriceLabel = styled(Typography)(({ theme }) => ({
     fontSize: '12px',
     lineHeight:'24px'
 }));
+
 const PriceValue = styled(Typography)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -59,6 +79,7 @@ const PriceValue = styled(Typography)(({ theme }) => ({
     fontSize: '32px',
     lineHeight:'38.73px'
 }));
+
 const StockTableInput = styled(OutlinedInput)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -69,6 +90,7 @@ const StockTableInput = styled(OutlinedInput)(({ theme }) => ({
         padding: '6px 8px 6px 8px',
     }
 }));
+
 const StockInput = styled(OutlinedInput)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -78,6 +100,7 @@ const StockInput = styled(OutlinedInput)(({ theme }) => ({
     padding: "6px 8px 6px 8px",
   },
 }));
+
 const StockSelect = styled(NativeSelect)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -89,6 +112,10 @@ const StockSelect = styled(NativeSelect)(({ theme }) => ({
 }));
 
 const StockPlan = () => {
+  const classes = useStyles();
+  const [expiryDate, setExpiryDate] = React.useState(
+    moment("2020-10-12").format("MM/DD/YY")
+  );
 
     const inputTypeRef = React.useRef()
     const [inputType, setInputType] = React.useState('Type2')

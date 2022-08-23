@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { styled, makeStyles } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import moment from "moment";
 import {
   Container,
@@ -12,12 +13,20 @@ import {
   NativeSelect,
   InputAdornment,
   Box,
-  TextField,
 } from "@mui/material";
 
+//styles
 const useStyles = makeStyles({
-  date: {
-    position: "absolute",
+  mt10: {
+    marginTop: "10px",
+  },
+  relative: {
+    position: "relative",
+  },
+  dateStyle: {
+    position: "absolute !important",
+    left: "0",
+    pointerEvents: "none",
   },
 });
 
@@ -69,6 +78,13 @@ const StockSelect = styled(NativeSelect)(({ theme }) => ({
 }));
 
 const StockPlan = () => {
+  const [expiryDate, setExpiryDate] = React.useState(
+    moment("2020-10-12").format("MM/DD/YY")
+  );
+  const [date, setDate] = React.useState(
+    moment("2020-10-12").format("MM/DD/YY")
+  );
+
   const classes = useStyles();
 
   const NewIcon = (props) => (
@@ -143,12 +159,23 @@ const StockPlan = () => {
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
+                <Grid container className={classes.mt10}>
                   <Grid item xs={12}>
                     <PriceLabel>Date</PriceLabel>
                   </Grid>
-                  <Grid item xs={12}>
-                    <StockInput type="date" defaultValue="2019-08-10" />
+                  <Grid item xs={12} className={classes.relative}>
+                    <StockInput
+                      type="date"
+                      value={date}
+                      onChange={(e) =>
+                        setDate(moment(e.target.value).format("MM/DD/YY"))
+                      }
+                    />
+                    <StockInput
+                      type="text"
+                      className={classes.dateStyle}
+                      value={date}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
@@ -167,20 +194,22 @@ const StockPlan = () => {
                 </Grid>
               </Grid>
               <Grid item xs={5} md={1.5}>
-                <Grid container spacing="10px">
+                <Grid container className={classes.mt10}>
                   <Grid item xs={12}>
                     <PriceLabel>Expiry Date</PriceLabel>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={12} className={classes.relative}>
                     <StockInput
                       type="date"
-                      defaultValue={moment("2019-08-15").format("MM/DD/YY")}
+                      value={expiryDate}
+                      onChange={(e) =>
+                        setExpiryDate(moment(e.target.value).format("MM/DD/YY"))
+                      }
                     />
                     <StockInput
                       type="text"
-                      readOnly={true}
-                      className={classes.date}
-                      defaultValue={moment("2019-08-15").format("MM/DD/YY")}
+                      className={classes.dateStyle}
+                      value={expiryDate}
                     />
                   </Grid>
                 </Grid>
