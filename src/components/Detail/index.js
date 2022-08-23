@@ -10,6 +10,7 @@ import {
   InputAdornment,
   Box,
  } from '@mui/material';
+import { SelectIcon } from "../commons/icon/multipleIcons"
 
 const BoxPanel = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
@@ -89,6 +90,7 @@ const StockPlan = () => {
                             <Grid item xs={12}>
                                 <StockSelect
                                     input={<OutlinedInput/>}
+                                    IconComponent={SelectIcon}
                                 >
                                     <option >Jenny Thompson</option>
                                     <option >Jenny</option>
@@ -105,6 +107,7 @@ const StockPlan = () => {
                             <Grid item xs={12}>
                                 <StockSelect
                                     input={<OutlinedInput/>}
+                                    IconComponent={SelectIcon}
                                 >
                                     <option >Employer</option>
                                     <option >Jenny</option>

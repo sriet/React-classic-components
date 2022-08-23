@@ -13,6 +13,8 @@ import {
   TableHead,
   Table,
  } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const BoxPanel = styled(Box)(({ theme }) => ({
 backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -24,14 +26,6 @@ padding:'12px 16px',
 textAlign: 'left',
 color: theme.palette.text.secondary,
 elevation: 0
-}));
-const TypoItem = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1, 0),
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-  fontWeight: 'bold'
 }));
 const StockTableRow = styled(TableRow)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -125,15 +119,10 @@ const StockPlan = () => {
         <BoxPanel>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <TypoItem variant="subtitle2" gutterBottom>
-                    Table
-                    </TypoItem>
-                </Grid>
-                <Grid item xs={12}>
                     <Grid container spacing={2}>
                         <Table sx={{ marginLeft:2 }}>
                             <TableHead>
-                                <TableRow sx={{ '> th, td': {color:'#828282'} }}>
+                                <TableRow sx={{ '> th, td': {color:'#828282', py:'4px' } }}>
                                     <TableCell width='5%'>Id</TableCell>
                                     <TableCell width='15%' align="right">Date</TableCell>
                                     <TableCell width='15%' align="right">Completed</TableCell>
@@ -146,13 +135,13 @@ const StockPlan = () => {
                                     <StockTableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
-                                        <TableCell align="right">✓</TableCell>
+                                        <TableCell align="right"><CheckIcon fontSize='14px'/></TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
                                     </StockTableRow> ||
                                     <TableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
-                                        <TableCell align="right">✗</TableCell>
+                                        <TableCell align="right"><ClearIcon fontSize='14px'/></TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
                                     </TableRow>
                                 ))}

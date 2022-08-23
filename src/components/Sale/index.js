@@ -18,6 +18,7 @@ import {
   Table,
   Button,
  } from '@mui/material';
+import { SelectIcon } from "../commons/icon/multipleIcons"
 
 const BoxPanel = styled(Box)(({ theme }) => ({
 backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,8 +35,9 @@ const TypoItem = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1, 0),
+  fontSize:'20px',
   textAlign: 'left',
-  color: theme.palette.text.secondary,
+  color: theme.palette.mode === 'dark' ? '#fff' : '#000',
   fontWeight: 'bold'
 }));
 const PriceLabel = styled(Typography)(({ theme }) => ({
@@ -102,6 +104,7 @@ const StockPlan = () => {
                                 <Grid item xs={12}>
                                     <StockSelect
                                         input={<OutlinedInput/>}
+                                        IconComponent={SelectIcon}
                                     >
                                         <option >Employer</option>
                                         <option >Employer</option>
@@ -118,6 +121,7 @@ const StockPlan = () => {
                                 <Grid item xs={12}>
                                     <StockSelect
                                         input={<OutlinedInput/>}
+                                        IconComponent={SelectIcon}
                                     >
                                         <option >12345</option>
                                         <option >123456</option>
@@ -143,6 +147,7 @@ const StockPlan = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <StockSelect
+                                        IconComponent={SelectIcon}
                                         inputRef={inputTypeRef}
                                         input={<OutlinedInput/>}
                                         onChange={showRefContent}
