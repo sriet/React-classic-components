@@ -10,8 +10,8 @@ const Gauge = () => {
   const height = 170;
   const max = 100;
   const min = 0;
-  const strokeValue = 20;
-  const obliqueValue = 55;
+  const strokeValue = 55;
+  const obliqueValue = 66;
 
   return (
     <Container>
@@ -28,6 +28,13 @@ const Gauge = () => {
           min={min}
           strokeValue={strokeValue}
           obliqueValue={obliqueValue}
+          width={width}
+          height={height}
+        />
+        <StrokeGauge
+          max={max}
+          min={min}
+          value={75}
           width={width}
           height={height}
         />

@@ -30,7 +30,7 @@ function MyApp() {
       }}
     >
       <div>
-        {theme.palette.mode} mode
+        {/* {theme.palette.mode} mode
         <IconButton
           sx={{ ml: 1 }}
           onClick={colorMode.toggleColorMode}
@@ -41,11 +41,14 @@ function MyApp() {
           ) : (
             <Brightness4Icon />
           )}
-        </IconButton>
+        </IconButton> */}
       </div>
-      <StockPlan />
+      {/* <StockPlan /> */}
+      Frame24
       <AddPlan />
+      Frame25
       <Detail />
+      Frame31
       <Gauge />
     </Box>
   );
