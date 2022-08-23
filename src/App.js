@@ -14,6 +14,7 @@ import StockTable from "./components/StockTable";
 import Gauge from "./components/Gauge";
 import Last from "./components/Last";
 import GraphTypes from "./components/GraphTypes";
+import Breakdown from "./components/Breakdown";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -62,6 +63,8 @@ function MyApp() {
       <Last />
       GraphTypes
       <GraphTypes />
+      Frame19
+      <Breakdown />
     </Box>
   );
 }

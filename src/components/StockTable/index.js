@@ -20,7 +20,7 @@ const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   ...theme.typography.body2,
   width:'100%',
   fontSize:'16px',
-  "> td,> th": {
+  "td, th": {
     color:'#219653'
   }
 }));
@@ -108,16 +108,16 @@ const StockTable = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        <Table sx={{ marginLeft:2 }}>
+                        <Table sx={{ marginLeft:2, 'th, td': {color:'#828282', py:'4px' } }}>
                             <TableHead>
-                                <TableRow sx={{ '> th, td': {color:'#828282', py:'4px' } }}>
+                                <TableRow>
                                     <TableCell width='5%'>Id</TableCell>
                                     <TableCell width='15%' align="right">Date</TableCell>
                                     <TableCell width='15%' align="right">Completed</TableCell>
                                     <TableCell width='20%' align="right">Taskes done</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, py:'4px' } }}>
+                            <TableBody sx={{ 'td, th': { border: 0 } }}>
                                 {tableData.map((row, index) => (
                                     (row.Completed===1 && 
                                     <CompletedTableRow key={index}>
