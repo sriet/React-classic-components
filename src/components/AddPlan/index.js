@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-// import { styled } from "@mui/material/styles";
+// import { styled, makeStyles } from "@mui/material/styles";
 import moment from "moment";
 import {
   Container,
@@ -10,7 +10,12 @@ import {
   OutlinedInput,
   InputAdornment,
 } from "@mui/material";
-import { SelectIcon } from "../commons/icon/multipleIcons"
+
+const useStyles = makeStyles({
+  date: {
+    position: "absolute",
+  },
+});
 import { BoxPanel, PriceLabel, StockInput, StockSelect } from "../commons/styledComponents";
 
 const AppPlan = () => {
@@ -68,11 +73,7 @@ const AppPlan = () => {
                     <PriceLabel>Date</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput
-                      type="date"
-                      required
-                      pattern="\d{2}-\d{2}-\d{2}"
-                    />
+                    <StockInput type="date" defaultValue="2019-08-10" />
                   </Grid>
                 </Grid>
               </Grid>
@@ -98,7 +99,13 @@ const AppPlan = () => {
                   <Grid item xs={12}>
                     <StockInput
                       type="date"
-                      defaultValue={moment("2019-08-10").format("MM/DD/YY")}
+                      defaultValue={moment("2019-08-15").format("MM/DD/YY")}
+                    />
+                    <StockInput
+                      type="text"
+                      readOnly={true}
+                      className={classes.date}
+                      defaultValue={moment("2019-08-15").format("MM/DD/YY")}
                     />
                   </Grid>
                 </Grid>
@@ -111,7 +118,7 @@ const AppPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>48mo</option>
                       <option>60mo</option>
@@ -128,7 +135,7 @@ const AppPlan = () => {
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={NewIcon}
                     >
                       <option>12mo</option>
                       <option>6mo</option>
