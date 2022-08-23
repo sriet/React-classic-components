@@ -9,6 +9,8 @@ import IconButton from "@mui/material/IconButton";
 import StockPlan from "./components/StockPlan";
 import AddPlan from "./components/AddPlan";
 import Detail from "./components/Detail";
+import Sale from "./components/Sale";
+import Table from "./components/Table";
 import Gauge from "./components/Gauge";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -30,7 +32,7 @@ function MyApp() {
       }}
     >
       <div>
-        {/* {theme.palette.mode} mode
+        {theme.palette.mode} mode
         <IconButton
           sx={{ ml: 1 }}
           onClick={colorMode.toggleColorMode}
@@ -41,13 +43,17 @@ function MyApp() {
           ) : (
             <Brightness4Icon />
           )}
-        </IconButton> */}
+        </IconButton>
       </div>
-      {/* <StockPlan /> */}
+      <StockPlan />
       Frame24
       <AddPlan />
       Frame25
       <Detail />
+      Frame23
+      <Sale />
+      Frame26
+      <Table />
       Frame31
       <Gauge />
     </Box>
