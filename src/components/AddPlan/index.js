@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AddPlan = ( props ) => {
+const AddPlan = (props) => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
   );
@@ -258,6 +258,7 @@ const AddPlan = ( props ) => {
 
 AddPlan.propTypes = {
   children: PropTypes.any,
+  id: PropTypes.string,
 };
 
 export default AddPlan;

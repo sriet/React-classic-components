@@ -1,59 +1,56 @@
 import * as React from "react";
 import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
-import moment from "moment";
-import {
-  Container,
-  Grid,
-  Typography,
-  Divider,
-  Link,
-  OutlinedInput,
-  InputAdornment,
-  Button,
-} from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
-import { SelectIcon } from "../commons/icon/multipleIcons";
-import {
-  BoxPanel,
-  TypoItem,
-  PriceLabel,
-  PriceValue,
-  StockInput,
-  StockSelect,
-} from "../commons/styledComponents";
+import { BoxPanel, TypoItem } from "../commons/styledComponents";
+import ProgressBar from "./progressbar";
 
 const useStyles = makeStyles({
-  mt10: {
-    marginTop: "10px",
+  value: {
+    fontSize: "12px !important",
   },
-  relative: {
+  title: {
+    fontSize: "12px !important",
+    fontWeight: "900 !important",
+    color: "#333",
+  },
+  progressBack: {
     position: "relative",
+    overflow: "hidden",
+    display: "block",
+    zIndex: "0",
+    backgroundColor: "white",
+    height: "20px",
+    border: "2px solid #333",
   },
-  dateStyle: {
-    position: "absolute !important",
-    pointerEvents: "none",
-    width: "92% !important",
-    height: "90%",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    "& fieldset": { border: "1px solid transparent" },
+  status1: {
+    background:
+      "repeating-linear-gradient(45deg, #000000, #000000 1px, #ffffff 1px, #ffffff 8px)",
+    width: "100%",
+    position: "absolute",
+    left: "0",
+    bottom: "0",
+    top: "0",
+    transition: "transform .4s linear",
+    transformOrigin: "left",
+    // backgroundColor: "#1976d2",
+  },
+  status2: {
+    background: "#333",
+    width: "100%",
+    position: "absolute",
+    left: "0",
+    bottom: "0",
+    top: "0",
+    transition: "transform .4s linear",
+    transformOrigin: "left",
+    // backgroundColor: "#1976d2",
   },
 });
 
 const GraphTypes = () => {
   const classes = useStyles();
-  const [date, setDate] = React.useState(
-    moment("2020-10-12").format("MM/DD/YY")
-  );
-
-  const inputTypeRef = React.useRef();
-  const [inputType, setInputType] = React.useState("Type2");
-  const showRefContent = () => {
-    setInputType(inputTypeRef.current.value);
-    console.log(inputTypeRef.current.value);
-  };
 
   return (
     <Container>
@@ -65,30 +62,11 @@ const GraphTypes = () => {
           <Grid item xs={12}>
             <Grid container spacing={2}>
               <Grid item xs={3} md={3}>
-                <PriceLabel xs={{ fontSize: "700" }}>000,000,#</PriceLabel>
-                <Typography xs={{ fontSize: "12px" }}>h1. Heading</Typography>
-                <PriceLabel>$[Value]</PriceLabel>
+                <Typography className={classes.title}>000,000,#</Typography>
+                <Typography className={classes.value}>$[Value]</Typography>
               </Grid>
               <Grid item xs={9} md={9}>
-                <Grid container className={classes.mt10}>
-                  <Grid item xs={12}>
-                    <PriceLabel>Sale Date</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12} className={classes.relative}>
-                    <StockInput
-                      type="date"
-                      value={date}
-                      onChange={(e) =>
-                        setDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
-                    />
-                    <StockInput
-                      type="text"
-                      className={classes.dateStyle}
-                      value={date}
-                    />
-                  </Grid>
-                </Grid>
+                <ProgressBar />
               </Grid>
             </Grid>
           </Grid>

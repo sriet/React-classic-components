@@ -1,7 +1,7 @@
 import "./App.css";
 import * as React from "react";
 
-import "@fontsource/inter"
+import "@fontsource/inter";
 import Box from "@mui/material/Box";
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -38,7 +38,7 @@ function MyApp() {
         bgcolor: "background.default",
         color: "text.primary",
         borderRadius: 1,
-        paddingBottom:'100px'
+        paddingBottom: "100px",
       }}
     >
       <div>
@@ -55,8 +55,7 @@ function MyApp() {
           )}
         </IconButton>
       </div>
-      {/* <StockPlan /> */}
-      
+      <StockPlan />
       Frame24
       <AddPlan {...{
         id:'Placeholder', 
@@ -71,13 +70,14 @@ function MyApp() {
       }} />
 
       Frame25
-      <Detail {...{
-        instanceName:'Employer', 
-        user:'Jenny Thompson', 
-        company:'Employer', 
-        currentPrice:'39.49'
-      }} />
-
+      <Detail
+        {...{
+          instanceName: "Employer",
+          user: "Jenny Thompson",
+          company: "Employer",
+          currentPrice: "39.49",
+        }}
+      />
       Frame22, Frame23
       <Sale {...{
         employer:'Employer',
@@ -175,7 +175,6 @@ function MyApp() {
 
       Frame31
       <Gauge />
-
       Frame32
       <Last {...{
         dimentions:[ 7500, -3225, 4275 ]
@@ -273,8 +272,8 @@ function App() {
           mode,
         },
         typography: {
-          fontFamily:"Inter",
-        }
+          fontFamily: "Inter",
+        },
       }),
     [mode]
   );

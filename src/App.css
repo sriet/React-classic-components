@@ -65,8 +65,10 @@
   transform-origin: center;
 }
 
+
+
 .gauge-font {
-  font-size: 5px;
+  font-size: 12px;
   font-weight: 700;
   color: #333;
 }
