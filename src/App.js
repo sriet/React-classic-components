@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 
 import StockPlan from "./components/StockPlan";
 import AddPlan from "./components/AddPlan";
+import ISOProgress from "./components/ISOProgress";
 import Detail from "./components/Detail";
 import Sale from "./components/Sale";
 import StockTable from "./components/StockTable";
@@ -22,6 +23,7 @@ import ClientsBar from "./components/ClientsBar";
 import ClientCard from "./components/ClientCard";
 import Google from "./components/Google";
 import BarChart from "./components/BarChart";
+import TypeProgress from "./components/TypeProgress";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -52,12 +54,13 @@ function MyApp() {
           id: "Placeholder",
           type: "ISOa",
           price: "10.65",
-          date: "10/15/19",
-          amount: 6728,
-          expiryDate: "10/15/19",
-          Duration: "48mo",
+          date: "2019-10-15",
+          amount1: 6728,
+          expiryDate: "2019-10-15",
+          duration: "48mo",
+          amount2:'12mo',
           yn: "No",
-          Extended: "No",
+          extended: "No",
         }}
       />
       Frame25
@@ -67,6 +70,93 @@ function MyApp() {
           user: "Jenny Thompson",
           company: "Employer",
           currentPrice: "39.49",
+        }}
+      />
+      Frame20
+      <TypeProgress
+        {...{
+          id: "Placeholder",
+          type: "Type1",
+          date: "2019-11-3",
+          amount: 6728,
+          period: "Selection #1",
+          dropdown: "None",
+          data: {
+            min: 0,
+            max: 100,
+            status: [
+              {
+                pattern: 0,
+                value: 0,
+                label: "Dim1",
+              },
+              {
+                pattern: 2,
+                value: 48,
+                label: "Dim2",
+              },
+              {
+                pattern: 5,
+                value: 67,
+              },
+              {
+                pattern: 3,
+                value: 68,
+                label: "Dim3",
+              },
+              {
+                pattern: 4,
+                value: 90,
+                label: "Dim4",
+              },
+            ],
+          },
+        }}
+      />
+      Frame21
+      <ISOProgress
+        {...{
+          id: "Placeholder",
+          type: "ISO",
+          price: "10.65",
+          date: "2019-10-15",
+          amount: 6728,
+          expiryDate: "2019-10-15",
+          duration:'123',
+          dropdown: "Type 1",
+          yn: "No",
+          dropdown2: "No",
+          data: {
+            min: 0,
+            max: 100,
+    
+            status: [
+              {
+                pattern: 0,
+                value: 0,
+                label: "Dim1",
+              },
+              {
+                pattern: 2,
+                value: 45,
+                label: "Dim2",
+              },
+              {
+                pattern: 5,
+                value: 64,
+              },
+              {
+                pattern: 3,
+                value: 65,
+                label: "Dim3",
+              },
+              {
+                pattern: 4,
+                value: 90,
+                label: "Dim4",
+              },
+            ],
+          },
         }}
       />
       Frame22, Frame23
