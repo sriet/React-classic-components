@@ -9,6 +9,7 @@ import {
   Link,
   OutlinedInput,
   InputAdornment,
+  Box,
 } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
@@ -18,6 +19,7 @@ import {
   StockInput,
   StockSelect,
 } from "../commons/styledComponents";
+import ProgressBar from "../commons/progressbar";
 
 const useStyles = makeStyles({
   mt10: {
@@ -38,7 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AddPlan = (props) => {
+const ISOProgress = (props) => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment(props.expiryDate).format("MM/DD/YY")
   );
@@ -164,9 +166,9 @@ const AddPlan = (props) => {
                       IconComponent={SelectIcon}
                       defaultValue={props.duration}
                     >
-                      <option>48mo</option>
-                      <option>60mo</option>
-                      <option>72mo</option>
+                      <option>123</option>
+                      <option>124</option>
+                      <option>125</option>
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -174,17 +176,17 @@ const AddPlan = (props) => {
               <Grid item xs={3} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel>Amount</PriceLabel>
+                    <PriceLabel>Dropdown</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.amount}
+                      defaultValue={props.dropdown}
                     >
-                      <option>12mo</option>
-                      <option>6mo</option>
-                      <option>3mo</option>
+                      <option>Type 1</option>
+                      <option>Type 2</option>
+                      <option>Type 3</option>
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -209,13 +211,13 @@ const AddPlan = (props) => {
               <Grid item xs={3} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel>Extended?</PriceLabel>
+                    <PriceLabel>Dropdown #2</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.extended}
+                      defaultValue={props.dropdown2}
                     >
                       <option>Yes</option>
                       <option>No</option>
@@ -224,20 +226,14 @@ const AddPlan = (props) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Divider sx={{ my: "16px" }} />
+            <Divider sx={{ mt: "16px" }} />
           </Grid>
           <Grid item xs={12}>
-            <Grid container pb="12px">
-              <Link
-                sx={{
-                  color: "red",
-                  flexGrow: 1,
-                  cursor: "pointer",
-                  textDecorationColor: "red",
-                }}
-              >
-                Delete
-              </Link>
+            <ProgressBar {...props.data} />
+            </Grid>
+          <Grid item xs={12}>
+            <Grid container pt="16px">
+              <Box  flexGrow='1'></Box>
               <Link
                 sx={{
                   color: "gray",
@@ -257,9 +253,9 @@ const AddPlan = (props) => {
   );
 };
 
-AddPlan.propTypes = {
+ISOProgress.propTypes = {
   children: PropTypes.any,
   id: PropTypes.string,
 };
 
-export default AddPlan;
+export default ISOProgress;
