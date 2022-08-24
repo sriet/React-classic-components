@@ -322,17 +322,7 @@ function MyApp() {
       Frame15
       <ClientCard />
       Frame14
-      <Google
-        {...{
-          dims: [
-            { dim: 12138, subTitle: 281394 },
-            { dim: 0, subTitle: 18293 },
-            { dim: 0, subTitle: 0 },
-          ],
-        }}
-      />
-      Frame27
-      {/* <BarChart /> */}
+      <Google {...GoogleProps} />
     </Box>
   );
 }

@@ -10,7 +10,7 @@ import {
   OutlinedInput,
   InputAdornment,
 } from "@mui/material";
-
+import NumberFormat from 'react-number-format';
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,

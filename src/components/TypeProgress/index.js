@@ -8,7 +8,6 @@ import {
   Divider,
   Link,
   OutlinedInput,
-  InputAdornment,
   Box,
 } from "@mui/material";
 
@@ -41,9 +40,7 @@ const useStyles = makeStyles({
 });
 
 const TypeProgress = (props) => {
-  const [expiryDate, setExpiryDate] = React.useState(
-    moment(props.expiryDate).format("MM/DD/YY")
-  );
+  
   const [date, setDate] = React.useState(
     moment(props.date).format("MM/DD/YY")
   );
