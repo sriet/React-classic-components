@@ -44,6 +44,8 @@ function MyApp() {
     >
       GraphTypesFrame17
       <GraphTypes />
+      Frame27
+      <BarChart />
       Frame24
       <AddPlan
         {...{
@@ -241,8 +243,6 @@ function MyApp() {
           ],
         }}
       />
-      Frame27
-      <BarChart />
     </Box>
   );
 }
