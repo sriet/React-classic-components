@@ -245,9 +245,9 @@ function MyApp() {
       Frame14
       <Google {...{
         dims:[
-          {dim:'$12,138', subTitle:'281,394'},
-          {dim:'0', subTitle:'18,293'},
-          {dim:'0', subTitle:'0'},
+          {dim:12138, subTitle:281394},
+          {dim:0, subTitle:18293},
+          {dim:0, subTitle:0},
         ]
       }} />
     </Box>
