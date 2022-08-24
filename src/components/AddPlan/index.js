@@ -129,7 +129,9 @@ const AddPlan = (props) => {
                     <PriceLabel>Amount</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput type="number" placeholder="6728" />
+                    <StockInput type="number" 
+                      defaultValue={props.amount}
+                    />
                   </Grid>
                 </Grid>
               </Grid>

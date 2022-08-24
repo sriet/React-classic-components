@@ -50,7 +50,7 @@ function MyApp() {
           type: "ISOa",
           price: "10.65",
           date: "10/15/19",
-          Amount: "6,728",
+          amount: 6728,
           expiryDate: "10/15/19",
           Duration: "48mo",
           yn: "No",
@@ -76,12 +76,12 @@ function MyApp() {
           salePrice: "2,371",
           saleDate: "10/15/19",
           table: [
-            { id: 1, date: "4/15/2021", total: 8, amount: 8, value: "18,968" },
-            { id: 2, date: "7/15/2021", total: 2, amount: 0, value: "0" },
-            { id: 3, date: "10/15/2021", total: 2, amount: 2, value: "4,742" },
-            { id: 4, date: "1/15/2021", total: 2, amount: 2, value: "4,742" },
+            { id: 1, date: "4/15/2021", total: 8, amount: 8, value: 18968 },
+            { id: 2, date: "7/15/2021", total: 2, amount: 0, value: 0 },
+            { id: 3, date: "10/15/2021", total: 2, amount: 2, value: 4742 },
+            { id: 4, date: "1/15/2021", total: 2, amount: 2, value: 4742 },
           ],
-          summary: ["2,154", "781", "28,452"],
+          summary: [2154, 781, 28452],
         }}
       />
       Frame26
@@ -171,52 +171,54 @@ function MyApp() {
           dimentions: [7500, -3225, 4275],
         }}
       />
+      GraphTypes
+      <GraphTypes />
       Frame19
       <Breakdown
         {...{
           breakdown: [
             {
               Type: "Item1",
-              Column1: "$16,823",
-              Column2: "$34,411",
+              Column1: 16823,
+              Column2: 34411,
               Column3: "19.12%",
             },
             {
               Type: "Item2",
-              Column1: "$822",
-              Column2: "$1,164",
+              Column1: 822,
+              Column2: 1164,
               Column3: "0.62%",
             },
             {
               Type: "Item3",
-              Column1: "$7,928",
-              Column2: "$9,780",
+              Column1: 7928,
+              Column2: 9780,
               Column3: "5.45%",
             },
             {
               Type: "Item4",
-              Column1: "$4,281",
-              Column2: "$13,284",
+              Column1: 4281,
+              Column2: 13284,
               Column3: "7.38%",
             },
             {
               Type: "Item5",
-              Column1: "$281",
-              Column2: "$802",
+              Column1: 281,
+              Column2: 802,
               Column3: "1.48%",
             },
           ],
           breakdown2: [
             {
               Type: "Item1",
-              Column1: "$00,000",
-              Column2: "$00,000",
+              Column1: "",
+              Column2: 0,
               Column3: "00.00%",
             },
             {
               Type: "Item2",
-              Column1: "$000",
-              Column2: "$000",
+              Column1: "",
+              Column2: 0,
               Column3: "00.00%",
             },
           ],
@@ -232,9 +234,9 @@ function MyApp() {
       <Google
         {...{
           dims: [
-            { dim: "$12,138", subTitle: "281,394" },
-            { dim: "0", subTitle: "18,293" },
-            { dim: "0", subTitle: "0" },
+            { dim: 12138, subTitle: 281394 },
+            { dim: 0, subTitle: 18293 },
+            { dim: 0, subTitle: 0 },
           ],
         }}
       />

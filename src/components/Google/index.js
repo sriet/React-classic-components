@@ -35,10 +35,10 @@ const Google = ( props ) => {
                       <PriceLabel>Dim {index+1}</PriceLabel>
                     </Grid>
                     <Grid container sx={{alignItems:'center'}} item xs={12}>
-                      <PriceValue>{item.dim}</PriceValue>
+                      <PriceValue>${item.dim.toLocaleString('en-US')}</PriceValue>
                     </Grid>
                     <Grid item xs={12}>
-                      <PriceLabel>Subtitle ${item.subTitle}</PriceLabel>
+                      <PriceLabel>Subtitle ${item.subTitle.toLocaleString('en-US')}</PriceLabel>
                     </Grid>
                   </Grid>
                 </Grid>

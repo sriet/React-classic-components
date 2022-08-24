@@ -35,7 +35,7 @@ const Last = ( props ) => {
                       <PriceLabel>Dimention { index + 1 }</PriceLabel>
                     </Grid>
                     <Grid container sx={{alignItems:'center'}} item xs={12}>
-                      <PriceValue pr='5.5px' sx={{color:(list<0 && '#EB5757')}}>{((list<0 && '-')||'')+`$`+Math.abs(list)}</PriceValue>
+                      <PriceValue pr='5.5px' sx={{color:(list<0 && '#EB5757')}}>{((list<0 && '-')||'')+`$`+Math.abs(list).toLocaleString('en-US')}</PriceValue>
                       <InfoCircleIcon />
                     </Grid>
                   </Grid>
