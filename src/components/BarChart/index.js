@@ -31,14 +31,11 @@ const BarChart = () => {
     ],
     xaxis: {
       categories: [
-        "2011 Q1",
-        "2011 Q2",
-        "2011 Q3",
-        "2011 Q4",
-        "2012 Q1",
-        "2012 Q2",
-        "2012 Q3",
-        "2012 Q4",
+        "10/15/2019",
+        "10/15/2020",
+        "10/15/2021",
+        "10/15/2022",
+        "10/15/2023",
       ],
     },
     fill: {
@@ -65,24 +62,11 @@ const BarChart = () => {
         }
       },
     ],
-    dataLabels: {
-      enabled: false,
-    },
 
     yaxis: {
       min: 0,
       max: 6728,
       tickAmount: 4,
-    },
-    xaxis: {
-      labels: {
-        datetimeFormatter: {
-          year: "yyyy",
-          month: "MMM 'yy",
-          day: "dd MMM",
-          hour: "HH:mm",
-        },
-      },
     },
   };
 

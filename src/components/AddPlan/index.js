@@ -42,9 +42,7 @@ const AddPlan = (props) => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment(props.expiryDate).format("MM/DD/YY")
   );
-  const [date, setDate] = React.useState(
-    moment(props.date).format("MM/DD/YY")
-  );
+  const [date, setDate] = React.useState(moment(props.date).format("MM/DD/YY"));
 
   const classes = useStyles();
 

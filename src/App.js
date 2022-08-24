@@ -46,8 +46,6 @@ function MyApp() {
     >
       GraphTypesFrame17
       <GraphTypes />
-      Frame27
-      <BarChart />
       Frame24
       <AddPlan
         {...{
@@ -58,7 +56,7 @@ function MyApp() {
           amount1: 6728,
           expiryDate: "2019-10-15",
           duration: "48mo",
-          amount2:'12mo',
+          amount2: "12mo",
           yn: "No",
           extended: "No",
         }}
@@ -122,14 +120,14 @@ function MyApp() {
           date: "2019-10-15",
           amount: 6728,
           expiryDate: "2019-10-15",
-          duration:'123',
+          duration: "123",
           dropdown: "Type 1",
           yn: "No",
           dropdown2: "No",
           data: {
             min: 0,
             max: 100,
-    
+
             status: [
               {
                 pattern: 0,
@@ -333,6 +331,8 @@ function MyApp() {
           ],
         }}
       />
+      Frame27
+      {/* <BarChart /> */}
     </Box>
   );
 }
