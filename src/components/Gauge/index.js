@@ -11,7 +11,7 @@ const Gauge = () => {
   const height = 170;
   const max = 100;
   const min = 0;
-  const strokeValue = 55;
+  const strokeValue = 42;
   const obliqueValue = 66;
 
   const BoxPanel = styled(Box)(({ theme }) => ({

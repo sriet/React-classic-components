@@ -41,21 +41,8 @@ function MyApp() {
         paddingBottom: "100px",
       }}
     >
-      <div>
-        {theme.palette.mode} mode
-        <IconButton
-          sx={{ ml: 1 }}
-          onClick={colorMode.toggleColorMode}
-          color="inherit"
-        >
-          {theme.palette.mode === "dark" ? (
-            <Brightness7Icon />
-          ) : (
-            <Brightness4Icon />
-          )}
-        </IconButton>
-      </div>
-      <StockPlan />
+      GraphTypesFrame17
+      <GraphTypes />
       Frame24
       <AddPlan
         {...{
@@ -184,8 +171,6 @@ function MyApp() {
           dimentions: [7500, -3225, 4275],
         }}
       />
-      GraphTypes
-      <GraphTypes />
       Frame19
       <Breakdown
         {...{

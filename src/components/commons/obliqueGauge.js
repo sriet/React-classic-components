@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  guage: {
-    // height: "100vh",
-  },
+  guage: {},
   symbol: {
     overflow: "visible",
   },
@@ -41,10 +39,10 @@ const ObliqueGauge = ({
       <symbol className={classes.symbol} id="limit">
         <path d="M 0,41 V 54" />
       </symbol>
-      <pattern id="hatch" patternUnits="userSpaceOnUse" width="16" height="8">
+      <pattern id="hatch" patternUnits="userSpaceOnUse" width="12" height="12">
         <path
           className={classes.stroke}
-          d="M -2,-6 18,4 M -2,2 18,12 M -2,10 18,20"
+          d="M -2,-6 18,4 M -2,0 18,10 M -2,6 18,16"
         />
       </pattern>
       {/* data areas in reverse order  */}
@@ -102,7 +100,7 @@ const ObliqueGauge = ({
         <p
           style={{
             background:
-              "repeating-linear-gradient(232deg, #333, #333 0.3px, rgb(255, 255, 255) 3px, rgb(255, 255, 255) 1px)",
+              "repeating-linear-gradient(45deg, rgb(51, 51, 51), rgb(51, 51, 51) 1px, rgb(255, 255, 255) 1px, rgb(255, 255, 255) 3px) 0% 0% / 28px",
             width: "6px",
             border: "2px solid #333",
             height: "6px",
