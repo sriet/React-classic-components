@@ -20,87 +20,12 @@ const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   ...theme.typography.body2,
   width:'100%',
   fontSize:'16px',
-  "> td,> th": {
+  "td, th": {
     color:'#219653'
   }
 }));
 
-const StockTable = () => {
-
-    const tableData =[
-        {
-            Id:'1',
-            Date:'10/15/2021',
-            Completed:1,
-            TasksDone:420
-        },
-        {
-            Id:'2',
-            Date:'1/15/2021',
-            Completed:1,
-            TasksDone:420
-        },
-        {
-            Id:'3',
-            Date:'4/15/2021',
-            Completed:1,
-            TasksDone:420
-        },
-        {
-            Id:'4',
-            Date:'7/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'5',
-            Date:'10/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'6',
-            Date:'1/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'7',
-            Date:'4/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'8',
-            Date:'7/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'9',
-            Date:'10/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'10',
-            Date:'1/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'11',
-            Date:'4/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'12',
-            Date:'7/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-    ]
+const StockTable = ( props ) => {
 
     return (
         <Container>
@@ -108,17 +33,17 @@ const StockTable = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        <Table sx={{ marginLeft:2 }}>
+                        <Table sx={{ marginLeft:2, 'th, td': {color:'#828282', py:'4px' } }}>
                             <TableHead>
-                                <TableRow sx={{ '> th, td': {color:'#828282', py:'4px' } }}>
+                                <TableRow>
                                     <TableCell width='5%'>Id</TableCell>
                                     <TableCell width='15%' align="right">Date</TableCell>
                                     <TableCell width='15%' align="right">Completed</TableCell>
                                     <TableCell width='20%' align="right">Taskes done</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody sx={{ '&:last-child td, &:last-child th': { border: 0, py:'4px' } }}>
-                                {tableData.map((row, index) => (
+                            <TableBody sx={{ 'td, th': { border: 0 } }}>
+                                {props.table.map((row, index) => (
                                     (row.Completed===1 && 
                                     <CompletedTableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>

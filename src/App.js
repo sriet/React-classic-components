@@ -1,5 +1,7 @@
 import "./App.css";
 import * as React from "react";
+
+import "@fontsource/inter";
 import Box from "@mui/material/Box";
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -14,6 +16,11 @@ import StockTable from "./components/StockTable";
 import Gauge from "./components/Gauge";
 import Last from "./components/Last";
 import GraphTypes from "./components/GraphTypes";
+import Breakdown from "./components/Breakdown";
+import Upcoming from "./components/Upcoming";
+import ClientsBar from "./components/ClientsBar";
+import ClientCard from "./components/ClientCard";
+import Google from "./components/Google";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -31,6 +38,7 @@ function MyApp() {
         bgcolor: "background.default",
         color: "text.primary",
         borderRadius: 1,
+        paddingBottom: "100px",
       }}
     >
       <div>
@@ -49,19 +57,202 @@ function MyApp() {
       </div>
       <StockPlan />
       Frame24
-      <AddPlan id={"5454#$SYfger"} />
+      <AddPlan
+        {...{
+          id: "Placeholder",
+          type: "ISOa",
+          price: "10.65",
+          date: "10/15/19",
+          Amount: "6,728",
+          expiryDate: "10/15/19",
+          Duration: "48mo",
+          yn: "No",
+          Extended: "No",
+        }}
+      />
       Frame25
-      <Detail />
-      Frame23
-      <Sale />
+      <Detail
+        {...{
+          instanceName: "Employer",
+          user: "Jenny Thompson",
+          company: "Employer",
+          currentPrice: "39.49",
+        }}
+      />
+      Frame22, Frame23
+      <Sale
+        {...{
+          employer: "Employer",
+          dropdown: "12345",
+          sold: "12",
+          sell: "Type 2",
+          salePrice: "2,371",
+          saleDate: "10/15/19",
+          table: [
+            { id: 1, date: "4/15/2021", total: 8, amount: 8, value: "18,968" },
+            { id: 2, date: "7/15/2021", total: 2, amount: 0, value: "0" },
+            { id: 3, date: "10/15/2021", total: 2, amount: 2, value: "4,742" },
+            { id: 4, date: "1/15/2021", total: 2, amount: 2, value: "4,742" },
+          ],
+          summary: ["2,154", "781", "28,452"],
+        }}
+      />
       Frame26
-      <StockTable />
+      <StockTable
+        {...{
+          table: [
+            {
+              Id: "1",
+              Date: "10/15/2021",
+              Completed: 1,
+              TasksDone: 420,
+            },
+            {
+              Id: "2",
+              Date: "1/15/2021",
+              Completed: 1,
+              TasksDone: 420,
+            },
+            {
+              Id: "3",
+              Date: "4/15/2021",
+              Completed: 1,
+              TasksDone: 420,
+            },
+            {
+              Id: "4",
+              Date: "7/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "5",
+              Date: "10/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "6",
+              Date: "1/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "7",
+              Date: "4/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "8",
+              Date: "7/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "9",
+              Date: "10/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "10",
+              Date: "1/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "11",
+              Date: "4/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+            {
+              Id: "12",
+              Date: "7/15/2021",
+              Completed: 0,
+              TasksDone: 420,
+            },
+          ],
+        }}
+      />
       Frame31
       <Gauge />
       Frame32
-      <Last />
+      <Last
+        {...{
+          dimentions: [7500, -3225, 4275],
+        }}
+      />
       GraphTypes
       <GraphTypes />
+      Frame19
+      <Breakdown
+        {...{
+          breakdown: [
+            {
+              Type: "Item1",
+              Column1: "$16,823",
+              Column2: "$34,411",
+              Column3: "19.12%",
+            },
+            {
+              Type: "Item2",
+              Column1: "$822",
+              Column2: "$1,164",
+              Column3: "0.62%",
+            },
+            {
+              Type: "Item3",
+              Column1: "$7,928",
+              Column2: "$9,780",
+              Column3: "5.45%",
+            },
+            {
+              Type: "Item4",
+              Column1: "$4,281",
+              Column2: "$13,284",
+              Column3: "7.38%",
+            },
+            {
+              Type: "Item5",
+              Column1: "$281",
+              Column2: "$802",
+              Column3: "1.48%",
+            },
+          ],
+          breakdown2: [
+            {
+              Type: "Item1",
+              Column1: "$00,000",
+              Column2: "$00,000",
+              Column3: "00.00%",
+            },
+            {
+              Type: "Item2",
+              Column1: "$000",
+              Column2: "$000",
+              Column3: "00.00%",
+            },
+          ],
+        }}
+      />
+      Frame29
+      <Upcoming />
+      Frame03
+      <ClientsBar />
+      Frame15
+      <ClientCard />
+      Frame14
+      <Google
+        {...{
+          dims: [
+            { dim: "$12,138", subTitle: "281,394" },
+            { dim: "0", subTitle: "18,293" },
+            { dim: "0", subTitle: "0" },
+          ],
+        }}
+      />
     </Box>
   );
 }
@@ -82,6 +273,9 @@ function App() {
       createTheme({
         palette: {
           mode,
+        },
+        typography: {
+          fontFamily: "Inter",
         },
       }),
     [mode]

@@ -60,7 +60,7 @@ const AddPlan = (props) => {
                     <PriceLabel>ID</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput placeholder="Placeholder" value={props.id} />
+                    <StockInput defaultValue={props.id} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -73,6 +73,7 @@ const AddPlan = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
+                      defaultValue={props.type}
                     >
                       <option>ISO</option>
                       <option>ISOa</option>
@@ -91,6 +92,7 @@ const AddPlan = (props) => {
                       startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                       }
+                      defaultValue={props.price}
                     />
                   </Grid>
                 </Grid>
@@ -103,7 +105,7 @@ const AddPlan = (props) => {
                   <Grid item xs={12} className={classes.relative}>
                     <StockInput
                       type="date"
-                      value={date}
+                      // value={date}
                       onChange={(e) =>
                         setDate(moment(e.target.value).format("MM/DD/YY"))
                       }
@@ -111,7 +113,8 @@ const AddPlan = (props) => {
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={date}
+                      // value={date}
+                      defaultValue={props.date}
                     />
                   </Grid>
                 </Grid>

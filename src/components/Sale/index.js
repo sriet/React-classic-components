@@ -49,7 +49,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Sale = () => {
+const Sale = ( props ) => {
   const inputTypeRef = React.useRef();
   const [inputType, setInputType] = React.useState("Type2");
   const showRefContent = () => {
@@ -79,6 +79,7 @@ const Sale = () => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
+                      defaultValue={props.employer}
                     >
                       <option>Employer</option>
                       <option>Employer</option>
@@ -96,6 +97,7 @@ const Sale = () => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
+                      defaultValue={props.dropdown}
                     >
                       <option>12345</option>
                       <option>123456</option>
@@ -107,10 +109,10 @@ const Sale = () => {
               <Grid item xs={5} md={4}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel>ID</PriceLabel>
+                    <PriceLabel>Sold</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput value="12" />
+                    <StockInput defaultValue={props.sold} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -125,47 +127,49 @@ const Sale = () => {
                       inputRef={inputTypeRef}
                       input={<OutlinedInput />}
                       onChange={showRefContent}
+                      defaultValue={props.sale}
                     >
                       <option>Type2</option>
                       <option>Start #1</option>
-                      <option>Type4</option>
                     </StockSelect>
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
                 <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Sale Price</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockInput
-                      startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                      }
-                    />
-                  </Grid>
+                    <Grid item xs={12}>
+                        <PriceLabel>Sale Price</PriceLabel>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <StockInput
+                        startAdornment={
+                            <InputAdornment position="start">$</InputAdornment>
+                        }
+                        defaultValue={props.salePrice}
+                        />
+                    </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
                 <Grid container className={classes.mt10}>
-                  <Grid item xs={12}>
-                    <PriceLabel>Sale Date</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12} className={classes.relative}>
-                    <StockInput
-                      type="date"
-                      value={date}
-                      onChange={(e) =>
-                        setDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
-                    />
-                    <StockInput
-                      type="text"
-                      className={classes.dateStyle}
-                      value={date}
-                    />
-                  </Grid>
+                    <Grid item xs={12}>
+                        <PriceLabel>Sale Date</PriceLabel>
+                    </Grid>
+                    <Grid item xs={12} className={classes.relative}>
+                        <StockInput
+                        type="date"
+                        value={date}
+                        onChange={(e) =>
+                            setDate(moment(e.target.value).format("MM/DD/YY"))
+                        }
+                        />
+                        <StockInput
+                        type="text"
+                        className={classes.dateStyle}
+                        // value={date}
+                        defaultValue={props.saleDate}
+                        />
+                    </Grid>
                 </Grid>
               </Grid>
             </Grid>
@@ -174,88 +178,57 @@ const Sale = () => {
 
           <Grid item xs={12} display={inputType === "Type2" ? "block" : "none"}>
             <Grid container spacing={2}>
-              <Table sx={{ marginLeft: 2 }}>
-                <TableHead>
-                  <TableRow
-                    sx={{ "> th, td": { color: "#828282", py: "8px" } }}
-                  >
-                    <TableCell width="5%">Id</TableCell>
-                    <TableCell width="15%" align="right">
-                      Date
-                    </TableCell>
-                    <TableCell width="15%" align="right">
-                      Total
-                    </TableCell>
-                    <TableCell width="20%" align="right">
-                      Amount
-                    </TableCell>
-                    <TableCell width="45%" align="right">
-                      Value
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody
-                  sx={{
-                    "&:last-child td, &:last-child th": {
-                      border: 0,
-                      pt: "8px",
-                      pb: "0px",
-                    },
-                  }}
-                >
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      1
-                    </TableCell>
-                    <TableCell align="right">4/15/2021</TableCell>
-                    <TableCell align="right">8</TableCell>
-                    <TableCell align="right">
-                      <StockTableInput value={"8"} />
-                    </TableCell>
-                    <TableCell align="right">$18,968</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      2
-                    </TableCell>
-                    <TableCell align="right">7/15/2021</TableCell>
-                    <TableCell align="right">2</TableCell>
-                    <TableCell align="right">
-                      <StockTableInput value={"8"} />
-                    </TableCell>
-                    <TableCell align="right">$0</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      3
-                    </TableCell>
-                    <TableCell align="right">10/15/2021</TableCell>
-                    <TableCell align="right">2</TableCell>
-                    <TableCell align="right">
-                      <StockTableInput value={"8"} />
-                    </TableCell>
-                    <TableCell align="right">$4,742</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      4
-                    </TableCell>
-                    <TableCell align="right">1/15/2021</TableCell>
-                    <TableCell align="right">2</TableCell>
-                    <TableCell align="right">
-                      <StockTableInput value={"8"} />
-                    </TableCell>
-                    <TableCell align="right">$4,742</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+                <Table sx={{ marginLeft: 2 }}>
+                    <TableHead>
+                        <TableRow
+                            sx={{ "> th, td": { color: "#828282", py: "8px" } }}
+                        >
+                            <TableCell width="5%">Id</TableCell>
+                            <TableCell width="15%" align="right">
+                            Date
+                            </TableCell>
+                            <TableCell width="15%" align="right">
+                            Total
+                            </TableCell>
+                            <TableCell width="20%" align="right">
+                            Amount
+                            </TableCell>
+                            <TableCell width="45%" align="right">
+                            Value
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody
+                        sx={{
+                            "&:last-child td, &:last-child th": {
+                            border: 0,
+                            pt: "8px",
+                            pb: "0px",
+                            },
+                        }}
+                    >
+                        {props.table.map((row, index)=>(
+                            <TableRow key={index}>
+                                <TableCell component="th" scope="row">
+                                {row.id}
+                                </TableCell>
+                                <TableCell align="right">{row.date}</TableCell>
+                                <TableCell align="right">{row.total}</TableCell>
+                                <TableCell align="right">
+                                    <StockTableInput defaultValue={row.amount} />
+                                </TableCell>
+                                <TableCell align="right">${row.value}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
               <Grid item xs={12}>
                 <Grid container px={2}>
                   <Typography fontSize="14px" sx={{ flexGrow: 1 }}>
                     <b>Total</b>
                   </Typography>
                   <Typography fontSize="14px" width="50%" align="right">
-                    <b>$28,452</b>
+                    <b>${props.table.length}</b>
                   </Typography>
                 </Grid>
               </Grid>
@@ -265,36 +238,18 @@ const Sale = () => {
 
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={3}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Summary 1</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$2,154</PriceValue>
-                  </Grid>
+                {props.summary.map((item, index)=>(
+                <Grid item xs={3} key={index}>
+                    <Grid container spacing="4px">
+                    <Grid item xs={12}>
+                        <PriceLabel>Summary {index + 1}</PriceLabel>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <PriceValue>${item}</PriceValue>
+                    </Grid>
+                    </Grid>
                 </Grid>
-              </Grid>
-              <Grid item xs={3}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Summary 2</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$781</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Summary 3</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$28,452</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
+                ))}
             </Grid>
             <Divider sx={{ mt: "16px" }} />
           </Grid>

@@ -8,7 +8,7 @@ import {
   Stack,
 } from "@mui/material";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { InfoCircleIcon, AlertSquareIcon } from "../commons/icon/multipleIcons";
+import { AlertSquareIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
   TypoItem,
@@ -16,27 +16,29 @@ import {
   PriceValue,
 } from "../commons/styledComponents";
 
-const Last = ( props ) => {
+const Google = ( props ) => {
 
   return (
     <Container>
       <BoxPanel width='70%'>
         <Grid container spacing={3}>
           <Grid container item xs={12}>
-            <TypoItem sx={{flexGrow:1}} variant="subtitle2">Last</TypoItem>
-            <TypoItem variant="subtitle2">Title</TypoItem>
+            <TypoItem sx={{flexGrow:1}} variant="subtitle2">Google</TypoItem>
+            <img src="Google.png" alt=""></img>
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              {props.dimentions.map((list, index)=>(
+              {props.dims.map((item, index)=>(
                 <Grid item xs={'auto'} md={4} key={index}>
                   <Grid container spacing="4px">
                     <Grid item xs={12}>
-                      <PriceLabel>Dimention { index + 1 }</PriceLabel>
+                      <PriceLabel>Dim {index+1}</PriceLabel>
                     </Grid>
                     <Grid container sx={{alignItems:'center'}} item xs={12}>
-                      <PriceValue pr='5.5px' sx={{color:(list<0 && '#EB5757')}}>{((list<0 && '-')||'')+`$`+Math.abs(list)}</PriceValue>
-                      <InfoCircleIcon />
+                      <PriceValue>{item.dim}</PriceValue>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <PriceLabel>Subtitle ${item.subTitle}</PriceLabel>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -50,7 +52,7 @@ const Last = ( props ) => {
                   <Stack direction='row' sx={{ alignItems: "center" }} spacing='5px'>
                     <AlertSquareIcon />
                     <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
-                      Last updated 48 days ago ·
+                      Last updated 91 days ago ·
                     </Typography>
                   </Stack>
                   <Stack direction='row' color='#2F80ED' sx={{ alignItems: "center" }} >
@@ -63,7 +65,7 @@ const Last = ( props ) => {
                     >
                       <RefreshOutlinedIcon fontSize="9px" />
                       <Typography fontSize='12px' lineHeight="15px">
-                        Add
+                        Update
                       </Typography>
                     </Link>
                   </Stack>
@@ -86,8 +88,8 @@ const Last = ( props ) => {
   );
 };
 
-Last.propTypes = {
+Google.propTypes = {
   children: PropTypes.any,
 };
 
-export default Last;
+export default Google;
