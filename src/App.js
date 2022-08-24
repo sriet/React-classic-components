@@ -21,6 +21,7 @@ import Upcoming from "./components/Upcoming";
 import ClientsBar from "./components/ClientsBar";
 import ClientCard from "./components/ClientCard";
 import Google from "./components/Google";
+import BarChart from "./components/BarChart";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -35,7 +36,7 @@ function MyApp() {
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
-        bgcolor: "background.default",
+        bgcolor: "#777",
         color: "text.primary",
         borderRadius: 1,
         paddingBottom: "100px",
@@ -240,6 +241,8 @@ function MyApp() {
           ],
         }}
       />
+      Frame27
+      <BarChart />
     </Box>
   );
 }

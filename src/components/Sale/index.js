@@ -16,6 +16,7 @@ import {
   Table,
   Button,
 } from "@mui/material";
+import clsx from "clsx";
 import moment from "moment";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
@@ -32,7 +33,7 @@ import {
 //styles
 const useStyles = makeStyles({
   mt10: {
-    marginTop: "10px",
+    marginTop: "10px !important",
   },
   relative: {
     position: "relative",
@@ -49,7 +50,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Sale = ( props ) => {
+const Sale = (props) => {
   const inputTypeRef = React.useRef();
   const [inputType, setInputType] = React.useState("Type2");
   const showRefContent = () => {
@@ -61,8 +62,11 @@ const Sale = ( props ) => {
     moment("2020-10-12").format("MM/DD/YY")
   );
   const getSumByKey = (arr, key) => {
-    return arr.reduce((accumulator, current) => accumulator + Number(current[key]), 0)
-  }
+    return arr.reduce(
+      (accumulator, current) => accumulator + Number(current[key]),
+      0
+    );
+  };
 
   return (
     <Container>
@@ -140,39 +144,43 @@ const Sale = ( props ) => {
               </Grid>
               <Grid item xs={4} md={1.5}>
                 <Grid container spacing="10px">
-                    <Grid item xs={12}>
-                        <PriceLabel>Sale Price</PriceLabel>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <StockInput
-                        startAdornment={
-                            <InputAdornment position="start">$</InputAdornment>
-                        }
-                        defaultValue={props.salePrice}
-                        />
-                    </Grid>
+                  <Grid item xs={12}>
+                    <PriceLabel>Sale Price</PriceLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <StockInput
+                      startAdornment={
+                        <InputAdornment position="start">$</InputAdornment>
+                      }
+                      defaultValue={props.salePrice}
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
-                <Grid container className={classes.mt10}>
-                    <Grid item xs={12}>
-                        <PriceLabel>Sale Date</PriceLabel>
-                    </Grid>
-                    <Grid item xs={12} className={classes.relative}>
-                        <StockInput
-                        type="date"
-                        value={date}
-                        onChange={(e) =>
-                            setDate(moment(e.target.value).format("MM/DD/YY"))
-                        }
-                        />
-                        <StockInput
-                        type="text"
-                        className={classes.dateStyle}
-                        // value={date}
-                        defaultValue={props.saleDate}
-                        />
-                    </Grid>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <PriceLabel>Sale Date</PriceLabel>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    className={`${classes.relative} ${classes.mt10}`}
+                  >
+                    <StockInput
+                      type="date"
+                      value={date}
+                      onChange={(e) =>
+                        setDate(moment(e.target.value).format("MM/DD/YY"))
+                      }
+                    />
+                    <StockInput
+                      type="text"
+                      className={classes.dateStyle}
+                      // value={date}
+                      defaultValue={props.saleDate}
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
@@ -181,57 +189,64 @@ const Sale = ( props ) => {
 
           <Grid item xs={12} display={inputType === "Type2" ? "block" : "none"}>
             <Grid container spacing={2}>
-                <Table sx={{ marginLeft: 2 }}>
-                    <TableHead>
-                        <TableRow
-                            sx={{ "> th, td": { color: "#828282", py: "8px" } }}
-                        >
-                            <TableCell width="5%">Id</TableCell>
-                            <TableCell width="15%" align="right">
-                            Date
-                            </TableCell>
-                            <TableCell width="15%" align="right">
-                            Total
-                            </TableCell>
-                            <TableCell width="20%" align="right">
-                            Amount
-                            </TableCell>
-                            <TableCell width="45%" align="right">
-                            Value
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody
-                        sx={{
-                            "&:last-child td, &:last-child th": {
-                            border: 0,
-                            pt: "8px",
-                            pb: "0px",
-                            },
-                        }}
-                    >
-                        {props.table.map((row, index)=>(
-                            <TableRow key={index}>
-                                <TableCell component="th" scope="row">
-                                {row.id}
-                                </TableCell>
-                                <TableCell align="right">{row.date}</TableCell>
-                                <TableCell align="right">{row.total}</TableCell>
-                                <TableCell align="right">
-                                    <StockTableInput defaultValue={row.amount} />
-                                </TableCell>
-                                <TableCell align="right">${row.value.toLocaleString('en-US')}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+              <Table sx={{ marginLeft: 2 }}>
+                <TableHead>
+                  <TableRow
+                    sx={{ "> th, td": { color: "#828282", py: "8px" } }}
+                  >
+                    <TableCell width="5%">Id</TableCell>
+                    <TableCell width="15%" align="right">
+                      Date
+                    </TableCell>
+                    <TableCell width="15%" align="right">
+                      Total
+                    </TableCell>
+                    <TableCell width="20%" align="right">
+                      Amount
+                    </TableCell>
+                    <TableCell width="45%" align="right">
+                      Value
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody
+                  sx={{
+                    "&:last-child td, &:last-child th": {
+                      border: 0,
+                      pt: "8px",
+                      pb: "0px",
+                    },
+                  }}
+                >
+                  {props.table.map((row, index) => (
+                    <TableRow key={index}>
+                      <TableCell component="th" scope="row">
+                        {row.id}
+                      </TableCell>
+                      <TableCell align="right">{row.date}</TableCell>
+                      <TableCell align="right">{row.total}</TableCell>
+                      <TableCell align="right">
+                        <StockTableInput defaultValue={row.amount} />
+                      </TableCell>
+                      <TableCell align="right">
+                        ${row.value.toLocaleString("en-US")}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
               <Grid item xs={12}>
                 <Grid container px={2}>
                   <Typography fontSize="14px" sx={{ flexGrow: 1 }}>
                     <b>Total</b>
                   </Typography>
                   <Typography fontSize="14px" width="50%" align="right">
-                    <b>${getSumByKey(props.table, 'value').toLocaleString('en-US')}</b>
+                    <b>
+                      $
+                      {getSumByKey(props.table, "value").toLocaleString(
+                        "en-US"
+                      )}
+                    </b>
                   </Typography>
                 </Grid>
               </Grid>
@@ -241,18 +256,18 @@ const Sale = ( props ) => {
 
           <Grid item xs={12}>
             <Grid container spacing={2}>
-                {props.summary.map((item, index)=>(
+              {props.summary.map((item, index) => (
                 <Grid item xs={3} key={index}>
-                    <Grid container spacing="4px">
+                  <Grid container spacing="4px">
                     <Grid item xs={12}>
-                        <PriceLabel>Summary {index + 1}</PriceLabel>
+                      <PriceLabel>Summary {index + 1}</PriceLabel>
                     </Grid>
                     <Grid item xs={12}>
-                        <PriceValue>${item.toLocaleString('en-US')}</PriceValue>
+                      <PriceValue>${item.toLocaleString("en-US")}</PriceValue>
                     </Grid>
-                    </Grid>
+                  </Grid>
                 </Grid>
-                ))}
+              ))}
             </Grid>
             <Divider sx={{ mt: "16px" }} />
           </Grid>
