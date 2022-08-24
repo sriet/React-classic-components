@@ -21,7 +21,7 @@ import {
 
 const useStyles = makeStyles({
   mt10: {
-    marginTop: "10px",
+    marginTop: "10px !important",
   },
   relative: {
     position: "relative",
@@ -98,11 +98,15 @@ const AddPlan = (props) => {
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
-                <Grid container className={classes.mt10}>
+                <Grid container>
                   <Grid item xs={12}>
                     <PriceLabel>Date</PriceLabel>
                   </Grid>
-                  <Grid item xs={12} className={classes.relative}>
+                  <Grid
+                    item
+                    xs={12}
+                    className={`${classes.relative} ${classes.mt10} `}
+                  >
                     <StockInput
                       type="date"
                       onChange={(e) =>
@@ -127,18 +131,20 @@ const AddPlan = (props) => {
                     <PriceLabel>Amount</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput type="number" 
-                      defaultValue={props.amount}
-                    />
+                    <StockInput type="number" defaultValue={props.amount} />
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={5} md={1.5}>
-                <Grid container className={classes.mt10}>
+                <Grid container>
                   <Grid item xs={12}>
                     <PriceLabel>Expiry Date</PriceLabel>
                   </Grid>
-                  <Grid item xs={12} className={classes.relative}>
+                  <Grid
+                    item
+                    xs={12}
+                    className={`${classes.relative} ${classes.mt10} `}
+                  >
                     <StockInput
                       type="date"
                       onChange={(e) =>
