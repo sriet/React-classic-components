@@ -1,7 +1,6 @@
 import * as React from "react";
 import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
-import { dividerClasses, Switch } from "@mui/material";
 
 const useStyles = makeStyles({
   value: {
@@ -79,7 +78,7 @@ const ProgressBar = (props) => {
                     : "2px solid #333"
                 }`,
                 borderRight: `${
-                  props.max < props.min && item.value == 0
+                  props.max < props.min && item.value === 0
                     ? "none"
                     : "2px solid #333"
                 }`,
