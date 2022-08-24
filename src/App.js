@@ -23,6 +23,7 @@ import ClientsBar from "./components/ClientsBar";
 import ClientCard from "./components/ClientCard";
 import Google from "./components/Google";
 import BarChart from "./components/BarChart";
+import TypeProgress from "./components/TypeProgress";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -67,6 +68,47 @@ function MyApp() {
           user: "Jenny Thompson",
           company: "Employer",
           currentPrice: "39.49",
+        }}
+      />
+      Frame20
+      <TypeProgress
+        {...{
+          id: "Placeholder",
+          type: "Type1",
+          date: "2019-11-3",
+          amount: 6728,
+          period: "Selection #1",
+          dropdown: "None",
+          data: {
+            min: 0,
+            max: 100,
+            status: [
+              {
+                pattern: 0,
+                value: 0,
+                label: "Dim1",
+              },
+              {
+                pattern: 2,
+                value: 48,
+                label: "Dim2",
+              },
+              {
+                pattern: 5,
+                value: 67,
+              },
+              {
+                pattern: 3,
+                value: 68,
+                label: "Dim3",
+              },
+              {
+                pattern: 4,
+                value: 90,
+                label: "Dim4",
+              },
+            ],
+          },
         }}
       />
       Frame21

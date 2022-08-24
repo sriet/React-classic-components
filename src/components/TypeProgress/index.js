@@ -40,7 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ISOProgress = (props) => {
+const TypeProgress = (props) => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment(props.expiryDate).format("MM/DD/YY")
   );
@@ -56,7 +56,7 @@ const ISOProgress = (props) => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={7.5}>
+              <Grid item xs={6} md={8}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>ID</PriceLabel>
@@ -66,7 +66,7 @@ const ISOProgress = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4} md={1.5}>
+              <Grid item xs={3} md={2}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Type</PriceLabel>
@@ -77,29 +77,14 @@ const ISOProgress = (props) => {
                       IconComponent={SelectIcon}
                       defaultValue={props.type}
                     >
-                      <option>ISO</option>
-                      <option>ISOa</option>
-                      <option>ISOb</option>
+                      <option>Type1</option>
+                      <option>Type2</option>
+                      <option>Type3</option>
                     </StockSelect>
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Price</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockInput
-                      startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                      }
-                      defaultValue={props.price}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={4} md={1.5}>
+              <Grid item xs={3} md={2}>
                 <Grid container>
                   <Grid item xs={12}>
                     <PriceLabel>Date</PriceLabel>
@@ -127,7 +112,7 @@ const ISOProgress = (props) => {
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={7} md={4.8}>
+              <Grid item xs={5} md={7}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Amount</PriceLabel>
@@ -139,45 +124,25 @@ const ISOProgress = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={5} md={1.5}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <PriceLabel>Expiry Date</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12} className={`${classes.relative} ${classes.mt10} `}>
-                    <StockInput
-                      type="date"
-                      onChange={(e) =>
-                        setExpiryDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
-                    />
-                    <StockInput
-                      type="text"
-                      className={classes.dateStyle}
-                      value={expiryDate}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.5}>
+              <Grid item xs={4} md={3}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel>Duration</PriceLabel>
+                    <PriceLabel>Period</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.duration}
+                      defaultValue={props.period}
                     >
-                      <option>123</option>
-                      <option>124</option>
-                      <option>125</option>
+                      <option>Selection #1</option>
+                      <option>Selection #2</option>
+                      <option>Selection #3</option>
                     </StockSelect>
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={3} md={1.5}>
+              <Grid item xs={3} md={2}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Dropdown</PriceLabel>
@@ -188,43 +153,7 @@ const ISOProgress = (props) => {
                       IconComponent={SelectIcon}
                       defaultValue={props.dropdown}
                     >
-                      <option>Type 1</option>
-                      <option>Type 2</option>
-                      <option>Type 3</option>
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.2}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Yes/No</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      defaultValue={props.yn}
-                    >
-                      <option>Yes</option>
-                      <option>No</option>
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dropdown #2</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      defaultValue={props.dropdown2}
-                    >
-                      <option>Yes</option>
-                      <option>No</option>
+                      <option>None</option>
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -257,9 +186,9 @@ const ISOProgress = (props) => {
   );
 };
 
-ISOProgress.propTypes = {
+TypeProgress.propTypes = {
   children: PropTypes.any,
   id: PropTypes.string,
 };
 
-export default ISOProgress;
+export default TypeProgress;
