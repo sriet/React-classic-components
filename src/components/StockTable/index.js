@@ -27,6 +27,10 @@ const CompletedTableRow = styled(TableRow)(({ theme }) => ({
 
 const StockTable = ( props ) => {
 
+    const getSumByKey = (arr, key) => {
+        return arr.reduce((accumulator, current) => accumulator + Number(current[key]), 0)
+    }
+
     return (
         <Container>
         <BoxPanel width='50%' sx={{border:0}}>
@@ -63,7 +67,9 @@ const StockTable = ( props ) => {
                         <Grid item xs={12}>
                             <Grid container px={2}>
                                 <Typography fontSize='14px' sx={{ flexGrow:1 }} ><b>Total</b></Typography>
-                                <Typography fontSize='14px' width='50%' align="right"><b>$28,452</b></Typography>
+                                <Typography fontSize='14px' width='50%' align="right">
+                                    <b>{getSumByKey(props.table, 'TasksDone').toLocaleString('en-US')}</b>
+                                </Typography>
                             </Grid>
                         </Grid>
                     </Grid>
