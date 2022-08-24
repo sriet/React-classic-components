@@ -16,7 +16,7 @@ import {
   PriceValue,
 } from "../commons/styledComponents";
 
-const Last = () => {
+const Last = ( props ) => {
 
   return (
     <Container>
@@ -28,38 +28,19 @@ const Last = () => {
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={'auto'} md={4}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dimention 1</PriceLabel>
-                  </Grid>
-                  <Grid container sx={{alignItems:'center'}} item xs={12}>
-                    <PriceValue pr='5.5px'>$7,500</PriceValue>
-                    <InfoCircleIcon />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={'auto'} md={4}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dimention 2</PriceLabel>
-                  </Grid>
-                  <Grid container sx={{alignItems:'center'}} item xs={12}>
-                    <PriceValue pr='5.5px' sx={{color:'#EB5757'}}>-$3,225</PriceValue>
-                    <InfoCircleIcon />
+              {props.dimentions.map((list, index)=>(
+                <Grid item xs={'auto'} md={4} key={index}>
+                  <Grid container spacing="4px">
+                    <Grid item xs={12}>
+                      <PriceLabel>Dimention { index + 1 }</PriceLabel>
+                    </Grid>
+                    <Grid container sx={{alignItems:'center'}} item xs={12}>
+                      <PriceValue pr='5.5px' sx={{color:(list<0 && '#EB5757')}}>{((list<0 && '-')||'')+`$`+Math.abs(list)}</PriceValue>
+                      <InfoCircleIcon />
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-              <Grid item xs={'auto'} md={4}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dimention 3</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>$4,275</PriceValue>
-                  </Grid>
-                </Grid>
-              </Grid>
+              ))}
             </Grid>
           </Grid>
 

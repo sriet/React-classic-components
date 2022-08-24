@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AddPlan = () => {
+const AddPlan = ( props ) => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
   );
@@ -60,7 +60,7 @@ const AddPlan = () => {
                     <PriceLabel>ID</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput placeholder="Placeholder" />
+                    <StockInput defaultValue={props.id} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -73,6 +73,7 @@ const AddPlan = () => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
+                      defaultValue={props.type}
                     >
                       <option>ISO</option>
                       <option>ISOa</option>
@@ -91,6 +92,7 @@ const AddPlan = () => {
                       startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                       }
+                      defaultValue={props.price}
                     />
                   </Grid>
                 </Grid>
@@ -103,7 +105,7 @@ const AddPlan = () => {
                   <Grid item xs={12} className={classes.relative}>
                     <StockInput
                       type="date"
-                      value={date}
+                      // value={date}
                       onChange={(e) =>
                         setDate(moment(e.target.value).format("MM/DD/YY"))
                       }
@@ -111,7 +113,8 @@ const AddPlan = () => {
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={date}
+                      // value={date}
+                      defaultValue={props.date}
                     />
                   </Grid>
                 </Grid>

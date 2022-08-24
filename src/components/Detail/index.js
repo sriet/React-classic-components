@@ -11,7 +11,7 @@ import {
   StockSelect,
 } from "../commons/styledComponents";
 
-const Detail = () => {
+const Detail = ( props ) => {
   return (
     <Container>
       <GrayBoxPanel>
@@ -29,7 +29,7 @@ const Detail = () => {
                     <PriceLabel>Instance Name</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput placeholder="Employer" />
+                    <StockInput defaultValue={props.instanceName} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -42,6 +42,7 @@ const Detail = () => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
+                      defaultValue={props.user}
                     >
                       <option>Jenny Thompson</option>
                       <option>Jenny</option>
@@ -59,6 +60,7 @@ const Detail = () => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
+                      defaultValue={props.company}
                     >
                       <option>Employer</option>
                       <option>Jenny</option>
@@ -77,6 +79,7 @@ const Detail = () => {
                       startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                       }
+                      defaultValue={props.currentPrice}
                     />
                   </Grid>
                 </Grid>

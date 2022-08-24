@@ -8,7 +8,7 @@ import {
   Stack,
 } from "@mui/material";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { InfoCircleIcon, AlertSquareIcon } from "../commons/icon/multipleIcons";
+import { AlertSquareIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
   TypoItem,
@@ -16,7 +16,7 @@ import {
   PriceValue,
 } from "../commons/styledComponents";
 
-const Google = () => {
+const Google = ( props ) => {
 
   return (
     <Container>
@@ -24,49 +24,25 @@ const Google = () => {
         <Grid container spacing={3}>
           <Grid container item xs={12}>
             <TypoItem sx={{flexGrow:1}} variant="subtitle2">Google</TypoItem>
-            <img src="Google.png"></img>
+            <img src="Google.png" alt=""></img>
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={'auto'} md={4}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dim 1</PriceLabel>
-                  </Grid>
-                  <Grid container sx={{alignItems:'center'}} item xs={12}>
-                    <PriceValue>$12,138</PriceValue>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceLabel>Subtitle $281,394</PriceLabel>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={'auto'} md={4}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dim 2</PriceLabel>
-                  </Grid>
-                  <Grid container sx={{alignItems:'center'}} item xs={12}>
-                    <PriceValue>0</PriceValue>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceLabel>Subtitle $18,293</PriceLabel>
+              {props.dims.map((item, index)=>(
+                <Grid item xs={'auto'} md={4} key={index}>
+                  <Grid container spacing="4px">
+                    <Grid item xs={12}>
+                      <PriceLabel>Dim {index+1}</PriceLabel>
+                    </Grid>
+                    <Grid container sx={{alignItems:'center'}} item xs={12}>
+                      <PriceValue>{item.dim}</PriceValue>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <PriceLabel>Subtitle ${item.subTitle}</PriceLabel>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-              <Grid item xs={'auto'} md={4}>
-                <Grid container spacing="4px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dim 3</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceValue>0</PriceValue>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <PriceLabel>Subtitle $0</PriceLabel>
-                  </Grid>
-                </Grid>
-              </Grid>
+              ))}
             </Grid>
           </Grid>
 

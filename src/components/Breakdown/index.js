@@ -36,54 +36,7 @@ const BreakdownTable = styled(Table)(({ theme }) => ({
   },
 }));
 
-const Breakdown = () => {
-
-    const breakdownTableData =[
-        {
-            Type:'Item1',
-            Column1:'$16,823',
-            Column2:'$34,411',
-            Column3:'19.12%'
-        },
-        {
-            Type:'Item2',
-            Column1:'$822',
-            Column2:'$1,164',
-            Column3:'0.62%'
-        },
-        {
-            Type:'Item3',
-            Column1:'$7,928',
-            Column2:'$9,780',
-            Column3:'5.45%'
-        },
-        {
-            Type:'Item4',
-            Column1:'$4,281',
-            Column2:'$13,284',
-            Column3:'7.38%'
-        },
-        {
-            Type:'Item5',
-            Column1:'$281',
-            Column2:'$802',
-            Column3:'1.48%'
-        },
-    ]
-    const breakdown2TableData =[
-        {
-            Type:'Item1',
-            Column1:'$00,000',
-            Column2:'$00,000',
-            Column3:'00.00%'
-        },
-        {
-            Type:'Item2',
-            Column1:'$000',
-            Column2:'$000',
-            Column3:'00.00%'
-        },
-    ]
+const Breakdown = ( props ) => {
 
     return (
         <Container>
@@ -127,7 +80,7 @@ const Breakdown = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {breakdownTableData.map((row, index) => (
+                            {props.breakdown.map((row, index) => (
                                 <TableRow key={index}>
                                     <TableCell component="th" scope="row">{row.Type}</TableCell>
                                     <TableCell>{row.Column1}</TableCell>
@@ -162,7 +115,7 @@ const Breakdown = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {breakdown2TableData.map((row, index) => (
+                            {props.breakdown2.map((row, index) => (
                                 <TableRow key={index}>
                                     <TableCell component="th" scope="row">{row.Type}</TableCell>
                                     <TableCell></TableCell>

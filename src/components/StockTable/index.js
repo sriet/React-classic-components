@@ -25,82 +25,7 @@ const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
-const StockTable = () => {
-
-    const tableData =[
-        {
-            Id:'1',
-            Date:'10/15/2021',
-            Completed:1,
-            TasksDone:420
-        },
-        {
-            Id:'2',
-            Date:'1/15/2021',
-            Completed:1,
-            TasksDone:420
-        },
-        {
-            Id:'3',
-            Date:'4/15/2021',
-            Completed:1,
-            TasksDone:420
-        },
-        {
-            Id:'4',
-            Date:'7/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'5',
-            Date:'10/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'6',
-            Date:'1/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'7',
-            Date:'4/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'8',
-            Date:'7/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'9',
-            Date:'10/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'10',
-            Date:'1/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'11',
-            Date:'4/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-        {
-            Id:'12',
-            Date:'7/15/2021',
-            Completed:0,
-            TasksDone:420
-        },
-    ]
+const StockTable = ( props ) => {
 
     return (
         <Container>
@@ -118,7 +43,7 @@ const StockTable = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody sx={{ 'td, th': { border: 0 } }}>
-                                {tableData.map((row, index) => (
+                                {props.table.map((row, index) => (
                                     (row.Completed===1 && 
                                     <CompletedTableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
