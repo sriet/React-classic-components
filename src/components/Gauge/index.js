@@ -32,7 +32,7 @@ const Gauge = () => {
         <StrokeGauge
           max={max}
           min={min}
-          value={strokeValue}
+          strokeValue={strokeValue}
           width={width}
           height={height}
         />
@@ -47,7 +47,7 @@ const Gauge = () => {
         <StrokeGauge
           max={max}
           min={min}
-          value={75}
+          strokeValue={75}
           width={width}
           height={height}
         />

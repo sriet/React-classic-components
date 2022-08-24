@@ -47,9 +47,9 @@ function MyApp() {
           )}
         </IconButton>
       </div>
-      {/* <StockPlan /> */}
+      <StockPlan />
       Frame24
-      <AddPlan />
+      <AddPlan id={"5454#$SYfger"} />
       Frame25
       <Detail />
       Frame23

@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AddPlan = () => {
+const AddPlan = (props) => {
   const [expiryDate, setExpiryDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
   );
@@ -60,7 +60,7 @@ const AddPlan = () => {
                     <PriceLabel>ID</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput placeholder="Placeholder" />
+                    <StockInput placeholder="Placeholder" value={props.id} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -253,6 +253,7 @@ const AddPlan = () => {
 
 AddPlan.propTypes = {
   children: PropTypes.any,
+  id: PropTypes.string,
 };
 
 export default AddPlan;

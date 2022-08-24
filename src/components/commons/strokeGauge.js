@@ -1,73 +1,89 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { makeStyles } from "@mui/styles";
 
-const StrokeGauge = ({ max, min, value, width, height }) => {
-  const circle = 120 - 81 * (value / (max - min));
+const useStyles = makeStyles({
+  guage: {
+    // height: "100vh",
+  },
+  symbol: {
+    overflow: "visible",
+  },
+  area: {
+    fill: "none",
+    strokeWidth: "15",
+  },
+  stroke: {
+    fill: "none",
+    stroke: "#333",
+    strokeWidth: "2",
+    strokeLinejoin: "round",
+  },
+});
+
+const StrokeGauge = ({ max, min, width, height, strokeValue }) => {
+  const classes = useStyles();
 
   return (
     <svg
+      viewBox="-60 -60 120 120"
+      className={classes.guage}
       width={width}
       height={height}
-      viewBox="0 0 60 54"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="33%" y="40%" width="4" height="4" fill="#333" />
+      <symbol className={classes.symbol} id="limit">
+        <path d="M 0,41 V 54" />
+      </symbol>
+      {/* data areas in reverse order  */}
+      <path
+        id="area-1"
+        stroke="#333"
+        strokeDasharray={`calc(${strokeValue / (max - min)} * 100px) 100px`}
+        className={classes.area}
+        d="M -33.588,33.587 A 47.5,47.5 0 1 1 33.588,33.588"
+        pathLength="100"
+      />
+      <rect x="-15%" y="-10%" width="10" height="10" fill="#333" />
       <foreignObject
         className="gauge-font"
-        x="42%"
-        y="28.7%"
+        x="-3%"
+        y="-22.5%"
         width="260px"
         height="100px"
       >
         <p>1</p>
       </foreignObject>
       <rect
-        x="33.8%"
-        y="52.7%"
-        width="3.5"
-        height="3.5"
+        x="-14%"
+        y="5%"
+        width="8"
+        height="8"
         fill="white"
-        stroke="#333333"
-        strokeWidth="0.7"
+        stroke="#333"
+        strokeWidth="2"
       />
       <foreignObject
         className="gauge-font"
-        x="42.5%"
-        y="40.7%"
+        x="-3%"
+        y="-8.5%"
         width="260px"
         height="100px"
       >
         <p>2</p>
       </foreignObject>
-
-      <g filter="url(#filter0_d_711_531)">
-        <circle cx="29.7727" cy="30.2273" r="19" className="circle-back" />
+      <g className={classes.stroke}>
+        {/* static outer border  */}
+        <path d="M -38.184,38.184 A 54,54 0 1 1 38.184,38.184 L 28.991,28.991 A 41,41 0 1 0 -28.991,28.991 Z" />
+        {/* bisecting data lines, cited from a template  */}
+        <use
+          href="#limit"
+          style={{
+            transform: `rotate(calc(45deg + ${
+              strokeValue / (max - min)
+            } * 270deg))`,
+          }}
+        />
       </g>
-      <circle
-        cx="29.7727"
-        cy="30.2273"
-        r="19"
-        className="circle-front"
-        strokeDashoffset={circle}
-      />
-      <defs>
-        <filter id="filter0_d_711_531">
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 0"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="0.3" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0"
-          />
-        </filter>
-      </defs>
     </svg>
   );
 };
@@ -75,7 +91,8 @@ const StrokeGauge = ({ max, min, value, width, height }) => {
 StrokeGauge.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
-  value: PropTypes.number,
+  strokeValue: PropTypes.number,
+  obliqueValue: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,
 };
