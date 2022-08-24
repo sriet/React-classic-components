@@ -38,6 +38,10 @@ const BreakdownTable = styled(Table)(({ theme }) => ({
 
 const Breakdown = ( props ) => {
 
+    const getSumByKey = (arr, key) => {
+        return arr.reduce((accumulator, current) => accumulator + Number(current[key]), 0)
+    }
+
     return (
         <Container>
         <BoxPanel>
@@ -83,8 +87,8 @@ const Breakdown = ( props ) => {
                             {props.breakdown.map((row, index) => (
                                 <TableRow key={index}>
                                     <TableCell component="th" scope="row">{row.Type}</TableCell>
-                                    <TableCell>{row.Column1}</TableCell>
-                                    <TableCell>{row.Column2}</TableCell>
+                                    <TableCell>${row.Column1.toLocaleString('en-US')}</TableCell>
+                                    <TableCell>${row.Column2.toLocaleString('en-US')}</TableCell>
                                     <TableCell>{row.Column3}</TableCell>
                                 </TableRow>
                             ))}
@@ -92,8 +96,16 @@ const Breakdown = ( props ) => {
                         <TableFooter>
                             <TableRow >
                                 <TableCell></TableCell>
-                                <TableCell><Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>$33,259</Box></TableCell>
-                                <TableCell><Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>$61,513</Box></TableCell>
+                                <TableCell>
+                                    <Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>
+                                        ${getSumByKey(props.breakdown, 'Column1').toLocaleString('en-US')}
+                                    </Box>
+                                </TableCell>
+                                <TableCell>
+                                    <Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>
+                                        ${getSumByKey(props.breakdown, 'Column2').toLocaleString('en-US')}
+                                    </Box>
+                                </TableCell>
                                 <TableCell></TableCell>
                             </TableRow>
                         </TableFooter>
@@ -119,7 +131,7 @@ const Breakdown = ( props ) => {
                                 <TableRow key={index}>
                                     <TableCell component="th" scope="row">{row.Type}</TableCell>
                                     <TableCell></TableCell>
-                                    <TableCell>{row.Column2}</TableCell>
+                                    <TableCell>${row.Column2.toLocaleString('en-US')}</TableCell>
                                     <TableCell>{row.Column3}</TableCell>
                                 </TableRow>
                             ))}
@@ -128,7 +140,11 @@ const Breakdown = ( props ) => {
                             <TableRow >
                                 <TableCell></TableCell>
                                 <TableCell></TableCell>
-                                <TableCell><Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>$23,323</Box></TableCell>
+                                <TableCell>
+                                    <Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>
+                                        ${getSumByKey(props.breakdown2, 'Column2').toLocaleString('en-US')}
+                                    </Box>
+                                </TableCell>
                                 <TableCell></TableCell>
                             </TableRow>
                         </TableFooter>

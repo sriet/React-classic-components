@@ -60,6 +60,9 @@ const Sale = ( props ) => {
   const [date, setDate] = React.useState(
     moment("2020-10-12").format("MM/DD/YY")
   );
+  const getSumByKey = (arr, key) => {
+    return arr.reduce((accumulator, current) => accumulator + Number(current[key]), 0)
+  }
 
   return (
     <Container>
@@ -217,7 +220,7 @@ const Sale = ( props ) => {
                                 <TableCell align="right">
                                     <StockTableInput defaultValue={row.amount} />
                                 </TableCell>
-                                <TableCell align="right">${row.value}</TableCell>
+                                <TableCell align="right">${row.value.toLocaleString('en-US')}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
@@ -228,7 +231,7 @@ const Sale = ( props ) => {
                     <b>Total</b>
                   </Typography>
                   <Typography fontSize="14px" width="50%" align="right">
-                    <b>${props.table.length}</b>
+                    <b>${getSumByKey(props.table, 'value').toLocaleString('en-US')}</b>
                   </Typography>
                 </Grid>
               </Grid>
@@ -245,7 +248,7 @@ const Sale = ( props ) => {
                         <PriceLabel>Summary {index + 1}</PriceLabel>
                     </Grid>
                     <Grid item xs={12}>
-                        <PriceValue>${item}</PriceValue>
+                        <PriceValue>${item.toLocaleString('en-US')}</PriceValue>
                     </Grid>
                     </Grid>
                 </Grid>
