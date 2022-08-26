@@ -27,6 +27,12 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 function MyApp() {
   const colorMode = React.useContext(ColorModeContext);
 
+  const [ data, setData] = React.useState({})
+
+  React.useEffect(()=>{
+    console.log('123123', data);
+  },[data])
+
   const AddPlanProps = {
     id: "Placeholder",
     type: { default: "ISOa", options: ["ISO", "ISOa", "ISOb"] },
@@ -34,10 +40,18 @@ function MyApp() {
     date: "2019-10-15",
     amount1: 6728,
     expiryDate: "2019-10-15",
+<<<<<<< HEAD
     duration: { default: "48mo", options: ["48mo", "60mo", "72mo"] },
     amount2: { default: "12mo", options: ["12mo", "60mo", "72mo"] },
     yn: { default: "No", options: ["Yes", "No"] },
     extended: { default: "No", options: ["Yes", "No"] },
+=======
+    duration: {default:"48mo", options:['48mo', '60mo', '72mo']},
+    amount2: {default:"12mo", options:['12mo', '60mo', '72mo']},
+    yn: {default:"No", options:['Yes', 'No']},
+    extended: {default:"No", options:['Yes', 'No']},
+    saveBtn:(newData)=>{ setData(newData); },
+>>>>>>> 3e05ba108fb7a36a11a1e01d226c81e14db7494d
   };
   const DetailProps = {
     instanceName: "Employer",
@@ -340,7 +354,7 @@ function MyApp() {
       Frame27
       <BarChart {...BarChartProps} />
       Frame24
-      <AddPlan {...AddPlanProps} />
+      <AddPlan {...AddPlanProps } />
       Frame25
       <Detail {...DetailProps} />
       Frame20
