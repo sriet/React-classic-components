@@ -9,11 +9,13 @@ import {
   Link,
   OutlinedInput,
   Box,
+  TextField,
 } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
+  NumberFormatCustom,
   PriceLabel,
   StockInput,
   StockSelect,
@@ -37,15 +39,35 @@ const useStyles = makeStyles({
     transform: "translate(-50%, -50%)",
     "& fieldset": { border: "1px solid transparent" },
   },
+  numberInput: {
+    width:'100%',
+    "& input": { padding:'6px 8px' },
+  },
 });
 
 const TypeProgress = (props) => {
   
+  const classes = useStyles();
   const [date, setDate] = React.useState(
     moment(props.date).format("MM/DD/YY")
   );
 
-  const classes = useStyles();
+  //Values States
+  const [values, setValues] = React.useState({
+    id: props.id,
+    type: props.type.default,
+    amount: props.amount,
+    period: props.period.default,
+    dropdown: props.dropdown.default,
+  });
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+    console.log('pppp', values)
+  };
 
   return (
     <Container>
@@ -59,7 +81,11 @@ const TypeProgress = (props) => {
                     <PriceLabel>ID</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput defaultValue={props.id} />
+                    <StockInput 
+                      value={values.id}
+                      name='id'
+                      onChange={handleChange}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
@@ -72,11 +98,13 @@ const TypeProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.type}
+                      value={values.type}
+                      name='type'
+                      onChange={handleChange}
                     >
-                      <option>Type1</option>
-                      <option>Type2</option>
-                      <option>Type3</option>
+                      {props.type.options.map((item, index)=>(
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -115,9 +143,15 @@ const TypeProgress = (props) => {
                     <PriceLabel>Amount</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput type="number" 
-                      defaultValue={props.amount}
-                    />
+                    <TextField 
+                    className={classes.numberInput}
+                    variant="outlined" 
+                    value={values.amount}
+                    onChange={handleChange}
+                    name="amount"
+                    InputProps={{
+                      inputComponent: NumberFormatCustom,
+                    }} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -130,11 +164,13 @@ const TypeProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.period}
+                      value={values.period}
+                      name='period'
+                      onChange={handleChange}
                     >
-                      <option>Selection #1</option>
-                      <option>Selection #2</option>
-                      <option>Selection #3</option>
+                    {props.period.options.map((item, index)=>(
+                      <option key={index}>{item}</option>
+                    ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -148,33 +184,32 @@ const TypeProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.dropdown}
+                      value={values.dropdown}
+                      name='dropdown'
+                      onChange={handleChange}
                     >
-                      <option>None</option>
+                    {props.dropdown.options.map((item, index)=>(
+                      <option key={index}>{item}</option>
+                    ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <Divider sx={{ mt: "16px" }} />
+          </Grid>
+          <Grid item xs={12}>
+              <Divider />
           </Grid>
           <Grid item xs={12}>
             <ProgressBar {...props.data} />
-            </Grid>
+          </Grid>
           <Grid item xs={12}>
             <Grid container pt="16px">
               <Box  flexGrow='1'></Box>
-              <Link
-                sx={{
-                  color: "gray",
-                  cursor: "pointer",
-                  pr: "16px",
-                  textDecorationColor: "gray",
-                }}
-              >
+              <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
                 Cancel
               </Link>
-              <Link sx={{ cursor: "pointer" }}>Save</Link>
+              <Link className="cursor">Save</Link>
             </Grid>
           </Grid>
         </Grid>

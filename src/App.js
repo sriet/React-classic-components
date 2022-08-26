@@ -90,11 +90,11 @@ function MyApp() {
   };
   const TypeProgressProps = {
     id: "Placeholder",
-    type: "Type1",
+    type: {default:"Type1", options:['Type1', 'Type2', 'Type3']},
     date: "2019-11-3",
-    amount: 6728,
-    period: "Selection #1",
-    dropdown: "None",
+    amount: 10000,
+    period: {default:"Selection #1", options:["Selection #1", "Selection #2", "Selection #3"]},
+    dropdown: {default:"None", options:["None"]},
     data: {
       min: 0,
       max: 100,
