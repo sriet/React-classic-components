@@ -46,39 +46,8 @@ const useStyles = makeStyles({
 
 
 const AddPlan = (props) => {
-  
+
   const classes = useStyles();
-
-  //Values States
-  const [values, setValues] = React.useState({
-    id: props.id,
-    type: props.type.default,
-    price: props.price,
-    duration: props.duration.default,
-    amount2: props.amount2.default,
-    yn: props.yn.default,
-    extended: props.extended.default,
-    amount1: props.amount1,
-    date:moment(props.date).format("MM/DD/YY"),
-    expiryDate:moment(props.expiryDate).format("MM/DD/YY"),
-  });
-
-  const handleChange = (event) => {
-    console.log('werwer',event.target.name)
-    if (event.target.name==='date' || event.target.name==='expiryDate') {
-      setValues({
-        ...values,
-        [event.target.name]: moment(event.target.value).format("MM/DD/YY"),
-      });
-    }
-    else
-      setValues({
-        ...values,
-        [event.target.name]: event.target.value,
-      });
-    // console.log('pppp', values)
-  };
-
 
   return (
     <Container>
@@ -93,9 +62,9 @@ const AddPlan = (props) => {
                   </Grid>
                   <Grid item xs={12}>
                     <StockInput 
-                      value={values.id}
-                      name='id'
-                      onChange={handleChange}
+                      value={props.planId.value}
+                      name='planId'
+                      onChange={props.handleChange}
                     />
                   </Grid>
                 </Grid>
@@ -109,9 +78,9 @@ const AddPlan = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.type}
+                      value={props.type.value}
                       name='type'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                       {props.type.options.map((item, index)=>(
                         <option key={index}>{item}</option>
@@ -129,8 +98,8 @@ const AddPlan = (props) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.price}
-                    onChange={handleChange}
+                    value={props.price.value}
+                    onChange={props.handleChange}
                     name="price"
                     InputProps={{
                       inputComponent: PriceNumberFormatCustom,
@@ -151,12 +120,12 @@ const AddPlan = (props) => {
                     <StockInput
                       type="date"
                       name="date"
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={values.date}
+                      value={moment(props.date.value).format('MM/DD/YY')}
                     />
                   </Grid>
                 </Grid>
@@ -174,8 +143,8 @@ const AddPlan = (props) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.amount1}
-                    onChange={handleChange}
+                    value={props.amount1.value}
+                    onChange={props.handleChange}
                     name="amount1"
                     InputProps={{
                       inputComponent: NumberFormatCustom,
@@ -196,12 +165,12 @@ const AddPlan = (props) => {
                     <StockInput
                       type="date"
                       name="expiryDate"
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={values.expiryDate}
+                      value={moment(props.expiryDate.value).format('MM/DD/YY')}
                     />
                   </Grid>
                 </Grid>
@@ -215,9 +184,9 @@ const AddPlan = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.duration}
+                      value={props.duration.value}
                       name='duration'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                       {props.duration.options.map((item, index)=>(
                         <option key={index}>{item}</option>
@@ -235,9 +204,9 @@ const AddPlan = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.amount2}
+                      value={props.amount2.value}
                       name='amount2'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.amount2.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -255,9 +224,9 @@ const AddPlan = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.yn}
+                      value={props.yn.value}
                       name='yn'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.yn.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -275,9 +244,9 @@ const AddPlan = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.extented}
+                      value={props.extended.value}
                       name='extended'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.extended.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -300,9 +269,7 @@ const AddPlan = (props) => {
                 Cancel
               </Link>
               <Link className="cursor" 
-                onClick={() => { 
-                  props.saveBtn(values);
-                }}>Save</Link>
+                onClick={() => props.onSave()}>Save</Link>
             </Grid>
           </Grid>
         </Grid>

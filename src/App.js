@@ -4,6 +4,7 @@ import * as React from "react";
 import "@fontsource/inter";
 import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import moment from "moment";
 
 import AddPlan from "./components/AddPlan";
 import ISOProgress from "./components/ISOProgress";
@@ -27,25 +28,39 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 function MyApp() {
   const colorMode = React.useContext(ColorModeContext);
 
-  const [ data, setData] = React.useState({})
 
-  React.useEffect(()=>{
-    console.log('123123', data);
-  },[data])
-
-  const AddPlanProps = {
-    id: "Placeholder",
-    type: {default:"ISOa", options:['ISO', 'ISOa', 'ISOb']},
-    price: 10.65,
-    date: "2019-10-15",
-    amount1: 6728,
-    expiryDate: "2019-10-15",
-    duration: {default:"48mo", options:['48mo', '60mo', '72mo']},
-    amount2: {default:"12mo", options:['12mo', '60mo', '72mo']},
-    yn: {default:"No", options:['Yes', 'No']},
-    extended: {default:"No", options:['Yes', 'No']},
-    saveBtn:(newData)=>{ setData(newData); },
+  const handleChange = (event) => {
+    const temp = AddPlanProps
+    if (event.target.name==='date' || event.target.name==='expiryDate') {
+      temp[event.target.name].value = moment(event.target.value).format('MM/DD/YY')
+      setAddPlanProps({...temp});
+    }
+    else{
+      temp[event.target.name].value = event.target.value
+      setAddPlanProps({...temp});
+    }
   };
+
+  //Frame 24 PropsData && GetData
+  const addPlanSave = () => {
+    console.log( '----------',AddPlanProps)
+  }
+  const [AddPlanProps, setAddPlanProps] = React.useState({
+    planId: {value: "Placeholder"},
+    type: {value:"ISOa", options:['ISO', 'ISOa', 'ISOb']},
+    price: {value:10.65},
+    date: {value:"2019-10-15"},
+    amount1: {value:6728},
+    expiryDate: {value:"2019-10-15"},
+    duration: {value:"48mo", options:['48mo', '60mo', '72mo']},
+    amount2: {value:"12mo", options:['12mo', '60mo', '72mo']},
+    yn: {value:"No", options:['Yes', 'No']},
+    extended: {value:"No", options:['Yes', 'No']},
+    handleChange: handleChange,
+    onSave: addPlanSave
+  });
+
+
   const DetailProps = {
     instanceName: "Employer",
     user: {default:"Jenny Thompson", options:['Jenny Thompson', 'Jenny', 'Benny']},
@@ -336,7 +351,7 @@ function MyApp() {
       Frame27
       <BarChart {...BarChartProps} />
       Frame24
-      <AddPlan {...AddPlanProps } />
+      <AddPlan {...AddPlanProps}  />
       Frame25
       <Detail {...DetailProps} />
       Frame20

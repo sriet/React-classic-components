@@ -209,7 +209,10 @@ const TypeProgress = (props) => {
               <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
                 Cancel
               </Link>
-              <Link className="cursor">Save</Link>
+              <Link className="cursor" 
+                onClick={() => { 
+                  props.saveBtn(values);
+                }}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
