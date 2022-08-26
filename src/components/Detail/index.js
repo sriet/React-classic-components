@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Container, Grid, OutlinedInput, InputAdornment } from "@mui/material";
+import { Container, Grid, OutlinedInput, InputAdornment, TextField } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
@@ -9,10 +9,22 @@ import {
   PriceLabel,
   StockInput,
   StockSelect,
+  PriceNumberFormatCustom,
 } from "../commons/styledComponents";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  numberInput: {
+    backgroundColor: '#fff',
+    borderRadius:'4px',
+    width:'100%',
+    "& input": { padding:'6px 8px' },
+  },
+});
 
 const Detail = ( props ) => {
 
+  const classes = useStyles();
   //Values States
   const [values, setValues] = React.useState({
     instanceName: props.instanceName,
@@ -101,15 +113,15 @@ const Detail = ( props ) => {
                     <PriceLabel>Current Price</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput
-                      startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                      }
-                      type='number'
-                      value={values.currentPrice}
-                      name='currentPrice'
-                      onChange={handleChange}
-                    />
+                    <TextField 
+                    className={classes.numberInput}
+                    variant="outlined" 
+                    value={values.currentPrice}
+                    onChange={handleChange}
+                    name="currentPrice"
+                    InputProps={{
+                      inputComponent: PriceNumberFormatCustom,
+                    }} />
                   </Grid>
                 </Grid>
               </Grid>

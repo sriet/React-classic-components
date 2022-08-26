@@ -8,13 +8,13 @@ import {
   Divider,
   Link,
   OutlinedInput,
-  InputAdornment,
   TableCell,
   TableRow,
   TableBody,
   TableHead,
   Table,
   Button,
+  TextField,
 } from "@mui/material";
 import moment from "moment";
 
@@ -27,6 +27,7 @@ import {
   StockTableInput,
   StockInput,
   StockSelect,
+  PriceNumberFormatCustom,
 } from "../commons/styledComponents";
 
 //styles
@@ -47,24 +48,46 @@ const useStyles = makeStyles({
     transform: "translate(-50%, -50%)",
     "& fieldset": { border: "1px solid transparent" },
   },
+  numberInput: {
+    width:'100%',
+    "& input": { padding:'6px 8px' },
+  },
 });
 
 const Sale = (props) => {
+
+  const classes = useStyles();
   const inputTypeRef = React.useRef();
   const [inputType, setInputType] = React.useState("Type2");
   const showRefContent = () => {
     setInputType(inputTypeRef.current.value);
   };
 
-  const classes = useStyles();
   const [date, setDate] = React.useState(
-    moment("2020-10-12").format("MM/DD/YY")
+    moment(props.saleDate).format("MM/DD/YY")
   );
   const getSumByKey = (arr, key) => {
     return arr.reduce(
       (accumulator, current) => accumulator + Number(current[key]),
       0
     );
+  };
+
+  //Values States
+  const [values, setValues] = React.useState({
+    employer: props.employer.default,
+    dropdown: props.dropdown.default,
+    sold: props.sold,
+    sell: props.sell.default,
+    salePrice: props.salePrice,
+  });
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+    console.log('pppp', values)
   };
 
   return (
@@ -85,11 +108,13 @@ const Sale = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.employer}
+                      value={values.employer}
+                      name='employer'
+                      onChange={handleChange}
                     >
-                      <option>Employer</option>
-                      <option>Employer</option>
-                      <option>Employer</option>
+                    {props.employer.options.map((item, index)=>(
+                      <option key={index}>{item}</option>
+                    ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -103,11 +128,13 @@ const Sale = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.dropdown}
+                      value={values.dropdown}
+                      name='dropdown'
+                      onChange={handleChange}
                     >
-                      <option>12345</option>
-                      <option>123456</option>
-                      <option>1234567</option>
+                    {props.dropdown.options.map((item, index)=>(
+                      <option key={index}>{item}</option>
+                    ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -118,25 +145,30 @@ const Sale = (props) => {
                     <PriceLabel>Sold</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput defaultValue={props.sold} />
+                    <StockInput 
+                      value={values.sold}
+                      name='sold'
+                      onChange={handleChange} 
+                    />
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={4} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel>Sale</PriceLabel>
+                    <PriceLabel>Sell</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect
                       IconComponent={SelectIcon}
-                      inputRef={inputTypeRef}
                       input={<OutlinedInput />}
-                      onChange={showRefContent}
-                      defaultValue={props.sale}
+                      value={values.sell}
+                      name='sell'
+                      onChange={handleChange}
                     >
-                      <option>Type2</option>
-                      <option>Start #1</option>
+                    {props.sell.options.map((item, index)=>(
+                      <option key={index}>{item}</option>
+                    ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -147,12 +179,15 @@ const Sale = (props) => {
                     <PriceLabel>Sale Price</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput
-                      startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                      }
-                      defaultValue={props.salePrice}
-                    />
+                    <TextField 
+                    className={classes.numberInput}
+                    variant="outlined" 
+                    value={values.salePrice}
+                    onChange={handleChange}
+                    name="salePrice"
+                    InputProps={{
+                      inputComponent: PriceNumberFormatCustom,
+                    }} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -168,7 +203,6 @@ const Sale = (props) => {
                   >
                     <StockInput
                       type="date"
-                      value={date}
                       onChange={(e) =>
                         setDate(moment(e.target.value).format("MM/DD/YY"))
                       }
@@ -176,17 +210,17 @@ const Sale = (props) => {
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      // value={date}
-                      defaultValue={props.saleDate}
+                      value={date}
                     />
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <Divider sx={{ my: "16px" }} />
           </Grid>
-
-          <Grid item xs={12} display={inputType === "Type2" ? "block" : "none"}>
+          <Grid item xs={12}>
+              <Divider />
+          </Grid>
+          <Grid item xs={12} display={values.sell === "Type 2" ? "block" : "none"}>
             <Grid container spacing={2}>
               <Table sx={{ marginLeft: 2 }}>
                 <TableHead>
@@ -250,9 +284,10 @@ const Sale = (props) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Divider sx={{ my: "16px" }} />
           </Grid>
-
+          <Grid item xs={12} display={values.sell === "Type 2" ? "block" : "none"}>
+              <Divider />
+          </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
               {props.summary.map((item, index) => (
@@ -268,19 +303,13 @@ const Sale = (props) => {
                 </Grid>
               ))}
             </Grid>
-            <Divider sx={{ mt: "16px" }} />
           </Grid>
-
           <Grid item xs={12}>
-            <Grid container pb="12px" sx={{ alignItems: "center" }}>
-              <Link
-                sx={{
-                  flexGrow: 1,
-                  color: "red",
-                  textDecorationColor: "red",
-                  cursor: "pointer",
-                }}
-              >
+              <Divider />
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container pb="12px" className="align-items-end">
+              <Link flexGrow='1' color={'#EB5757'} className="text-decoration-red cursor">
                 Delete Sale
               </Link>
               <Button

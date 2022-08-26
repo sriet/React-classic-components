@@ -47,15 +47,15 @@ function MyApp() {
   };
   const ISOProgressProps = {
     id: "Placeholder",
-    type: "ISO",
-    price: "10.65",
+    type: {default:"ISO", options:['ISO','ISOa', 'ISOb']},
+    price: 10.65,
     date: "2019-10-15",
     amount: 6728,
     expiryDate: "2019-10-15",
-    duration: "123",
-    dropdown: "Type 1",
-    yn: "No",
-    dropdown2: "No",
+    duration: {default:"123", options:['123', '1234', '12345']},
+    dropdown: {default:"Type 1", options:['Type 1', 'Type 2', 'Type 3']},
+    yn: {default:"No", options:['Yes', 'No']},
+    dropdown2: {default:"No", options:['Yes', 'No']},
     data: {
       min: 0,
       max: 100,
@@ -127,11 +127,11 @@ function MyApp() {
     },
   };
   const SaleProps = {
-    employer: "Employer",
-    dropdown: "12345",
+    employer: {default:"Employer", options:['Employer', 'Employer1', 'Employer2']},
+    dropdown: {default:"12345", options:['12345', '1234', '123']},
     sold: "12",
-    sell: "Type 2",
-    salePrice: "2,371",
+    sell: {default:"Type 2", options:['Type 2', 'Start #1']},
+    salePrice: 2371,
     saleDate: "10/15/19",
     table: [
       { id: 1, date: "4/15/2021", total: 8, amount: 8, value: 18968 },

@@ -124,7 +124,28 @@ export const NumberFormatCustom = React.forwardRef(function NumberFormatCustom(p
         }}
         thousandSeparator
         isNumericString
-        // prefix="$"
+      />
+    );
+});
+
+export const PriceNumberFormatCustom = React.forwardRef(function NumberFormatCustom(props, ref) {
+    const { onChange, ...other } = props;
+  
+    return (
+      <NumberFormat
+        {...other}
+        getInputRef={ref}
+        onValueChange={(values) => {
+          onChange({
+            target: {
+              name: props.name,
+              value: values.value,
+            },
+          });
+        }}
+        thousandSeparator
+        isNumericString
+        prefix="$"
       />
     );
 });

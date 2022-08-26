@@ -8,7 +8,6 @@ import {
   Divider,
   Link,
   OutlinedInput,
-  InputAdornment,
   TextField,
 } from "@mui/material";
 import { SelectIcon } from "../commons/icon/multipleIcons";
@@ -16,10 +15,11 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {
   BoxPanel,
   PriceLabel,
+  PriceNumberFormatCustom,
   StockInput,
   StockSelect,
+  NumberFormatCustom,
 } from "../commons/styledComponents";
-import { NumberFormatCustom } from "../commons/styledComponents";
 
 const useStyles = makeStyles({
   mt10: {
@@ -122,14 +122,15 @@ const AddPlan = (props) => {
                     <PriceLabel>Price</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput
-                      startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                      }
-                      value={values.price}
-                      name='price'
-                      onChange={handleChange}
-                    />
+                    <TextField 
+                    className={classes.numberInput}
+                    variant="outlined" 
+                    value={values.price}
+                    onChange={handleChange}
+                    name="price"
+                    InputProps={{
+                      inputComponent: PriceNumberFormatCustom,
+                    }} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -293,8 +294,7 @@ const AddPlan = (props) => {
               <Link flexGrow='1' color={'#EB5757'} className="text-decoration-red cursor">
                 Delete
               </Link>
-              <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor"
-              >
+              <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
                 Cancel
               </Link>
               <Link className="cursor">Save</Link>
