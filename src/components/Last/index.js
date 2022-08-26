@@ -24,7 +24,7 @@ const Last = ( props ) => {
       <BoxPanel width='70%'>
         <Grid container spacing={3}>
           <Grid container item xs={12}>
-            <TypoItem sx={{flexGrow:1}} variant="subtitle2">Last</TypoItem>
+            <TypoItem flexGrow='1' variant="subtitle2">Last</TypoItem>
             <TypoItem variant="subtitle2">Title</TypoItem>
           </Grid>
           <Grid item xs={12}>
@@ -35,9 +35,9 @@ const Last = ( props ) => {
                     <Grid item xs={12}>
                       <PriceLabel>Dimention { index + 1 }</PriceLabel>
                     </Grid>
-                    <Grid container sx={{alignItems:'center'}} item xs={12}>
+                    <Grid container className="align-items-center" item xs={12}>
                       <PriceValue pr='5.5px' sx={{color:(list<0 && '#EB5757')}}>{((list<0 && '-')||'')+`$`+Math.abs(list).toLocaleString('en-US')}</PriceValue>
-                      <InfoOutlinedIcon sx={{ fontSize: 18 }} />
+                      <InfoOutlinedIcon className="font-18" />
                     </Grid>
                   </Grid>
                 </Grid>
@@ -47,23 +47,16 @@ const Last = ( props ) => {
 
           <Grid item xs={12}>
               <Stack direction='row'>
-                <Stack direction='row' sx={{flexGrow:1, alignItems: "center"}}>
-                  <Stack direction='row' spacing='5px' sx={{alignItems: "center"}}>
+                <Stack direction='row' flexGrow='1'>
+                  <Stack direction='row' spacing='5px' className='align-items-center'>
                     <AlertSquareIcon />
                     <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
                       Last updated 48 days ago ·
                     </Typography>
                   </Stack>
                   <Stack direction='row' color='#2F80ED'>
-                    <Link
-                      sx={{
-                        display:'flex',
-                        alignItems:'center',
-                        cursor: "pointer",
-                        textDecorationColor: "#2F80ED",
-                      }}
-                    >
-                      <RefreshOutlinedIcon sx={{fontSize: 16}}/>
+                    <Link className='align-items-center cursor ' >
+                      <RefreshOutlinedIcon className="font-16"/>
                       <Typography fontSize='12px' lineHeight="15px">
                         Add
                       </Typography>
@@ -71,12 +64,7 @@ const Last = ( props ) => {
                   </Stack>
                 </Stack>
                 <Stack >
-                  <Link
-                    sx={{
-                      cursor: "pointer",
-                      textDecorationColor: "#2F80ED",
-                    }}
-                  >
+                  <Link className="cursor" >
                     View All
                   </Link>
                 </Stack>

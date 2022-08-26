@@ -9,7 +9,6 @@ import {
   Divider,
 } from "@mui/material";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { InfoCircleIcon, AlertSquareIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
   TypoItem,
@@ -66,84 +65,6 @@ const useStyles = makeStyles({
 const Employer = ( props ) => {
 
   const classes = useStyles();
-  const progressBarGroup = [
-    {
-      title: "250 1 Job ",
-      value: 376830,
-      data: {
-        min: 0,
-        max: 100,
-
-        status: [
-          {
-            pattern: 0,
-            value: 0,
-            label: "Dim1",
-          },
-          {
-            pattern: 2,
-            value: 45,
-            label: "Dim2",
-          },
-          {
-            pattern: 5,
-            value: 64,
-          },
-          {
-            pattern: 3,
-            value: 65,
-            label: "Dim3",
-          },
-          {
-            pattern: 4,
-            value: 90,
-            label: "Dim4",
-          },
-        ],
-      },
-    },
-    {
-      title: "Job 2",
-      value: 28400,
-      data: {
-        min: 0,
-        max: 100,
-
-        status: [
-          {
-            pattern: 0,
-            value: 0,
-            label: "Dim1",
-          },
-          {
-            pattern: 1,
-            value: 25,
-            label: "Dim2",
-          },
-          {
-            pattern: 2,
-            value: 40,
-            label: "Dim3",
-          },
-          {
-            pattern: 5,
-            value: 64,
-          },
-          {
-            pattern: 3,
-            value: 65,
-            label: "Dim4",
-          },
-          {
-            pattern: 4,
-            value: 90,
-            bg: "blue",
-            label: "Dim5",
-          },
-        ],
-      },
-    },
-  ];
 
   return (
     <Container>
@@ -172,7 +93,7 @@ const Employer = ( props ) => {
           <Grid item xs={12}>
             <Divider />
           </Grid>
-          {progressBarGroup.map((item, index) => (
+          {props.progressBarGroup.map((item, index) => (
             <Grid item xs={12} key={index}>
               <Grid container spacing={2}>
                 <Grid item xs={3} md={3}>

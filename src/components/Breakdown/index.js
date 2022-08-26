@@ -49,21 +49,14 @@ const Breakdown = ( props ) => {
                 <Grid item xs={12}>
                     <Stack direction='row' spacing={2} sx={{alignItems:'center'}}>
                         <TypoItem variant="subtitle2">Breakdown</TypoItem>
-                        <Stack direction='row' sx={{flexGrow:1, pt:'5px'}}>
-                            <Stack direction='row' sx={{ alignItems: "center" }} spacing='5px'>
+                        <Stack direction='row' flexGrow='1' pt='5px'>
+                            <Stack direction='row' spacing='5px'>
                                 <Typography fontSize='12px' lineHeight="14.52px" color="#828282">
                                 Last updated 15 days ago ·
                                 </Typography>
                             </Stack>
-                            <Stack direction='row' color='#828282' sx={{ alignItems: "center" }} >
-                                <Link
-                                sx={{
-                                    color:'#828282',
-                                    display:'flex',
-                                    cursor: "pointer",
-                                    textDecorationColor: "#828282",
-                                }}
-                                >
+                            <Stack direction='row' color='#828282' >
+                                <Link color='#828282' className='cursor text-decoration-gray' display='flex' >
                                     <RefreshOutlinedIcon fontSize="9px" />
                                     <Typography fontSize='12px' lineHeight="15px">
                                         Update
@@ -97,12 +90,12 @@ const Breakdown = ( props ) => {
                             <TableRow >
                                 <TableCell></TableCell>
                                 <TableCell>
-                                    <Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>
+                                    <Box width='60%' pt='16px' borderTop={'1px solid #000'}>
                                         ${getSumByKey(props.breakdown, 'Column1').toLocaleString('en-US')}
                                     </Box>
                                 </TableCell>
                                 <TableCell>
-                                    <Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>
+                                    <Box width='60%' pt='16px' borderTop={'1px solid #000'}>
                                         ${getSumByKey(props.breakdown, 'Column2').toLocaleString('en-US')}
                                     </Box>
                                 </TableCell>
@@ -112,7 +105,7 @@ const Breakdown = ( props ) => {
                     </BreakdownTable>
                 </Grid>
                 <Grid item xs={12}>
-                    <Stack direction='row' spacing={2} sx={{alignItems:'center'}}>
+                    <Stack direction='row' spacing={2}>
                         <TypoItem variant="subtitle2">Breakdown 2</TypoItem>
                     </Stack>
                 </Grid>
@@ -141,7 +134,7 @@ const Breakdown = ( props ) => {
                                 <TableCell></TableCell>
                                 <TableCell></TableCell>
                                 <TableCell>
-                                    <Box width='60%' pt='16px' sx={{ borderTop:'1px solid #000'}}>
+                                    <Box width='60%' pt='16px' borderTop={'1px solid #000'}>
                                         ${getSumByKey(props.breakdown2, 'Column2').toLocaleString('en-US')}
                                     </Box>
                                 </TableCell>

@@ -1,7 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Container, Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Container, } from "@mui/material";
 
 import StrokeGauge from "../commons/strokeGauge";
 import ObliqueGauge from "../commons/obliqueGauge";

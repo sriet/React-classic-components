@@ -12,32 +12,24 @@ import {
   TypoItem,
 } from "../commons/styledComponents";
 
-const Upcoming = () => {
+const Upcoming = (props) => {
 
   return (
     <Container>
       <BoxPanel width='300px' sx={{border:'none', padding:0}}>
         <Grid container spacing='20px'>
           <Grid container item xs={12}>
-            <TypoItem sx={{flexGrow:1, color:'#333333'}} variant="subtitle2">Upcoming Events</TypoItem>
+            <TypoItem flexGrow='1' color='#333333 !important' variant="subtitle2">Upcoming Events</TypoItem>
           </Grid>
           <Grid container item xs={12}>
             <Stack spacing={2}>
-              <Stack direction='row' sx={{alignItems:'center'}} spacing="12px">
-                <RedFlagIcon />
-                <Typography color='#333333' fontSize='16px' >Sabbatical</Typography>
-                <Typography color='#828282' fontSize='16px' >Oct 10 2022</Typography>
-              </Stack>
-              <Stack direction='row' sx={{alignItems:'center'}} spacing="12px">
-                <GreenFlagIcon />
-                <Typography color='#333333' fontSize='16px' >New Job</Typography>
-                <Typography color='#828282' fontSize='16px' >Mar 1 2023</Typography>
-              </Stack>
-              <Stack direction='row' sx={{alignItems:'center'}} spacing="12px">
-                <RedFlagIcon />
-                <Typography color='#333333' fontSize='16px' >Move to Washington</Typography>
-                <Typography color='#828282' fontSize='16px' >Aug 15 2023</Typography>
-              </Stack>
+              {props.data.map((item, index)=>(
+                <Stack direction='row' className="align-items-center" spacing="12px" key={index}>
+                  {(item.flag==='red' && <RedFlagIcon /> )|| <GreenFlagIcon />}
+                  <Typography color='#333333' fontSize='16px' >{item.title}</Typography>
+                  <Typography color='#828282' fontSize='16px' >{item.date}</Typography>
+                </Stack>
+              ))}
             </Stack>
           </Grid>
         </Grid>

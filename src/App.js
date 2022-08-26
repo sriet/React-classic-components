@@ -236,6 +236,64 @@ function MyApp() {
       { title: "Current", price: 296250 },
       { title: "Price", price: 2370 },
     ],
+    progressBarGroup: [
+      {
+        title: "250 1 Job ",
+        value: 376830,
+        data: {
+          min: 0,
+          max: 100,
+  
+          status: [
+            {
+              pattern: 0,
+              value: 0,
+              label: "Dim1",
+            },
+            {
+              pattern: 2,
+              value: 45,
+              label: "Dim2",
+            },
+            {
+              pattern: 5,
+              value: 64,
+            },
+            {
+              pattern: 3,
+              value: 65,
+              label: "Dim3",
+            },
+            {
+              pattern: 4,
+              value: 90,
+              label: "Dim4",
+            },
+          ],
+        },
+      },
+      {
+        title: "Job 2",
+        value: 28400,
+        data: {
+          min: 0,
+          max: 100,
+  
+          status: [
+            {
+              pattern: 0,
+              value: 0,
+              label: "Dim1",
+            },
+            {
+              pattern: 1,
+              value: 75,
+              label: "Dim2",
+            },
+          ],
+        },
+      },
+    ]
   };
   const StockTableProps = {
     table: [
@@ -398,6 +456,17 @@ function MyApp() {
       5908, 6372, 6728,
     ],
   };
+  const UpcomingProps = {
+    data:[
+      {flag:'red', title:'Sabbatical', date:'Oct 10 2022'},
+      {flag:'green', title:'New Job', date:'Mar 1 2023'},
+      {flag:'red', title:'Move to Washington', date:'Aug 15 2023'},
+    ],
+  }
+  const ClientCardProps = {
+    name:'Suki Wealthmanager',
+    title:'MyCo'
+  }
 
   return (
     <Box
@@ -438,11 +507,11 @@ function MyApp() {
       Frame19
       <Breakdown {...BreakdownProps} />
       Frame29
-      <Upcoming />
+      <Upcoming {...UpcomingProps} />
       Frame03
       <ClientsBar />
       Frame15
-      <ClientCard />
+      <ClientCard {...ClientCardProps}/>
       Frame14
       <Google {...GoogleProps} />
     </Box>

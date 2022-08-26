@@ -19,7 +19,7 @@ const ClientsBar = () => {
 
   return (
     <Container>
-      <BoxPanel component={Paper} height='50px' sx={{ border:0, padding:0 }}>
+      <BoxPanel component={Paper} height='50px' border='0 !important' padding='0 !important'>
         <Stack direction='row' alignItems='center'>
           <Stack direction='row' divider={<Divider orientation="vertical" flexItem />} flexGrow='1' spacing={2}>
             <Stack direction='row' alignItems='center' color='#000' spacing={1}>

@@ -23,7 +23,7 @@ const Google = ( props ) => {
       <BoxPanel width='70%'>
         <Grid container spacing={3}>
           <Grid container item xs={12}>
-            <TypoItem sx={{flexGrow:1}} variant="subtitle2">Google</TypoItem>
+            <TypoItem flexGrow='1' variant="subtitle2">Google</TypoItem>
             <img src="Google.png" alt=""></img>
           </Grid>
           <Grid item xs={12}>
@@ -34,7 +34,7 @@ const Google = ( props ) => {
                     <Grid item xs={12}>
                       <PriceLabel>Dim {index+1}</PriceLabel>
                     </Grid>
-                    <Grid container sx={{alignItems:'center'}} item xs={12}>
+                    <Grid container item xs={12}>
                       <PriceValue>${item.dim.toLocaleString('en-US')}</PriceValue>
                     </Grid>
                     <Grid item xs={12}>
@@ -48,14 +48,14 @@ const Google = ( props ) => {
 
           <Grid item xs={12}>
               <Stack direction='row'>
-                <Stack direction='row' sx={{flexGrow:1}}>
-                  <Stack direction='row' sx={{ alignItems: "center" }} spacing='5px'>
+                <Stack direction='row' flexGrow='1'>
+                  <Stack direction='row' className="align-items-center" spacing='5px'>
                     <AlertSquareIcon />
                     <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
                       Last updated 91 days ago ·
                     </Typography>
                   </Stack>
-                  <Stack direction='row' color='#2F80ED' sx={{ alignItems: "center" }} >
+                  <Stack direction='row' color='#2F80ED' className="align-items-center"  >
                     <Link
                       sx={{
                         display:'flex',
@@ -70,13 +70,8 @@ const Google = ( props ) => {
                     </Link>
                   </Stack>
                 </Stack>
-                <Stack sx={{ alignItems: "center" }} >
-                  <Link
-                    sx={{
-                      cursor: "pointer",
-                      textDecorationColor: "#2F80ED",
-                    }}
-                  >
+                <Stack  >
+                  <Link className='cursor'>
                     View All
                   </Link>
                 </Stack>
