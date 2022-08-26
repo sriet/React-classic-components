@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import { SelectIcon } from "../commons/icon/multipleIcons";
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import {
   BoxPanel,
   PriceLabel,
@@ -39,14 +39,12 @@ const useStyles = makeStyles({
     "& fieldset": { border: "1px solid transparent" },
   },
   numberInput: {
-    width:'100%',
-    "& input": { padding:'6px 8px' },
+    width: "100%",
+    "& input": { padding: "6px 8px" },
   },
 });
 
-
 const AddPlan = (props) => {
-
   const classes = useStyles();
 
   return (
@@ -82,7 +80,7 @@ const AddPlan = (props) => {
                       name='type'
                       onChange={props.handleChange}
                     >
-                      {props.type.options.map((item, index)=>(
+                      {props.type.options.map((item, index) => (
                         <option key={index}>{item}</option>
                       ))}
                     </StockSelect>
@@ -188,7 +186,7 @@ const AddPlan = (props) => {
                       name='duration'
                       onChange={props.handleChange}
                     >
-                      {props.duration.options.map((item, index)=>(
+                      {props.duration.options.map((item, index) => (
                         <option key={index}>{item}</option>
                       ))}
                     </StockSelect>
@@ -208,9 +206,9 @@ const AddPlan = (props) => {
                       name='amount2'
                       onChange={props.handleChange}
                     >
-                    {props.amount2.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
+                      {props.amount2.options.map((item, index) => (
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -228,9 +226,9 @@ const AddPlan = (props) => {
                       name='yn'
                       onChange={props.handleChange}
                     >
-                    {props.yn.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
+                      {props.yn.options.map((item, index) => (
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -238,7 +236,9 @@ const AddPlan = (props) => {
               <Grid item xs={3} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel className="align-items-start" >Extended? &nbsp; <InfoOutlinedIcon className="font-16" /></PriceLabel>
+                    <PriceLabel className="align-items-start">
+                      Extended? &nbsp; <InfoOutlinedIcon className="font-16" />
+                    </PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect
@@ -248,9 +248,9 @@ const AddPlan = (props) => {
                       name='extended'
                       onChange={props.handleChange}
                     >
-                    {props.extended.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
+                      {props.extended.options.map((item, index) => (
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -258,14 +258,22 @@ const AddPlan = (props) => {
             </Grid>
           </Grid>
           <Grid item xs={12}>
-              <Divider />
+            <Divider />
           </Grid>
           <Grid item xs={12}>
             <Grid container pb="12px">
-              <Link flexGrow='1' color={'#EB5757'} className="text-decoration-red cursor">
+              <Link
+                flexGrow="1"
+                color={"#EB5757"}
+                className="text-decoration-red cursor"
+              >
                 Delete
               </Link>
-              <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
+              <Link
+                color={"#828282"}
+                pr="16px"
+                className="text-decoration-gray cursor"
+              >
                 Cancel
               </Link>
               <Link className="cursor" 

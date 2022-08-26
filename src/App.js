@@ -63,21 +63,27 @@ function MyApp() {
 
   const DetailProps = {
     instanceName: "Employer",
-    user: {default:"Jenny Thompson", options:['Jenny Thompson', 'Jenny', 'Benny']},
-    company: {default:"Employer", options:['Employer', 'Employer1', 'Employer2']},
+    user: {
+      default: "Jenny Thompson",
+      options: ["Jenny Thompson", "Jenny", "Benny"],
+    },
+    company: {
+      default: "Employer",
+      options: ["Employer", "Employer1", "Employer2"],
+    },
     currentPrice: 39.49,
   };
   const ISOProgressProps = {
     id: "Placeholder",
-    type: {default:"ISO", options:['ISO','ISOa', 'ISOb']},
+    type: { default: "ISO", options: ["ISO", "ISOa", "ISOb"] },
     price: 10.65,
     date: "2019-10-15",
     amount: 6728,
     expiryDate: "2019-10-15",
-    duration: {default:"123", options:['123', '1234', '12345']},
-    dropdown: {default:"Type 1", options:['Type 1', 'Type 2', 'Type 3']},
-    yn: {default:"No", options:['Yes', 'No']},
-    dropdown2: {default:"No", options:['Yes', 'No']},
+    duration: { default: "123", options: ["123", "1234", "12345"] },
+    dropdown: { default: "Type 1", options: ["Type 1", "Type 2", "Type 3"] },
+    yn: { default: "No", options: ["Yes", "No"] },
+    dropdown2: { default: "No", options: ["Yes", "No"] },
     data: {
       min: 0,
       max: 100,
@@ -112,11 +118,14 @@ function MyApp() {
   };
   const TypeProgressProps = {
     id: "Placeholder",
-    type: {default:"Type1", options:['Type1', 'Type2', 'Type3']},
+    type: { default: "Type1", options: ["Type1", "Type2", "Type3"] },
     date: "2019-11-3",
     amount: 10000,
-    period: {default:"Selection #1", options:["Selection #1", "Selection #2", "Selection #3"]},
-    dropdown: {default:"None", options:["None"]},
+    period: {
+      default: "Selection #1",
+      options: ["Selection #1", "Selection #2", "Selection #3"],
+    },
+    dropdown: { default: "None", options: ["None"] },
     data: {
       min: 0,
       max: 100,
@@ -149,10 +158,13 @@ function MyApp() {
     },
   };
   const SaleProps = {
-    employer: {default:"Employer", options:['Employer', 'Employer1', 'Employer2']},
-    dropdown: {default:"12345", options:['12345', '1234', '123']},
+    employer: {
+      default: "Employer",
+      options: ["Employer", "Employer1", "Employer2"],
+    },
+    dropdown: { default: "12345", options: ["12345", "1234", "123"] },
     sold: "12",
-    sell: {default:"Type 2", options:['Type 2', 'Start #1']},
+    sell: { default: "Type 2", options: ["Type 2", "Start #1"] },
     salePrice: 2371,
     saleDate: "10/15/19",
     table: [
@@ -165,11 +177,10 @@ function MyApp() {
   };
   const EmployerProps = {
     price: [
-      {title:'Total', price:405203},
-      {title:'Current', price:296250},
-      {title:'Price', price:2370},
+      { title: "Total", price: 405203 },
+      { title: "Current", price: 296250 },
+      { title: "Price", price: 2370 },
     ],
-
   };
   const StockTableProps = {
     table: [
