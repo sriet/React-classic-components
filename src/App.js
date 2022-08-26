@@ -41,9 +41,9 @@ function MyApp() {
   };
   const DetailProps = {
     instanceName: "Employer",
-    user: "Jenny Thompson",
-    company: "Employer",
-    currentPrice: "39.49",
+    user: {default:"Jenny Thompson", options:['Jenny Thompson', 'Jenny', 'Benny']},
+    company: {default:"Employer", options:['Employer', 'Employer1', 'Employer2']},
+    currentPrice: 39.49,
   };
   const ISOProgressProps = {
     id: "Placeholder",

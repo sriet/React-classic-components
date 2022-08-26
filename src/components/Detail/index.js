@@ -12,6 +12,24 @@ import {
 } from "../commons/styledComponents";
 
 const Detail = ( props ) => {
+
+  //Values States
+  const [values, setValues] = React.useState({
+    instanceName: props.instanceName,
+    user: props.user.default,
+    company: props.company.default,
+    currentPrice: props.currentPrice,
+  });
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+    console.log('pppp', values)
+  };
+
+
   return (
     <Container>
       <GrayBoxPanel>
@@ -29,7 +47,11 @@ const Detail = ( props ) => {
                     <PriceLabel>Instance Name</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput defaultValue={props.instanceName} />
+                    <StockInput 
+                      value={values.instanceName}
+                      name='instanceName'
+                      onChange={handleChange} 
+                    />
                   </Grid>
                 </Grid>
               </Grid>
@@ -42,11 +64,13 @@ const Detail = ( props ) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.user}
+                      value={values.user}
+                      name='user'
+                      onChange={handleChange}
                     >
-                      <option>Jenny Thompson</option>
-                      <option>Jenny</option>
-                      <option>Jenny</option>
+                      {props.user.options.map((item, index)=>(
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -60,11 +84,13 @@ const Detail = ( props ) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      defaultValue={props.company}
+                      value={values.company}
+                      name='company'
+                      onChange={handleChange}
                     >
-                      <option>Employer</option>
-                      <option>Jenny</option>
-                      <option>Jenny</option>
+                      {props.company.options.map((item, index)=>(
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -79,7 +105,10 @@ const Detail = ( props ) => {
                       startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                       }
-                      defaultValue={props.currentPrice}
+                      type='number'
+                      value={values.currentPrice}
+                      name='currentPrice'
+                      onChange={handleChange}
                     />
                   </Grid>
                 </Grid>

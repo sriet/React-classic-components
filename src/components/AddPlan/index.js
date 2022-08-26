@@ -55,7 +55,7 @@ const AddPlan = (props) => {
   );
   const [date, setDate] = React.useState(moment(props.date).format("MM/DD/YY"));
 
-  // Amount1 value State
+  //Values States
   const [values, setValues] = React.useState({
     id: props.id,
     type: props.type.default,
