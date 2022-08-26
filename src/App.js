@@ -28,19 +28,44 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 function MyApp() {
   const colorMode = React.useContext(ColorModeContext);
 
-  //Frame 24 PropsData && GetData
-  const handleChange = (event) => {
-    const temp = AddPlanProps;
-    if (event.target.name === "date" || event.target.name === "expiryDate") {
-      temp[event.target.name].value = moment(event.target.value).format(
-        "MM/DD/YY"
-      );
-      setAddPlanProps({ ...temp });
+  const handleChange = (e, props) => {
+    let setData = undefined;
+    let temp = {};
+    switch (props) {
+      case "addPlan":
+        temp = AddPlanProps;
+        setData = setAddPlanProps;
+        break;
+      case "detail":
+        temp = DetailProps;
+        setData = setDetailProps;
+        break;
+      case "isoProgress":
+        temp = ISOProgressProps;
+        setData = setISOProgressProps;
+        break;
+      case "types":
+        temp = TypeProgressProps;
+        setData = setTypeProgressProps;
+        break;
+      case "sale":
+        temp = SaleProps;
+        setData = setSaleProps;
+        break;
+
+      default:
+        break;
+    }
+    if (e.target.name === "date" || e.target.name === "expiryDate") {
+      temp[e.target.name].value = moment(e.target.value).format("MM/DD/YY");
+      setData({ ...temp });
     } else {
-      temp[event.target.name].value = event.target.value;
-      setAddPlanProps({ ...temp });
+      temp[e.target.name].value = e.target.value;
+      setData({ ...temp });
     }
   };
+
+  //Frame 24 PropsData && GetData
   const addPlanSave = () => {
     console.log("----------", AddPlanProps);
   };
@@ -55,23 +80,11 @@ function MyApp() {
     amount2: { value: "12mo", options: ["12mo", "60mo", "72mo"] },
     yn: { value: "No", options: ["Yes", "No"] },
     extended: { value: "No", options: ["Yes", "No"] },
-    handleChange: handleChange,
+    handleChange: (e) => handleChange(e, "addPlan"),
     onSave: addPlanSave,
   });
 
   //Frame 25 PropsData && GetData
-  const handleChangeDetail = (event) => {
-    const temp = DetailProps;
-    if (event.target.name === "date" || event.target.name === "expiryDate") {
-      temp[event.target.name].value = moment(event.target.value).format(
-        "MM/DD/YY"
-      );
-      setDetailProps({ ...temp });
-    } else {
-      temp[event.target.name].value = event.target.value;
-      setDetailProps({ ...temp });
-    }
-  };
   const [DetailProps, setDetailProps] = React.useState({
     instanceName: { value: "Employer" },
     user: {
@@ -83,22 +96,11 @@ function MyApp() {
       options: ["Employer", "Employer1", "Employer2"],
     },
     currentPrice: { value: 39.49 },
-    handleChange: handleChangeDetail,
+    handleChange: (e) => handleChange(e, "detail"),
   });
 
   //Frame 21 PropsData && GetData
-  const handleChangeISOProgress = (event) => {
-    const temp = ISOProgressProps;
-    if (event.target.name === "date" || event.target.name === "expiryDate") {
-      temp[event.target.name].value = moment(event.target.value).format(
-        "MM/DD/YY"
-      );
-      setISOProgressProps({ ...temp });
-    } else {
-      temp[event.target.name].value = event.target.value;
-      setISOProgressProps({ ...temp });
-    }
-  };
+
   const ISOProgressSave = () => {
     console.log("----------", ISOProgressProps);
   };
@@ -144,23 +146,11 @@ function MyApp() {
         },
       ],
     },
-    handleChange: handleChangeISOProgress,
+    handleChange: (e) => handleChange(e, "isoProgress"),
     onSave: ISOProgressSave,
   });
 
   //Frame 20 PropsData && GetData
-  const handleChangeTypeProgress = (event) => {
-    const temp = TypeProgressProps;
-    if (event.target.name === "date" || event.target.name === "expiryDate") {
-      temp[event.target.name].value = moment(event.target.value).format(
-        "MM/DD/YY"
-      );
-      setTypeProgressProps({ ...temp });
-    } else {
-      temp[event.target.name].value = event.target.value;
-      setTypeProgressProps({ ...temp });
-    }
-  };
   const typeProgressSave = () => {
     console.log("----------", TypeProgressProps);
   };
@@ -204,23 +194,11 @@ function MyApp() {
         },
       ],
     },
-    handleChange: handleChangeTypeProgress,
+    handleChange: (e) => handleChange(e, "types"),
     onSave: typeProgressSave,
   });
 
   //Frame 22,23 PropsData && GetData
-  const handleChangeSale = (event) => {
-    const temp = SaleProps;
-    if (event.target.name === "date" || event.target.name === "expiryDate") {
-      temp[event.target.name].value = moment(event.target.value).format(
-        "MM/DD/YY"
-      );
-      setSaleProps({ ...temp });
-    } else {
-      temp[event.target.name].value = event.target.value;
-      setSaleProps({ ...temp });
-    }
-  };
   const SaleSave = () => {
     console.log("----------", SaleProps);
   };
@@ -241,7 +219,7 @@ function MyApp() {
       { id: 4, date: "1/15/2021", total: 2, amount: 2, value: 4742 },
     ],
     summary: [2154, 781, 28452],
-    handleChange: handleChangeSale,
+    handleChange: (e) => handleChange(e, "sale"),
     onSave: SaleSave,
   });
 

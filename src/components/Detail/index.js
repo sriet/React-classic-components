@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Container, Grid, OutlinedInput, InputAdornment, TextField } from "@mui/material";
+import { Container, Grid, OutlinedInput, TextField } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
@@ -15,24 +15,15 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   numberInput: {
-    backgroundColor: '#fff',
-    borderRadius:'4px',
-    width:'100%',
-    "& input": { padding:'6px 8px' },
+    backgroundColor: "#fff",
+    borderRadius: "4px",
+    width: "100%",
+    "& input": { padding: "6px 8px" },
   },
 });
 
-const Detail = ( props ) => {
-
+const Detail = (props) => {
   const classes = useStyles();
-  //Values States
-  // const [values, setValues] = React.useState({
-  //   instanceName: props.instanceName,
-  //   user: props.user.default,
-  //   company: props.company.default,
-  //   currentPrice: props.currentPrice,
-  // });
-
 
   return (
     <Container>
@@ -51,10 +42,10 @@ const Detail = ( props ) => {
                     <PriceLabel>Instance Name</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput 
+                    <StockInput
                       value={props.instanceName.value}
-                      name='instanceName'
-                      onChange={props.handleChange} 
+                      name="instanceName"
+                      onChange={props.handleChange}
                     />
                   </Grid>
                 </Grid>
@@ -69,10 +60,10 @@ const Detail = ( props ) => {
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={props.user.value}
-                      name='user'
+                      name="user"
                       onChange={props.handleChange}
                     >
-                      {props.user.options.map((item, index)=>(
+                      {props.user.options.map((item, index) => (
                         <option key={index}>{item}</option>
                       ))}
                     </StockSelect>
@@ -89,10 +80,10 @@ const Detail = ( props ) => {
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={props.company.value}
-                      name='company'
+                      name="company"
                       onChange={props.handleChange}
                     >
-                      {props.company.options.map((item, index)=>(
+                      {props.company.options.map((item, index) => (
                         <option key={index}>{item}</option>
                       ))}
                     </StockSelect>
@@ -105,15 +96,16 @@ const Detail = ( props ) => {
                     <PriceLabel>Current Price</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField 
-                    className={classes.numberInput}
-                    variant="outlined" 
-                    value={props.currentPrice.value}
-                    onChange={props.handleChange}
-                    name="currentPrice"
-                    InputProps={{
-                      inputComponent: PriceNumberFormatCustom,
-                    }} />
+                    <TextField
+                      className={classes.numberInput}
+                      variant="outlined"
+                      value={props.currentPrice.value}
+                      onChange={props.handleChange}
+                      name="currentPrice"
+                      InputProps={{
+                        inputComponent: PriceNumberFormatCustom,
+                      }}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
