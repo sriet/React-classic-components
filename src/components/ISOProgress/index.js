@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {
   BoxPanel,
   PriceLabel,
@@ -215,7 +216,7 @@ const ISOProgress = (props) => {
               <Grid item xs={3} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel>Dropdown #2</PriceLabel>
+                    <PriceLabel sx={{ display: 'flex', alignItems: 'start' }} >Dropdown #2 &nbsp; <InfoOutlinedIcon sx={{ fontSize: 14 }} /></PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect

@@ -40,8 +40,8 @@ export const InfoCircleIcon = (props) => {
 export const AlertSquareIcon = (props) => {
   return (
     <svg
-      width="9"
-      height="9"
+      width="11"
+      height="11"
       viewBox="0 0 10 11"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

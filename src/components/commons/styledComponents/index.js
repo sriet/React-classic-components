@@ -1,3 +1,4 @@
+import * as React from "react";
 import { styled } from "@mui/material/styles";
 import {
   Typography,
@@ -5,6 +6,7 @@ import {
   NativeSelect,
   Box,
 } from "@mui/material";
+import NumberFormat from 'react-number-format';
 
 export const BoxPanel = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -104,3 +106,25 @@ export const AvatarTypo = styled(Typography)(({ theme }) => ({
     alignItems:'center', 
     display:'flex',
 }));
+
+export const NumberFormatCustom = React.forwardRef(function NumberFormatCustom(props, ref) {
+    const { onChange, ...other } = props;
+  
+    return (
+      <NumberFormat
+        {...other}
+        getInputRef={ref}
+        onValueChange={(values) => {
+          onChange({
+            target: {
+              name: props.name,
+              value: values.value,
+            },
+          });
+        }}
+        thousandSeparator
+        isNumericString
+        // prefix="$"
+      />
+    );
+});

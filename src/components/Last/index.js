@@ -8,7 +8,8 @@ import {
   Stack,
 } from "@mui/material";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { InfoCircleIcon, AlertSquareIcon } from "../commons/icon/multipleIcons";
+import { AlertSquareIcon } from "../commons/icon/multipleIcons";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {
   BoxPanel,
   TypoItem,
@@ -36,7 +37,7 @@ const Last = ( props ) => {
                     </Grid>
                     <Grid container sx={{alignItems:'center'}} item xs={12}>
                       <PriceValue pr='5.5px' sx={{color:(list<0 && '#EB5757')}}>{((list<0 && '-')||'')+`$`+Math.abs(list).toLocaleString('en-US')}</PriceValue>
-                      <InfoCircleIcon />
+                      <InfoOutlinedIcon sx={{ fontSize: 18 }} />
                     </Grid>
                   </Grid>
                 </Grid>
@@ -46,29 +47,30 @@ const Last = ( props ) => {
 
           <Grid item xs={12}>
               <Stack direction='row'>
-                <Stack direction='row' sx={{flexGrow:1}}>
-                  <Stack direction='row' sx={{ alignItems: "center" }} spacing='5px'>
+                <Stack direction='row' sx={{flexGrow:1, alignItems: "center"}}>
+                  <Stack direction='row' spacing='5px' sx={{alignItems: "center"}}>
                     <AlertSquareIcon />
                     <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
                       Last updated 48 days ago ·
                     </Typography>
                   </Stack>
-                  <Stack direction='row' color='#2F80ED' sx={{ alignItems: "center" }} >
+                  <Stack direction='row' color='#2F80ED'>
                     <Link
                       sx={{
                         display:'flex',
+                        alignItems:'center',
                         cursor: "pointer",
                         textDecorationColor: "#2F80ED",
                       }}
                     >
-                      <RefreshOutlinedIcon fontSize="9px" />
+                      <RefreshOutlinedIcon sx={{fontSize: 16}}/>
                       <Typography fontSize='12px' lineHeight="15px">
                         Add
                       </Typography>
                     </Link>
                   </Stack>
                 </Stack>
-                <Stack sx={{ alignItems: "center" }} >
+                <Stack >
                   <Link
                     sx={{
                       cursor: "pointer",

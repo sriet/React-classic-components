@@ -24,6 +24,7 @@ import ClientCard from "./components/ClientCard";
 import Google from "./components/Google";
 import BarChart from "./components/BarChart";
 import TypeProgress from "./components/TypeProgress";
+import Employer from "./components/Employer";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -33,15 +34,15 @@ function MyApp() {
 
   const AddPlanProps ={
     id: "Placeholder",
-    type: "ISOa",
-    price: "10.65",
+    type: {default:"ISOa", options:['ISO', 'ISOa', 'ISOb']},
+    price: 10.65,
     date: "2019-10-15",
     amount1: 6728,
     expiryDate: "2019-10-15",
-    duration: "48mo",
-    amount2:'12mo',
-    yn: "No",
-    extended: "No",
+    duration: {default:"48mo", options:['48mo', '60mo', '72mo']},
+    amount2: {default:"12mo", options:['12mo', '60mo', '72mo']},
+    yn: {default:"No", options:['Yes', 'No']},
+    extended: {default:"No", options:['Yes', 'No']},
   };
   const DetailProps = {
     instanceName: "Employer",
@@ -144,6 +145,14 @@ function MyApp() {
       { id: 4, date: "1/15/2021", total: 2, amount: 2, value: 4742 },
     ],
     summary: [2154, 781, 28452],
+  };
+  const EmployerProps = {
+    price: [
+      {title:'Total', price:405203},
+      {title:'Current', price:296250},
+      {title:'Price', price:2370},
+    ],
+
   };
   const StockTableProps = {
     table: [
@@ -293,7 +302,7 @@ function MyApp() {
         paddingBottom: "100px",
       }}
     >
-      GraphTypesFrame17
+      Frame17
       <GraphTypes />
       Frame27
       <BarChart />
@@ -309,12 +318,12 @@ function MyApp() {
       <Sale {...SaleProps} />
       Frame26
       <StockTable {...StockTableProps} />
+      Frame30
+      <Employer {...EmployerProps} />
       Frame31
       <Gauge />
       Frame32
       <Last {...LastProps} />
-      GraphTypes
-      <GraphTypes />
       Frame19
       <Breakdown {...BreakdownProps} />
       Frame29

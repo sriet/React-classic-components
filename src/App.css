@@ -61,4 +61,30 @@
   display: none;
 }
 
+/* Align */
+.align-items-start {
+  display: flex;
+  align-items: start;
+}
 
+/* Font Size */
+.font-16 {
+  font-size: 16px !important;
+}
+
+/* Margin */
+.my-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.text-decoration-red {
+  text-decoration-color: #EB5757;
+}
+.text-decoration-gray {
+  text-decoration-color: #828282;
+}
