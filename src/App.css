@@ -60,6 +60,9 @@
 .apexcharts-legend-series {
   display: none;
 }
+.apexcharts-menu-icon {
+  display: none;
+}
 
 /* Align */
 .align-items-start {

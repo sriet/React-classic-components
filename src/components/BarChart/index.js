@@ -1,94 +1,82 @@
 import * as React from "react";
-import { makeStyles } from "@mui/styles";
 import { Container } from "@mui/material";
 import Chart from "react-apexcharts";
 
 import { BoxPanel } from "./../commons/styledComponents/index";
+import { useEffect } from "react";
 
-const useStyles = makeStyles({});
-
-const BarChart = () => {
-  const classes = useStyles();
+const BarChart = (props) => {
+  const [data, setSeries] = React.useState([]);
+  useEffect(() => {
+    return () => {
+      props.data.map((item) => {
+        let temp = data;
+        temp.push(props.ymax - item);
+        setSeries([...temp]);
+      });
+    };
+  }, []);
 
   const options = {
     chart: {
-      type: "bar",
-      height: 350,
+      id: "apexchart-example",
       stacked: true,
-      stackType: "100%",
-    },
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          legend: {
-            position: "bottom",
-            offsetX: -10,
-            offsetY: 0,
-          },
-        },
-      },
-    ],
-    xaxis: {
-      categories: [
-        "10/15/2019",
-        "10/15/2020",
-        "10/15/2021",
-        "10/15/2022",
-        "10/15/2023",
-      ],
-    },
-    fill: {
-      opacity: 1,
-    },
-    legend: {
-      position: "right",
-      offsetX: 0,
-      offsetY: 50,
     },
     colors: [
       function ({ value, seriesIndex, w }) {
-        if (value < 3000) {
-          return "#219653";
+        if (seriesIndex === 0) {
+          if (value < 2600) {
+            return "#219653";
+          } else {
+            return "#333";
+          }
         } else {
           return "#E0E0E0";
         }
       },
-      function ({ value, seriesIndex, w }) {
-        if (value < 6728) {
-          return "#333";
-        } else {
-          return "#D9534F";
-        }
-      },
     ],
-
+    xaxis: {
+      categories: props.xlabel,
+      axisTicks: {
+        show: false,
+      },
+    },
     yaxis: {
-      min: 0,
-      max: 6728,
+      min: props.ymin,
+      max: props.ymax,
       tickAmount: 4,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      enabled: false,
     },
   };
 
   const series = [
     {
       name: "series-1",
-      data: [
-        0, 0, 0, 0, 1682, 2200, 2668, 3102, 3364, 3698, 3956, 4065, 5046, 5532,
-        5958, 6728,
-      ],
+      data: props.data,
+    },
+    {
+      name: "series-2",
+      data: data,
     },
   ];
 
   return (
     <Container>
-      <BoxPanel width="50%" sx={{ border: 0 }}>
+      <BoxPanel width="fit-content" sx={{ border: 0 }}>
         <Chart
           options={options}
           series={series}
           type="bar"
-          width={500}
-          height={320}
+          height={250}
+          width={440}
         />
       </BoxPanel>
     </Container>
