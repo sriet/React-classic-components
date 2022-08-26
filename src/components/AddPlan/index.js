@@ -49,12 +49,6 @@ const AddPlan = (props) => {
   
   const classes = useStyles();
 
-  // Date value State
-  const [expiryDate, setExpiryDate] = React.useState(
-    moment(props.expiryDate).format("MM/DD/YY")
-  );
-  const [date, setDate] = React.useState(moment(props.date).format("MM/DD/YY"));
-
   //Values States
   const [values, setValues] = React.useState({
     id: props.id,
@@ -65,14 +59,24 @@ const AddPlan = (props) => {
     yn: props.yn.default,
     extended: props.extended.default,
     amount1: props.amount1,
+    date:moment(props.date).format("MM/DD/YY"),
+    expiryDate:moment(props.expiryDate).format("MM/DD/YY"),
   });
 
   const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-    console.log('pppp', values)
+    console.log('werwer',event.target.name)
+    if (event.target.name==='date' || event.target.name==='expiryDate') {
+      setValues({
+        ...values,
+        [event.target.name]: moment(event.target.value).format("MM/DD/YY"),
+      });
+    }
+    else
+      setValues({
+        ...values,
+        [event.target.name]: event.target.value,
+      });
+    // console.log('pppp', values)
   };
 
 
@@ -146,14 +150,13 @@ const AddPlan = (props) => {
                   >
                     <StockInput
                       type="date"
-                      onChange={(e) =>
-                        setDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
+                      name="date"
+                      onChange={handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={date}
+                      value={values.date}
                     />
                   </Grid>
                 </Grid>
@@ -192,14 +195,13 @@ const AddPlan = (props) => {
                   >
                     <StockInput
                       type="date"
-                      onChange={(e) =>
-                        setExpiryDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
+                      name="expiryDate"
+                      onChange={handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={expiryDate}
+                      value={values.expiryDate}
                     />
                   </Grid>
                 </Grid>
@@ -297,7 +299,10 @@ const AddPlan = (props) => {
               <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
                 Cancel
               </Link>
-              <Link className="cursor">Save</Link>
+              <Link className="cursor" 
+                onClick={() => { 
+                  props.saveBtn(values);
+                }}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
