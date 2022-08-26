@@ -150,7 +150,7 @@ const Employer = ( props ) => {
       <BoxPanel>
         <Grid container spacing={3}>
           <Grid container item xs={12}>
-            <TypoItem sx={{flexGrow:1}} variant="subtitle2"></TypoItem>
+            <TypoItem flexGrow='1' variant="subtitle2"></TypoItem>
             <TypoItem variant="subtitle2">Employer</TypoItem>
           </Grid>
           <Grid item xs={9}>
@@ -161,8 +161,8 @@ const Employer = ( props ) => {
                     <Grid item xs={12}>
                       <PriceLabel>{list.title}</PriceLabel>
                     </Grid>
-                    <Grid container sx={{alignItems:'center'}} item xs={12}>
-                      <PriceValue pr='5.5px' sx={{color:(list.price<0 && '#EB5757')}}>{((list.price<0 && '-')||'')+`$`+Math.abs(list.price).toLocaleString('en-US')}</PriceValue>
+                    <Grid container item xs={12}>
+                      <PriceValue pr='5.5px' >${list.price.toLocaleString('en-US')}</PriceValue>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -176,11 +176,7 @@ const Employer = ( props ) => {
             <Grid item xs={12} key={index}>
               <Grid container spacing={2}>
                 <Grid item xs={3} md={3}>
-                  <Link 
-                    sx={{
-                    color: "#000",
-                    textDecorationColor: "#000"
-                  }}>
+                  <Link color='#000' className="text-decoration-black">
                     <Typography className={classes.title}>
                       {item.title}
                     </Typography>
@@ -197,35 +193,23 @@ const Employer = ( props ) => {
           ))}
           <Grid item xs={12}>
               <Stack direction='row'>
-                <Stack direction='row' sx={{flexGrow:1, alignItems: "center"}}>
+                <Stack direction='row' flexGrow='1'>
                   <Stack direction='row' spacing='5px'>
                     <Typography fontSize='12px' lineHeight="14.52px">
                       Last updated 48 days ago ·
                     </Typography>
                   </Stack>
                   <Stack direction='row'>
-                    <Link
-                      sx={{
-                        color:'#828282',
-                        display:'flex',
-                        cursor: "pointer",
-                        textDecorationColor: "#828282",
-                      }}
-                    >
-                      <RefreshOutlinedIcon sx={{fontSize: 16}} />
+                    <Link color='#828282' className="cursor align-items-start text-decoration-gray">
+                      <RefreshOutlinedIcon className="font-16" />
                       <Typography fontSize='12px' lineHeight="15px">
                         Update
                       </Typography>
                     </Link>
                   </Stack>
                 </Stack>
-                <Stack sx={{ alignItems: "center" }} >
-                  <Link
-                    sx={{
-                      cursor: "pointer",
-                      textDecorationColor: "#2F80ED",
-                    }}
-                  >
+                <Stack>
+                  <Link className="cursor">
                     View Details
                   </Link>
                 </Stack>

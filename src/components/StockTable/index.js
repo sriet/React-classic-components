@@ -14,6 +14,7 @@ import {
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import { BoxPanel } from '../commons/styledComponents';
+import { makeStyles } from '@mui/styles';
 
 const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -25,7 +26,16 @@ const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
+//styles
+const useStyles = makeStyles({
+  table: { marginLeft:'16px', '& th, & td': {color:'#828282', paddingTop:'4px !important', paddingBottom:'4px !important' }},
+  tableBody: { "& td, & th": { border: 0},},
+});
+
+
 const StockTable = ( props ) => {
+
+    const classes = useStyles();
 
     const getSumByKey = (arr, key) => {
         return arr.reduce((accumulator, current) => accumulator + Number(current[key]), 0)
@@ -37,7 +47,7 @@ const StockTable = ( props ) => {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        <Table sx={{ marginLeft:2, 'th, td': {color:'#828282', py:'4px' } }}>
+                        <Table className={classes.table}>
                             <TableHead>
                                 <TableRow>
                                     <TableCell width='5%'>Id</TableCell>
@@ -46,7 +56,7 @@ const StockTable = ( props ) => {
                                     <TableCell width='20%' align="right">Taskes done</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody sx={{ 'td, th': { border: 0 } }}>
+                            <TableBody className={classes.tableBody}>
                                 {props.table.map((row, index) => (
                                     (row.Completed===1 && 
                                     <CompletedTableRow key={index}>
@@ -66,7 +76,7 @@ const StockTable = ( props ) => {
                         </Table>
                         <Grid item xs={12}>
                             <Grid container px={2}>
-                                <Typography fontSize='14px' sx={{ flexGrow:1 }} ><b>Total</b></Typography>
+                                <Typography fontSize='14px' flexGrow='1' ><b>Total</b></Typography>
                                 <Typography fontSize='14px' width='50%' align="right">
                                     <b>{getSumByKey(props.table, 'TasksDone').toLocaleString('en-US')}</b>
                                 </Typography>

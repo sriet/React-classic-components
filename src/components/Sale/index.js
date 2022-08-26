@@ -52,16 +52,22 @@ const useStyles = makeStyles({
     width:'100%',
     "& input": { padding:'6px 8px' },
   },
+  tableHead: { "& th, td": { color: "#828282", paddingTop: "12px", paddingBottom: '4px' }},
+  tableBody: { "& td, & th": { border: 0, paddingTop: "8px", paddingBottom: "0px", },},
+  btnCancel: {
+    border: "1px solid gray !important",
+    color: "gray !important",
+    marginRight: "12px !important",
+    textTransform: "none !important",},
+  btnSave: {
+    border: "1px solid #2F80ED !important",
+    textTransform: "none !important",
+  },
 });
 
 const Sale = (props) => {
 
   const classes = useStyles();
-  const inputTypeRef = React.useRef();
-  const [inputType, setInputType] = React.useState("Type2");
-  const showRefContent = () => {
-    setInputType(inputTypeRef.current.value);
-  };
 
   const [date, setDate] = React.useState(
     moment(props.saleDate).format("MM/DD/YY")
@@ -222,11 +228,9 @@ const Sale = (props) => {
           </Grid>
           <Grid item xs={12} display={values.sell === "Type 2" ? "block" : "none"}>
             <Grid container spacing={2}>
-              <Table sx={{ marginLeft: 2 }}>
-                <TableHead>
-                  <TableRow
-                    sx={{ "> th, td": { color: "#828282", py: "8px" } }}
-                  >
+              <Table className="ml-16">
+                <TableHead className={classes.tableHead}>
+                  <TableRow>
                     <TableCell width="5%">Id</TableCell>
                     <TableCell width="15%" align="right">
                       Date
@@ -242,15 +246,7 @@ const Sale = (props) => {
                     </TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody
-                  sx={{
-                    "&:last-child td, &:last-child th": {
-                      border: 0,
-                      pt: "8px",
-                      pb: "0px",
-                    },
-                  }}
-                >
+                <TableBody className={classes.tableBody}>
                   {props.table.map((row, index) => (
                     <TableRow key={index}>
                       <TableCell component="th" scope="row">
@@ -270,7 +266,7 @@ const Sale = (props) => {
               </Table>
               <Grid item xs={12}>
                 <Grid container px={2}>
-                  <Typography fontSize="14px" sx={{ flexGrow: 1 }}>
+                  <Typography fontSize="14px" flexGrow='1'>
                     <b>Total</b>
                   </Typography>
                   <Typography fontSize="14px" width="50%" align="right">
@@ -312,27 +308,10 @@ const Sale = (props) => {
               <Link flexGrow='1' color={'#EB5757'} className="text-decoration-red cursor">
                 Delete Sale
               </Link>
-              <Button
-                sx={{
-                  border: "1px solid gray",
-                  borderRadius: "4px",
-                  color: "gray",
-                  mr: "12px",
-                  textTransform: "none",
-                }}
-              >
+              <Button className={classes.btnCancel}>
                 Cancel
               </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  borderRadius: "4px",
-                  color: "white",
-                  bgcolor: "#2F80ED",
-                  textTransform: "none",
-                }}
-              >
+              <Button variant="contained" color="primary" className={classes.btnSave}>
                 Save
               </Button>
             </Grid>
