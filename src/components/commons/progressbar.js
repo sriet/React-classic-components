@@ -21,7 +21,6 @@ const useStyles = makeStyles({
     height: "24px",
     borderLeft: "2px solid #333",
     borderRight: "2px solid #333",
-    // border: "2px solid #333",
   },
   status: {
     width: "100%",
@@ -30,10 +29,8 @@ const useStyles = makeStyles({
     bottom: "0",
     top: "0",
     transition: "transform .4s linear",
-    // backgroundColor: "#1976d2",
   },
   label: {
-    // width: "100%",
     position: "absolute",
     top: "30px",
     fontSize: "12px",

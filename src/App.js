@@ -3,12 +3,8 @@ import * as React from "react";
 
 import "@fontsource/inter";
 import Box from "@mui/material/Box";
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import IconButton from "@mui/material/IconButton";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-import StockPlan from "./components/StockPlan";
 import AddPlan from "./components/AddPlan";
 import ISOProgress from "./components/ISOProgress";
 import Detail from "./components/Detail";
@@ -28,10 +24,9 @@ import TypeProgress from "./components/TypeProgress";
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 function MyApp() {
-  const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
-  const AddPlanProps ={
+  const AddPlanProps = {
     id: "Placeholder",
     type: "ISOa",
     price: "10.65",
@@ -39,7 +34,7 @@ function MyApp() {
     amount1: 6728,
     expiryDate: "2019-10-15",
     duration: "48mo",
-    amount2:'12mo',
+    amount2: "12mo",
     yn: "No",
     extended: "No",
   };
@@ -56,7 +51,7 @@ function MyApp() {
     date: "2019-10-15",
     amount: 6728,
     expiryDate: "2019-10-15",
-    duration:'123',
+    duration: "123",
     dropdown: "Type 1",
     yn: "No",
     dropdown2: "No",
@@ -220,7 +215,7 @@ function MyApp() {
         TasksDone: 420,
       },
     ],
-  }
+  };
   const LastProps = {
     dimentions: [7500, -3225, 4275],
   };
@@ -279,6 +274,33 @@ function MyApp() {
       { dim: 0, subTitle: 0 },
     ],
   };
+  const BarChartProps = {
+    ymax: 6728,
+    ymin: 0,
+    xlabel: [
+      "10/15/2019",
+      "",
+      "",
+      "",
+      "10/15/2020",
+      "",
+      "",
+      "",
+      "",
+      "10/15/2021",
+      "",
+      "",
+      "",
+      "10/15/2022",
+      "",
+      "",
+      "10/15/2023",
+    ],
+    data: [
+      0, 0, 0, 0, 1682, 2000, 2489, 2965, 3364, 3780, 4208, 4692, 5046, 5456,
+      5908, 6372, 6728,
+    ],
+  };
   return (
     <Box
       sx={{
@@ -296,11 +318,11 @@ function MyApp() {
       GraphTypesFrame17
       <GraphTypes />
       Frame27
-      <BarChart />
+      <BarChart {...BarChartProps} />
       Frame24
-      <AddPlan {...AddPlanProps}/>
+      <AddPlan {...AddPlanProps} />
       Frame25
-      <Detail {...DetailProps}/>
+      <Detail {...DetailProps} />
       Frame20
       <TypeProgress {...TypeProgressProps} />
       Frame21
@@ -313,8 +335,6 @@ function MyApp() {
       <Gauge />
       Frame32
       <Last {...LastProps} />
-      GraphTypes
-      <GraphTypes />
       Frame19
       <Breakdown {...BreakdownProps} />
       Frame29
