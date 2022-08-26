@@ -29,6 +29,8 @@ function MyApp() {
   const colorMode = React.useContext(ColorModeContext);
 
 
+
+  //Frame 24 PropsData && GetData
   const handleChange = (event) => {
     const temp = AddPlanProps
     if (event.target.name==='date' || event.target.name==='expiryDate') {
@@ -40,8 +42,6 @@ function MyApp() {
       setAddPlanProps({...temp});
     }
   };
-
-  //Frame 24 PropsData && GetData
   const addPlanSave = () => {
     console.log( '----------',AddPlanProps)
   }
@@ -61,29 +61,58 @@ function MyApp() {
   });
 
 
-  const DetailProps = {
-    instanceName: "Employer",
+  //Frame 25 PropsData && GetData
+  const handleChangeDetail = (event) => {
+    const temp = DetailProps
+    if (event.target.name==='date' || event.target.name==='expiryDate') {
+      temp[event.target.name].value = moment(event.target.value).format('MM/DD/YY')
+      setDetailProps({...temp});
+    }
+    else{
+      temp[event.target.name].value = event.target.value
+      setDetailProps({...temp});
+    }
+  };
+  const [DetailProps, setDetailProps] = React.useState({
+    instanceName: { value:"Employer" },
     user: {
-      default: "Jenny Thompson",
+      value: "Jenny Thompson",
       options: ["Jenny Thompson", "Jenny", "Benny"],
     },
     company: {
-      default: "Employer",
+      value: "Employer",
       options: ["Employer", "Employer1", "Employer2"],
     },
-    currentPrice: 39.49,
+    currentPrice: { value:39.49 },
+    handleChange: handleChangeDetail,
+  });
+  
+  //Frame 21 PropsData && GetData
+  const handleChangeISOProgress = (event) => {
+    const temp = ISOProgressProps
+    if (event.target.name==='date' || event.target.name==='expiryDate') {
+      temp[event.target.name].value = moment(event.target.value).format('MM/DD/YY')
+      setISOProgressProps({...temp});
+    }
+    else{
+      temp[event.target.name].value = event.target.value
+      setISOProgressProps({...temp});
+    }
   };
-  const ISOProgressProps = {
-    id: "Placeholder",
-    type: { default: "ISO", options: ["ISO", "ISOa", "ISOb"] },
-    price: 10.65,
-    date: "2019-10-15",
-    amount: 6728,
-    expiryDate: "2019-10-15",
-    duration: { default: "123", options: ["123", "1234", "12345"] },
-    dropdown: { default: "Type 1", options: ["Type 1", "Type 2", "Type 3"] },
-    yn: { default: "No", options: ["Yes", "No"] },
-    dropdown2: { default: "No", options: ["Yes", "No"] },
+  const ISOProgressSave = () => {
+    console.log( '----------',ISOProgressProps)
+  }
+  const [ISOProgressProps, setISOProgressProps] = React.useState({
+    planId: { value:"Placeholder" },
+    type: { value: "ISO", options: ["ISO", "ISOa", "ISOb"] },
+    price: { value:10.65 },
+    date: { value:"2019-10-15" },
+    amount: { value:6728 },
+    expiryDate: { value:"2019-10-15" },
+    duration: { value: "123", options: ["123", "1234", "12345"] },
+    dropdown: { value: "Type 1", options: ["Type 1", "Type 2", "Type 3"] },
+    yn: { value: "No", options: ["Yes", "No"] },
+    dropdown2: { value: "No", options: ["Yes", "No"] },
     data: {
       min: 0,
       max: 100,
@@ -115,12 +144,30 @@ function MyApp() {
         },
       ],
     },
+    handleChange: handleChangeISOProgress,
+    onSave: ISOProgressSave,
+  });
+
+  //Frame 20 PropsData && GetData
+  const handleChangeTypeProgress = (event) => {
+    const temp = TypeProgressProps
+    if (event.target.name==='date' || event.target.name==='expiryDate') {
+      temp[event.target.name].value = moment(event.target.value).format('MM/DD/YY')
+      setTypeProgressProps({...temp});
+    }
+    else{
+      temp[event.target.name].value = event.target.value
+      setTypeProgressProps({...temp});
+    }
   };
-  const TypeProgressProps = {
-    id: "Placeholder",
+  const typeProgressSave = () => {
+    console.log( '----------',TypeProgressProps)
+  }
+  const [TypeProgressProps, setTypeProgressProps] = React.useState({
+    planId: { value:"Placeholder" },
     type: { default: "Type1", options: ["Type1", "Type2", "Type3"] },
-    date: "2019-11-3",
-    amount: 10000,
+    date: { value:"2019-11-3"},
+    amount: { value:10000 },
     period: {
       default: "Selection #1",
       options: ["Selection #1", "Selection #2", "Selection #3"],
@@ -156,17 +203,35 @@ function MyApp() {
         },
       ],
     },
+    handleChange: handleChangeTypeProgress,
+    onSave: typeProgressSave,
+  });
+
+  //Frame 22,23 PropsData && GetData
+  const handleChangeSale = (event) => {
+    const temp = SaleProps
+    if (event.target.name==='date' || event.target.name==='expiryDate') {
+      temp[event.target.name].value = moment(event.target.value).format('MM/DD/YY')
+      setSaleProps({...temp});
+    }
+    else{
+      temp[event.target.name].value = event.target.value
+      setSaleProps({...temp});
+    }
   };
-  const SaleProps = {
+  const SaleSave = () => {
+    console.log( '----------',SaleProps)
+  }
+  const [SaleProps, setSaleProps] = React.useState({
     employer: {
-      default: "Employer",
+      value: "Employer",
       options: ["Employer", "Employer1", "Employer2"],
     },
-    dropdown: { default: "12345", options: ["12345", "1234", "123"] },
-    sold: "12",
-    sell: { default: "Type 2", options: ["Type 2", "Start #1"] },
-    salePrice: 2371,
-    saleDate: "10/15/19",
+    dropdown: { value: "12345", options: ["12345", "1234", "123"] },
+    sold: { value:"12" },
+    sell: { value: "Type 2", options: ["Type 2", "Start #1"] },
+    salePrice: { value:2371 },
+    saleDate: { value:"10/15/19" },
     table: [
       { id: 1, date: "4/15/2021", total: 8, amount: 8, value: 18968 },
       { id: 2, date: "7/15/2021", total: 2, amount: 0, value: 0 },
@@ -174,7 +239,11 @@ function MyApp() {
       { id: 4, date: "1/15/2021", total: 2, amount: 2, value: 4742 },
     ],
     summary: [2154, 781, 28452],
-  };
+    handleChange: handleChangeSale,
+    onSave: SaleSave,
+  });
+
+
   const EmployerProps = {
     price: [
       { title: "Total", price: 405203 },

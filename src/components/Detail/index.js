@@ -26,20 +26,12 @@ const Detail = ( props ) => {
 
   const classes = useStyles();
   //Values States
-  const [values, setValues] = React.useState({
-    instanceName: props.instanceName,
-    user: props.user.default,
-    company: props.company.default,
-    currentPrice: props.currentPrice,
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-    console.log('pppp', values)
-  };
+  // const [values, setValues] = React.useState({
+  //   instanceName: props.instanceName,
+  //   user: props.user.default,
+  //   company: props.company.default,
+  //   currentPrice: props.currentPrice,
+  // });
 
 
   return (
@@ -60,9 +52,9 @@ const Detail = ( props ) => {
                   </Grid>
                   <Grid item xs={12}>
                     <StockInput 
-                      value={values.instanceName}
+                      value={props.instanceName.value}
                       name='instanceName'
-                      onChange={handleChange} 
+                      onChange={props.handleChange} 
                     />
                   </Grid>
                 </Grid>
@@ -76,9 +68,9 @@ const Detail = ( props ) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.user}
+                      value={props.user.value}
                       name='user'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                       {props.user.options.map((item, index)=>(
                         <option key={index}>{item}</option>
@@ -96,9 +88,9 @@ const Detail = ( props ) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.company}
+                      value={props.company.value}
                       name='company'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                       {props.company.options.map((item, index)=>(
                         <option key={index}>{item}</option>
@@ -116,8 +108,8 @@ const Detail = ( props ) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.currentPrice}
-                    onChange={handleChange}
+                    value={props.currentPrice.value}
+                    onChange={props.handleChange}
                     name="currentPrice"
                     InputProps={{
                       inputComponent: PriceNumberFormatCustom,

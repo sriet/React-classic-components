@@ -50,34 +50,6 @@ const useStyles = makeStyles({
 const ISOProgress = (props) => {
 
   const classes = useStyles();
-  const [expiryDate, setExpiryDate] = React.useState(
-    moment(props.expiryDate).format("MM/DD/YY")
-  );
-  const [date, setDate] = React.useState(
-    moment(props.date).format("MM/DD/YY")
-  );
-
-  //Values States
-  const [values, setValues] = React.useState({
-    id: props.id,
-    type: props.type.default,
-    price: props.price,
-    amount: props.amount,
-    duration: props.duration.default,
-    dropdown: props.dropdown.default,
-    yn: props.yn.default,
-    dropdown2: props.dropdown2.default,
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-    console.log('pppp', values)
-  };
-
-
 
   return (
     <Container>
@@ -92,9 +64,9 @@ const ISOProgress = (props) => {
                   </Grid>
                   <Grid item xs={12}>
                     <StockInput 
-                      value={values.id}
-                      name='id'
-                      onChange={handleChange}
+                      value={props.planId.value}
+                      name='planId'
+                      onChange={props.handleChange}
                     />
                   </Grid>
                 </Grid>
@@ -108,9 +80,9 @@ const ISOProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.type}
+                      value={props.type.value}
                       name='type'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.type.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -128,8 +100,8 @@ const ISOProgress = (props) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.price}
-                    onChange={handleChange}
+                    value={props.price.value}
+                    onChange={props.handleChange}
                     name="price"
                     InputProps={{
                       inputComponent: PriceNumberFormatCustom,
@@ -149,14 +121,12 @@ const ISOProgress = (props) => {
                   >
                     <StockInput
                       type="date"
-                      onChange={(e) =>
-                        setDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
+                      onChange={props.handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={date}
+                      value={moment(props.date.value).format("MM/DD/YY")}
                     />
                   </Grid>
                 </Grid>
@@ -174,8 +144,8 @@ const ISOProgress = (props) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.amount}
-                    onChange={handleChange}
+                    value={props.amount.value}
+                    onChange={props.handleChange}
                     name="amount"
                     InputProps={{
                       inputComponent: NumberFormatCustom,
@@ -191,14 +161,12 @@ const ISOProgress = (props) => {
                   <Grid item xs={12} className={`${classes.relative} ${classes.mt10} `}>
                     <StockInput
                       type="date"
-                      onChange={(e) =>
-                        setExpiryDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
+                      onChange={props.handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={expiryDate}
+                      value={moment(props.expiryDate.value).format("MM/DD/YY")}
                     />
                   </Grid>
                 </Grid>
@@ -212,9 +180,9 @@ const ISOProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.duration}
+                      value={props.duration.value}
                       name='duration'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.duration.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -232,9 +200,9 @@ const ISOProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.dropdown}
+                      value={props.dropdown.value}
                       name='dropdown'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.dropdown.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -252,9 +220,9 @@ const ISOProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.yn}
+                      value={props.yn.value}
                       name='yn'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.yn.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -272,9 +240,9 @@ const ISOProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.dropdown2}
+                      value={props.dropdown2.value}
                       name='dropdown2'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.dropdown2.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -297,7 +265,8 @@ const ISOProgress = (props) => {
               <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
                 Cancel
               </Link>
-              <Link className="cursor">Save</Link>
+              <Link className="cursor"
+                onClick={() => props.onSave()}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
