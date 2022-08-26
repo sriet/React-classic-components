@@ -22,7 +22,14 @@ const useStyles = makeStyles({
 });
 
 const StrokeGauge = ({ max, min, width, height, strokeValue }) => {
-  const classes = useStyles();
+  const props = {
+    strokeValue,
+    width,
+    height,
+    max,
+    min,
+  };
+  const classes = useStyles(props);
 
   return (
     <svg
@@ -74,15 +81,6 @@ const StrokeGauge = ({ max, min, width, height, strokeValue }) => {
       <g className={classes.stroke}>
         {/* static outer border  */}
         <path d="M -38.184,38.184 A 54,54 0 1 1 38.184,38.184 L 28.991,28.991 A 41,41 0 1 0 -28.991,28.991 Z" />
-        {/* bisecting data lines, cited from a template  */}
-        <use
-          href="#limit"
-          style={{
-            transform: `rotate(calc(45deg + ${
-              strokeValue / (max - min)
-            } * 270deg))`,
-          }}
-        />
       </g>
     </svg>
   );

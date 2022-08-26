@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 
 import StrokeGauge from "../commons/strokeGauge";
 import ObliqueGauge from "../commons/obliqueGauge";
+import { BoxPanel } from "../commons/styledComponents";
 
 const Gauge = () => {
   const width = 170;
@@ -13,18 +14,6 @@ const Gauge = () => {
   const min = 0;
   const strokeValue = 42;
   const obliqueValue = 66;
-
-  const BoxPanel = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    margin: theme.spacing(5),
-    border: "1px solid #BDBDBD",
-    borderRadius: "4px",
-    padding: "12px 16px",
-    textAlign: "left",
-    color: theme.palette.text.secondary,
-    elevation: 0,
-  }));
 
   return (
     <Container>

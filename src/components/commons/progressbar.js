@@ -2,7 +2,7 @@ import * as React from "react";
 import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   value: {
     fontSize: "12px !important",
   },
@@ -37,7 +37,7 @@ const useStyles = makeStyles({
     color: "#333",
     fontWeight: "700",
   },
-});
+}));
 
 const ProgressBar = (props) => {
   const classes = useStyles();

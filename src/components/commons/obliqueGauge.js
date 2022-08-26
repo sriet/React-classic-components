@@ -17,6 +17,17 @@ const useStyles = makeStyles({
     strokeWidth: "2",
     strokeLinejoin: "round",
   },
+  obliqueSquare: {
+    background:
+      "repeating-linear-gradient(45deg, rgb(51, 51, 51), rgb(51, 51, 51) 1px, rgb(255, 255, 255) 1px, rgb(255, 255, 255) 3px) 0% 0% / 28px",
+    width: "6px",
+    border: "2px solid #333",
+    height: "6px",
+  },
+  use: {
+    transform: ({ obliqueValue, max, min }) =>
+      `rotate(calc(45deg + ${obliqueValue / (max - min)} * 270deg))`,
+  },
 });
 
 const ObliqueGauge = ({
@@ -27,7 +38,15 @@ const ObliqueGauge = ({
   strokeValue,
   obliqueValue,
 }) => {
-  const classes = useStyles();
+  const props = {
+    strokeValue,
+    obliqueValue,
+    width,
+    height,
+    max,
+    min,
+  };
+  const classes = useStyles(props);
 
   return (
     <svg
@@ -97,15 +116,7 @@ const ObliqueGauge = ({
         width="30"
         height="30"
       >
-        <p
-          style={{
-            background:
-              "repeating-linear-gradient(45deg, rgb(51, 51, 51), rgb(51, 51, 51) 1px, rgb(255, 255, 255) 1px, rgb(255, 255, 255) 3px) 0% 0% / 28px",
-            width: "6px",
-            border: "2px solid #333",
-            height: "6px",
-          }}
-        ></p>
+        <p className={classes.obliqueSquare}></p>
       </foreignObject>
       <foreignObject
         className="gauge-font"
@@ -121,18 +132,7 @@ const ObliqueGauge = ({
         <path d="M -38.184,38.184 A 54,54 0 1 1 38.184,38.184 L 28.991,28.991 A 41,41 0 1 0 -28.991,28.991 Z" />
         {/* bisecting data lines, cited from a template  */}
         <use
-          // transform={`rotate(calc(45deg + ${
-          //   strokeValue / (max - min)
-          // } * 270deg))`}
-          href="#limit"
-          style={{
-            transform: `rotate(calc(45deg + ${
-              strokeValue / (max - min)
-            } * 270deg))`,
-          }}
-        />
-
-        <use
+          className={classes.use}
           style={{
             transform: `rotate(calc(45deg + ${
               obliqueValue / (max - min)

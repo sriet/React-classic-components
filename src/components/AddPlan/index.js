@@ -62,7 +62,6 @@ const AddPlan = (props) => {
   });
 
   const handleChange = (event) => {
-    console.log("werwer", event.target.name);
     if (event.target.name === "date" || event.target.name === "expiryDate") {
       setValues({
         ...values,
@@ -73,7 +72,6 @@ const AddPlan = (props) => {
         ...values,
         [event.target.name]: event.target.value,
       });
-    // console.log('pppp', values)
   };
 
   return (
