@@ -59,7 +59,14 @@ function MyApp() {
     if (e.target.name === "date" || e.target.name === "expiryDate") {
       temp[e.target.name].value = moment(e.target.value).format("MM/DD/YY");
       setData({ ...temp });
-    } else {
+    }
+    else if (e.target.name.split('-')[0] === "amount") {
+      temp.table[e.target.name.split('-')[1]].amount = e.target.value;
+      console.log(e.target.name.split('-')[1], e.target.value)
+      setData({ ...temp });
+
+    }
+    else {
       temp[e.target.name].value = e.target.value;
       setData({ ...temp });
     }

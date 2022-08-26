@@ -232,8 +232,8 @@ const Sale = (props) => {
                       </TableCell>
                       <TableCell align="right">{row.date}</TableCell>
                       <TableCell align="right">{row.total}</TableCell>
-                      <TableCell align="right">
-                        <StockTableInput defaultValue={row.amount} />
+                      <TableCell>
+                        <StockTableInput value={row.amount} name={`amount-`+index} onChange={props.handleChange}/>
                       </TableCell>
                       <TableCell align="right">
                         ${row.value.toLocaleString("en-US")}
