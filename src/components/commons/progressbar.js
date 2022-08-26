@@ -47,7 +47,7 @@ const ProgressBar = (props) => {
     "repeating-linear-gradient(45deg, #333, #333 1px, #ffffff 2px, #ffffff 10px) 0% 0% / 28px",
     "repeating-linear-gradient(135deg, #333, #333 1px, #ffffff 2px, #ffffff 5px) 0% 0% / 21px",
     "#333",
-    "repeating-linear-gradient(135deg, #333, #333 3px, #fff 3px, #fff 5px ) 0% 0% / 28px",
+    "repeating-linear-gradient(135deg, rgb(51, 51, 51), rgb(51, 51, 51) 4px, rgb(255, 255, 255) 4px, rgb(255, 255, 255) 6px) 0% 0% / 34px",
     "#fff",
   ];
 

@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import { SelectIcon } from "../commons/icon/multipleIcons";
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import {
   BoxPanel,
   PriceLabel,
@@ -39,14 +39,12 @@ const useStyles = makeStyles({
     "& fieldset": { border: "1px solid transparent" },
   },
   numberInput: {
-    width:'100%',
-    "& input": { padding:'6px 8px' },
+    width: "100%",
+    "& input": { padding: "6px 8px" },
   },
 });
 
-
 const AddPlan = (props) => {
-  
   const classes = useStyles();
 
   // Date value State
@@ -72,9 +70,8 @@ const AddPlan = (props) => {
       ...values,
       [event.target.name]: event.target.value,
     });
-    console.log('pppp', values)
+    console.log("pppp", values);
   };
-
 
   return (
     <Container>
@@ -88,9 +85,9 @@ const AddPlan = (props) => {
                     <PriceLabel>ID</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <StockInput 
+                    <StockInput
                       value={values.id}
-                      name='id'
+                      name="id"
                       onChange={handleChange}
                     />
                   </Grid>
@@ -106,10 +103,10 @@ const AddPlan = (props) => {
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={values.type}
-                      name='type'
+                      name="type"
                       onChange={handleChange}
                     >
-                      {props.type.options.map((item, index)=>(
+                      {props.type.options.map((item, index) => (
                         <option key={index}>{item}</option>
                       ))}
                     </StockSelect>
@@ -122,15 +119,16 @@ const AddPlan = (props) => {
                     <PriceLabel>Price</PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField 
-                    className={classes.numberInput}
-                    variant="outlined" 
-                    value={values.price}
-                    onChange={handleChange}
-                    name="price"
-                    InputProps={{
-                      inputComponent: PriceNumberFormatCustom,
-                    }} />
+                    <TextField
+                      className={classes.numberInput}
+                      variant="outlined"
+                      value={values.price}
+                      onChange={handleChange}
+                      name="price"
+                      InputProps={{
+                        inputComponent: PriceNumberFormatCustom,
+                      }}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
@@ -168,15 +166,16 @@ const AddPlan = (props) => {
                     <PriceLabel>Amount</PriceLabel>
                   </Grid>
                   <Grid container item xs={12}>
-                    <TextField 
-                    className={classes.numberInput}
-                    variant="outlined" 
-                    value={values.amount1}
-                    onChange={handleChange}
-                    name="amount1"
-                    InputProps={{
-                      inputComponent: NumberFormatCustom,
-                    }} />
+                    <TextField
+                      className={classes.numberInput}
+                      variant="outlined"
+                      value={values.amount1}
+                      onChange={handleChange}
+                      name="amount1"
+                      InputProps={{
+                        inputComponent: NumberFormatCustom,
+                      }}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
@@ -214,10 +213,10 @@ const AddPlan = (props) => {
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={values.duration}
-                      name='duration'
+                      name="duration"
                       onChange={handleChange}
                     >
-                      {props.duration.options.map((item, index)=>(
+                      {props.duration.options.map((item, index) => (
                         <option key={index}>{item}</option>
                       ))}
                     </StockSelect>
@@ -234,12 +233,12 @@ const AddPlan = (props) => {
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={values.amount2}
-                      name='amount2'
+                      name="amount2"
                       onChange={handleChange}
                     >
-                    {props.amount2.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
+                      {props.amount2.options.map((item, index) => (
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -254,12 +253,12 @@ const AddPlan = (props) => {
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={values.yn}
-                      name='yn'
+                      name="yn"
                       onChange={handleChange}
                     >
-                    {props.yn.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
+                      {props.yn.options.map((item, index) => (
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -267,19 +266,21 @@ const AddPlan = (props) => {
               <Grid item xs={3} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
-                    <PriceLabel className="align-items-start" >Extended? &nbsp; <InfoOutlinedIcon className="font-16" /></PriceLabel>
+                    <PriceLabel className="align-items-start">
+                      Extended? &nbsp; <InfoOutlinedIcon className="font-16" />
+                    </PriceLabel>
                   </Grid>
                   <Grid item xs={12}>
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
                       value={values.extented}
-                      name='extended'
+                      name="extended"
                       onChange={handleChange}
                     >
-                    {props.extended.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
+                      {props.extended.options.map((item, index) => (
+                        <option key={index}>{item}</option>
+                      ))}
                     </StockSelect>
                   </Grid>
                 </Grid>
@@ -287,14 +288,22 @@ const AddPlan = (props) => {
             </Grid>
           </Grid>
           <Grid item xs={12}>
-              <Divider />
+            <Divider />
           </Grid>
           <Grid item xs={12}>
             <Grid container pb="12px">
-              <Link flexGrow='1' color={'#EB5757'} className="text-decoration-red cursor">
+              <Link
+                flexGrow="1"
+                color={"#EB5757"}
+                className="text-decoration-red cursor"
+              >
                 Delete
               </Link>
-              <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
+              <Link
+                color={"#828282"}
+                pr="16px"
+                className="text-decoration-gray cursor"
+              >
                 Cancel
               </Link>
               <Link className="cursor">Save</Link>
