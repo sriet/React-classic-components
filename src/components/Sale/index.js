@@ -69,31 +69,11 @@ const Sale = (props) => {
 
   const classes = useStyles();
 
-  const [date, setDate] = React.useState(
-    moment(props.saleDate).format("MM/DD/YY")
-  );
   const getSumByKey = (arr, key) => {
     return arr.reduce(
       (accumulator, current) => accumulator + Number(current[key]),
       0
     );
-  };
-
-  //Values States
-  const [values, setValues] = React.useState({
-    employer: props.employer.default,
-    dropdown: props.dropdown.default,
-    sold: props.sold,
-    sell: props.sell.default,
-    salePrice: props.salePrice,
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-    console.log('pppp', values)
   };
 
   return (
@@ -114,9 +94,9 @@ const Sale = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.employer}
+                      value={props.employer.value}
                       name='employer'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.employer.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -134,9 +114,9 @@ const Sale = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.dropdown}
+                      value={props.dropdown.value}
                       name='dropdown'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.dropdown.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -152,9 +132,9 @@ const Sale = (props) => {
                   </Grid>
                   <Grid item xs={12}>
                     <StockInput 
-                      value={values.sold}
+                      value={props.sold.value}
                       name='sold'
-                      onChange={handleChange} 
+                      onChange={props.handleChange} 
                     />
                   </Grid>
                 </Grid>
@@ -168,9 +148,9 @@ const Sale = (props) => {
                     <StockSelect
                       IconComponent={SelectIcon}
                       input={<OutlinedInput />}
-                      value={values.sell}
+                      value={props.sell.value}
                       name='sell'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.sell.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -188,8 +168,8 @@ const Sale = (props) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.salePrice}
-                    onChange={handleChange}
+                    value={props.salePrice.value}
+                    onChange={props.handleChange}
                     name="salePrice"
                     InputProps={{
                       inputComponent: PriceNumberFormatCustom,
@@ -209,14 +189,12 @@ const Sale = (props) => {
                   >
                     <StockInput
                       type="date"
-                      onChange={(e) =>
-                        setDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
+                      onChange={props.handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={date}
+                      value={moment(props.saleDate.value).format("MM/DD/YY")}
                     />
                   </Grid>
                 </Grid>
@@ -226,7 +204,7 @@ const Sale = (props) => {
           <Grid item xs={12}>
               <Divider />
           </Grid>
-          <Grid item xs={12} display={values.sell === "Type 2" ? "block" : "none"}>
+          <Grid item xs={12} display={props.sell.value === "Type 2" ? "block" : "none"}>
             <Grid container spacing={2}>
               <Table className="ml-16">
                 <TableHead className={classes.tableHead}>
@@ -281,7 +259,7 @@ const Sale = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} display={values.sell === "Type 2" ? "block" : "none"}>
+          <Grid item xs={12} display={props.sell.value === "Type 2" ? "block" : "none"}>
               <Divider />
           </Grid>
           <Grid item xs={12}>
@@ -311,7 +289,12 @@ const Sale = (props) => {
               <Button className={classes.btnCancel}>
                 Cancel
               </Button>
-              <Button variant="contained" color="primary" className={classes.btnSave}>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                className={classes.btnSave}
+                onClick={() => props.onSave()}
+              >
                 Save
               </Button>
             </Grid>

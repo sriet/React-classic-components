@@ -48,26 +48,6 @@ const useStyles = makeStyles({
 const TypeProgress = (props) => {
   
   const classes = useStyles();
-  const [date, setDate] = React.useState(
-    moment(props.date).format("MM/DD/YY")
-  );
-
-  //Values States
-  const [values, setValues] = React.useState({
-    id: props.id,
-    type: props.type.default,
-    amount: props.amount,
-    period: props.period.default,
-    dropdown: props.dropdown.default,
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-    console.log('pppp', values)
-  };
 
   return (
     <Container>
@@ -82,9 +62,9 @@ const TypeProgress = (props) => {
                   </Grid>
                   <Grid item xs={12}>
                     <StockInput 
-                      value={values.id}
-                      name='id'
-                      onChange={handleChange}
+                      value={props.planId.value}
+                      name='planId'
+                      onChange={props.handleChange}
                     />
                   </Grid>
                 </Grid>
@@ -98,9 +78,9 @@ const TypeProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.type}
+                      value={props.type.value}
                       name='type'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                       {props.type.options.map((item, index)=>(
                         <option key={index}>{item}</option>
@@ -121,14 +101,12 @@ const TypeProgress = (props) => {
                   >
                     <StockInput
                       type="date"
-                      onChange={(e) =>
-                        setDate(moment(e.target.value).format("MM/DD/YY"))
-                      }
+                      onChange={props.handleChange}
                     />
                     <StockInput
                       type="text"
                       className={classes.dateStyle}
-                      value={date}
+                      value={moment(props.date.value).format("MM/DD/YY")}
                     />
                   </Grid>
                 </Grid>
@@ -146,8 +124,8 @@ const TypeProgress = (props) => {
                     <TextField 
                     className={classes.numberInput}
                     variant="outlined" 
-                    value={values.amount}
-                    onChange={handleChange}
+                    value={props.amount.value}
+                    onChange={props.handleChange}
                     name="amount"
                     InputProps={{
                       inputComponent: NumberFormatCustom,
@@ -164,9 +142,9 @@ const TypeProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.period}
+                      value={props.period.value}
                       name='period'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.period.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -184,9 +162,9 @@ const TypeProgress = (props) => {
                     <StockSelect
                       input={<OutlinedInput />}
                       IconComponent={SelectIcon}
-                      value={values.dropdown}
+                      value={props.dropdown.value}
                       name='dropdown'
-                      onChange={handleChange}
+                      onChange={props.handleChange}
                     >
                     {props.dropdown.options.map((item, index)=>(
                       <option key={index}>{item}</option>
@@ -209,7 +187,8 @@ const TypeProgress = (props) => {
               <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
                 Cancel
               </Link>
-              <Link className="cursor">Save</Link>
+              <Link className="cursor" 
+                onClick={() => props.onSave()}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
