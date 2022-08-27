@@ -22,6 +22,10 @@ import Google from "./components/Google";
 import BarChart from "./components/BarChart";
 import TypeProgress from "./components/TypeProgress";
 import Employer from "./components/Employer";
+import PriceProgress from "./components/PriceProgress";
+import ToolTip from "./components/ToolTip";
+import Category from "./components/Category";
+import Quarterly from "./components/Quarterly";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -51,6 +55,10 @@ function MyApp() {
       case "sale":
         temp = SaleProps;
         setData = setSaleProps;
+        break;
+      case "category":
+        temp = CategoryProps;
+        setData = setCategoryProps;
         break;
 
       default:
@@ -463,10 +471,66 @@ function MyApp() {
       {flag:'red', title:'Move to Washington', date:'Aug 15 2023'},
     ],
   }
+  const PriceProgressProps = {
+    price:82500,
+    totalPrice:180000,
+    progress:'50%',
+  }
+  const PriceProgressRedProps = {
+    price:-35475,
+    totalPrice:-57600,
+    progress:'60%',
+  }
   const ClientCardProps = {
     name:'Suki Wealthmanager',
     title:'MyCo'
   }
+  const ToolTipProps = {
+    data:[
+      {item:'item 1', value:817},
+      {item:'item 2', value:121},
+    ]
+  }
+
+  //Frame 12 PropsData && GetData
+  const [CategoryProps, setCategoryProps] = React.useState({
+    category: {
+      value: "Type 1",
+      options: ["Type 1", "Type 2", "Type 3"],
+    },
+    description: { value: "Desciption" },
+    recurring: {
+      value: "Recurring",
+      options: ["Recurring"],
+    },
+    currentAmount: { value: 33.65 },
+    YTDAmount: { value: 135.80 },
+    handleChange: (e) => handleChange(e, "category"),
+  });
+  
+  const QuarterlyProps = {
+    data:[
+      {
+        year:2022,
+        data:[
+          {icon:'check', date:'April 15 2022', text:'Q1', price:5035.75},
+          {icon:'check', date:'April 15 2022', text:'Q1', price:423.29},
+          {icon:'bankNote', date:'Due June 15 2022', text:'Q2', price:5035.75},
+          {icon:'bankNote', date:'Due June 15 2022', text:'Q2', price:423.29},
+          {icon:'bankNote', date:'Due Sept 15 2022', text:'Q3', price:5035.75},
+          {icon:'bankNote', date:'Due Sept 15 2022', text:'Q3', price:423.29},
+        ]
+      },
+      {
+        year:2023,
+        data:[
+          {icon:'bankNote', date:'Due Jan 15 2022', text:'Q4', price:5035.75},
+          {icon:'bankNote', date:'Due Jan 15 2022', text:'Q4', price:423.29},
+        ]
+      },
+    ],
+  }
+
 
   return (
     <Box
@@ -508,12 +572,22 @@ function MyApp() {
       <Breakdown {...BreakdownProps} />
       Frame29
       <Upcoming {...UpcomingProps} />
+      Frame16
+      <PriceProgress {...PriceProgressProps} />
+      Frame28
+      <PriceProgress {...PriceProgressRedProps} />
       Frame03
       <ClientsBar />
       Frame15
       <ClientCard {...ClientCardProps}/>
       Frame14
       <Google {...GoogleProps} />
+      Frame31
+      <ToolTip {...ToolTipProps} />
+      Frame12
+      <Category {...CategoryProps} />
+      Frame11
+      <Quarterly {...QuarterlyProps} />
     </Box>
   );
 }
