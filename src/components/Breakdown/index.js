@@ -47,7 +47,7 @@ const Breakdown = ( props ) => {
         <BoxPanel>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <Stack direction='row' spacing={2} sx={{alignItems:'center'}}>
+                    <Stack direction='row' spacing={2} className="align-items-center">
                         <TypoItem variant="subtitle2">Breakdown</TypoItem>
                         <Stack direction='row' flexGrow='1' pt='5px'>
                             <Stack direction='row' spacing='5px'>

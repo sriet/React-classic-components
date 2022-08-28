@@ -26,6 +26,7 @@ import PriceProgress from "./components/PriceProgress";
 import ToolTip from "./components/ToolTip";
 import Category from "./components/Category";
 import Quarterly from "./components/Quarterly";
+import EditTier from "./components/EditTier";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -59,6 +60,10 @@ function MyApp() {
       case "category":
         temp = CategoryProps;
         setData = setCategoryProps;
+        break;
+      case "editTier":
+        temp = EditTierProps;
+        setData = setEditTierProps;
         break;
 
       default:
@@ -508,6 +513,18 @@ function MyApp() {
     handleChange: (e) => handleChange(e, "category"),
   });
   
+  //Frame 22,23 PropsData && GetData
+  const EditTierSave = () => {
+    console.log("----------", EditTierProps);
+  };
+  const [EditTierProps, setEditTierProps] = React.useState({
+    min: { value: 33.00 },
+    max: { value: 36.99 },
+    percent: { value: "12%" },
+    handleChange: (e) => handleChange(e, "editTier"),
+    onSave: EditTierSave,
+  });
+  
   const QuarterlyProps = {
     data:[
       {
@@ -588,6 +605,8 @@ function MyApp() {
       <Category {...CategoryProps} />
       Frame11
       <Quarterly {...QuarterlyProps} />
+      Frame06
+      <EditTier {...EditTierProps} />
     </Box>
   );
 }

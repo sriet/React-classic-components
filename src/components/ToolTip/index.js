@@ -1,5 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { makeStyles } from "@mui/styles";
 import {
   Container,
   Grid,
@@ -9,7 +10,21 @@ import {
   GrayBoxPanel,
 } from "../commons/styledComponents";
 
+//styles
+const useStyles = makeStyles({
+  marker: {
+    position:'absolute', 
+    width:'22.4px', 
+    height:'22.4px', 
+    backgroundColor:'#E0E0E0', 
+    top:"0px", 
+    left:"50%", 
+    transform:'translate(-50%, -50%) rotate(-45deg)'
+  },
+});
 const ToolTip = (props) => {
+  
+  const classes = useStyles();
 
   const getSumByKey = (arr, key) => {
     return arr.reduce((accumulator, current) => accumulator + Number(current[key]), 0)
@@ -18,7 +33,7 @@ const ToolTip = (props) => {
   return (
     <Container>
       <GrayBoxPanel width='181px' position='relative' color='#000000 !important' px='12px !important'>
-        <div style={{ position:'absolute', width:'22.4px', height:'22.4px', backgroundColor:'#E0E0E0', top:"0px", left:"50%", transform:'translate(-50%, -50%) rotate(-45deg)' }} ></div>
+      <div className={classes.marker}></div>
         <Grid container spacing='4px'>
           {props.data.map((item, index)=>(
             <Grid item xs={12} key={index}>
