@@ -74,7 +74,7 @@ const Employer = ( props ) => {
             <TypoItem flexGrow='1' variant="subtitle2"></TypoItem>
             <TypoItem variant="subtitle2">Employer</TypoItem>
           </Grid>
-          <Grid item xs={9}>
+          <Grid item xs={12} md={9}>
             <Grid container spacing={2}>
               {props.price.map((list, index)=>(
                 <Grid item xs={'auto'} md={4} key={index}>

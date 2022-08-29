@@ -41,7 +41,7 @@ const EditTier = (props) => {
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs='auto' md={4.3}>
+              <Grid item xs={4.3}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Min</PriceLabel>
@@ -59,7 +59,7 @@ const EditTier = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs='auto' md={4.3}>
+              <Grid item xs={4.3}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Max</PriceLabel>
@@ -77,7 +77,7 @@ const EditTier = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs='auto' md={3.4}>
+              <Grid item xs={3.4}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>%</PriceLabel>

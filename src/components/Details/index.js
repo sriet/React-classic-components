@@ -76,7 +76,7 @@ const Details = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={5} md={2.5}>
+              <Grid item xs={4} md={2.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Frequency</PriceLabel>
@@ -96,7 +96,7 @@ const Details = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={5} md={1.5}>
+              <Grid item xs={4} md={1.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Type</PriceLabel>

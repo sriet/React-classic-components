@@ -53,7 +53,7 @@ const Setup = (props) => {
           </Grid>
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={4.5}>
+              <Grid item xs={8} md={4.5}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Name</PriceLabel>
@@ -87,7 +87,7 @@ const Setup = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={5} md={1.3}>
+              <Grid item xs={3} md={1.3}>
                 <Grid container spacing="10px">
                   <Grid item xs={12}>
                     <PriceLabel>Type</PriceLabel>
@@ -126,7 +126,7 @@ const Setup = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4} md={1.4}>
+              <Grid item xs={3} md={1.4}>
                 <Grid container>
                   <Grid item xs={12}>
                     <PriceLabel>Date</PriceLabel>
