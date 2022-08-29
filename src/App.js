@@ -32,6 +32,7 @@ import Title from "./components/Title";
 import TitleDetail from "./components/TitleDetail";
 import Setup from "./components/Setup";
 import Details from "./components/Details";
+import TitleDim from "./components/TitleDim";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -660,6 +661,15 @@ function MyApp() {
     handleChange: (e) => handleChange(e, "setup"),
   });
 
+  
+  const TitleDimProps = {
+    dims: [
+      { dim: 416044, subTitle: 281703 },
+      { dim: 634268, subTitle: 0 },
+      { dim: 123456, subTitle: 0 },
+    ],
+  };
+
   //Frame 01 PropsData && GetData
   const [DetailsProps, setDetailsProps] = React.useState({
     member: { 
@@ -747,6 +757,8 @@ function MyApp() {
       <TitleDetail {...TitleDetailProps} />
       Frame05
       <Setup {...SetupProps} />
+      Frame04
+      <TitleDim {...TitleDimProps} />
       Frame01
       <Details {...DetailsProps} />
     </Box>
