@@ -24,7 +24,7 @@ const HeatMap = (props) => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Grid container spacing={1}>
-                  <Grid item xs={12/100*40}>
+                  <Grid item xs={12/100*props.data.status[1].value}>
                     <PriceLabel>Category 1</PriceLabel>
                   </Grid>
                   <Grid item >
