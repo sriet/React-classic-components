@@ -27,6 +27,9 @@ import ToolTip from "./components/ToolTip";
 import Category from "./components/Category";
 import Quarterly from "./components/Quarterly";
 import EditTier from "./components/EditTier";
+import HeatMap from "./components/HeatMap";
+import Title from "./components/Title";
+import TitleDetail from "./components/TitleDetail";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -64,6 +67,10 @@ function MyApp() {
       case "editTier":
         temp = EditTierProps;
         setData = setEditTierProps;
+        break;
+      case "titleDetail":
+        temp = TitleDetailProps;
+        setData = setTitleDetailProps;
         break;
 
       default:
@@ -546,8 +553,86 @@ function MyApp() {
         ]
       },
     ],
-  }
+  };
 
+  const HeatMapProps = {
+    heatMap: [
+      {check:1, title:'Q1'},
+      {check:0, title:'Q2'},
+      {check:0, title:'Q3'},
+      {check:0, title:'Q4'},
+    ],
+    data: {
+      min: 0,
+      max: 100,
+      status: [
+        {
+          pattern: 0,
+          value: 0,
+          // label: "Dim1",
+        },
+        {
+          pattern: 2,
+          value: 40,
+          // label: "Dim2",
+        },
+      ],
+    },
+  };
+  
+  const TitleProps = {
+    breakdown: [
+      {
+        Type: "Item1",
+        Column1: 16823,
+        Column2: 34411,
+        Column3: "19.12%",
+      },
+      {
+        Type: "Item2",
+        Column1: 822,
+        Column2: 1164,
+        Column3: "0.62%",
+      },
+      {
+        Type: "Item3",
+        Column1: 7928,
+        Column2: 9780,
+        Column3: "5.45%",
+      },
+      {
+        Type: "Item4",
+        Column1: 4281,
+        Column2: 13284,
+        Column3: "7.38%",
+      },
+      {
+        Type: "Item5",
+        Column1: 281,
+        Column2: 802,
+        Column3: "1.48%",
+      },
+    ],
+  };
+
+  //Frame 22,23 PropsData && GetData
+  const TitleDetailSave = () => {
+    console.log("----------", SaleProps);
+  };
+  const [TitleDetailProps, setTitleDetailProps] = React.useState({
+    sell: { value: "Type 2", options: ["Type 2", "Start #1"] },
+    max: { value: 2371 },
+    dates: { value: "10/15/19" },
+    rules: ['Tier 1 · 20% at $33', 'Tier 2 · 60% at $37', 'Tier3 · 75% at $40.01'],
+    table: [
+      { id: 123, col1: 14387, col2: 2876, col3: 6901, col5: 9777, col6: 350241 },
+      { id: 456, col1: 998, col2: 200, col3: 479, col5: 678, col6: 24305 },
+      { id: 789, col1: 697, col2: 139, col3: 335, col5: 474, col6: 16988 },
+    ],
+    dim: [16073, 10930, 391534],
+    handleChange: (e) => handleChange(e, "titleDetail"),
+    onSave: TitleDetailSave,
+  });
 
   return (
     <Box
@@ -607,6 +692,12 @@ function MyApp() {
       <Quarterly {...QuarterlyProps} />
       Frame06
       <EditTier {...EditTierProps} />
+      Frame10
+      <HeatMap {...HeatMapProps} />
+      Frame09
+      <Title {...TitleProps} />
+      Frame08
+      <TitleDetail {...TitleDetailProps} />
     </Box>
   );
 }

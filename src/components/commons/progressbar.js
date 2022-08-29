@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: "0",
     backgroundColor: "white",
     width: "100%",
-    height: "24px",
+    height: "100%",
     borderLeft: "2px solid #333",
     borderRight: "2px solid #333",
   },
@@ -52,13 +52,12 @@ const ProgressBar = (props) => {
   ];
 
   return (
-    <div>
+    <div className={classes.progressBack}>
       <span
         role="progressbar"
         aria-valuenow="80"
         aria-valuemin="0"
         aria-valuemax="100"
-        className={classes.progressBack}
       >
         {props.status.map((item, index) => (
           <div key={index}>
@@ -100,7 +99,7 @@ const ProgressBar = (props) => {
                 }`,
               }}
             >
-              {item.pattern !== 5 && item.value}
+              {item.label && item.value}
               <span style={{ marginLeft: "5px" }}>{item.label}</span>
             </span>
           </div>

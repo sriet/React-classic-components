@@ -170,7 +170,9 @@ const GraphTypes = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={9} md={9}>
-                  <ProgressBar {...item.data} />
+                  <Grid container height='24px'>
+                    <ProgressBar {...item.data} />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>

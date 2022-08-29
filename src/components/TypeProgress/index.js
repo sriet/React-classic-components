@@ -101,6 +101,7 @@ const TypeProgress = (props) => {
                   >
                     <StockInput
                       type="date"
+                      name="date"
                       onChange={props.handleChange}
                     />
                     <StockInput
@@ -179,7 +180,9 @@ const TypeProgress = (props) => {
               <Divider />
           </Grid>
           <Grid item xs={12}>
-            <ProgressBar {...props.data} />
+            <Grid container height='24px'>
+              <ProgressBar {...props.data} />
+            </Grid>
           </Grid>
           <Grid item xs={12}>
             <Grid container pt="16px">

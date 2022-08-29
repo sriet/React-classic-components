@@ -189,6 +189,7 @@ const Sale = (props) => {
                   >
                     <StockInput
                       type="date"
+                      name="saleDate"
                       onChange={props.handleChange}
                     />
                     <StockInput
