@@ -30,6 +30,8 @@ import EditTier from "./components/EditTier";
 import HeatMap from "./components/HeatMap";
 import Title from "./components/Title";
 import TitleDetail from "./components/TitleDetail";
+import Setup from "./components/Setup";
+import Details from "./components/Details";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -71,6 +73,14 @@ function MyApp() {
       case "titleDetail":
         temp = TitleDetailProps;
         setData = setTitleDetailProps;
+        break;
+      case "setup":
+        temp = SetupProps;
+        setData = setSetupProps;
+        break;
+      case "details":
+        temp = DetailsProps;
+        setData = setDetailsProps;
         break;
 
       default:
@@ -634,6 +644,43 @@ function MyApp() {
     onSave: TitleDetailSave,
   });
 
+  //Frame 05 PropsData && GetData
+  const [SetupProps, setSetupProps] = React.useState({
+    name: { value: "Employer" },
+    company: {
+      value: "Stripe",
+      options: ["Stripe",],
+    },
+    type: {
+      value: "Type 1",
+      options: ["Type 1", ],
+    },
+    initialPrice: { value: 10.00 },
+    date: { value: "10/15/22" },
+    handleChange: (e) => handleChange(e, "setup"),
+  });
+
+  //Frame 01 PropsData && GetData
+  const [DetailsProps, setDetailsProps] = React.useState({
+    member: { 
+      value: "Jenny Thompson",
+      options: ["Jenny Thompson", 'Benny Thompson'], 
+    },
+    company: {
+      value: "Google",
+      options: ["Google",],
+    },
+    frequency: {
+      value: "Twice a month",
+      options: ["Twice a month",],
+    },
+    type: {
+      value: "Regular",
+      options: ["Regular",],
+    },
+    handleChange: (e) => handleChange(e, "details"),
+  });
+
   return (
     <Box
       sx={{
@@ -698,6 +745,10 @@ function MyApp() {
       <Title {...TitleProps} />
       Frame08
       <TitleDetail {...TitleDetailProps} />
+      Frame05
+      <Setup {...SetupProps} />
+      Frame01
+      <Details {...DetailsProps} />
     </Box>
   );
 }
