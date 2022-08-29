@@ -1,29 +1,16 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Container, Grid, OutlinedInput, TextField } from "@mui/material";
+import { Container, Grid, OutlinedInput, } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
   GrayBoxPanel,
   TypoItem,
   PriceLabel,
-  StockInput,
   StockSelect,
-  PriceNumberFormatCustom,
 } from "../commons/styledComponents";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  numberInput: {
-    backgroundColor: "#fff",
-    borderRadius: "4px",
-    width: "100%",
-    "& input": { padding: "6px 8px" },
-  },
-});
 
 const Details = (props) => {
-  const classes = useStyles();
 
   return (
     <Container>

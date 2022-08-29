@@ -1,6 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@mui/styles";
 import {
   Container,
   Grid,
@@ -14,32 +13,8 @@ import {
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import ProgressBar from "../commons/progressbar";
 
-const useStyles = makeStyles({
-  mt10: {
-    marginTop: "10px !important",
-  },
-  relative: {
-    position: "relative",
-  },
-  dateStyle: {
-    position: "absolute !important",
-    pointerEvents: "none",
-    width: "92% !important",
-    height: "92%",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    "& fieldset": { border: "1px solid transparent" },
-  },
-  numberInput: {
-    width:'100%',
-    "& input": { padding:'6px 8px' },
-  },
-});
 
 const HeatMap = (props) => {
-  
-  const classes = useStyles();
 
   return (
     <Container>
