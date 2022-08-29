@@ -4,12 +4,9 @@ import { Container, Grid, OutlinedInput, TextField } from "@mui/material";
 
 import { SelectIcon } from "../commons/icon/multipleIcons";
 import {
-  GrayBoxPanel,
-  TypoItem,
   PriceLabel,
   StockInput,
   StockSelect,
-  PriceNumberFormatCustom,
   BoxPanel,
   NumberFormatCustom,
 } from "../commons/styledComponents";

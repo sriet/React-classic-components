@@ -4,10 +4,9 @@ import {
   Container,
   Grid,
   Typography,
-  Stack,
   Link,
 } from "@mui/material";
-import { RedFlagIcon, GreenFlagIcon, BankNoteIcon } from "../commons/icon/multipleIcons";
+import { BankNoteIcon } from "../commons/icon/multipleIcons";
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import {
   BoxPanel,
