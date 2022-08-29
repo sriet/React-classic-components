@@ -93,14 +93,16 @@ const ProgressBar = (props) => {
                 }`,
                 right: `${
                   props.max < props.min
-                    ? Math.abs((item.value / (props.max - props.min)) * 100) +
-                      "%"
+                    ? "calc( " +
+                      Math.abs((item.value / (props.max - props.min)) * 100) +
+                      "%)"
                     : ""
                 }`,
+                transform: `${props.max < props.min ? "translateX(100%)" : ""}`,
               }}
             >
-              {item.label && item.value}
-              <span style={{ marginLeft: "5px" }}>{item.label}</span>
+              {/* {(item.label || item.label === "") && item.value} */}
+              <span>{item.label}</span>
             </span>
           </div>
         ))}

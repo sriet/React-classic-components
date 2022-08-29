@@ -108,3 +108,12 @@
 .text-decoration-black {
   text-decoration-color: #000 !important;
 }
+
+/* Date range picker toggle arrow hidden */
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker__input-container input {
+  width: 90%;
+}

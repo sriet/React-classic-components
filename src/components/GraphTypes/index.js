@@ -63,12 +63,12 @@ const GraphTypes = () => {
           {
             pattern: 0,
             value: 0,
-            label: "Dim1",
+            label: "000 Dim1",
           },
           {
             pattern: 2,
             value: 45,
-            label: "Dim2",
+            label: "000 Dim2",
           },
           {
             pattern: 5,
@@ -77,12 +77,12 @@ const GraphTypes = () => {
           {
             pattern: 3,
             value: 65,
-            label: "Dim3",
+            label: "000 Dim3",
           },
           {
             pattern: 4,
             value: 90,
-            label: "Dim4",
+            label: "000 Dim4",
           },
         ],
       },
@@ -98,17 +98,17 @@ const GraphTypes = () => {
           {
             pattern: 0,
             value: 0,
-            label: "Dim1",
+            label: "000 Dim1",
           },
           {
             pattern: 1,
             value: 25,
-            label: "Dim2",
+            label: "000 Dim2",
           },
           {
             pattern: 2,
             value: 40,
-            label: "Dim3",
+            label: "000 Dim3",
           },
           {
             pattern: 5,
@@ -117,7 +117,7 @@ const GraphTypes = () => {
           {
             pattern: 3,
             value: 65,
-            label: "Dim4",
+            label: "000 Dim4",
           },
           {
             pattern: 4,
@@ -170,7 +170,7 @@ const GraphTypes = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={9} md={9}>
-                  <Grid container height='24px'>
+                  <Grid container height="24px">
                     <ProgressBar {...item.data} />
                   </Grid>
                 </Grid>
