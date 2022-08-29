@@ -33,6 +33,7 @@ import TitleDetail from "./components/TitleDetail";
 import Setup from "./components/Setup";
 import Details from "./components/Details";
 import TitleDim from "./components/TitleDim";
+import Summary from "./components/Summary";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -261,6 +262,7 @@ function MyApp() {
     onSave: SaleSave,
   });
 
+  //Frame 30
   const EmployerProps = {
     price: [
       { title: "Total", price: 405203 },
@@ -326,6 +328,8 @@ function MyApp() {
       },
     ]
   };
+
+  //Frame 26
   const StockTableProps = {
     table: [
       {
@@ -402,9 +406,13 @@ function MyApp() {
       },
     ],
   };
+  
+  //Frame 32
   const LastProps = {
     dimentions: [7500, -3225, 4275],
   };
+
+  //Frame 19
   const BreakdownProps = {
     breakdown: [
       {
@@ -453,6 +461,8 @@ function MyApp() {
       },
     ],
   };
+
+  //Frame 14
   const GoogleProps = {
     dims: [
       { dim: 12138, subTitle: 281394 },
@@ -460,6 +470,8 @@ function MyApp() {
       { dim: 0, subTitle: 0 },
     ],
   };
+  
+  //Frame 27
   const BarChartProps = {
     ymax: 6728,
     ymin: 0,
@@ -487,6 +499,8 @@ function MyApp() {
       5908, 6372, 6728,
     ],
   };
+  
+  //Frame 29
   const UpcomingProps = {
     data:[
       {flag:'red', title:'Sabbatical', date:'Oct 10 2022'},
@@ -494,20 +508,28 @@ function MyApp() {
       {flag:'red', title:'Move to Washington', date:'Aug 15 2023'},
     ],
   }
+
+  //Frame 16
   const PriceProgressProps = {
     price:82500,
     totalPrice:180000,
     progress:'50%',
   }
+
+  //Frame 28
   const PriceProgressRedProps = {
     price:-35475,
     totalPrice:-57600,
     progress:'60%',
   }
+
+  //Frame 15
   const ClientCardProps = {
     name:'Suki Wealthmanager',
     title:'MyCo'
   }
+
+  //Frame 31
   const ToolTipProps = {
     data:[
       {item:'item 1', value:817},
@@ -531,7 +553,7 @@ function MyApp() {
     handleChange: (e) => handleChange(e, "category"),
   });
   
-  //Frame 22,23 PropsData && GetData
+  //Frame 06 PropsData && GetData
   const EditTierSave = () => {
     console.log("----------", EditTierProps);
   };
@@ -543,6 +565,7 @@ function MyApp() {
     onSave: EditTierSave,
   });
   
+  //Frame 11
   const QuarterlyProps = {
     data:[
       {
@@ -566,6 +589,7 @@ function MyApp() {
     ],
   };
 
+  //Frame 10
   const HeatMapProps = {
     heatMap: [
       {check:1, title:'Q1'},
@@ -591,6 +615,7 @@ function MyApp() {
     },
   };
   
+  //Frame 09
   const TitleProps = {
     breakdown: [
       {
@@ -626,7 +651,7 @@ function MyApp() {
     ],
   };
 
-  //Frame 22,23 PropsData && GetData
+  //Frame 08 PropsData && GetData
   const TitleDetailSave = () => {
     console.log("----------", SaleProps);
   };
@@ -661,7 +686,7 @@ function MyApp() {
     handleChange: (e) => handleChange(e, "setup"),
   });
 
-  
+  //Frame 04
   const TitleDimProps = {
     dims: [
       { dim: 416044, subTitle: 281703 },
@@ -670,6 +695,31 @@ function MyApp() {
     ],
   };
 
+  //Frame 02
+  const SummaryProps = {
+    table: [
+      {
+        category: "category 1",
+        current: 12280.83,
+        ytd: 347544.18,
+      },
+      {
+        category: "category 2",
+        current: -1016.96,
+        ytd: -4067.84,
+      },
+      {
+        category: "category 3",
+        current: -1514.80,
+        ytd: -148629.97,
+      },
+      {
+        category: "category 4",
+        current: -3209.39,
+        ytd: -169737.59,
+      },
+    ],
+  };
   //Frame 01 PropsData && GetData
   const [DetailsProps, setDetailsProps] = React.useState({
     member: { 
@@ -759,6 +809,8 @@ function MyApp() {
       <Setup {...SetupProps} />
       Frame04
       <TitleDim {...TitleDimProps} />
+      Frame26
+      <Summary {...SummaryProps} />
       Frame01
       <Details {...DetailsProps} />
     </Box>
