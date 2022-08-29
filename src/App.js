@@ -91,14 +91,11 @@ function MyApp() {
     if (e.target.name === "date" || e.target.name === "expiryDate") {
       temp[e.target.name].value = moment(e.target.value).format("MM/DD/YY");
       setData({ ...temp });
-    }
-    else if (e.target.name.split('-')[0] === "amount") {
-      temp.table[e.target.name.split('-')[1]].amount = e.target.value;
-      console.log(e.target.name.split('-')[1], e.target.value)
+    } else if (e.target.name.split("-")[0] === "amount") {
+      temp.table[e.target.name.split("-")[1]].amount = e.target.value;
+      console.log(e.target.name.split("-")[1], e.target.value);
       setData({ ...temp });
-
-    }
-    else {
+    } else {
       temp[e.target.name].value = e.target.value;
       setData({ ...temp });
     }
@@ -162,12 +159,12 @@ function MyApp() {
         {
           pattern: 0,
           value: 0,
-          label: "Dim1",
+          label: "000 Dim1",
         },
         {
           pattern: 2,
           value: 45,
-          label: "Dim2",
+          label: "000 Dim2",
         },
         {
           pattern: 5,
@@ -176,12 +173,12 @@ function MyApp() {
         {
           pattern: 3,
           value: 65,
-          label: "Dim3",
+          label: "000 Dim3",
         },
         {
           pattern: 4,
           value: 90,
-          label: "Dim4",
+          label: "000 Dim4",
         },
       ],
     },
@@ -210,12 +207,12 @@ function MyApp() {
         {
           pattern: 0,
           value: 0,
-          label: "Dim1",
+          label: "000 Dim1",
         },
         {
           pattern: 2,
           value: 48,
-          label: "Dim2",
+          label: "000 Dim2",
         },
         {
           pattern: 5,
@@ -224,12 +221,12 @@ function MyApp() {
         {
           pattern: 3,
           value: 68,
-          label: "Dim3",
+          label: "000 Dim3",
         },
         {
           pattern: 4,
           value: 90,
-          label: "Dim4",
+          label: "000 Dim4",
         },
       ],
     },
@@ -274,33 +271,38 @@ function MyApp() {
         title: "250 1 Job ",
         value: 376830,
         data: {
-          min: 0,
-          max: 100,
-  
+          min: 125,
+          max: 0,
+
           status: [
             {
-              pattern: 0,
+              pattern: 4,
               value: 0,
-              label: "Dim1",
-            },
-            {
-              pattern: 2,
-              value: 45,
-              label: "Dim2",
-            },
-            {
-              pattern: 5,
-              value: 64,
+              label: "",
             },
             {
               pattern: 3,
-              value: 65,
-              label: "Dim3",
+              value: 19,
+              label: "19",
             },
             {
-              pattern: 4,
-              value: 90,
-              label: "Dim4",
+              pattern: 5,
+              value: 34,
+              label: "34",
+            },
+            {
+              pattern: 2,
+              value: 35,
+            },
+            {
+              pattern: 0,
+              value: 72,
+              label: "72",
+            },
+            {
+              pattern: 0,
+              value: 125,
+              label: "125",
             },
           ],
         },
@@ -309,24 +311,29 @@ function MyApp() {
         title: "Job 2",
         value: 28400,
         data: {
-          min: 0,
-          max: 100,
-  
+          min: 9,
+          max: 0,
+
           status: [
             {
-              pattern: 0,
+              pattern: 1,
               value: 0,
-              label: "Dim1",
+              label: "",
             },
             {
-              pattern: 1,
-              value: 75,
-              label: "Dim2",
+              pattern: 0,
+              value: 3,
+              label: "3",
+            },
+            {
+              pattern: 0,
+              value: 9,
+              label: "9",
             },
           ],
         },
       },
-    ]
+    ],
   };
 
   //Frame 26
@@ -406,7 +413,7 @@ function MyApp() {
       },
     ],
   };
-  
+
   //Frame 32
   const LastProps = {
     dimentions: [7500, -3225, 4275],
@@ -470,7 +477,7 @@ function MyApp() {
       { dim: 0, subTitle: 0 },
     ],
   };
-  
+
   //Frame 27
   const BarChartProps = {
     ymax: 6728,
@@ -499,43 +506,43 @@ function MyApp() {
       5908, 6372, 6728,
     ],
   };
-  
+
   //Frame 29
   const UpcomingProps = {
-    data:[
-      {flag:'red', title:'Sabbatical', date:'Oct 10 2022'},
-      {flag:'green', title:'New Job', date:'Mar 1 2023'},
-      {flag:'red', title:'Move to Washington', date:'Aug 15 2023'},
+    data: [
+      { flag: "red", title: "Sabbatical", date: "Oct 10 2022" },
+      { flag: "green", title: "New Job", date: "Mar 1 2023" },
+      { flag: "red", title: "Move to Washington", date: "Aug 15 2023" },
     ],
-  }
+  };
 
   //Frame 16
   const PriceProgressProps = {
-    price:82500,
-    totalPrice:180000,
-    progress:'50%',
-  }
+    price: 82500,
+    totalPrice: 180000,
+    progress: "50%",
+  };
 
   //Frame 28
   const PriceProgressRedProps = {
-    price:-35475,
-    totalPrice:-57600,
-    progress:'60%',
-  }
+    price: -35475,
+    totalPrice: -57600,
+    progress: "60%",
+  };
 
   //Frame 15
   const ClientCardProps = {
-    name:'Suki Wealthmanager',
-    title:'MyCo'
-  }
+    name: "Suki Wealthmanager",
+    title: "MyCo",
+  };
 
   //Frame 31
   const ToolTipProps = {
-    data:[
-      {item:'item 1', value:817},
-      {item:'item 2', value:121},
-    ]
-  }
+    data: [
+      { item: "item 1", value: 817 },
+      { item: "item 2", value: 121 },
+    ],
+  };
 
   //Frame 12 PropsData && GetData
   const [CategoryProps, setCategoryProps] = React.useState({
@@ -549,42 +556,72 @@ function MyApp() {
       options: ["Recurring"],
     },
     currentAmount: { value: 33.65 },
-    YTDAmount: { value: 135.80 },
+    YTDAmount: { value: 135.8 },
     handleChange: (e) => handleChange(e, "category"),
   });
-  
+
   //Frame 06 PropsData && GetData
   const EditTierSave = () => {
     console.log("----------", EditTierProps);
   };
   const [EditTierProps, setEditTierProps] = React.useState({
-    min: { value: 33.00 },
+    min: { value: 33.0 },
     max: { value: 36.99 },
     percent: { value: "12%" },
     handleChange: (e) => handleChange(e, "editTier"),
     onSave: EditTierSave,
   });
-  
+
   //Frame 11
   const QuarterlyProps = {
-    data:[
+    data: [
       {
-        year:2022,
-        data:[
-          {icon:'check', date:'April 15 2022', text:'Q1', price:5035.75},
-          {icon:'check', date:'April 15 2022', text:'Q1', price:423.29},
-          {icon:'bankNote', date:'Due June 15 2022', text:'Q2', price:5035.75},
-          {icon:'bankNote', date:'Due June 15 2022', text:'Q2', price:423.29},
-          {icon:'bankNote', date:'Due Sept 15 2022', text:'Q3', price:5035.75},
-          {icon:'bankNote', date:'Due Sept 15 2022', text:'Q3', price:423.29},
-        ]
+        year: 2022,
+        data: [
+          { icon: "check", date: "April 15 2022", text: "Q1", price: 5035.75 },
+          { icon: "check", date: "April 15 2022", text: "Q1", price: 423.29 },
+          {
+            icon: "bankNote",
+            date: "Due June 15 2022",
+            text: "Q2",
+            price: 5035.75,
+          },
+          {
+            icon: "bankNote",
+            date: "Due June 15 2022",
+            text: "Q2",
+            price: 423.29,
+          },
+          {
+            icon: "bankNote",
+            date: "Due Sept 15 2022",
+            text: "Q3",
+            price: 5035.75,
+          },
+          {
+            icon: "bankNote",
+            date: "Due Sept 15 2022",
+            text: "Q3",
+            price: 423.29,
+          },
+        ],
       },
       {
-        year:2023,
-        data:[
-          {icon:'bankNote', date:'Due Jan 15 2022', text:'Q4', price:5035.75},
-          {icon:'bankNote', date:'Due Jan 15 2022', text:'Q4', price:423.29},
-        ]
+        year: 2023,
+        data: [
+          {
+            icon: "bankNote",
+            date: "Due Jan 15 2022",
+            text: "Q4",
+            price: 5035.75,
+          },
+          {
+            icon: "bankNote",
+            date: "Due Jan 15 2022",
+            text: "Q4",
+            price: 423.29,
+          },
+        ],
       },
     ],
   };
@@ -592,10 +629,10 @@ function MyApp() {
   //Frame 10
   const HeatMapProps = {
     heatMap: [
-      {check:1, title:'Q1'},
-      {check:0, title:'Q2'},
-      {check:0, title:'Q3'},
-      {check:0, title:'Q4'},
+      { check: 1, title: "Q1" },
+      { check: 0, title: "Q2" },
+      { check: 0, title: "Q3" },
+      { check: 0, title: "Q4" },
     ],
     data: {
       min: 0,
@@ -614,7 +651,7 @@ function MyApp() {
       ],
     },
   };
-  
+
   //Frame 09
   const TitleProps = {
     breakdown: [
@@ -655,19 +692,40 @@ function MyApp() {
   const TitleDetailSave = () => {
     console.log("----------", SaleProps);
   };
+  const dateRange = (dates) => {
+    const [start, end] = dates;
+    let temp = TitleDetailProps;
+    temp.startDate = start;
+    console.log(start, end, "---");
+    temp.endDate = end;
+    setTitleDetailProps({ ...temp });
+  };
   const [TitleDetailProps, setTitleDetailProps] = React.useState({
     sell: { value: "Type 2", options: ["Type 2", "Start #1"] },
     max: { value: 2371 },
-    dates: { value: "10/15/19" },
-    rules: ['Tier 1 · 20% at $33', 'Tier 2 · 60% at $37', 'Tier3 · 75% at $40.01'],
+    startDate: new Date(),
+    endDate: null,
+    rules: [
+      "Tier 1 · 20% at $33",
+      "Tier 2 · 60% at $37",
+      "Tier3 · 75% at $40.01",
+    ],
     table: [
-      { id: 123, col1: 14387, col2: 2876, col3: 6901, col5: 9777, col6: 350241 },
+      {
+        id: 123,
+        col1: 14387,
+        col2: 2876,
+        col3: 6901,
+        col5: 9777,
+        col6: 350241,
+      },
       { id: 456, col1: 998, col2: 200, col3: 479, col5: 678, col6: 24305 },
       { id: 789, col1: 697, col2: 139, col3: 335, col5: 474, col6: 16988 },
     ],
     dim: [16073, 10930, 391534],
     handleChange: (e) => handleChange(e, "titleDetail"),
     onSave: TitleDetailSave,
+    dateRange: dateRange,
   });
 
   //Frame 05 PropsData && GetData
@@ -675,13 +733,13 @@ function MyApp() {
     name: { value: "Employer" },
     company: {
       value: "Stripe",
-      options: ["Stripe",],
+      options: ["Stripe"],
     },
     type: {
       value: "Type 1",
-      options: ["Type 1", ],
+      options: ["Type 1"],
     },
-    initialPrice: { value: 10.00 },
+    initialPrice: { value: 10.0 },
     date: { value: "10/15/22" },
     handleChange: (e) => handleChange(e, "setup"),
   });
@@ -710,7 +768,7 @@ function MyApp() {
       },
       {
         category: "category 3",
-        current: -1514.80,
+        current: -1514.8,
         ytd: -148629.97,
       },
       {
@@ -722,21 +780,21 @@ function MyApp() {
   };
   //Frame 01 PropsData && GetData
   const [DetailsProps, setDetailsProps] = React.useState({
-    member: { 
+    member: {
       value: "Jenny Thompson",
-      options: ["Jenny Thompson", 'Benny Thompson'], 
+      options: ["Jenny Thompson", "Benny Thompson"],
     },
     company: {
       value: "Google",
-      options: ["Google",],
+      options: ["Google"],
     },
     frequency: {
       value: "Twice a month",
-      options: ["Twice a month",],
+      options: ["Twice a month"],
     },
     type: {
       value: "Regular",
-      options: ["Regular",],
+      options: ["Regular"],
     },
     handleChange: (e) => handleChange(e, "details"),
   });
@@ -788,7 +846,7 @@ function MyApp() {
       Frame03
       <ClientsBar />
       Frame15
-      <ClientCard {...ClientCardProps}/>
+      <ClientCard {...ClientCardProps} />
       Frame14
       <Google {...GoogleProps} />
       Frame31
