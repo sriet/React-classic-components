@@ -50,14 +50,14 @@ const Last = ( props ) => {
                 <Stack direction='row' flexGrow='1'>
                   <Stack direction='row' spacing='5px' className='align-items-center'>
                     <AlertSquareIcon />
-                    <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
+                    <Typography fontSize='0.75rem' lineHeight="14.52px" color="#EB5757">
                       Last updated 48 days ago ·
                     </Typography>
                   </Stack>
                   <Stack direction='row' color='#2F80ED'>
                     <Link className='align-items-center cursor ' >
                       <RefreshOutlinedIcon className="font-16"/>
-                      <Typography fontSize='12px' lineHeight="15px">
+                      <Typography fontSize='0.75rem' lineHeight="15px">
                         Add
                       </Typography>
                     </Link>

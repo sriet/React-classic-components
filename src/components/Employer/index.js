@@ -118,14 +118,14 @@ const Employer = ( props ) => {
               <Stack direction='row'>
                 <Stack direction='row' flexGrow='1'>
                   <Stack direction='row' spacing='5px'>
-                    <Typography fontSize='12px' lineHeight="14.52px">
+                    <Typography fontSize='0.75rem' lineHeight="14.52px">
                       Last updated 48 days ago ·
                     </Typography>
                   </Stack>
                   <Stack direction='row'>
                     <Link color='#828282' className="cursor align-items-start text-decoration-gray">
                       <RefreshOutlinedIcon className="font-16" />
-                      <Typography fontSize='12px' lineHeight="15px">
+                      <Typography fontSize='0.75rem' lineHeight="15px">
                         Update
                       </Typography>
                     </Link>

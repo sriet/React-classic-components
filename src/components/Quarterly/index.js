@@ -22,7 +22,7 @@ const Quarterly = (props) => {
         <Grid container spacing='20px'>
           <Grid container item xs={12}>
             <TypoItem flexGrow='1' color='#333333 !important' variant="subtitle2">Quarterly</TypoItem>
-            <Link className="cursor" fontSize='16px'>
+            <Link className="cursor" fontSize='1rem'>
               Confirm Payment
             </Link>
           </Grid>
@@ -30,7 +30,7 @@ const Quarterly = (props) => {
             <Grid item xs={12} key={index}>
               <Grid container spacing={2}>
                 <Grid item xs={12} display={((item.year=== 2022 && 'none') || 'block')}>
-                  <Typography fontSize='16px' fontWeight='bold' color="#333333">{item.year}</Typography>
+                  <Typography fontSize='1rem' fontWeight='bold' color="#333333">{item.year}</Typography>
                 </Grid>
                 {
                   item.data.map((list, i)=>(

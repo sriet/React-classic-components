@@ -39,10 +39,10 @@ const ToolTip = (props) => {
             <Grid item xs={12} key={index}>
               <Grid container>
                 <Grid item xs={6}>
-                  <Typography fontSize='12px'>{item.item}</Typography>
+                  <Typography fontSize='0.75rem'>{item.item}</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography fontSize='12px' textAlign='right'>{item.value.toLocaleString('en-US')}</Typography>
+                  <Typography fontSize='0.75rem' textAlign='right'>{item.value.toLocaleString('en-US')}</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -50,10 +50,10 @@ const ToolTip = (props) => {
           <Grid item xs={12}>
             <Grid container>
               <Grid item xs={6}>
-                <Typography fontWeight='bold' fontSize='12px'>Total</Typography>
+                <Typography fontWeight='bold' fontSize='0.75rem'>Total</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography fontWeight='bold' fontSize='12px' textAlign='right'>{getSumByKey(props.data, 'value').toLocaleString('en-US')}</Typography>
+                <Typography fontWeight='bold' fontSize='0.75rem' textAlign='right'>{getSumByKey(props.data, 'value').toLocaleString('en-US')}</Typography>
               </Grid>
             </Grid>
           </Grid>

@@ -51,14 +51,14 @@ const Title = ( props ) => {
                         <TypoItem variant="subtitle2">Title</TypoItem>
                         <Stack direction='row' flexGrow='1' pt='5px'>
                             <Stack direction='row' spacing='5px'>
-                                <Typography fontSize='12px' lineHeight="14.52px" color="#828282">
+                                <Typography fontSize='0.75rem' lineHeight="14.52px" color="#828282">
                                 Last updated 15 days ago ·
                                 </Typography>
                             </Stack>
                             <Stack direction='row' color='#828282' >
                                 <Link color='#828282' className='cursor text-decoration-gray' display='flex' >
                                     <RefreshOutlinedIcon fontSize="9px" />
-                                    <Typography fontSize='12px' lineHeight="15px">
+                                    <Typography fontSize='0.75rem' lineHeight="15px">
                                         Update
                                     </Typography>
                                 </Link>

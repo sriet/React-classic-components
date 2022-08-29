@@ -62,13 +62,13 @@ const StockTable = ( props ) => {
                                     <CompletedTableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
-                                        <TableCell align="right"><CheckIcon fontSize='14px'/></TableCell>
+                                        <TableCell align="right"><CheckIcon fontSize='0.875rem'/></TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
                                     </CompletedTableRow>) ||
                                     <TableRow key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
-                                        <TableCell align="right"><ClearIcon fontSize='14px'/></TableCell>
+                                        <TableCell align="right"><ClearIcon fontSize='0.875rem'/></TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
                                     </TableRow>
                                 ))}
@@ -76,8 +76,8 @@ const StockTable = ( props ) => {
                         </Table>
                         <Grid item xs={12}>
                             <Grid container px={2}>
-                                <Typography fontSize='14px' flexGrow='1' ><b>Total</b></Typography>
-                                <Typography fontSize='14px' width='50%' align="right">
+                                <Typography fontSize='0.875rem' flexGrow='1' ><b>Total</b></Typography>
+                                <Typography fontSize='0.875rem' width='50%' align="right">
                                     <b>{getSumByKey(props.table, 'TasksDone').toLocaleString('en-US')}</b>
                                 </Typography>
                             </Grid>

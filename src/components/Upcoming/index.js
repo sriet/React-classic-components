@@ -26,8 +26,8 @@ const Upcoming = (props) => {
               {props.data.map((item, index)=>(
                 <Stack direction='row' className="align-items-center" spacing="12px" key={index}>
                   {(item.flag==='red' && <RedFlagIcon /> )|| <GreenFlagIcon />}
-                  <Typography color='#333333' fontSize='16px' >{item.title}</Typography>
-                  <Typography color='#828282' fontSize='16px' >{item.date}</Typography>
+                  <Typography color='#333333' fontSize='1rem' >{item.title}</Typography>
+                  <Typography color='#828282' fontSize='1rem' >{item.date}</Typography>
                 </Stack>
               ))}
             </Stack>

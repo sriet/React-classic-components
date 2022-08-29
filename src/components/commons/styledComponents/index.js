@@ -34,7 +34,7 @@ export const GrayBoxPanel = styled(Box)(({ theme }) => ({
 export const TypoItem = styled(Typography)(({ theme }) => ({
     backgroundColor: "transparent",
     ...theme.typography.body2,
-    fontSize:"20px",
+    fontSize:"1.25rem",
     padding: theme.spacing(0, 0),
     textAlign: 'left',
     color: theme.palette.mode === 'dark' ? '#fff' : '#000',
@@ -57,14 +57,14 @@ export const PriceValue = styled(Typography)(({ theme }) => ({
     textAlign: 'left',
     color: theme.palette.mode === 'dark' ? '#fff' : '#333333',
     fontWeight: '400',
-    fontSize: '32px',
+    fontSize: '2rem',
     lineHeight:'38.73px'
 }));
 
 export const StockInput = styled(OutlinedInput)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
-    fontSize: "16px",
+    fontSize: "1rem",
     width: "100%",
     "> input": {
         padding: "6px 8px 6px 8px",

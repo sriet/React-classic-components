@@ -51,7 +51,7 @@ const Google = ( props ) => {
                 <Stack direction='row' flexGrow='1'>
                   <Stack direction='row' className="align-items-center" spacing='5px'>
                     <AlertSquareIcon />
-                    <Typography fontSize='12px' lineHeight="14.52px" color="#EB5757">
+                    <Typography fontSize='0.75rem' lineHeight="14.52px" color="#EB5757">
                       Last updated 91 days ago ·
                     </Typography>
                   </Stack>
@@ -64,7 +64,7 @@ const Google = ( props ) => {
                       }}
                     >
                       <RefreshOutlinedIcon fontSize="9px" />
-                      <Typography fontSize='12px' lineHeight="15px">
+                      <Typography fontSize='0.75rem' lineHeight="15px">
                         Update
                       </Typography>
                     </Link>

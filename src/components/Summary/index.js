@@ -60,14 +60,14 @@ const Summary = ( props ) => {
                             </TableBody>
                             <TableFooter className={classes.tableFoot}>
                                 <TableRow>
-                                    <TableCell><Typography fontSize='14px' color='#828282'><b>Net</b></Typography></TableCell>
+                                    <TableCell><Typography fontSize='0.875rem' color='#828282'><b>Net</b></Typography></TableCell>
                                     <TableCell align='right'>
-                                        <Typography fontSize='14px'>
+                                        <Typography fontSize='0.875rem'>
                                             <b>${getSumByKey(props.table, 'current').toLocaleString('en-US')}</b>
                                         </Typography>
                                     </TableCell>
                                     <TableCell align='right'>
-                                        <Typography fontSize='14px'>
+                                        <Typography fontSize='0.875rem'>
                                             <b>${getSumByKey(props.table, 'ytd').toLocaleString('en-US')}</b>
                                         </Typography>
                                     </TableCell>

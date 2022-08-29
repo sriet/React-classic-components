@@ -58,7 +58,7 @@ const HeatMap = (props) => {
                       }
                       <Grid item>
                         <Grid container>
-                          <Typography fontSize='12px' fontWeight="bold" color="#fff">{item.title}</Typography>
+                          <Typography fontSize='0.75rem' fontWeight="bold" color="#fff">{item.title}</Typography>
                         </Grid>
                       </Grid>
                     </Grid>
