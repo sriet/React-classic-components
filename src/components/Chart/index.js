@@ -30,7 +30,7 @@ const Chart = () => {
       y: [y[i-1], y[i-1]],
       type: 'line+markers',
       line: {
-        color: y[i-1]<0 ? 'red' : (y[i-1]>50 ? 'blue':'black'),
+        color: y[i-1]<0 ? '#EB5757' : (y[i-1]>50 ? '#2F80ED':'#000000'),
         width: 1
       }
     };
@@ -42,7 +42,7 @@ const Chart = () => {
       y: bigger ? [y[i-1] + 1.5, y[i] - 1.5] : [y[i-1] - 1.5 , y[i] + 1.5],
       type: 'line',
       line: {
-        color: y[i]<0 || y[i-1]<0 ? 'red':(y[i]>50 || y[i-1]>50 ? 'blue':'black'),
+        color: y[i]<0 || y[i-1]<0 ? '#EB5757':(y[i]>50 || y[i-1]>50 ? '#2F80ED ':'#000000'),
         width: 1
       },
     };
@@ -55,7 +55,7 @@ const Chart = () => {
       y: [1, diff],
       type: 'line',
       line: {
-        color: diff > 0 ? 'black' : 'red',
+        color: diff > 0 ? '#000000' : '#EB5757',
         width: 5
       }
     };
@@ -64,14 +64,14 @@ const Chart = () => {
           type: 'path',
           path: `M ${x[i]-_w}, ${y[i-1]} Q ${x[i]-_w + 0.1}, ${y[i-1]} ${x[i]-_w + 0.15} ${!bigger ? y[i-1]-1.5 : y[i-1]+1.5}`,
           line: {
-            color: y[i-1]<0 || y[i]<0 ? 'red' : ( y[i]>50 || y[i-1]>50 ? 'blue':'black'),
+            color: y[i-1]<0 || y[i]<0 ? '#EB5757' : ( y[i]>50 || y[i-1]>50 ? '#2F80ED':'#000000'),
             width: 1
           }
           },{
           type: 'path',
           path: `M ${x[i] - 0.15}, ${bigger ? y[i]-1.5 : y[i]+1.5} Q ${x[i] - 0.1}, ${y[i]} ${x[i]}, ${y[i]}`,
           line: {
-            color: y[i-1]<0 || y[i]<0 ? 'red' : ( y[i]>50 || y[i-1]>50 ? 'blue':'black'),
+            color: y[i-1]<0 || y[i]<0 ? '#EB5757' : ( y[i]>50 || y[i-1]>50 ? '#2F80ED':'#000000'),
             width: 1
           }
           },)
@@ -79,7 +79,24 @@ const Chart = () => {
 
   let layout = {
     xaxis: {
-      side: 'top'
+      side: 'top',
+      showgrid: false
+    },
+    yaxis: {
+      showgrid: false,
+    showline: true,
+    autotick: false,
+    ticks: 'outside',
+    tick0: 0,
+    dtick: 50,
+    ticklen: 8,
+    tickwidth: 1,
+    tickcolor: '#BDBDBD',
+    tickfont: {
+      family: 'Old Standard TT, serif',
+      size: 12,
+      color: '#828282'
+    },
     },
     showlegend: false,
     shapes: shapes,
@@ -91,6 +108,7 @@ const Chart = () => {
         <PlotlyComponent
           data={data}
           layout={layout}
+
         />
       </BoxPanel>
     </Container>
