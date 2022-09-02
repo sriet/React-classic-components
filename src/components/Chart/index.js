@@ -30,8 +30,8 @@ const Chart = () => {
       y: [y[i-1], y[i-1]],
       type: 'line+markers',
       line: {
-        color: 'black',
-        width: 2
+        color: y[i-1]<0 ? 'red' : (y[i-1]>50 ? 'blue':'black'),
+        width: 1
       }
     };
     // trace2 for the diagonal joining lines
@@ -42,8 +42,8 @@ const Chart = () => {
       y: bigger ? [y[i-1] + 1.5, y[i] - 1.5] : [y[i-1] - 1.5 , y[i] + 1.5],
       type: 'line',
       line: {
-        color: 'black',
-        width: 2
+        color: y[i]<0 || y[i-1]<0 ? 'red':(y[i]>50 || y[i-1]>50 ? 'blue':'black'),
+        width: 1
       },
     };
     var diff = y[i] - y[i - 1];
@@ -64,13 +64,15 @@ const Chart = () => {
           type: 'path',
           path: `M ${x[i]-_w}, ${y[i-1]} Q ${x[i]-_w + 0.1}, ${y[i-1]} ${x[i]-_w + 0.15} ${!bigger ? y[i-1]-1.5 : y[i-1]+1.5}`,
           line: {
-            color: 'black'
+            color: y[i-1]<0 || y[i]<0 ? 'red' : ( y[i]>50 || y[i-1]>50 ? 'blue':'black'),
+            width: 1
           }
           },{
           type: 'path',
           path: `M ${x[i] - 0.15}, ${bigger ? y[i]-1.5 : y[i]+1.5} Q ${x[i] - 0.1}, ${y[i]} ${x[i]}, ${y[i]}`,
           line: {
-            color: 'black'
+            color: y[i-1]<0 || y[i]<0 ? 'red' : ( y[i]>50 || y[i-1]>50 ? 'blue':'black'),
+            width: 1
           }
           },)
   }
