@@ -80,7 +80,22 @@ const Chart = () => {
   let layout = {
     xaxis: {
       side: 'top',
-      showgrid: false
+      showgrid: false,
+      autotick: false,
+      ticks: 'outside',
+      tick0: 0,
+      dtick: 5,
+      ticklen: 10,
+      tickwidth: 1,
+      tickcolor: '#E0E0E0',
+      side: 'top',
+      
+      showgrid: false,
+      zeroline: false,
+      showline: true,
+      mirror: 'ticks',
+      linecolor: '#E0E0E0',
+      linewidth: 1
     },
     yaxis: {
       showgrid: false,
@@ -88,16 +103,22 @@ const Chart = () => {
     autotick: false,
     ticks: 'outside',
     tick0: 0,
-    dtick: 50,
+    dtick: 20,
     ticklen: 8,
     tickwidth: 1,
     tickcolor: '#BDBDBD',
     tickfont: {
       family: 'Old Standard TT, serif',
       size: 12,
-      color: '#828282'
+      color: '#828282',
+      zeroline: true,
+      showline: false,
+      mirror: 'ticks',
+      zerolinecolor: '#828282',
+      zerolinewidth: 2,
     },
-    },
+  },
+
     showlegend: false,
     shapes: shapes,
   }
