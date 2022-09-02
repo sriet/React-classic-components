@@ -79,7 +79,37 @@ const Chart = () => {
 
   let layout = {
     xaxis: {
-      side: 'top'
+      autotick: false,
+      ticks: 'outside',
+      tick0: 0,
+      dtick: 5,
+      ticklen: 10,
+      tickwidth: 1,
+      tickcolor: '#E0E0E0',
+      side: 'top',
+      
+      showgrid: false,
+      zeroline: false,
+      showline: true,
+      mirror: 'ticks',
+      linecolor: '#E0E0E0',
+      linewidth: 1
+    },
+    yaxis: {
+      autotick: false,
+      ticks: 'outside',
+      tick0: 0,
+      dtick: 20,
+      ticklen: 8,
+      tickwidth: 1,
+      tickcolor: '#E0E0E0',
+
+      showgrid: false,
+      zeroline: true,
+      showline: false,
+      mirror: 'ticks',
+      zerolinecolor: '#828282',
+      zerolinewidth: 2,
     },
     showlegend: false,
     shapes: shapes,
