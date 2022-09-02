@@ -34,6 +34,7 @@ import Setup from "./components/Setup";
 import Details from "./components/Details";
 import TitleDim from "./components/TitleDim";
 import Summary from "./components/Summary";
+import Chart from "./components/Chart";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -837,6 +838,8 @@ function MyApp() {
       <Last {...LastProps} />
       Frame19
       <Breakdown {...BreakdownProps} />
+      Frame18
+      <Chart />
       Frame29
       <Upcoming {...UpcomingProps} />
       Frame16
