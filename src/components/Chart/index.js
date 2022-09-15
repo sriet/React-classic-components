@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Container, } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-import { BoxPanel, } from "../commons/styledComponents";
+import { BoxPanel, } from "../../style/styledComponents";
 
 import Plot from 'react-plotlyjs';
 import Plotly from 'plotly.js/dist/plotly-cartesian';

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Container } from "@mui/material";
 import Chart from "react-apexcharts";
 
-import { BoxPanel } from "./../commons/styledComponents/index";
+import { BoxPanel } from "../../style/styledComponents";
 import { useEffect } from "react";
 
 const BarChart = (props) => {

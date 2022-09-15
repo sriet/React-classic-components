@@ -15,7 +15,7 @@ import {
   TableFooter,
  } from '@mui/material';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { BoxPanel, TypoItem } from '../commons/styledComponents';
+import { BoxPanel, TypoItem } from '../../style/styledComponents';
 import { Box } from '@mui/system';
 
 const TitleTable = styled(Table)(({ theme }) => ({

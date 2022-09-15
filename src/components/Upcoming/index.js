@@ -10,7 +10,7 @@ import { RedFlagIcon, GreenFlagIcon } from "../commons/icon/multipleIcons";
 import {
   BoxPanel,
   TypoItem,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 const Upcoming = (props) => {
 

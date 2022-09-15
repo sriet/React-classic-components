@@ -13,7 +13,7 @@ import {
  } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
-import { BoxPanel } from '../commons/styledComponents';
+import { BoxPanel } from '../../style/styledComponents';
 import { makeStyles } from '@mui/styles';
 
 const CompletedTableRow = styled(TableRow)(({ theme }) => ({

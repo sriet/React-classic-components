@@ -19,7 +19,7 @@ import {
   PriceLabel,
   StockInput,
   StockSelect,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 import ProgressBar from "../commons/progressbar";
 
 const useStyles = makeStyles({

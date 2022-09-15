@@ -10,7 +10,7 @@ import {
   StockInput,
   StockSelect,
   PriceNumberFormatCustom,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({

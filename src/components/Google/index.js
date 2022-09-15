@@ -8,6 +8,7 @@ import {
   styled,
   Modal,
   Box,
+  Divider,
 } from "@mui/material";
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
@@ -18,9 +19,12 @@ import {
   TypoItem,
   PriceLabel,
   PriceValue,
-} from "../commons/styledComponents";
+  StyledTabs,
+  StyledTab,
+  TabPanel,
+} from "../../style/styledComponents";
 import ToolTip from "../ToolTip";
-
+import Details from "../Details";
 
 const ToolTipProps = {
   data: [
@@ -48,13 +52,45 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '80%',
+  width: '90%',
+  height:'90%',
   bgcolor: '#fff',
-  boxShadow: 24,
+  // boxShadow: 24,
   outline:0
 };
+
 const Google = ( props ) => {
 
+  const [value, setValue] = React.useState(0);
+  const handleTabChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChange = (e, props) => {
+    DetailsProps[e.target.name].value = e.target.value;
+    setDetailsProps({ ...DetailsProps });
+  };
+  
+  const [DetailsProps, setDetailsProps] = React.useState({
+    member: {
+      value: "Jenny Thompson",
+      options: ["Jenny Thompson", "Benny Thompson"],
+    },
+    company: {
+      value: "Google",
+      options: ["Google"],
+    },
+    frequency: {
+      value: "Twice a month",
+      options: ["Twice a month"],
+    },
+    type: {
+      value: "Regular",
+      options: ["Regular"],
+    },
+    handleChange: (e) => handleChange(e, "details"),
+  });
+  
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -168,12 +204,41 @@ const Google = ( props ) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Grid item xs={12}>
+            <Grid container spacing={1}>
+              <Grid item xs={8}>
+                <Grid container spacing={4}>
+                  <Grid item xs={12}>
+                    <Details {...DetailsProps} />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <StyledTabs
+                      onChange={handleTabChange}
+                      value={value}
+                      textColor="inherit"
+                    >
+                      <StyledTab label="Income" />
+                      <StyledTab label="Equity" />
+                      <StyledTab label="Taxes"/>
+                    </StyledTabs>
+                    <Divider sx={{my:'20px'}} />
+                    <TabPanel value={value} index={0}>
+                      sdfs
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                        <Typography>assdfdf</Typography>
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                        <Typography>as23df</Typography>
+                    </TabPanel>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={4}>
+                {/* <Details {...DetailsProps} /> */}
+              </Grid>
+            </Grid>
+          </Grid>
         </Box>
       </Modal>
     </BoxPanel>

@@ -12,7 +12,7 @@ import EastIcon from '@mui/icons-material/East';
 import {
   AvatarTypo,
   BoxPanel,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 import { LinkIcon } from "../commons/icon/multipleIcons";
 
 const ClientsBar = () => {

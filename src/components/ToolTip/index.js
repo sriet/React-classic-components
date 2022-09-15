@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import {
   GrayBoxPanel,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 //styles
 const useStyles = makeStyles({

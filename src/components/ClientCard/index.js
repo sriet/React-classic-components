@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import {
   BoxPanel,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 const ClientCard = (props) => {
 

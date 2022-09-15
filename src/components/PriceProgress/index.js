@@ -10,7 +10,7 @@ import {
   BoxPanel,
   PriceLabel,
   PriceValue,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 import PriceBar from "../commons/priceBar";
 import ToolTip from "../ToolTip";
 

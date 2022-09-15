@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 import { Container, Grid, Typography } from "@mui/material";
 
-import { BoxPanel, TypoItem } from "../commons/styledComponents";
+import { BoxPanel, TypoItem } from "../../style/styledComponents";
 import ProgressBar from "../commons/progressbar";
 
 const useStyles = makeStyles({

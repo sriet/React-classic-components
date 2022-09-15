@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material"
 import { Container } from "@mui/system"
 import ClientCard from "../components/ClientCard"
-import { GrayBoxPanel } from "../components/commons/styledComponents"
+import { GrayBoxPanel } from "../style/styledComponents"
 
 const ClientCardProps = {
     name: "Suki Wealthmanager",

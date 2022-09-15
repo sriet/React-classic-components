@@ -28,7 +28,7 @@ import {
   StockInput,
   StockSelect,
   PriceNumberFormatCustom,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 //styles
 const useStyles = makeStyles({

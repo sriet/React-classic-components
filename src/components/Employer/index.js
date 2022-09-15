@@ -14,7 +14,7 @@ import {
   TypoItem,
   PriceLabel,
   PriceValue,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 import ProgressBar from "../commons/progressbar";
 import { makeStyles } from "@mui/styles";
 
