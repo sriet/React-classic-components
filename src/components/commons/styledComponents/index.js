@@ -11,10 +11,8 @@ import NumberFormat from 'react-number-format';
 export const BoxPanel = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
-    margin: theme.spacing(5),
     border: "1px solid #BDBDBD",
     borderRadius: "4px",
-    padding: "12px 16px",
     textAlign: "left",
     color: theme.palette.text.secondary,
     elevation: 0,

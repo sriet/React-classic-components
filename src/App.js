@@ -1,5 +1,6 @@
 import "./App.css";
 import * as React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "@fontsource/inter";
 import Box from "@mui/material/Box";
@@ -35,6 +36,8 @@ import Details from "./components/Details";
 import TitleDim from "./components/TitleDim";
 import Summary from "./components/Summary";
 import Chart from "./components/Chart";
+
+import HouseHold from "./pages/HouseHold";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -905,7 +908,15 @@ function App() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <MyApp />
+        
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" >
+              <Route index element={<MyApp />} />
+              <Route path="household" element={<HouseHold />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
