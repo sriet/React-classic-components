@@ -14,7 +14,7 @@ const HouseHold = () => {
     return(
         <Layout>
           <Container>
-              <Grid container alignItems='end' pt='45px'>
+              <Grid container alignItems='end' pt='45px' mb={3} spacing={2}>
                   <Grid item sx={{flexGrow:'1'}}>
                       <StyledTabs
                           onChange={handleChange}
@@ -40,7 +40,7 @@ const HouseHold = () => {
                       </StockSelect>
                   </Grid>
               </Grid>
-              <Divider sx={{my:'20px'}} />
+              <Divider sx={{mb:'20px'}} />
               <TabPanel value={value} index={0}>
                 <Income />
               </TabPanel>

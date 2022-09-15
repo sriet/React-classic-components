@@ -128,7 +128,7 @@ const Income = () => {
     
     return(
         <Grid container spacing={2} mb={15}>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography fontSize={24} fontWeight="700" >Wage Income</Typography>
@@ -137,7 +137,7 @@ const Income = () => {
                         <Grid container spacing={2}>
                             {
                                 WageProgressProps.map((item, index) => (
-                                    <Grid item xs={4} key={index}>
+                                    <Grid item xs={12} md={4} key={index}>
                                         <PriceProgress {...item} />
                                     </Grid>
                                 ))
@@ -164,7 +164,7 @@ const Income = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography fontSize={24} fontWeight="700" >Investment Income</Typography>
@@ -173,7 +173,7 @@ const Income = () => {
                         <Grid container spacing={2}>
                             {
                                 InvestmentProgressProps.map((item, index) => (
-                                    <Grid item xs={4} key={index}>
+                                    <Grid item xs={12} md={4} key={index}>
                                         <PriceProgress {...item} />
                                     </Grid>
                                 ))

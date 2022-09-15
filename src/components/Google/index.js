@@ -9,6 +9,8 @@ import {
   Modal,
   Box,
   Divider,
+  Button,
+  Container,
 } from "@mui/material";
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
@@ -25,6 +27,19 @@ import {
 } from "../../style/styledComponents";
 import ToolTip from "../ToolTip";
 import Details from "../Details";
+
+
+
+const btnCancel = {
+  border: "1px solid gray !important",
+  color: "gray !important",
+  marginRight: "12px !important",
+  textTransform: "none !important",
+}
+const btnSave = {
+  border: "1px solid #2F80ED !important",
+  textTransform: "none !important",
+}
 
 const ToolTipProps = {
   data: [
@@ -111,7 +126,7 @@ const Google = ( props ) => {
         <Grid item xs={12}>
           <Grid container spacing={2}>
             {props.dims.map((list, index)=>(
-              <Grid item xs={'auto'} md={4} key={index}>
+              <Grid item xs md={4} key={index}>
                 <Grid container spacing="4px">
                   <Grid item xs={12}>
                     <PriceLabel>{list.title}</PriceLabel>
@@ -204,39 +219,61 @@ const Google = ( props ) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Grid item xs={12}>
-            <Grid container spacing={1}>
-              <Grid item xs={8}>
-                <Grid container spacing={4}>
-                  <Grid item xs={12}>
-                    <Details {...DetailsProps} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StyledTabs
-                      onChange={handleTabChange}
-                      value={value}
-                      textColor="inherit"
-                    >
-                      <StyledTab label="Income" />
-                      <StyledTab label="Equity" />
-                      <StyledTab label="Taxes"/>
-                    </StyledTabs>
-                    <Divider sx={{my:'20px'}} />
-                    <TabPanel value={value} index={0}>
-                      sdfs
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                        <Typography>assdfdf</Typography>
-                    </TabPanel>
-                    <TabPanel value={value} index={2}>
-                        <Typography>as23df</Typography>
-                    </TabPanel>
+          <Grid container>
+            <Grid item xs={12}>
+              <Grid container spacing={1}>
+                <Grid item xs={8}>
+                  <Grid container spacing={4}>
+                    <Grid item xs={12}>
+                      <Details {...DetailsProps} />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <StyledTabs
+                        onChange={handleTabChange}
+                        value={value}
+                        textColor="inherit"
+                      >
+                        <StyledTab label="Income" />
+                        <StyledTab label="Equity" />
+                        <StyledTab label="Taxes"/>
+                      </StyledTabs>
+                      <Divider sx={{my:'20px'}} />
+                      <TabPanel value={value} index={0}>
+                        sdfs
+                      </TabPanel>
+                      <TabPanel value={value} index={1}>
+                          <Typography>assdfdf</Typography>
+                      </TabPanel>
+                      <TabPanel value={value} index={2}>
+                          <Typography>as23df</Typography>
+                      </TabPanel>
+                    </Grid>
                   </Grid>
                 </Grid>
+                <Grid item xs={4}>
+                  {/* <Details {...DetailsProps} /> */}
+                </Grid>
               </Grid>
-              <Grid item xs={4}>
-                {/* <Details {...DetailsProps} /> */}
-              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+              <Divider />
+            </Grid>
+            <Grid item xs={12}>
+              <Container>
+                <Grid container justifyContent='end' py={4}>
+                  <Button className={btnCancel}>
+                    Cancel
+                  </Button>
+                  <Button 
+                    variant="contained" 
+                    color="primary" 
+                    className={btnSave}
+                    // onClick={() => props.onSave()}
+                  >
+                    Save
+                  </Button>
+                </Grid>
+              </Container>
             </Grid>
           </Grid>
         </Box>

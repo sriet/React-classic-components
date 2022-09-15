@@ -16,7 +16,7 @@ const Upcoming = (props) => {
 
   return (
     <Container>
-      <BoxPanel width='300px' sx={{border:'none', padding:0}}>
+      <BoxPanel maxWidth='300px' sx={{border:'none', padding:0}}>
         <Grid container spacing='20px'>
           <Grid container item xs={12}>
             <TypoItem flexGrow='1' color='#333333 !important' variant="subtitle2">Upcoming Events</TypoItem>
