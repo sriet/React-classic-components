@@ -67,12 +67,12 @@ const Layout = ({children}) => {
                     <Grid item xs={12} sx={{paddingTop:'33px !important'}}>
                         <Grid container spacing={2}>
                             <Grid item>
-                                <Grid container spacing={2}>
+                                <Grid container spacing={2} alignItems="center" justifyContent='center'>
                                     <Grid item>
                                         <img src="Avatar1.png" alt="" width='80px' height='80px' />
                                     </Grid>
                                     <Grid item>
-                                        <Grid container justifyContent="space-between" direction='column' height='80px' color='#333333'>
+                                        <Grid container maxWidth='350px' height='80px' color='#333333' >
                                             <Typography fontSize='1.5rem' fontWeight='600' lineHeight='29px'>Jenny Thompsons</Typography>
                                             <Typography fontSize='1rem' fontWeight='400' lineHeight='19.3px'><b>Software Engineer</b> at <b>Google</b> since June 2018</Typography>
                                             <Typography fontSize='1rem' fontWeight='400' lineHeight='19.3px'>Daly City, California</Typography>
