@@ -15,7 +15,7 @@ import {
   TypoItem,
   PriceLabel,
   PriceValue,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 const Last = ( props ) => {
 

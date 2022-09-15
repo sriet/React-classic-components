@@ -19,7 +19,7 @@ import {
   StockInput,
   StockSelect,
   NumberFormatCustom,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 const useStyles = makeStyles({
   mt10: {

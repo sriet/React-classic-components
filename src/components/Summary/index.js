@@ -11,7 +11,7 @@ import {
   Table,
   TableFooter,
  } from '@mui/material';
-import { BoxPanel, TypoItem } from '../commons/styledComponents';
+import { BoxPanel, TypoItem } from '../../style/styledComponents';
 import { makeStyles } from '@mui/styles';
 
 

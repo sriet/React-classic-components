@@ -5,16 +5,16 @@ import {
   OutlinedInput,
   NativeSelect,
   Box,
+  Tab,
+  Tabs,
 } from "@mui/material";
 import NumberFormat from 'react-number-format';
 
 export const BoxPanel = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
-    margin: theme.spacing(5),
     border: "1px solid #BDBDBD",
     borderRadius: "4px",
-    padding: "12px 16px",
     textAlign: "left",
     color: theme.palette.text.secondary,
     elevation: 0,
@@ -23,9 +23,6 @@ export const BoxPanel = styled(Box)(({ theme }) => ({
 export const GrayBoxPanel = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
     ...theme.typography.body2,
-    margin: theme.spacing(3),  
-    borderRadius:'4px',
-    padding:'16px 35px',
     textAlign: 'left',
     color: theme.palette.text.secondary,
     elevation: 0
@@ -149,3 +146,66 @@ export const PriceNumberFormatCustom = React.forwardRef(function NumberFormatCus
       />
     );
 });
+
+
+export const StyledTabs = styled((props) => (
+  <Tabs
+    {...props}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+  />
+))({
+  '& .MuiButtonBase-root': {
+      padding:0,
+      paddingBottom:'2px',
+      minHeight:'0px !important',
+      minWidth:'0px !important'
+  },
+  '& .MuiTabs-indicator': {
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    height:'1px'
+  },
+  '& .MuiTabs-indicatorSpan': {
+    maxWidth: 60,
+    width: '100%',
+    backgroundColor: '#000',
+  },
+  minHeight:'0px !important'
+});
+
+export const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+  ({ theme }) => ({
+    textTransform: 'none',
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(16),
+    marginRight: theme.spacing(8),
+    color: '#000',
+    '&.Mui-selected': {
+      fontWeight:'700'
+    },
+    '&.Mui-focusVisible': {
+      backgroundColor: 'rgba(100, 95, 228, 0.32)',
+    },
+  }),
+);
+
+export const TabPanel = (props) => {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`vertical-tabpanel-${index}`}
+        aria-labelledby={`vertical-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+            <>
+            {children}
+            </>
+        )}
+      </div>
+    );
+}

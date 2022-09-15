@@ -1,5 +1,6 @@
 import "./App.css";
 import * as React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "@fontsource/inter";
 import Box from "@mui/material/Box";
@@ -35,6 +36,8 @@ import Details from "./components/Details";
 import TitleDim from "./components/TitleDim";
 import Summary from "./components/Summary";
 import Chart from "./components/Chart";
+
+import HouseHold from "./pages/HouseHold";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -472,11 +475,31 @@ function MyApp() {
 
   //Frame 14
   const GoogleProps = {
+    title: 'Last Google Paystub',
+    icon: 'google',
     dims: [
-      { dim: 12138, subTitle: 281394 },
-      { dim: 0, subTitle: 18293 },
-      { dim: 0, subTitle: 0 },
+        {
+            title: 'Gross', 
+            value: 7500,
+            info: 1,
+            subtitle: '',
+        },
+        {
+            title: 'Deductions', 
+            value: -3225,
+            info: 1,
+            subtitle: '',
+        },
+        {
+            title: 'Net-to-bank', 
+            value: 4275,
+            info: 0,
+            subtitle: '',
+        },
     ],
+    updated: 48,
+    link_1:['Add Paystub', ''],
+    link_2:['View All Paystubs', '']
   };
 
   //Frame 27
@@ -905,7 +928,15 @@ function App() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <MyApp />
+        
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" >
+              <Route index element={<MyApp />} />
+              <Route path="household" element={<HouseHold />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

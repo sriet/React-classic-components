@@ -9,7 +9,7 @@ import {
 import {
   BoxPanel,
   PriceLabel,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import ProgressBar from "../commons/progressbar";
 

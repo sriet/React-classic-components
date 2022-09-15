@@ -4,7 +4,7 @@ import { Container, } from "@mui/material";
 
 import StrokeGauge from "../commons/strokeGauge";
 import ObliqueGauge from "../commons/obliqueGauge";
-import { BoxPanel } from "../commons/styledComponents";
+import { BoxPanel } from "../../style/styledComponents";
 
 const Gauge = () => {
   const width = 170;

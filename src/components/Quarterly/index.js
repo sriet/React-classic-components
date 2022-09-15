@@ -11,7 +11,7 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 import {
   BoxPanel,
   TypoItem,
-} from "../commons/styledComponents";
+} from "../../style/styledComponents";
 
 const Quarterly = (props) => {
 
