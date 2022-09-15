@@ -1,8 +1,10 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import {
-  Grid,
+  Grid, styled,
 } from "@mui/material";
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {
   BoxPanel,
@@ -10,6 +12,28 @@ import {
   PriceValue,
 } from "../commons/styledComponents";
 import PriceBar from "../commons/priceBar";
+import ToolTip from "../ToolTip";
+
+const ToolTipProps = {
+  data: [
+    { item: "Qualified", value: 817 },
+    { item: "Non-Qualified", value: 121 },
+  ],
+};
+
+const HtmlTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.arrow}`]: {
+    color: '#E0E0E0',
+  },
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: '#E0E0E0',
+    color: 'rgba(0, 0, 0, 0.87)',
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}));
 
 const PriceProgress = (props) => {
 
@@ -22,8 +46,18 @@ const PriceProgress = (props) => {
         <Grid py="4px" className="align-items-center" item xs={12}>
           <PriceValue pr='5.5px' sx={{color:(props.price<0 && '#EB5757')}}>{((props.price<0 && '-')||'')+`$`+Math.abs(props.price).toLocaleString('en-US')}</PriceValue>
           { 
-            (props.price<0 &&
-              <InfoOutlinedIcon className="font-18" />)
+            (props.info === 1 &&
+              
+              <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <ToolTip {...ToolTipProps} />
+                  </React.Fragment>
+                }
+              >
+                  <InfoOutlinedIcon sx={{fontSize:"18px"}} />
+              </HtmlTooltip>
+            )
           }
         </Grid>
       </Grid>

@@ -20,10 +20,8 @@ export const BoxPanel = styled(Box)(({ theme }) => ({
 
 export const GrayBoxPanel = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#E0E0E0',
-    ...theme.typography.body2,
-    margin: theme.spacing(3),  
+    ...theme.typography.body2, 
     borderRadius:'4px',
-    padding:'16px 35px',
     textAlign: 'left',
     color: theme.palette.text.secondary,
     elevation: 0

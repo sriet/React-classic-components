@@ -475,11 +475,31 @@ function MyApp() {
 
   //Frame 14
   const GoogleProps = {
+    title: 'Last Google Paystub',
+    icon: 'google',
     dims: [
-      { dim: 12138, subTitle: 281394 },
-      { dim: 0, subTitle: 18293 },
-      { dim: 0, subTitle: 0 },
+        {
+            title: 'Gross', 
+            value: 7500,
+            info: 1,
+            subtitle: '',
+        },
+        {
+            title: 'Deductions', 
+            value: -3225,
+            info: 1,
+            subtitle: '',
+        },
+        {
+            title: 'Net-to-bank', 
+            value: 4275,
+            info: 0,
+            subtitle: '',
+        },
     ],
+    updated: 48,
+    link_1:['Add Paystub', ''],
+    link_2:['View All Paystubs', '']
   };
 
   //Frame 27

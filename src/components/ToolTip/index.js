@@ -31,35 +31,33 @@ const ToolTip = (props) => {
   }
 
   return (
-    <Container>
-      <GrayBoxPanel width='181px' position='relative' color='#000000 !important' px='12px !important'>
-      <div className={classes.marker}></div>
-        <Grid container spacing='4px'>
-          {props.data.map((item, index)=>(
-            <Grid item xs={12} key={index}>
-              <Grid container>
-                <Grid item xs={6}>
-                  <Typography fontSize='0.75rem'>{item.item}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography fontSize='0.75rem' textAlign='right'>{item.value.toLocaleString('en-US')}</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          ))}
-          <Grid item xs={12}>
+    <GrayBoxPanel maxWidth='180px' position='relative' color='#000000 !important' p='12px'>
+      {/* <div className={classes.marker}></div> */}
+      <Grid container spacing='4px'>
+        {props.data.map((item, index)=>(
+          <Grid item xs={12} key={index}>
             <Grid container>
               <Grid item xs={6}>
-                <Typography fontWeight='bold' fontSize='0.75rem'>Total</Typography>
+                <Typography fontSize='0.75rem'>{item.item}</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography fontWeight='bold' fontSize='0.75rem' textAlign='right'>{getSumByKey(props.data, 'value').toLocaleString('en-US')}</Typography>
+                <Typography fontSize='0.75rem' textAlign='right'>{item.value.toLocaleString('en-US')}</Typography>
               </Grid>
             </Grid>
           </Grid>
+        ))}
+        <Grid item xs={12}>
+          <Grid container>
+            <Grid item xs={6}>
+              <Typography fontWeight='bold' fontSize='0.75rem'>Total</Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography fontWeight='bold' fontSize='0.75rem' textAlign='right'>{getSumByKey(props.data, 'value').toLocaleString('en-US')}</Typography>
+            </Grid>
+          </Grid>
         </Grid>
-      </GrayBoxPanel>
-    </Container>
+      </Grid>
+    </GrayBoxPanel>
   );
 };
 

@@ -8,14 +8,17 @@ const WageProgressProps = [
     {
         price: 82500,
         totalPrice: 180000,
+        info:0
     },
     {
         price: -35475,
         totalPrice: -57600,
+        info:1
     },
     {
         price: 47025,
         totalPrice: 122400,
+        info:0
     },
 ]
 
@@ -23,23 +26,102 @@ const InvestmentProgressProps = [
     {
         price: 12138,
         totalPrice: 230381,
+        info:0
     },
     {
         price: 4218,
         totalPrice: 8274,
+        info:0
     },
     {
         price: 938,
         totalPrice: 2103,
+        info:1
     },
 ]
 
-const GoogleProps = {
+const GoogleProps1 = {
+    title: 'Last Google Paystub',
+    logo: 'Google.png',
     dims: [
-      { dim: 12138, subTitle: 281394 },
-      { dim: 0, subTitle: 18293 },
-      { dim: 0, subTitle: 0 },
+        {
+            title: 'Gross', 
+            value: 7500,
+            info: 1,
+            subtitle: '',
+        },
+        {
+            title: 'Deductions', 
+            value: -3225,
+            info: 1,
+            subtitle: '',
+        },
+        {
+            title: 'Net-to-bank', 
+            value: 4275,
+            info: 0,
+            subtitle: '',
+        },
     ],
+    updated: 48,
+    link_1:['Add Paystub', ''],
+    link_2:['View All Paystubs', '']
+};
+
+const GoogleProps2 = {
+    title: 'Google Stock Plan',
+    logo: 'Google.png',
+    dims: [
+        {
+            title: 'Long Term Gains, YTD', 
+            value: 12138,
+            info: 0,
+            subtitle: ['Unrealized', 281394],
+        },
+        {
+            title: 'Short Term Gains, YTD', 
+            value: 0,
+            info: 0,
+            subtitle: ['Unrealized', 18293],
+        },
+        {
+            title: 'Dividends, YTD', 
+            value: 0,
+            info: 0,
+            subtitle: ['Unearned', 0],
+        },
+    ],
+    updated: 91,
+    link_1:['Update Investments', ''],
+    link_2:['View Details', '']
+};
+
+const GoogleProps3 = {
+    title: 'TD Ameritrade Brokerage',
+    logo: 'Ameritrade.png',
+    dims: [
+        {
+            title: 'Long Term Gains, YTD', 
+            value: 0,
+            info: 0,
+            subtitle: ['Unrealized', 28281],
+        },
+        {
+            title: 'Short Term Gains, YTD', 
+            value: 829,
+            info: 0,
+            subtitle: ['Unrealized', 2184],
+        },
+        {
+            title: 'Dividends, YTD', 
+            value: 938,
+            info: 0,
+            subtitle: ['Unearned', 1271],
+        },
+    ],
+    updated: 2,
+    link_1:['Update Investments', ''],
+    link_2:['View Details', '']
 };
 
 const Income = () => {
@@ -63,7 +145,7 @@ const Income = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <Google {...GoogleProps} />
+                        <Google {...GoogleProps1} />
                     </Grid>
                     <Grid item xs={12}>
                         <Button
@@ -99,10 +181,10 @@ const Income = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <Google {...GoogleProps} />
+                        <Google {...GoogleProps2} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Google {...GoogleProps} />
+                        <Google {...GoogleProps3} />
                     </Grid>
                 </Grid>
             </Grid>
