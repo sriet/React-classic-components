@@ -25,10 +25,14 @@ const useStyles = makeStyles({
 const Chart = () => {
 
   const y = [25, -35, -20, -5, 10, 25, 40, 55, 80, 60, 60];
+  // const x = ['2000-01-01', '2000-01-02', '2000-01-03', '2000-01-04', '2000-01-05', '2000-01-06', '2000-01-07', '2000-01-08', '2000-01-09', '2000-01-10', '2000-01-11'];
   const x = [0, 5.5, 7, 14, 21, 28, 35, 42, 47, 49, 56];
 
   let shapes = [];
-  let data = [];
+  let data = [{
+    type: 'scatter',
+    
+  }];
 
   for (let i = 1; i < x.length - 1; i++) {
     // trace1 for the horizontal lines
@@ -93,6 +97,7 @@ const Chart = () => {
 
   let layout = {
     xaxis: {
+      // type: 'date',
       side: 'top',
       showgrid: false,
       autotick: false,
@@ -104,8 +109,9 @@ const Chart = () => {
       linecolor: '#E0E0E0',
       linewidth: 1,
       tickfont: {
-        size: 0,
-        color: 'transparent',
+        family: 'Old Standard TT, serif',
+      size: 12,
+      color: '#828282',
       },
     },
     yaxis: {
@@ -124,7 +130,6 @@ const Chart = () => {
       color: '#828282',
     },
     zeroline: true,
-    mirror: 'ticks',
     zerolinecolor: '#828282',
     zerolinewidth: 2,
   },
@@ -136,6 +141,7 @@ const Chart = () => {
   const styleProps = {
   
   };
+  
 
   const classes = useStyles(styleProps);
 

@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -47,8 +48,8 @@
 }
 
 /* input[type=date] picker icon hidden */
-::-webkit-calendar-picker-indicator{
- width: 100%;
+::-webkit-calendar-picker-indicator {
+  width: 100%;
 }
 
 /* Custom Datepicker */
@@ -60,6 +61,7 @@
 .apexcharts-legend-series {
   display: none;
 }
+
 .apexcharts-menu-icon {
   display: none;
 }
@@ -67,21 +69,24 @@
 /* Align */
 .align-items-start {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
+
 .align-items-center {
   display: flex;
   align-items: center;
 }
+
 .align-items-end {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 /* Font Size */
 .font-16 {
   font-size: 1rem !important;
 }
+
 .font-18 {
   font-size: 1.125rem !important;
 }
@@ -91,6 +96,7 @@
   margin-top: 16px;
   margin-bottom: 16px;
 }
+
 .ml-16 {
   margin-left: 16px;
 }
@@ -102,9 +108,11 @@
 .text-decoration-red {
   text-decoration-color: #EB5757;
 }
+
 .text-decoration-gray {
   text-decoration-color: #828282;
 }
+
 .text-decoration-black {
   text-decoration-color: #000 !important;
 }
