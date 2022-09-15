@@ -4,6 +4,8 @@ import Layout from "../../layout"
 import { StockSelect, StyledTab, StyledTabs, TabPanel } from '../../style/styledComponents';
 import { SelectIcon } from '../../components/commons/icon/multipleIcons';
 import Income from './Income';
+import Equity from './Equity';
+import Taxes from './Taxes';
 
 
 const HouseHold = () => {
@@ -45,10 +47,10 @@ const HouseHold = () => {
                 <Income />
               </TabPanel>
               <TabPanel value={value} index={1}>
-                  <Typography>assdfdf</Typography>
+                <Equity />
               </TabPanel>
               <TabPanel value={value} index={2}>
-                  <Typography>as23df</Typography>
+                <Taxes />
               </TabPanel>
           </Container>        
         </Layout>

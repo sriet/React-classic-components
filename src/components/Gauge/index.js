@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Container, } from "@mui/material";
+import { Box, Container, } from "@mui/material";
 
 import StrokeGauge from "../commons/strokeGauge";
 import ObliqueGauge from "../commons/obliqueGauge";
@@ -15,32 +15,30 @@ const Gauge = () => {
   const obliqueValue = 66;
 
   return (
-    <Container>
-      <BoxPanel sx={{ flexGrow: 1, m: 5 }}>
-        <StrokeGauge
-          max={max}
-          min={min}
-          strokeValue={strokeValue}
-          width={width}
-          height={height}
-        />
-        <ObliqueGauge
-          max={max}
-          min={min}
-          strokeValue={strokeValue}
-          obliqueValue={obliqueValue}
-          width={width}
-          height={height}
-        />
-        <StrokeGauge
-          max={max}
-          min={min}
-          strokeValue={75}
-          width={width}
-          height={height}
-        />
-      </BoxPanel>
-    </Container>
+    <Box>
+      <StrokeGauge
+        max={max}
+        min={min}
+        strokeValue={strokeValue}
+        width={width}
+        height={height}
+      />
+      <ObliqueGauge
+        max={max}
+        min={min}
+        strokeValue={strokeValue}
+        obliqueValue={obliqueValue}
+        width={width}
+        height={height}
+      />
+      <StrokeGauge
+        max={max}
+        min={min}
+        strokeValue={75}
+        width={width}
+        height={height}
+      />
+    </Box>
   );
 };
 

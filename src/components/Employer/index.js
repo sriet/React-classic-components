@@ -67,80 +67,81 @@ const Employer = ( props ) => {
   const classes = useStyles();
 
   return (
-    <Container>
-      <BoxPanel>
-        <Grid container spacing={3}>
-          <Grid container item xs={12}>
-            <TypoItem flexGrow='1' variant="subtitle2"></TypoItem>
-            <TypoItem variant="subtitle2">Employer</TypoItem>
-          </Grid>
-          <Grid item xs={12} md={9}>
-            <Grid container spacing={2}>
-              {props.price.map((list, index)=>(
-                <Grid item xs={'auto'} md={4} key={index}>
-                  <Grid container spacing="4px">
-                    <Grid item xs={12}>
-                      <PriceLabel>{list.title}</PriceLabel>
-                    </Grid>
-                    <Grid container item xs={12}>
-                      <PriceValue pr='5.5px' >${list.price.toLocaleString('en-US')}</PriceValue>
-                    </Grid>
+    <BoxPanel sx={{p:'12px'}}>
+      <Grid container spacing={3}>
+        <Grid container item xs={12}>
+          <TypoItem flexGrow='1' variant="subtitle2">{props.title}</TypoItem>
+          {
+            props.logo &&
+            <img src={props.logo} alt="" />
+          }
+        </Grid>
+        <Grid item xs={12} md={9}>
+          <Grid container spacing={2}>
+            {props.price.map((list, index)=>(
+              <Grid item xs={'auto'} md={4} key={index}>
+                <Grid container spacing="4px">
+                  <Grid item xs={12}>
+                    <PriceLabel>{list.title}</PriceLabel>
                   </Grid>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
-          {props.progressBarGroup.map((item, index) => (
-            <Grid item xs={12} key={index}>
-              <Grid container spacing={2}>
-                <Grid item xs={3} md={3}>
-                  <Link color='#000' className="text-decoration-black">
-                    <Typography className={classes.title}>
-                      {item.title}
-                    </Typography>
-                  </Link>
-                  <Typography className={classes.value}>
-                    {item.value}
-                  </Typography>
-                </Grid>
-                <Grid item xs={9} md={9}>
-                  <Grid container height='24px'>
-                    <ProgressBar {...item.data} />
+                  <Grid container item xs={12}>
+                    <PriceValue pr='5.5px' >${list.price.toLocaleString('en-US')}</PriceValue>
                   </Grid>
                 </Grid>
               </Grid>
+            ))}
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Divider />
+        </Grid>
+        {props.progressBarGroup.map((item, index) => (
+          <Grid item xs={12} key={index}>
+            <Grid container spacing={2}>
+              <Grid item xs={3} md={3}>
+                <Link color='#000' className="text-decoration-black">
+                  <Typography className={classes.title}>
+                    {item.title}
+                  </Typography>
+                </Link>
+                <Typography className={classes.value}>
+                  {item.value}
+                </Typography>
+              </Grid>
+              <Grid item xs={9} md={9}>
+                <Grid container height='24px'>
+                  <ProgressBar {...item.data} />
+                </Grid>
+              </Grid>
             </Grid>
-          ))}
-          <Grid item xs={12}>
-              <Stack direction='row'>
-                <Stack direction='row' flexGrow='1'>
-                  <Stack direction='row' spacing='5px'>
-                    <Typography fontSize='0.75rem' lineHeight="14.52px">
-                      Last updated 48 days ago ·
-                    </Typography>
-                  </Stack>
-                  <Stack direction='row'>
-                    <Link color='#828282' className="cursor align-items-start text-decoration-gray">
-                      <RefreshOutlinedIcon className="font-16" />
-                      <Typography fontSize='0.75rem' lineHeight="15px">
-                        Update
-                      </Typography>
-                    </Link>
-                  </Stack>
+          </Grid>
+        ))}
+        <Grid item xs={12}>
+            <Stack direction='row'>
+              <Stack direction='row' flexGrow='1'>
+                <Stack direction='row' spacing='5px'>
+                  <Typography fontSize='0.75rem' lineHeight="14.52px">
+                    Last updated 48 days ago ·
+                  </Typography>
                 </Stack>
-                <Stack>
-                  <Link className="cursor">
-                    View Details
+                <Stack direction='row'>
+                  <Link color='#828282' className="cursor align-items-start text-decoration-gray">
+                    <RefreshOutlinedIcon className="font-16" />
+                    <Typography fontSize='0.75rem' lineHeight="15px">
+                      Update
+                    </Typography>
                   </Link>
                 </Stack>
               </Stack>
-          </Grid>
+              <Stack>
+                <Link className="cursor">
+                  View Details
+                </Link>
+              </Stack>
+            </Stack>
         </Grid>
-      </BoxPanel>
-    </Container>
+      </Grid>
+    </BoxPanel>
   );
 };
 

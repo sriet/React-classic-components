@@ -11,6 +11,7 @@ import {
   Divider,
   Button,
   Container,
+  AppBar,
 } from "@mui/material";
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
@@ -67,11 +68,11 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '90%',
-  height:'90%',
+  width: '100%',
+  maxHeight: '100%',
   bgcolor: '#fff',
   // boxShadow: 24,
-  outline:0
+  outline:0,
 };
 
 const Google = ( props ) => {
@@ -106,6 +107,26 @@ const Google = ( props ) => {
     handleChange: (e) => handleChange(e, "details"),
   });
   
+  // const handleChange = (e, props) => {
+  //   DetailsProps[e.target.name].value = e.target.value;
+  //   setDetailsProps({ ...DetailsProps });
+  // };
+  
+  const [CategoryProps, setCategoryProps] = React.useState({
+    category: {
+      value: "Type 1",
+      options: ["Type 1", "Type 2", "Type 3"],
+    },
+    description: { value: "Desciption" },
+    recurring: {
+      value: "Recurring",
+      options: ["Recurring"],
+    },
+    currentAmount: { value: 33.65 },
+    YTDAmount: { value: 135.8 },
+    handleChange: (e) => handleChange(e, "category"),
+  });
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -219,46 +240,41 @@ const Google = ( props ) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Grid container>
-            <Grid item xs={12}>
-              <Grid container spacing={1}>
-                <Grid item xs={8}>
-                  <Grid container spacing={4}>
-                    <Grid item xs={12}>
-                      <Details {...DetailsProps} />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <StyledTabs
-                        onChange={handleTabChange}
-                        value={value}
-                        textColor="inherit"
-                      >
-                        <StyledTab label="Income" />
-                        <StyledTab label="Equity" />
-                        <StyledTab label="Taxes"/>
-                      </StyledTabs>
-                      <Divider sx={{my:'20px'}} />
-                      <TabPanel value={value} index={0}>
-                        sdfs
-                      </TabPanel>
-                      <TabPanel value={value} index={1}>
-                          <Typography>assdfdf</Typography>
-                      </TabPanel>
-                      <TabPanel value={value} index={2}>
-                          <Typography>as23df</Typography>
-                      </TabPanel>
-                    </Grid>
-                  </Grid>
+          <Grid container height='100%'>
+            <Grid item xs={8} sx={{borderRight:'1px solid #E0E0E0',}}>
+              <Grid container spacing={4}>
+                <Grid item xs={12}>
+                  <Details {...DetailsProps} />
                 </Grid>
-                <Grid item xs={4}>
-                  {/* <Details {...DetailsProps} /> */}
+                <Grid item xs={12}>
+                  <Container sx={{height:'80%'}}>
+                    <StyledTabs
+                      onChange={handleTabChange}
+                      value={value}
+                      textColor="inherit"
+                    >
+                      <StyledTab label="Income" />
+                      <StyledTab label="Equity" />
+                      <StyledTab label="Taxes"/>
+                    </StyledTabs>
+                    <Divider sx={{my:'20px'}} />
+                    <TabPanel value={value} index={0}>
+                      {/* <Category {...CategoryProps} /> */}
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                        <Typography>assdfdf</Typography>
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                        <Typography>as23df</Typography>
+                    </TabPanel>
+                  </Container>
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Divider />
+            <Grid item xs={4}>
             </Grid>
             <Grid item xs={12}>
+              <Divider />
               <Container>
                 <Grid container justifyContent='end' py={4}>
                   <Button className={btnCancel}>
@@ -275,6 +291,8 @@ const Google = ( props ) => {
                 </Grid>
               </Container>
             </Grid>
+            {/* <AppBar color="inherit" position="fixed" sx={{bottom:0, top:'auto'}}>
+            </AppBar> */}
           </Grid>
         </Box>
       </Modal>

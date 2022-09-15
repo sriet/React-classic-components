@@ -14,10 +14,10 @@ const Details = (props) => {
 
   return (
     <GrayBoxPanel p={3}>
-      <Grid container spacing="8px">
+      <Grid container spacing={1}>
         <Grid item xs={12}>
-          <TypoItem variant="subtitle2" gutterBottom>
-            Detail
+          <TypoItem lineHeight="18px" >
+          Paystub Detail
           </TypoItem>
         </Grid>
         <Grid item xs={12}>
@@ -25,7 +25,7 @@ const Details = (props) => {
             <Grid item xs={12} md={6}>
               <Grid container spacing="10px">
                 <Grid item xs={12}>
-                  <PriceLabel>Member</PriceLabel>
+                  <PriceLabel>Household Member</PriceLabel>
                 </Grid>
                 <Grid item xs={12}>
                   <StockSelect
@@ -65,7 +65,7 @@ const Details = (props) => {
             <Grid item xs={4} md={2.5}>
               <Grid container spacing="10px">
                 <Grid item xs={12}>
-                  <PriceLabel>Frequency</PriceLabel>
+                  <PriceLabel>Paystub Frequency</PriceLabel>
                 </Grid>
                 <Grid item xs={12}>
                   <StockSelect

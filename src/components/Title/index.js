@@ -43,16 +43,15 @@ const Title = ( props ) => {
     }
 
     return (
-        <Container>
-        <BoxPanel>
+        <BoxPanel p={2}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Stack direction='row' spacing={2} className="align-items-center">
-                        <TypoItem variant="subtitle2">Title</TypoItem>
+                        <TypoItem variant="subtitle2">{props.title}</TypoItem>
                         <Stack direction='row' flexGrow='1' pt='5px'>
                             <Stack direction='row' spacing='5px'>
                                 <Typography fontSize='0.75rem' lineHeight="14.52px" color="#828282">
-                                Last updated 15 days ago ·
+                                Last updated {props.updated} days ago ·
                                 </Typography>
                             </Stack>
                             <Stack direction='row' color='#828282' >
@@ -70,10 +69,11 @@ const Title = ( props ) => {
                     <TitleTable>
                         <TableHead>
                             <TableRow >
-                                <TableCell width='35%'>Type</TableCell>
-                                <TableCell width='25%'>Col 1</TableCell>
-                                <TableCell width='25%'>Col 2</TableCell>
-                                <TableCell width='15%'>Col 3</TableCell>
+                                {
+                                    props.col.map((list, index)=>(
+                                        <TableCell width='auto' key={index}>{list}</TableCell>
+                                    ))
+                                }
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -106,7 +106,6 @@ const Title = ( props ) => {
                 </Grid>
             </Grid>
         </BoxPanel>
-        </Container>
     );
 }
 

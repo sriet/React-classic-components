@@ -678,39 +678,43 @@ function MyApp() {
 
   //Frame 09
   const TitleProps = {
+    title:'Taxes on wage income',
+    updated: 15,
+    col:['Type', 'Withheld to date', 'Year End', '% of wages'],
     breakdown: [
-      {
-        Type: "Item1",
+        {
+        Type: "Federal Income Tax",
         Column1: 16823,
         Column2: 34411,
         Column3: "19.12%",
-      },
-      {
-        Type: "Item2",
+        },
+        {
+        Type: "Medicare",
         Column1: 822,
         Column2: 1164,
         Column3: "0.62%",
-      },
-      {
-        Type: "Item3",
+        },
+        {
+        Type: "Social Security (OASDI)",
         Column1: 7928,
         Column2: 9780,
         Column3: "5.45%",
-      },
-      {
-        Type: "Item4",
+        },
+        {
+        Type: "State Income Tax",
         Column1: 4281,
         Column2: 13284,
         Column3: "7.38%",
-      },
-      {
-        Type: "Item5",
+        },
+        {
+        Type: "State Other (CA DSI)",
         Column1: 281,
         Column2: 802,
         Column3: "1.48%",
-      },
+        },
     ],
   };
+
 
   //Frame 08 PropsData && GetData
   const TitleDetailSave = () => {

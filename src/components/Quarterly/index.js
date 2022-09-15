@@ -16,8 +16,7 @@ import {
 const Quarterly = (props) => {
 
   return (
-    <Container>
-      <BoxPanel width='430px' sx={{border:'none', padding:0}}>
+      <BoxPanel sx={{border:'none', padding:0}}>
         <Grid container spacing='20px'>
           <Grid container item xs={12}>
             <TypoItem flexGrow='1' color='#333333 !important' variant="subtitle2">Quarterly</TypoItem>
@@ -56,7 +55,6 @@ const Quarterly = (props) => {
           ))}
         </Grid>
       </BoxPanel>
-    </Container>
   );
 };
 

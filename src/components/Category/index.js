@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Category = (props) => {
+const  Category = (props) => {
   const classes = useStyles();
 
   return (
