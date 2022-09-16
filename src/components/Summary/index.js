@@ -10,6 +10,7 @@ import {
   TableHead,
   Table,
   TableFooter,
+  Box,
  } from '@mui/material';
 import { BoxPanel, TypoItem } from '../../style/styledComponents';
 import { makeStyles } from '@mui/styles';
@@ -18,9 +19,9 @@ import { makeStyles } from '@mui/styles';
 //styles
 const useStyles = makeStyles({
   table: { marginLeft:'16px', '& th, & td': {color:'#828282', paddingTop:'4px !important', paddingBottom:'4px !important' }},
-  tableHead: { "& td, & th": { padding:0},},
-  tableBody: { "& td, & th": { border: 0, padding:0},},
-  tableFoot: { "& td, & th": { border: 0, padding:0, color:'#333333', fontSize:'14px'},},
+  tableHead: { "& td, & th": { padding:'0px 4px',},},
+  tableBody: { "& td, & th": { border: 0, padding:'0px 4px'},},
+  tableFoot: { "& td, & th": { border: 0, padding:'0px 4px', color:'#333333', fontSize:'14px'},},
 });
 
 
@@ -33,20 +34,19 @@ const Summary = ( props ) => {
     }
 
     return (
-        <Container>
-        <BoxPanel width='40%' sx={{border:0}}>
+        // <Box p={3} width='100%'>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <TypoItem variant="subtitle2">Summary</TypoItem>
+                    <TypoItem variant="subtitle2">Paystub Summary</TypoItem>
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
                         <Table className={classes.table}>
                             <TableHead className={classes.tableHead}>
                                 <TableRow>
-                                    <TableCell width='30%'>Category</TableCell>
-                                    <TableCell width='40%' align="right">Current</TableCell>
-                                    <TableCell width='30%' align="right">YTD</TableCell>
+                                    <TableCell>Vest No.</TableCell>
+                                    <TableCell align="right">Current</TableCell>
+                                    <TableCell align="right">YTD</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody className={classes.tableBody}>
@@ -60,7 +60,7 @@ const Summary = ( props ) => {
                             </TableBody>
                             <TableFooter className={classes.tableFoot}>
                                 <TableRow>
-                                    <TableCell><Typography fontSize='0.875rem' color='#828282'><b>Net</b></Typography></TableCell>
+                                    <TableCell><Typography fontSize='0.875rem' color='#828282'><b>Net to bank</b></Typography></TableCell>
                                     <TableCell align='right'>
                                         <Typography fontSize='0.875rem'>
                                             <b>${getSumByKey(props.table, 'current').toLocaleString('en-US')}</b>
@@ -77,8 +77,7 @@ const Summary = ( props ) => {
                     </Grid>
                 </Grid>
             </Grid>
-        </BoxPanel>
-        </Container>
+        // </Box>
     );
 }
 
