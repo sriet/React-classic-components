@@ -4,6 +4,7 @@ import ClientCard from "../components/ClientCard"
 import { GrayBoxPanel } from "../style/styledComponents"
 
 const ClientCardProps = {
+    avatar:'Avatar2.png',
     name: "Suki Wealthmanager",
     title: "MyCo",
 };

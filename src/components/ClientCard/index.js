@@ -1,14 +1,10 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import {
-  Container,
   Typography,
   Stack,
   Box,
 } from "@mui/material";
-import {
-  BoxPanel,
-} from "../../style/styledComponents";
 
 const ClientCard = (props) => {
 
@@ -20,7 +16,7 @@ const ClientCard = (props) => {
             <Typography fontSize='0.75rem' fontWeight='400' lineHeight='14.5px' color='#fff'>{props.title}</Typography>
           </Stack>
           <Stack>
-            <img src="Avatar2.png" alt="" width='36px' height='36px' />
+            <img src={props.avatar} alt="" width='36px' height='36px' />
           </Stack>
         </Stack>
       </Box>

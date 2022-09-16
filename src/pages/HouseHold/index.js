@@ -7,12 +7,11 @@ import Income from './Income';
 import Equity from './Equity';
 import Taxes from './Taxes';
 
-
 const HouseHold = () => {
-    const [value, setValue] = React.useState(0);
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
     return(
         <Layout>
           <Container>

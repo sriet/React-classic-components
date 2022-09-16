@@ -18,7 +18,14 @@ const UpcomingProps = {
   ],
 };
 
-const Layout = ({children}) => {
+const client = {
+  avatar:'Avatar1.png',
+  name:'Jenny Thompson',
+  job:['Software Engineer', 'Google', 'June 2018'],
+  location:'Daly City, California'
+}
+
+const Layout = ( {children} ) => {
     return(
         <>
             <Header />
@@ -69,13 +76,13 @@ const Layout = ({children}) => {
                             <Grid item>
                                 <Grid container spacing={2} alignItems="center" justifyContent='center'>
                                     <Grid item>
-                                        <img src="Avatar1.png" alt="" width='80px' height='80px' />
+                                        <img src={client.avatar} alt="" width='80px' height='80px' />
                                     </Grid>
                                     <Grid item>
                                         <Grid container maxWidth='350px' height='80px' color='#333333' >
-                                            <Typography fontSize='1.5rem' fontWeight='600' lineHeight='29px'>Jenny Thompsons</Typography>
-                                            <Typography fontSize='1rem' fontWeight='400' lineHeight='19.3px'><b>Software Engineer</b> at <b>Google</b> since June 2018</Typography>
-                                            <Typography fontSize='1rem' fontWeight='400' lineHeight='19.3px'>Daly City, California</Typography>
+                                            <Typography fontSize='1.5rem' fontWeight='600' lineHeight='29px'>{client.name}</Typography>
+                                            <Typography fontSize='1rem' fontWeight='400' lineHeight='19.3px'><b>{client.job[0]}</b> at <b>{client.job[1]}</b> since {client.job[2]}</Typography>
+                                            <Typography fontSize='1rem' fontWeight='400' lineHeight='19.3px'>{client.location}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Grid>
