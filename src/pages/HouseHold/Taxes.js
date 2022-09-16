@@ -180,88 +180,62 @@ const Taxes = () => {
 
     return(
         <Grid container spacing={2} mb={15}>
-            <Grid item xs={8}>
+            <Grid item xs={12} md={8}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Holdings</Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs={4}>
-                                <Grid container spacing="4px">
-                                    <Grid item xs={12}>
-                                        <PriceLabel>Total Equity Value</PriceLabel>
-                                    </Grid>
-                                    <Grid item xs={12} >
-                                        <Grid container spacing={1} alignItems="center" direction='row'>
-                                        <Grid item>
-                                            <Typography fontSize={48} lineHeight="58px">$197,294</Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <HtmlTooltip
-                                                title={
-                                                <React.Fragment>
-                                                    <ToolTip {...ToolTipProps} />
-                                                </React.Fragment>
-                                                }
-                                            >
-                                                <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
-                                            </HtmlTooltip>
-                                        </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Grid container spacing="4px">
-                                    <Grid item xs={12}>
-                                        <PriceLabel>Total Equity Value</PriceLabel>
-                                    </Grid>
-                                    <Grid item xs={12} >
-                                        <Grid container spacing={1} alignItems="center" direction='row'>
-                                        <Grid item>
-                                            <Typography fontSize={48} lineHeight="58px">36%</Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <HtmlTooltip
-                                                title={
-                                                <React.Fragment>
-                                                    <ToolTip {...ToolTipProps} />
-                                                </React.Fragment>
-                                                }
-                                            >
-                                                <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
-                                            </HtmlTooltip>
-                                        </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Grid container spacing="4px">
-                                    <Grid item xs={12}>
-                                        <PriceLabel>Total Equity Value</PriceLabel>
-                                    </Grid>
-                                    <Grid item xs={12} >
-                                        <Grid container spacing={1} alignItems="center" direction='row'>
-                                        <Grid item>
-                                            <Typography fontSize={48} lineHeight="58px">$84,836</Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <HtmlTooltip
-                                                title={
-                                                <React.Fragment>
-                                                    <ToolTip {...ToolTipProps} />
-                                                </React.Fragment>
-                                                }
-                                            >
-                                                <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
-                                            </HtmlTooltip>
-                                        </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
+                        <Grid container spacing={0}
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                        >
+                            <Stack direction='column' spacing={1}>
+                                <PriceLabel>Total Equity Value</PriceLabel>
+                                <Stack direction='row' alignItems='center' spacing={1}>
+                                    <Typography fontSize={48} lineHeight="58px">$197,294</Typography>
+                                    <HtmlTooltip
+                                        title={
+                                        <React.Fragment>
+                                            <ToolTip {...ToolTipProps} />
+                                        </React.Fragment>
+                                        }
+                                    >
+                                        <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
+                                    </HtmlTooltip>
+                                </Stack>
+                            </Stack>
+                            <Stack direction='column' spacing={1}>
+                                <PriceLabel>Total Equity Value</PriceLabel>
+                                <Stack direction='row' alignItems='center' spacing={1}>
+                                    <Typography fontSize={48} lineHeight="58px">36%</Typography>
+                                    <HtmlTooltip
+                                        title={
+                                        <React.Fragment>
+                                            <ToolTip {...ToolTipProps} />
+                                        </React.Fragment>
+                                        }
+                                    >
+                                        <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
+                                    </HtmlTooltip>
+                                </Stack>
+                            </Stack>
+                            <Stack direction='column' spacing={1}>
+                                <PriceLabel>Total Equity Value</PriceLabel>
+                                <Stack direction='row' alignItems='center' spacing={1}>
+                                    <Typography fontSize={48} lineHeight="58px">$84,836</Typography>
+                                    <HtmlTooltip
+                                        title={
+                                        <React.Fragment>
+                                            <ToolTip {...ToolTipProps} />
+                                        </React.Fragment>
+                                        }
+                                    >
+                                        <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
+                                    </HtmlTooltip>
+                                </Stack>
+                            </Stack>
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
@@ -342,7 +316,7 @@ const Taxes = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Upcoming Equity Events</Typography>

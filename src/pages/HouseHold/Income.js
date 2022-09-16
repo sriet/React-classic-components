@@ -6,16 +6,19 @@ import AddIcon from "@mui/icons-material/Add";
 
 const WageProgressProps = [
     {
+        title:'Gross, YTD',
         price: 82500,
         totalPrice: 180000,
         info: 0
     },
     {
+        title:'Deductions, YTD',
         price: -35475,
         totalPrice: -57600,
         info: 1
     },
     {
+        title:'Net-to-bank, YTD',
         price: 47025,
         totalPrice: 122400,
         info: 0
@@ -24,16 +27,19 @@ const WageProgressProps = [
 
 const InvestmentProgressProps = [
     {
+        title:'Long Term Gains, YTD',
         price: 12138,
         totalPrice: 230381,
         info: 0
     },
     {
+        title:'Short Term Gains, YTD',
         price: 4218,
         totalPrice: 8274,
         info: 0
     },
     {
+        title:'Dividends, YTD',
         price: 938,
         totalPrice: 2103,
         info: 1

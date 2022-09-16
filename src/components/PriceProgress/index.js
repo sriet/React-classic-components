@@ -41,7 +41,7 @@ const PriceProgress = (props) => {
     <BoxPanel sx={{border:'none', padding:0}}>
       <Grid item xs={12}>
         <Grid item xs={12}>
-          <PriceLabel>Title </PriceLabel>
+          <PriceLabel>{props.title} </PriceLabel>
         </Grid>
         <Grid py="4px" className="align-items-center" item xs={12}>
           <PriceValue pr='5.5px' sx={{color:(props.price<0 && '#EB5757')}}>{((props.price<0 && '-')||'')+`$`+Math.abs(props.price).toLocaleString('en-US')}</PriceValue>
@@ -55,7 +55,7 @@ const PriceProgress = (props) => {
                   </React.Fragment>
                 }
               >
-                  <InfoOutlinedIcon sx={{fontSize:"18px"}} />
+                  <InfoOutlinedIcon sx={{fontSize:"18px", cursor:'pointer'}} />
               </HtmlTooltip>
             )
           }

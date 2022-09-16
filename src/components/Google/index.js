@@ -120,8 +120,8 @@ const Google = ( props ) => {
             <Stack direction='row'>
               <Stack direction='row' flexGrow='1'>
                 <Stack direction='row' className="align-items-center" spacing='5px'>
-                  <AlertSquareIcon />
-                  <Typography fontSize='0.75rem' lineHeight="14.52px" color="#EB5757">
+                  <AlertSquareIcon color={props.updated>10 && "#EB5757" || "#828282"} />
+                  <Typography fontSize='0.75rem' lineHeight="14.52px" color={props.updated>10 && "#EB5757" || "#828282"}>
                     Last updated {props.updated} days ago ·
                   </Typography>
                 </Stack>
@@ -130,7 +130,8 @@ const Google = ( props ) => {
                     sx={{
                       display:'flex',
                       cursor: "pointer",
-                      textDecorationColor: "#2F80ED",
+                      textDecorationColor: props.updated>10 && "#2F80ED" || "#828282",
+                      color: props.updated>10 && "#2F80ED" || "#828282"
                     }} 
                     onClick={handleOpen}
                   >

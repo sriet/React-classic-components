@@ -173,7 +173,7 @@ const Equity = () => {
 
     return(
         <Grid container spacing={2} mb={15}>
-            <Grid item xs={8}>
+            <Grid item xs={12} md={8}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Holdings</Typography>
@@ -212,7 +212,7 @@ const Equity = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Upcoming Equity Events</Typography>
