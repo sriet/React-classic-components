@@ -5,6 +5,8 @@ import { StyledTab, StyledTabs, TabPanel } from "../../../style/styledComponents
 import Category from "../../../components/Category";
 import Summary from "../../../components/Summary";
 
+import AddIcon from "@mui/icons-material/Add";
+
 const btnCancel = {
     border: "1px solid gray !important",
     color: "gray !important",
@@ -134,7 +136,25 @@ const Paystub = () => {
                                     </StyledTabs>
                                     <Divider sx={{my:'20px'}} />
                                     <TabPanel value={value} index={0}>
-                                        <Category {...CategoryProps} />
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={12}>
+                                                <Category {...CategoryProps} />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Button
+                                                    sx={{
+                                                        fontSize: "12px",
+                                                        padding: "8px",
+                                                        border: "1px dashed #BDBDBD",
+                                                        justifyContent: 'start',
+                                                        color: '#828282',
+                                                        textTransform: 'none'
+                                                    }}>
+                                                    <AddIcon sx={{ color: '#828282' }} />
+                                                    <Typography>Add Item</Typography>
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
                                         <Typography>assdfdf</Typography>

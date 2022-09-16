@@ -1,4 +1,6 @@
-import { Container, Grid, Link, Stack, Typography } from "@mui/material"
+import * as React from "react";
+import { Container, Grid, Link, Stack, styled, Typography } from "@mui/material"
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
@@ -8,6 +10,7 @@ import Employer from "../../components/Employer";
 import HeatMap from "../../components/HeatMap";
 import Title from "../../components/Title";
 import Quarterly from "../../components/Quarterly";
+import ToolTip from "../../components/ToolTip";
 
 const HeatMapProps = {
     heatMap: [
@@ -72,6 +75,20 @@ const TitleProps = {
     ],
 };
 
+const HtmlTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} arrow classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.arrow}`]: {
+      color: '#E0E0E0',
+    },
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#E0E0E0',
+      color: 'rgba(0, 0, 0, 0.87)',
+      fontSize: theme.typography.pxToRem(12),
+      border: '1px solid #dadde9',
+    },
+}));
+
 const QuarterlyProps = {
     data: [
       {
@@ -125,6 +142,13 @@ const QuarterlyProps = {
     ],
 };
 
+const ToolTipProps = {
+    data: [
+      { item: "Qualified", value: 817 },
+      { item: "Non-Qualified", value: 121 },
+    ],
+};
+
 const dims = [
     {
         title: 'Long Term Taxes',
@@ -174,7 +198,15 @@ const Taxes = () => {
                                             <Typography fontSize={48} lineHeight="58px">$197,294</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <InfoOutlinedIcon sx={{fontSize:"18 px"}} />
+                                            <HtmlTooltip
+                                                title={
+                                                <React.Fragment>
+                                                    <ToolTip {...ToolTipProps} />
+                                                </React.Fragment>
+                                                }
+                                            >
+                                                <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
+                                            </HtmlTooltip>
                                         </Grid>
                                         </Grid>
                                     </Grid>
@@ -191,7 +223,15 @@ const Taxes = () => {
                                             <Typography fontSize={48} lineHeight="58px">36%</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <InfoOutlinedIcon sx={{fontSize:"18 px"}} />
+                                            <HtmlTooltip
+                                                title={
+                                                <React.Fragment>
+                                                    <ToolTip {...ToolTipProps} />
+                                                </React.Fragment>
+                                                }
+                                            >
+                                                <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
+                                            </HtmlTooltip>
                                         </Grid>
                                         </Grid>
                                     </Grid>
@@ -208,7 +248,15 @@ const Taxes = () => {
                                             <Typography fontSize={48} lineHeight="58px">$84,836</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <InfoOutlinedIcon sx={{fontSize:"18 px"}} />
+                                            <HtmlTooltip
+                                                title={
+                                                <React.Fragment>
+                                                    <ToolTip {...ToolTipProps} />
+                                                </React.Fragment>
+                                                }
+                                            >
+                                                <InfoOutlinedIcon sx={{fontSize:"24px", cursor:'pointer'}} />
+                                            </HtmlTooltip>
                                         </Grid>
                                         </Grid>
                                     </Grid>
