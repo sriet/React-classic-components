@@ -9,6 +9,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AddIcon from '@mui/icons-material/Add';
 import { LinkIcon } from "../components/commons/icon/multipleIcons";
 import Upcoming from "../components/Upcoming";
+import Timeline from "../components/Chart/Timeline";
 
 const UpcomingProps = {
   data: [
@@ -92,7 +93,7 @@ const Layout = ( {children} ) => {
                     <Grid item xs={12} sx={{paddingTop:'33px !important'}}>
                         <Grid container spacing={2}>
                             <Grid item flexGrow={1}>
-                                
+                                <Timeline />
                             </Grid>
                             <Grid item>
                                 <Upcoming {...UpcomingProps} />

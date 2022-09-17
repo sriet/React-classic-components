@@ -10,6 +10,7 @@ import {
   Table,
   TableFooter,
   Box,
+  Link,
  } from '@mui/material';
 import { BoxPanel, TypoItem } from '../../style/styledComponents';
 import { makeStyles } from '@mui/styles';
@@ -35,8 +36,11 @@ const Summary = ( props ) => {
     return (
         // <Box p={3} width='100%'>
             <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <TypoItem variant="subtitle2">Paystub Summary</TypoItem>
+                <Grid container item xs={12} alignItems="center">
+                    <TypoItem flexGrow={'1'} variant="subtitle2">{props.title}</TypoItem>
+                    <Link className="cursor" fontSize='1rem'>
+                    {props.link}
+                    </Link>
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>

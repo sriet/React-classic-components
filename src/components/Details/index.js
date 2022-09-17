@@ -17,7 +17,7 @@ const Details = (props) => {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <TypoItem lineHeight="18px" >
-          Paystub Detail
+          {props.title}
           </TypoItem>
         </Grid>
         <Grid item xs={12}>

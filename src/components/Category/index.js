@@ -49,7 +49,7 @@ const  Category = (props) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={8} md={6}>
+            <Grid item xs={8} md={5}>
               <Grid container spacing="10px">
                 <Grid item xs={12}>
                   <PriceLabel>Description</PriceLabel>
@@ -63,7 +63,7 @@ const  Category = (props) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={4} md={1.5}>
+            <Grid item xs={4} md={2}>
               <Grid container spacing="10px">
                 <Grid item xs={12}>
                   <PriceLabel>Current Amount</PriceLabel>
@@ -82,7 +82,7 @@ const  Category = (props) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={3} md={1.3}>
+            <Grid item xs={3} md={1.7}>
               <Grid container spacing="10px">
                 <Grid item xs={12}>
                   <PriceLabel>YTD Amount</PriceLabel>

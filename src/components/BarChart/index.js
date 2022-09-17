@@ -1,22 +1,8 @@
 import * as React from "react";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Chart from "react-apexcharts";
 
-import { BoxPanel } from "../../style/styledComponents";
-import { useEffect } from "react";
-
 const BarChart = (props) => {
-  const [data, setSeries] = React.useState([]);
-  useEffect(() => {
-    return () => {
-      props.data.map((item) => {
-        let temp = data;
-        temp.push(props.ymax - item);
-        setSeries([...temp]);
-      });
-    };
-  }, []);
-
   const options = {
     chart: {
       id: "apexchart-example",
@@ -24,15 +10,11 @@ const BarChart = (props) => {
     },
     colors: [
       function ({ value, seriesIndex, w }) {
-        if (seriesIndex === 0) {
           if (value < 2600) {
             return "#219653";
           } else {
             return "#333";
           }
-        } else {
-          return "#E0E0E0";
-        }
       },
     ],
     xaxis: {
@@ -55,6 +37,29 @@ const BarChart = (props) => {
     tooltip: {
       enabled: false,
     },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            s̶t̶a̶r̶t̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
+            e̶n̶d̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
+            borderRadius: 0,
+            columnWidth: '70%',
+            barHeight: '70%',
+            distributed: false,
+            rangeBarOverlap: true,
+            rangeBarGroupRows: false,
+            colors: {
+                ranges: [{
+                    from: 0,
+                    to: 0,
+                    color: undefined
+                }],
+                backgroundBarColors: ['#E0E0E0'],
+                backgroundBarOpacity: 1,
+                backgroundBarRadius: 0,
+            },
+        }
+    },
   };
 
   const series = [
@@ -62,24 +67,18 @@ const BarChart = (props) => {
       name: "series-1",
       data: props.data,
     },
-    {
-      name: "series-2",
-      data: data,
-    },
   ];
 
   return (
-    <Container>
-      <BoxPanel width="fit-content" sx={{ border: 0 }}>
-        <Chart
-          options={options}
-          series={series}
-          type="bar"
-          height={250}
-          width={440}
-        />
-      </BoxPanel>
-    </Container>
+  <Box sx={{ border: 0, width:'100%' }}>
+    <Chart
+      options={options}
+      series={series}
+      type="bar"
+      height={250}
+      width={'100%'}
+    />
+  </Box>
   );
 };
 

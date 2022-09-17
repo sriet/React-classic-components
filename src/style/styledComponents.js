@@ -46,6 +46,9 @@ export const PriceLabel = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.secondary,
     fontWeight: "light",
     fontSize: "12px",
+    height:'24px',
+    alignItems:'end',
+    display:'flex'
 }));
 
 export const PriceValue = styled(Typography)(({ theme }) => ({

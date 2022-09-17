@@ -7,6 +7,7 @@ import {
   Typography,
   Stack,
   Divider,
+  Modal,
 } from "@mui/material";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import {
@@ -17,6 +18,7 @@ import {
 } from "../../style/styledComponents";
 import ProgressBar from "../commons/progressbar";
 import { makeStyles } from "@mui/styles";
+import EquityDetail from "../../pages/HouseHold/modal/EquityDetail";
 
 const useStyles = makeStyles({
   value: {
@@ -65,6 +67,10 @@ const useStyles = makeStyles({
 const Employer = ( props ) => {
 
   const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <BoxPanel sx={{p:'12px'}}>
@@ -134,13 +140,29 @@ const Employer = ( props ) => {
                 </Stack>
               </Stack>
               <Stack>
-                <Link className="cursor">
+                <Link
+                  sx={{
+                    display:'flex',
+                    cursor: "pointer",
+                    textDecorationColor: props.updated>10 && "#2F80ED" || "#828282",
+                    color: props.updated>10 && "#2F80ED" || "#828282"
+                  }} 
+                  onClick={handleOpen}
+                >
                   View Details
                 </Link>
               </Stack>
             </Stack>
         </Grid>
       </Grid>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <EquityDetail />
+      </Modal>
     </BoxPanel>
   );
 };

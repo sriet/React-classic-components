@@ -52,229 +52,230 @@ const ISOProgress = (props) => {
   const classes = useStyles();
 
   return (
-    <Container>
-      <BoxPanel>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={7.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>ID</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockInput 
-                      value={props.planId.value}
-                      name='planId'
-                      onChange={props.handleChange}
-                    />
-                  </Grid>
+    <BoxPanel p={1.5}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={7.5}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>ID</PriceLabel>
                 </Grid>
-              </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Type</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      value={props.type.value}
-                      name='type'
-                      onChange={props.handleChange}
-                    >
-                    {props.type.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Price</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField 
-                    className={classes.numberInput}
-                    variant="outlined" 
-                    value={props.price.value}
+                <Grid item xs={12}>
+                  <StockInput 
+                    value={props.planId.value}
+                    name='planId'
                     onChange={props.handleChange}
-                    name="price"
-                    InputProps={{
-                      inputComponent: PriceNumberFormatCustom,
-                    }} />
-                  </Grid>
+                  />
                 </Grid>
               </Grid>
-              <Grid item xs={4} md={1.5}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <PriceLabel>Date</PriceLabel>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    className={`${classes.relative} ${classes.mt10} `}
+            </Grid>
+            <Grid item xs={4} md={1.5}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>Type</PriceLabel>
+                </Grid>
+                <Grid item xs={12}>
+                  <StockSelect
+                    input={<OutlinedInput />}
+                    IconComponent={SelectIcon}
+                    value={props.type.value}
+                    name='type'
+                    onChange={props.handleChange}
                   >
-                    <StockInput
-                      type="date"
-                      name="date"
-                      onChange={props.handleChange}
-                    />
-                    <StockInput
-                      type="text"
-                      className={classes.dateStyle}
-                      value={moment(props.date.value).format("MM/DD/YY")}
-                    />
-                  </Grid>
+                  {props.type.options.map((item, index)=>(
+                    <option key={index}>{item}</option>
+                  ))}
+                  </StockSelect>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container spacing={2}>
-              <Grid item xs={7} md={4.8}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Amount</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField 
-                    className={classes.numberInput}
-                    variant="outlined" 
-                    value={props.amount.value}
+            <Grid item xs={4} md={1.5}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>Price</PriceLabel>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField 
+                  className={classes.numberInput}
+                  variant="outlined" 
+                  value={props.price.value}
+                  onChange={props.handleChange}
+                  name="price"
+                  InputProps={{
+                    inputComponent: PriceNumberFormatCustom,
+                  }} />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={4} md={1.5}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <PriceLabel>Date</PriceLabel>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  className={`${classes.relative} ${classes.mt10} `}
+                >
+                  <StockInput
+                    type="date"
+                    name="date"
                     onChange={props.handleChange}
-                    name="amount"
-                    InputProps={{
-                      inputComponent: NumberFormatCustom,
-                    }} />
-                  </Grid>
+                  />
+                  <StockInput
+                    type="text"
+                    className={classes.dateStyle}
+                    value={moment(props.date.value).format("MM/DD/YY")}
+                  />
                 </Grid>
               </Grid>
-              <Grid item xs={5} md={1.5}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <PriceLabel>Expiry Date</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12} className={`${classes.relative} ${classes.mt10} `}>
-                    <StockInput
-                      type="date"
-                      onChange={props.handleChange}
-                    />
-                    <StockInput
-                      type="text"
-                      className={classes.dateStyle}
-                      value={moment(props.expiryDate.value).format("MM/DD/YY")}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Duration</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      value={props.duration.value}
-                      name='duration'
-                      onChange={props.handleChange}
-                    >
-                    {props.duration.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Dropdown</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      value={props.dropdown.value}
-                      name='dropdown'
-                      onChange={props.handleChange}
-                    >
-                    {props.dropdown.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.2}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel>Yes/No</PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      value={props.yn.value}
-                      name='yn'
-                      onChange={props.handleChange}
-                    >
-                    {props.yn.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={3} md={1.5}>
-                <Grid container spacing="10px">
-                  <Grid item xs={12}>
-                    <PriceLabel className="align-items-start" >Dropdown #2 &nbsp; <InfoOutlinedIcon className="font-16" /></PriceLabel>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <StockSelect
-                      input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
-                      value={props.dropdown2.value}
-                      name='dropdown2'
-                      onChange={props.handleChange}
-                    >
-                    {props.dropdown2.options.map((item, index)=>(
-                      <option key={index}>{item}</option>
-                    ))}
-                    </StockSelect>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-              <Divider />
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container height='24px'>
-              <ProgressBar {...props.data} />
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container pt="16px">
-              <Box  flexGrow='1'></Box>
-              <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
-                Cancel
-              </Link>
-              <Link className="cursor"
-                onClick={() => props.onSave()}>Save</Link>
             </Grid>
           </Grid>
         </Grid>
-      </BoxPanel>
-    </Container>
+        <Grid item xs={12}>
+          <Grid container spacing={2}>
+            <Grid item xs={7} md={3}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>Options Granted</PriceLabel>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField 
+                  className={classes.numberInput}
+                  variant="outlined" 
+                  value={props.amount.value}
+                  onChange={props.handleChange}
+                  name="amount"
+                  InputProps={{
+                    inputComponent: NumberFormatCustom,
+                  }} />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={5} md={1.8}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <PriceLabel>Expiry Date</PriceLabel>
+                </Grid>
+                <Grid item xs={12} className={`${classes.relative} ${classes.mt10} `}>
+                  <StockInput
+                    type="date"
+                    onChange={props.handleChange}
+                  />
+                  <StockInput
+                    type="text"
+                    className={classes.dateStyle}
+                    value={moment(props.expiryDate.value).format("MM/DD/YY")}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={3} md={1.9}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>Vesting Period</PriceLabel>
+                </Grid>
+                <Grid item xs={12}>
+                  <StockSelect
+                    input={<OutlinedInput />}
+                    IconComponent={SelectIcon}
+                    value={props.duration.value}
+                    name='duration'
+                    onChange={props.handleChange}
+                  >
+                  {props.duration.options.map((item, index)=>(
+                    <option key={index}>{item}</option>
+                  ))}
+                  </StockSelect>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={3} md={1.8}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>Cliff</PriceLabel>
+                </Grid>
+                <Grid item xs={12}>
+                  <StockSelect
+                    input={<OutlinedInput />}
+                    IconComponent={SelectIcon}
+                    value={props.dropdown.value}
+                    name='dropdown'
+                    onChange={props.handleChange}
+                  >
+                  {props.dropdown.options.map((item, index)=>(
+                    <option key={index}>{item}</option>
+                  ))}
+                  </StockSelect>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={3} md={1.6}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <PriceLabel>Early Exercisable</PriceLabel>
+                </Grid>
+                <Grid item xs={12}>
+                  <StockSelect
+                    input={<OutlinedInput />}
+                    IconComponent={SelectIcon}
+                    value={props.yn.value}
+                    name='yn'
+                    onChange={props.handleChange}
+                  >
+                  {props.yn.options.map((item, index)=>(
+                    <option key={index}>{item}</option>
+                  ))}
+                  </StockSelect>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={3} md={1.9}>
+              <Grid container spacing="10px">
+                <Grid item xs={12}>
+                  <Grid container alignItems='end'>
+                    <PriceLabel>Extended PTE Window<InfoOutlinedIcon className="font-16" /></PriceLabel>
+                    
+                  </Grid>
+                </Grid>
+                <Grid item xs={12}>
+                  <StockSelect
+                    input={<OutlinedInput />}
+                    IconComponent={SelectIcon}
+                    value={props.dropdown2.value}
+                    name='dropdown2'
+                    onChange={props.handleChange}
+                  >
+                  {props.dropdown2.options.map((item, index)=>(
+                    <option key={index}>{item}</option>
+                  ))}
+                  </StockSelect>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+            <Divider />
+        </Grid>
+        {/* <Grid item xs={12}>
+          <Grid container height='24px'>
+            <ProgressBar {...props.data} />
+          </Grid>
+        </Grid> */}
+        <Grid item xs={12}>
+          <Grid container pt="16px">
+            <Box  flexGrow='1'></Box>
+            <Link color={'#828282'} pr= "16px" className="text-decoration-gray cursor">
+              Cancel
+            </Link>
+            <Link className="cursor"
+              onClick={() => props.onSave()}>Save</Link>
+          </Grid>
+        </Grid>
+      </Grid>
+    </BoxPanel>
   );
 };
 

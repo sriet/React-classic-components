@@ -32,28 +32,29 @@ const style = {
 };
 
 const SummaryProps = {
-  table: [
-    {
-      category: "Total wage income",
-      current: 12280.83,
-      ytd: 347544.18,
-    },
-    {
-      category: "Pre-tax deductions",
-      current: -1016.96,
-      ytd: -4067.84,
-    },
-    {
-      category: "Post-tax dedutions",
-      current: -1514.8,
-      ytd: -148629.97,
-    },
-    {
-      category: "Empoloyee tax deductions",
-      current: -3209.39,
-      ytd: -169737.59,
-    },
-  ],
+    title:'Paystub Summary',
+    table: [
+        {
+        category: "Total wage income",
+        current: 12280.83,
+        ytd: 347544.18,
+        },
+        {
+        category: "Pre-tax deductions",
+        current: -1016.96,
+        ytd: -4067.84,
+        },
+        {
+        category: "Post-tax dedutions",
+        current: -1514.8,
+        ytd: -148629.97,
+        },
+        {
+        category: "Empoloyee tax deductions",
+        current: -3209.39,
+        ytd: -169737.59,
+        },
+    ],
 };
     
 const Paystub = () => {
@@ -61,11 +62,6 @@ const Paystub = () => {
     const [value, setValue] = React.useState(0);
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
-    };
-
-    const handleChange = (e, props) => {
-        DetailsProps[e.target.name].value = e.target.value;
-        setDetailsProps({ ...DetailsProps });
     };
     
     const [DetailsProps, setDetailsProps] = React.useState({
@@ -85,13 +81,11 @@ const Paystub = () => {
         value: "Regular",
         options: ["Regular"],
         },
-        handleChange: (e) => handleChange(e, "details"),
+        handleChange: (e) => {
+            DetailsProps[e.target.name].value = e.target.value;
+            setDetailsProps({ ...DetailsProps });
+        }
     });
-    
-    // const handleChange = (e, props) => {
-    //   DetailsProps[e.target.name].value = e.target.value;
-    //   setDetailsProps({ ...DetailsProps });
-    // };
     
     const [CategoryProps, setCategoryProps] = React.useState({
         category: {
@@ -105,7 +99,10 @@ const Paystub = () => {
         },
         currentAmount: { value: 33.65 },
         YTDAmount: { value: 135.8 },
-        handleChange: (e) => handleChange(e, "category"),
+        handleChange: (e) => {
+            CategoryProps[e.target.name].value = e.target.value;
+            setCategoryProps({ ...CategoryProps });
+        },
     });
 
     return (
@@ -120,7 +117,7 @@ const Paystub = () => {
                     <Box width='70%' height={'100% !important'}>
                         <Grid container spacing={4}>
                             <Grid item xs={12}>
-                                <Details {...DetailsProps} />
+                                <Details title="Paystub" {...DetailsProps} />
                             </Grid>
                             <Grid item xs={12}>
                                 <Grid container>

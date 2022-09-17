@@ -10,10 +10,10 @@ import {
   TableBody,
   TableHead,
   Table,
+  Box,
  } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
-import { BoxPanel } from '../../style/styledComponents';
 import { makeStyles } from '@mui/styles';
 
 const CompletedTableRow = styled(TableRow)(({ theme }) => ({
@@ -22,7 +22,7 @@ const CompletedTableRow = styled(TableRow)(({ theme }) => ({
   width:'100%',
   fontSize:'16px',
   "td, th": {
-    color:'#219653'
+    color:'#219653 !important'
   }
 }));
 
@@ -42,18 +42,17 @@ const StockTable = ( props ) => {
     }
 
     return (
-        <Container>
-        <BoxPanel width='50%' sx={{border:0}}>
+        <Box width='100%' sx={{border:0}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
                         <Table className={classes.table}>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell width='5%'>Id</TableCell>
-                                    <TableCell width='15%' align="right">Date</TableCell>
-                                    <TableCell width='15%' align="right">Completed</TableCell>
-                                    <TableCell width='20%' align="right">Taskes done</TableCell>
+                                    <TableCell>Id</TableCell>
+                                    <TableCell align="right">Date</TableCell>
+                                    <TableCell align="right">Completed</TableCell>
+                                    <TableCell align="right">Taskes done</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody className={classes.tableBody}>
@@ -85,8 +84,7 @@ const StockTable = ( props ) => {
                     </Grid>
                 </Grid>
             </Grid>
-        </BoxPanel>
-        </Container>
+        </Box>
     );
 }
 
