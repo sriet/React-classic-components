@@ -26,6 +26,30 @@ const client = {
   location:'Daly City, California'
 }
 
+const TimelineProps = {
+    data: [
+        {
+            x: new Date('2022-02-09').getTime(),
+            y: 0,
+        },
+        {
+            x: new Date('2022-04-09').getTime(),
+            y: 0,
+        },
+        {
+            x: new Date('2022-05-09').getTime(),
+            y: 0,
+        },
+        {
+            x: new Date('2022-08-09').getTime(),
+            y: 0,
+        },
+        {
+            x: new Date('2022-11-09').getTime(),
+            y: 0,
+        },
+    ],
+};
 const Layout = ( {children} ) => {
     return(
         <>
@@ -93,7 +117,7 @@ const Layout = ( {children} ) => {
                     <Grid item xs={12} sx={{paddingTop:'33px !important'}}>
                         <Grid container spacing={2}>
                             <Grid item flexGrow={1}>
-                                <Timeline />
+                                <Timeline {...TimelineProps} />
                             </Grid>
                             <Grid item>
                                 <Upcoming {...UpcomingProps} />

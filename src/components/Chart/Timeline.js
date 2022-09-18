@@ -1,39 +1,9 @@
 import * as React from "react";
-import { Box, Container } from "@mui/material";
+import { Box, } from "@mui/material";
 import Chart from "react-apexcharts";
-import moment from "moment";
 
-const TimelineProps = {
-    ymax: 6728,
-    ymin: 0,
-    xlabel: [
-        
-    ],
-    data: [
-        {
-            x: new Date('2022-02-09').getTime(),
-            y: 0,
-        },
-        {
-            x: new Date('2022-04-09').getTime(),
-            y: 0,
-        },
-        {
-            x: new Date('2022-05-09').getTime(),
-            y: 0,
-        },
-        {
-            x: new Date('2022-08-09').getTime(),
-            y: 0,
-        },
-        {
-            x: new Date('2022-11-09').getTime(),
-            y: 0,
-        },
-    ],
-};
 
-const Timeline = () => {
+const Timeline = (props) => {
     const options = {
         chart: {
             id: "apexchart-example",
@@ -77,7 +47,7 @@ const Timeline = () => {
                 minHeight: 60,
                 maxHeight: 180,
                 datetimeFormatter: {
-                    year: 'yyyy',
+                    year: 'yyyy MMM',
                     month: "MMM",
                     day: 'dd MMM',
                     hour: 'HH:mm',
@@ -91,8 +61,6 @@ const Timeline = () => {
             seriesName: undefined,
             opposite: false,
             reversed: false,
-            // min: 0,
-            // max: 3,
             tickAmount: 1,
             forceNiceScale: false,
             floating: false,
@@ -112,9 +80,9 @@ const Timeline = () => {
             },  
             padding: {
                 top: 0,
-                right: 0,
+                right: 15,
                 bottom: 0,
-                left: 0
+                left: 15
             },  
         },
         annotations: {
@@ -165,22 +133,8 @@ const Timeline = () => {
     {
         name: "series-1",
         type:"scatter",
-        data: TimelineProps.data,
+        data: props.data,
     },
-    // {
-    //     name: 'box',
-    //     type: 'boxPlot',
-    //     data: [
-    //       {
-    //         x: new Date('2022-08-01').getTime(),
-    //         y: [0, 3, 5, 5],
-    //       },
-    //       {
-    //         x: new Date('2022-10-01').getTime(),
-    //         y: [0, 3, 3, 5, 5],
-    //       },
-    //     ]
-    // },
   ];
 
 
