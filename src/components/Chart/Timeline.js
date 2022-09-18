@@ -120,8 +120,10 @@ const Timeline = (props) => {
             curve: 'straight'
         },
         title: {
-            text: 'Line with Annotations',
-            align: 'left'
+            text: '2022',
+            align: 'left',
+            offsetX: 10,
+            offsetY: 30,
         },
         dataLabels: {
           enabled: false

@@ -57,7 +57,7 @@ const SummaryProps = {
     ],
 };
     
-const Paystub = () => {
+const Paystub = React.forwardRef(() => {
     
     const [value, setValue] = React.useState(0);
     const handleTabChange = (event, newValue) => {
@@ -173,13 +173,13 @@ const Paystub = () => {
               <Divider />
               <Container>
                 <Grid container justifyContent='end' py={4}>
-                  <Button className={btnCancel}>
+                  <Button className=''>
                     Cancel
                   </Button>
                   <Button 
                     variant="contained" 
                     color="primary" 
-                    className={btnSave}
+                    className=''
                     // onClick={() => props.onSave()}
                   >
                     Save
@@ -189,6 +189,6 @@ const Paystub = () => {
             </Grid>
         </Box>
     )
-}
+})
 
 export default Paystub

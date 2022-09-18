@@ -168,7 +168,7 @@ const StockTableProps = {
   ],
 };
 
-const EquityDetail = () => {
+const EquityDetail = React.forwardRef(() => {
     
     const [value, setValue] = React.useState(0);
     const handleTabChange = (event, newValue) => {
@@ -343,13 +343,13 @@ const EquityDetail = () => {
               <Divider />
               <Container>
                 <Grid container justifyContent='end' py={4}>
-                  <Button className={btnCancel}>
+                  <Button className=''>
                     Cancel
                   </Button>
                   <Button 
                     variant="contained" 
                     color="primary" 
-                    className={btnSave}
+                    className=''
                     // onClick={() => props.onSave()}
                   >
                     Save
@@ -359,6 +359,6 @@ const EquityDetail = () => {
             </Grid>
         </Box>
     )
-}
+})
 
 export default EquityDetail

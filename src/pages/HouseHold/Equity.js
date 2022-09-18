@@ -221,7 +221,7 @@ const Equity = () => {
                         <Grid container spacing={2}>
                             {
                                 EquityEventData.map((list, index)=>(
-                                    <Grid item xs={12} key={{index}}>
+                                    <Grid item xs={12} key={index}>
                                         <Grid container spacing={1} alignItems='center'>
                                             <Grid item xs={6}>
                                                 <Grid container spacing={1} alignItems="center">
