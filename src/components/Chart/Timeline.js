@@ -95,9 +95,9 @@ const Timeline = (props) => {
                 image: {
                     path: 'mark_sabbatical.svg',
                     width: 85,
-                    height: 55,
+                    height: 53.5,
                     offsetX: 2,
-                    offsetY: -17.5,
+                    offsetY: -18,
                 },
                 }, {
                 x: new Date(new Date().toISOString().slice(0, 10)).getTime(),
