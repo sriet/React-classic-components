@@ -86,9 +86,21 @@ const Timeline = (props) => {
             },  
         },
         annotations: {
-            points: [
-                {
-                x: new Date('2022-08-01').getTime(),
+            points: [ {
+                x: new Date(props.sabbatical).getTime(),
+                y: 0,
+                marker: {
+                    size: 0
+                },
+                image: {
+                    path: 'mark_sabbatical.svg',
+                    width: 85,
+                    height: 55,
+                    offsetX: 2,
+                    offsetY: -17.5,
+                },
+                }, {
+                x: new Date(new Date().toISOString().slice(0, 10)).getTime(),
                 y: 0,
                 marker: {
                     size: 0
@@ -100,20 +112,7 @@ const Timeline = (props) => {
                     offsetX: 0,
                     offsetY: -20,
                 },
-                }, {
-                x: new Date('2022-10-01').getTime(),
-                y: 0,
-                marker: {
-                    size: 0
                 },
-                image: {
-                    path: 'mark_sabbatical.svg',
-                    width: 85,
-                    height: 55,
-                    offsetX: 2,
-                    offsetY: -20,
-                },
-                }, 
             ],
         },
         
