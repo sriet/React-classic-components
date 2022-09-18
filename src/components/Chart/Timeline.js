@@ -44,10 +44,24 @@ const Timeline = () => {
             zoom:{
                 enabled:false
             },
-            type: 'boxPlot',
+            type: 'candlestick',
         },
-        colors: ["#219653"],
+        colors: ['#56CCF2', '#000'],
+        plotOptions: {
+            
+            boxPlot: {
+                colors: {
+                upper: '#EB5757',
+                lower: '#2F80ED'
+                }
+            }
+        },
+        markers: {
+          size: 5
+        },
         xaxis: {
+            min: new Date('2021-12-21').getTime(),
+            max: new Date('2022-12-31').getTime(),
             axisTicks: {
                 show: true,
                 borderType: 'solid',
@@ -56,7 +70,6 @@ const Timeline = () => {
                 offsetX: 0,
                 offsetY: -7
             },
-    
             labels: {
                 show: true,
                 rotate: -45,
@@ -65,7 +78,7 @@ const Timeline = () => {
                 maxHeight: 180,
                 datetimeFormatter: {
                     year: 'yyyy',
-                    month: "yyyy MMM",
+                    month: "MMM",
                     day: 'dd MMM',
                     hour: 'HH:mm',
                 },
@@ -85,20 +98,6 @@ const Timeline = () => {
             floating: false,
             decimalsInFloat: undefined,
         },
-        dataLabels: 
-            {
-            enabled: true,
-            enabledOnSeries: [1],
-            formatter: function(val, opts) {
-                var a = moment(val[0])
-                var b = moment(val[1])
-                var diff = b.diff(a, 'days')
-                return (diff > 1 ? ' days' : 'Today')
-            },
-            style: {
-                colors: ['#fff', '#000']
-            }
-            },
         legend: {
             show: false,
         },
@@ -113,10 +112,52 @@ const Timeline = () => {
             },  
             padding: {
                 top: 0,
-                right: 10,
+                right: 0,
                 bottom: 0,
-                left: 10
+                left: 0
             },  
+        },
+        annotations: {
+            points: [
+                {
+                x: new Date('2022-08-01').getTime(),
+                y: 0,
+                marker: {
+                    size: 0
+                },
+                image: {
+                    path: 'mark_today.svg',
+                    width: 50,
+                    height: 50,
+                    offsetX: 0,
+                    offsetY: -20,
+                },
+                }, {
+                x: new Date('2022-10-01').getTime(),
+                y: 0,
+                marker: {
+                    size: 0
+                },
+                image: {
+                    path: 'mark_sabbatical.svg',
+                    width: 85,
+                    height: 55,
+                    offsetX: 2,
+                    offsetY: -20,
+                },
+                }, 
+            ],
+        },
+        
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Line with Annotations',
+            align: 'left'
+        },
+        dataLabels: {
+          enabled: false
         },
     };
 
@@ -126,20 +167,20 @@ const Timeline = () => {
         type:"scatter",
         data: TimelineProps.data,
     },
-    {
-        name: 'box',
-        type: 'boxPlot',
-        data: [
-          {
-            x: new Date('2022-08-01').getTime(),
-            y: [30, 0, 50, 50, 50],
-          },
-          {
-            x: new Date('2022-10-01').getTime(),
-            y: [30, 0, 50, 50, 50],
-          },
-        ]
-    },
+    // {
+    //     name: 'box',
+    //     type: 'boxPlot',
+    //     data: [
+    //       {
+    //         x: new Date('2022-08-01').getTime(),
+    //         y: [0, 3, 5, 5],
+    //       },
+    //       {
+    //         x: new Date('2022-10-01').getTime(),
+    //         y: [0, 3, 3, 5, 5],
+    //       },
+    //     ]
+    // },
   ];
 
 
