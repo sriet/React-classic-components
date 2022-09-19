@@ -125,6 +125,19 @@ const Timeline = (props) => {
             offsetX: 10,
             offsetY: 30,
         },
+        subtitle: {
+            text: '3 events ->',
+            align: 'right',
+            margin: 10,
+            offsetX: 0,
+            offsetY: 40,
+            style: {
+              fontSize:  '12px',
+              fontWeight:  'normal',
+              fontFamily:  'Inter',
+              color:  '#828282'
+            },
+        },
         dataLabels: {
           enabled: false
         },
