@@ -1,7 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material"
 import { Container } from "@mui/system"
 import ClientCard from "../components/ClientCard"
-import { GrayBoxPanel } from "../style/styledComponents"
+import "@fontsource/space-grotesk";
+import "./index.css"
 
 const ClientCardProps = {
     avatar:'Avatar2.png',
@@ -17,7 +18,7 @@ const Header = () => {
                     <Grid item xs={12}>
                         <Grid container spacing={6} alignItems='center'>
                             <Grid item>
-                                <Typography fontSize={24} fontWeight='bold'>Trayecto</Typography>
+                                <Typography fontSize={24} fontWeight='bold' fontFamily='Space Grotesk'>Trayecto</Typography>
                             </Grid>
                             <Grid item flexGrow={1}>
                                 <Grid container spacing={6}>
