@@ -199,7 +199,7 @@ const Equity = () => {
                     <Grid item xs={12}>
                         <Grid container spacing={0} alignItems='center' >
                             <Stack direction={{md:'row', xs:'column'}}>
-                                <Stack spacing={2} justifyContent='center'>
+                                <Stack spacing={2}>
                                     <PriceLabel>Total Equity Value</PriceLabel>
                                     <Stack direction='row' alignItems='center'>
                                         <Grid item>
