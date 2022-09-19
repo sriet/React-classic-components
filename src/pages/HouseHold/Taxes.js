@@ -91,54 +91,44 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 
 const QuarterlyProps = {
     data: [
-      {
-        year: 2022,
-        data: [
-          { icon: "check", date: "April 15 2022", text: "Q1", price: 5035.75 },
-          { icon: "check", date: "April 15 2022", text: "Q1", price: 423.29 },
+          { icon: "check", date: "April 15 2022", text: "Q1 Federal", price: 5035.75 },
+          { icon: "check", date: "April 15 2022", text: "Q1 State", price: 423.29 },
           {
             icon: "bankNote",
             date: "Due June 15 2022",
-            text: "Q2",
+            text: "Q2 Federal",
             price: 5035.75,
           },
           {
             icon: "bankNote",
             date: "Due June 15 2022",
-            text: "Q2",
+            text: "Q2 State",
             price: 423.29,
           },
           {
             icon: "bankNote",
             date: "Due Sept 15 2022",
-            text: "Q3",
+            text: "Q3 Federal",
             price: 5035.75,
           },
           {
             icon: "bankNote",
             date: "Due Sept 15 2022",
-            text: "Q3",
+            text: "Q3 State",
             price: 423.29,
           },
-        ],
-      },
-      {
-        year: 2023,
-        data: [
           {
             icon: "bankNote",
-            date: "Due Jan 15 2022",
-            text: "Q4",
+            date: "Due Jan 15 2023",
+            text: "Q4 Federal",
             price: 5035.75,
           },
           {
             icon: "bankNote",
-            date: "Due Jan 15 2022",
-            text: "Q4",
+            date: "Due Jan 15 2023",
+            text: "Q4 State",
             price: 423.29,
           },
-        ],
-      },
     ],
 };
 
