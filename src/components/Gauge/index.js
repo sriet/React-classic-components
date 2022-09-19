@@ -22,6 +22,8 @@ const Gauge = () => {
         strokeValue={strokeValue}
         width={width}
         height={height}
+        part1={'1'}
+        part2={'2'}
       />
       <ObliqueGauge
         max={max}
@@ -37,6 +39,8 @@ const Gauge = () => {
         strokeValue={75}
         width={width}
         height={height}
+        part1={'1'}
+        part2={'2'}
       />
     </Box>
   );

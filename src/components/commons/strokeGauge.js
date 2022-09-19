@@ -21,13 +21,15 @@ const useStyles = makeStyles({
   },
 });
 
-const StrokeGauge = ({ max, min, width, height, strokeValue }) => {
+const StrokeGauge = ({ max, min, width, height, strokeValue, part1, part2 }) => {
   const props = {
     strokeValue,
     width,
     height,
     max,
     min,
+    part1,
+    part2
   };
   const classes = useStyles(props);
 
@@ -50,18 +52,18 @@ const StrokeGauge = ({ max, min, width, height, strokeValue }) => {
         d="M -33.588,33.587 A 47.5,47.5 0 1 1 33.588,33.588"
         pathLength="100"
       />
-      <rect x="-15%" y="-10%" width="10" height="10" fill="#333" />
+      <rect x="-24%" y="-10%" width="10" height="10" fill="#333" />
       <foreignObject
         className="gauge-font"
-        x="-3%"
+        x="-12%"
         y="-22.5%"
         width="260px"
         height="100px"
       >
-        <p>1</p>
+        <p>{part1}</p>
       </foreignObject>
       <rect
-        x="-14%"
+        x="-23%"
         y="5%"
         width="8"
         height="8"
@@ -71,12 +73,12 @@ const StrokeGauge = ({ max, min, width, height, strokeValue }) => {
       />
       <foreignObject
         className="gauge-font"
-        x="-3%"
+        x="-12%"
         y="-8.5%"
         width="260px"
         height="100px"
       >
-        <p>2</p>
+        <p>{part2}</p>
       </foreignObject>
       <g className={classes.stroke}>
         {/* static outer border  */}

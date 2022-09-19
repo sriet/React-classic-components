@@ -37,6 +37,9 @@ const ObliqueGauge = ({
   height,
   strokeValue,
   obliqueValue,
+  part1,
+  part2,
+  part3
 }) => {
   const props = {
     strokeValue,
@@ -45,6 +48,9 @@ const ObliqueGauge = ({
     height,
     max,
     min,
+    part1,
+    part2,
+    part3
   };
   const classes = useStyles(props);
 
@@ -89,7 +95,7 @@ const ObliqueGauge = ({
         width="260px"
         height="100px"
       >
-        <p>1</p>
+        <p>{part1}</p>
       </foreignObject>
       <rect
         x="-14%"
@@ -107,7 +113,7 @@ const ObliqueGauge = ({
         width="260px"
         height="100px"
       >
-        <p>2</p>
+        <p>{part2}</p>
       </foreignObject>
       <foreignObject
         className="gauge-font"
@@ -125,7 +131,7 @@ const ObliqueGauge = ({
         width="260px"
         height="100px"
       >
-        <p>3</p>
+        <p>{part3}</p>
       </foreignObject>
       <g className={classes.stroke}>
         {/* static outer border  */}

@@ -4,6 +4,8 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { PriceLabel, PriceValue } from "../../style/styledComponents";
 import Gauge from "../../components/Gauge";
 import Employer from "../../components/Employer";
+import StrokeGauge from "../../components/commons/strokeGauge";
+import ObliqueGauge from "../../components/commons/obliqueGauge";
 
 const GooglePlanProps = {
     title:'Google Stock Plan',
@@ -215,7 +217,36 @@ const Equity = () => {
                             </Grid>
                             <Grid item>
                                 <Grid container>
-                                    <Gauge />
+                                    {/*<Gauge />*/}
+                                    <StrokeGauge
+                                        max={100}
+                                        min={0}
+                                        strokeValue={76}
+                                        width={130}
+                                        height={130}
+                                        part1={'Google'}
+                                        part2={'Stripe'}
+                                    />
+                                    <ObliqueGauge
+                                        max={100}
+                                        min={0}
+                                        strokeValue={42}
+                                        obliqueValue={66}
+                                        width={130}
+                                        height={130}
+                                        part1={'RSUs'}
+                                        part2={'ISOs'}
+                                        part3={'ESPP'}
+                                    />
+                                    <StrokeGauge
+                                        max={100}
+                                        min={0}
+                                        strokeValue={84}
+                                        width={130}
+                                        height={130}
+                                        part1={'Held'}
+                                        part2={'Unvested'}
+                                    />
                                 </Grid>
                             </Grid>
                         </Grid>
