@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from "@mui/material"
+import { Container, Grid, Stack, Typography } from "@mui/material"
 
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { PriceLabel, PriceValue } from "../../style/styledComponents";
@@ -197,26 +197,20 @@ const Equity = () => {
                         <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Holdings</Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs>
-                                <Grid container spacing="4px">
-                                    <Grid item xs={12}>
-                                        <PriceLabel>Total Equity Value</PriceLabel>
-                                    </Grid>
-                                    <Grid item xs={12} >
-                                        <Grid container spacing={0} alignItems="center" direction='row'>
+                        <Grid container spacing={0} alignItems='center' >
+                            <Stack direction={{md:'row', xs:'column'}}>
+                                <Stack spacing={2} justifyContent='center'>
+                                    <PriceLabel>Total Equity Value</PriceLabel>
+                                    <Stack direction='row' alignItems='center'>
                                         <Grid item>
                                             <Typography fontSize={48} lineHeight="58px">$533,242</Typography>
                                         </Grid>
                                         <Grid item>
                                             <InfoOutlinedIcon sx={{fontSize:"18 px"}} />
                                         </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item>
-                                <Grid container>
+                                    </Stack>
+                                </Stack>
+                                <Grid container justifyContent='center'>
                                     {/*<Gauge />*/}
                                     <StrokeGauge
                                         max={100}
@@ -248,7 +242,11 @@ const Equity = () => {
                                         part2={'Unvested'}
                                     />
                                 </Grid>
-                            </Grid>
+                            </Stack>
+                            {/* <Grid item xs={5}>
+                            </Grid> */}
+                            {/* <Grid item xs={7}>
+                            </Grid> */}
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
