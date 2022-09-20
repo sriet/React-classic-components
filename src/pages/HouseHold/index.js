@@ -3,6 +3,7 @@ import { Box, Container, Divider, Grid, OutlinedInput, Typography } from "@mui/m
 import Layout from "../../layout"
 import { StockSelect, StyledTab, StyledTabs, TabPanel } from '../../style/styledComponents';
 import { SelectIcon } from '../../components/commons/icon/multipleIcons';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Income from './Income';
 import Equity from './Equity';
 import Taxes from './Taxes';
@@ -30,7 +31,7 @@ const HouseHold = () => {
                   <Grid item>
                       <StockSelect
                       input={<OutlinedInput />}
-                      IconComponent={SelectIcon}
+                      IconComponent={KeyboardArrowDownIcon}
                       // value={props.type.value}
                       // name="type"
                       // onChange={props.handleChange}

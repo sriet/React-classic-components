@@ -111,7 +111,7 @@ const Employer = ( props ) => {
                   </Typography>
                 </Link>
                 <Typography className={classes.value}>
-                  {item.value}
+                  ${item.value.toLocaleString('en-US')}
                 </Typography>
               </Grid>
               <Grid item xs={9} md={9}>

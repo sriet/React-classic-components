@@ -1,6 +1,6 @@
 import "./index.css"
 
-import { Button, Divider, Grid, Typography } from "@mui/material"
+import { Button, Divider, Grid, Link, Stack, Typography } from "@mui/material"
 import { Container } from "@mui/system"
 import Header from "./header"
 
@@ -56,41 +56,16 @@ const Layout = ( {children} ) => {
         <>
             <Header />
             <Container>
-                <Grid container spacing={2} pt='40px'>
+                <Grid container spacing={4} pt='40px'>
                     <Grid item xs={12}>
                         <Grid container>
                             <Grid item flexGrow={1}>
-                                <Grid container spacing={1}>
-                                    <Grid item>
-                                        <Typography fontSize='1.25rem' lineHeight='24px'>Clients</Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <EastIcon />
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography fontWeight='600' fontSize='1.25rem' lineHeight='24px'>The Thompsons</Typography>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item>
-                                <Grid container spacing={2} alignItems='center'>
-                                    <Grid item>
-                                        <Button 
-                                            variant="contained" 
-                                            color="primary" 
-                                            className='add-btn' 
-                                            startIcon={<AddIcon />}
-                                        >
-                                            <Typography fontSize={16} fontWeight={'400'}>Add</Typography>
-                                        </Button>
-                                    </Grid>
-                                    <Grid item>
-                                        <LinkIcon />
-                                    </Grid>
-                                    <Grid item>
-                                        <MoreHorizIcon />
-                                    </Grid>
-                                </Grid>
+                                <Link  href="/clients" underline="none" color='inherit'>
+                                    <Stack direction='row'>
+                                        <Typography fontSize='1.25rem' lineHeight='24px'>Clients {`->`}</Typography>
+                                        <Typography fontWeight='600' fontSize='1.25rem' lineHeight='24px'> &nbsp; The Thompsons</Typography>
+                                    </Stack>
+                                </Link>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -98,9 +73,9 @@ const Layout = ( {children} ) => {
                         <Divider />
                     </Grid>
                     <Grid item xs={12} sx={{paddingTop:'33px !important'}}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={4}>
                             <Grid item>
-                                <Grid container spacing={2} alignItems="center" justifyContent='center'>
+                                <Grid container spacing={4} alignItems="center" justifyContent='center'>
                                     <Grid item>
                                         <img src={client.avatar} alt="" width='80px' height='80px' />
                                     </Grid>

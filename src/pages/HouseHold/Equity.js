@@ -7,6 +7,8 @@ import Employer from "../../components/Employer";
 import StrokeGauge from "../../components/commons/strokeGauge";
 import ObliqueGauge from "../../components/commons/obliqueGauge";
 
+const totalEquityValue = 533242
+
 const GooglePlanProps = {
     title:'Google Stock Plan',
     logo: '',
@@ -203,7 +205,7 @@ const Equity = () => {
                                     <PriceLabel>Total Equity Value</PriceLabel>
                                     <Stack direction='row' alignItems='center'>
                                         <Grid item>
-                                            <Typography fontSize={48} lineHeight="58px">$533,242</Typography>
+                                            <Typography fontSize={48} lineHeight="58px">${totalEquityValue.toLocaleString('en-US')}</Typography>
                                         </Grid>
                                         <Grid item>
                                             <InfoOutlinedIcon sx={{fontSize:"18 px"}} />

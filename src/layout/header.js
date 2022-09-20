@@ -23,12 +23,6 @@ const Header = () => {
                             <Grid item flexGrow={1}>
                                 <Grid container spacing={6}>
                                     <Grid item>
-                                        <Typography fontSize={16} fontWeight='bold'>Clients</Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography fontSize={16} fontWeight='bold'>Employers</Typography>
-                                    </Grid>
-                                    <Grid item>
                                         <Typography fontSize={16} fontWeight='bold'>Downstop Wealth</Typography>
                                     </Grid>
                                 </Grid>

@@ -47,7 +47,7 @@ const InvestmentProgressProps = [
 ]
 
 const GoogleProps1 = {
-    title: 'Last Google Paystub',
+    title: 'Google Paystub',
     logo: 'Google.png',
     dims: [
         {

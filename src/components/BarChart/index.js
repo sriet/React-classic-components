@@ -9,8 +9,10 @@ const BarChart = (props) => {
       stacked: true,
     },
     colors: [
-      function ({ value, seriesIndex, w }) {
-          if (value < 2600) {
+      function ({ value, seriesIndex, dataPointIndex, w }) {
+        console.log('000000', w.config.series[0].data[dataPointIndex]['x'])
+        let date = w.config.series[0].data[dataPointIndex]['x']
+          if (new Date(date).getTime() < new Date(new Date().toISOString().slice(0, 10)).getTime()) {
             return "#219653";
           } else {
             return "#333";
@@ -18,10 +20,24 @@ const BarChart = (props) => {
       },
     ],
     xaxis: {
-      categories: props.xlabel,
-      axisTicks: {
-        show: false,
-      },
+        axisTicks: {
+          show: false,
+        },
+        labels: {
+            show: true,
+            rotate: -45,
+            rotateAlways: true,
+            minHeight: 60,
+            maxHeight: 180,
+            datetimeFormatter: {
+                year: 'MM/dd/yyyy',
+                month: "MM/dd/yyyy",
+                day: 'dd MMM',
+                hour: 'HH:mm',
+            },
+        },
+        type: 'datetime',
+        tickPlacement: 'on'
     },
     yaxis: {
       min: props.ymin,
@@ -40,8 +56,6 @@ const BarChart = (props) => {
     plotOptions: {
         bar: {
             horizontal: false,
-            s̶t̶a̶r̶t̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
-            e̶n̶d̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
             borderRadius: 0,
             columnWidth: '70%',
             barHeight: '70%',
