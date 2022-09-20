@@ -10,18 +10,6 @@ import { SelectIcon } from "../../../components/commons/icon/multipleIcons";
 
 import HistoryTable from "../../../components/StockTable/HistoryTable";
 
-const btnCancel = {
-    border: "1px solid gray !important",
-    color: "gray !important",
-    marginRight: "12px !important",
-    textTransform: "none !important",
-}
-
-const btnSave = {
-    border: "1px solid #2F80ED !important",
-    textTransform: "none !important",
-}
-
 const style = {
     position: 'absolute',
     top: '50%',
@@ -67,25 +55,6 @@ const ExerciseHistoryProps = {
 const BarChartProps = {
     ymax: 6728,
     ymin: 0,
-    xlabel: [
-      "10/15/2019",
-      "",
-      "",
-      "",
-      "10/15/2020",
-      "",
-      "",
-      "",
-      "",
-      "10/15/2021",
-      "",
-      "",
-      "",
-      "10/15/2022",
-      "",
-      "",
-      "10/15/2023",
-    ],
     data: [
       {x:'10/15/2019', y:0},
       {x:'1/15/2020', y:0},
@@ -105,40 +74,36 @@ const BarChartProps = {
       {x:'7/15/2023', y:6372},
       {x:'10/15/2023', y:6728},
     ],
-    // data: [
-    //   0, 0, 0, 0, 1682, 2000, 2489, 2965, 3364, 3780, 4208, 4692, 5046, 5456,
-    //   5908, 6372, 6728,
-    // ],
 };
 const StockTableProps = {
   table: [
     {
       Id: "1",
-      Date: "10/15/2021",
+      Date: "10/15/2019",
       Completed: 1,
       TasksDone: 420,
     },
     {
       Id: "2",
-      Date: "1/15/2021",
+      Date: "1/15/2020",
       Completed: 1,
       TasksDone: 420,
     },
     {
       Id: "3",
-      Date: "4/15/2021",
+      Date: "4/15/2020",
       Completed: 1,
       TasksDone: 420,
     },
     {
       Id: "4",
-      Date: "7/15/2021",
+      Date: "7/15/2020",
       Completed: 0,
       TasksDone: 420,
     },
     {
       Id: "5",
-      Date: "10/15/2021",
+      Date: "10/15/2020",
       Completed: 0,
       TasksDone: 420,
     },
@@ -168,19 +133,43 @@ const StockTableProps = {
     },
     {
       Id: "10",
-      Date: "1/15/2021",
+      Date: "1/15/2022",
       Completed: 0,
       TasksDone: 420,
     },
     {
       Id: "11",
-      Date: "4/15/2021",
+      Date: "4/15/2022",
       Completed: 0,
       TasksDone: 420,
     },
     {
       Id: "12",
-      Date: "7/15/2021",
+      Date: "7/15/2022",
+      Completed: 0,
+      TasksDone: 420,
+    },
+    {
+      Id: "9",
+      Date: "10/15/2022",
+      Completed: 0,
+      TasksDone: 420,
+    },
+    {
+      Id: "10",
+      Date: "1/15/2023",
+      Completed: 0,
+      TasksDone: 420,
+    },
+    {
+      Id: "11",
+      Date: "4/15/2023",
+      Completed: 0,
+      TasksDone: 420,
+    },
+    {
+      Id: "12",
+      Date: "7/15/2023",
       Completed: 0,
       TasksDone: 420,
     },

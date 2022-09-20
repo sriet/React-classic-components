@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import {
-  Container,
   Grid,
   Typography,
   TableCell,
@@ -16,20 +15,14 @@ import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import { makeStyles } from '@mui/styles';
 
-const CompletedTableRow = styled(TableRow)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  width:'100%',
-  fontSize:'16px',
-  "td, th": {
-    color:'#219653 !important'
-  }
-}));
-
 //styles
 const useStyles = makeStyles({
-  table: { marginLeft:'16px', '& th, & td': {color:'#828282', paddingTop:'4px !important', paddingBottom:'4px !important' }},
-  tableBody: { "& td, & th": { border: 0},},
+    table: { marginLeft:'16px', '& th, & td': {color:'#828282', paddingTop:'4px !important', paddingBottom:'4px !important' }},
+    tableBody: { "& td, & th": { border: 0},},
+    tableRowGreen: {
+        "& td, th": {
+        color:'#219653 !important'
+      }}
 });
 
 
@@ -57,17 +50,16 @@ const StockTable = ( props ) => {
                             </TableHead>
                             <TableBody className={classes.tableBody}>
                                 {props.table.map((row, index) => (
-                                    (row.Completed===1 && 
-                                    <CompletedTableRow key={index}>
+                                    <TableRow className={`${new Date(row.Date).getTime() < new Date(new Date().toISOString().slice(0, 10)).getTime() && classes.tableRowGreen}`} key={index}>
                                         <TableCell component="th" scope="row">{row.Id}</TableCell>
                                         <TableCell align="right">{row.Date}</TableCell>
-                                        <TableCell align="right"><CheckIcon fontSize='0.875rem'/></TableCell>
-                                        <TableCell align="right">{row.TasksDone}</TableCell>
-                                    </CompletedTableRow>) ||
-                                    <TableRow key={index}>
-                                        <TableCell component="th" scope="row">{row.Id}</TableCell>
-                                        <TableCell align="right">{row.Date}</TableCell>
-                                        <TableCell align="right"><ClearIcon fontSize='0.875rem'/></TableCell>
+                                        <TableCell align="right">
+                                            {
+                                            row.Completed===1 && 
+                                                <CheckIcon fontSize='0.875rem'/> ||
+                                                <ClearIcon fontSize='0.875rem'/>
+                                            }
+                                        </TableCell>
                                         <TableCell align="right">{row.TasksDone}</TableCell>
                                     </TableRow>
                                 ))}

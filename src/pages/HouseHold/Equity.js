@@ -22,7 +22,7 @@ const GooglePlanProps = {
         title: "250 RSUs, 1 Grant ->",
         value: 376830,
         data: {
-          min: 125,
+          min: 251,
           max: 0,
 
           status: [
@@ -38,21 +38,21 @@ const GooglePlanProps = {
             },
             {
               pattern: 5,
-              value: 34,
+              value: 53,
               label: "34 Unvested",
             },
             {
               pattern: 2,
-              value: 35,
+              value: 55,
             },
             {
               pattern: 0,
-              value: 72,
+              value: 126,
               label: "72 Sold",
             },
             {
               pattern: 0,
-              value: 125,
+              value: 251,
               label: "125 Held",
             },
           ],

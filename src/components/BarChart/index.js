@@ -10,7 +10,6 @@ const BarChart = (props) => {
     },
     colors: [
       function ({ value, seriesIndex, dataPointIndex, w }) {
-        console.log('000000', w.config.series[0].data[dataPointIndex]['x'])
         let date = w.config.series[0].data[dataPointIndex]['x']
           if (new Date(date).getTime() < new Date(new Date().toISOString().slice(0, 10)).getTime()) {
             return "#219653";

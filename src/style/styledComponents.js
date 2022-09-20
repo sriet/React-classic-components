@@ -7,6 +7,7 @@ import {
   Box,
   Tab,
   Tabs,
+  Select,
 } from "@mui/material";
 import NumberFormat from 'react-number-format';
 
@@ -83,6 +84,16 @@ export const StockTableInput = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export const StockSelect = styled(NativeSelect)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    width: "100%",
+    fontSize: "16px",
+    "> select": {
+        padding: "6px 8px 6px 8px",
+    },
+}));
+
+export const StockSelectCurrent = styled(Select)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
     width: "100%",
