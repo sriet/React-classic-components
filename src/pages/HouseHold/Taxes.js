@@ -12,68 +12,6 @@ import Title from "../../components/Title";
 import Quarterly from "../../components/Quarterly";
 import ToolTip from "../../components/ToolTip";
 
-const HeatMapProps = {
-    heatMap: [
-      { check: 1, title: "Q1" },
-      { check: 0, title: "Q2" },
-      { check: 0, title: "Q3" },
-      { check: 0, title: "Q4" },
-    ],
-    data: {
-      min: 0,
-      max: 100,
-      status: [
-        {
-          pattern: 0,
-          value: 0,
-          // label: "Dim1",
-        },
-        {
-          pattern: 2,
-          value: 40,
-          // label: "Dim2",
-        },
-      ],
-    },
-};
-
-const TitleProps = {
-    title:'Taxes on wage income',
-    updated: 15,
-    col:['Type', 'Withheld to date', 'Year End', '% of wages'],
-    breakdown: [
-        {
-        Type: "Federal Income Tax",
-        Column1: 16823,
-        Column2: 34411,
-        Column3: "19.12%",
-        },
-        {
-        Type: "Medicare",
-        Column1: 822,
-        Column2: 1164,
-        Column3: "0.62%",
-        },
-        {
-        Type: "Social Security (OASDI)",
-        Column1: 7928,
-        Column2: 9780,
-        Column3: "5.45%",
-        },
-        {
-        Type: "State Income Tax",
-        Column1: 4281,
-        Column2: 13284,
-        Column3: "7.38%",
-        },
-        {
-        Type: "State Other (CA DSI)",
-        Column1: 281,
-        Column2: 802,
-        Column3: "1.48%",
-        },
-    ],
-};
 
 const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} arrow classes={{ popper: className }} />
@@ -89,91 +27,14 @@ const HtmlTooltip = styled(({ className, ...props }) => (
     },
 }));
 
-const QuarterlyProps = {
-    data: [
-          { icon: "check", date: "April 15 2022", text: "Q1 Federal", price: 5035.75 },
-          { icon: "check", date: "April 15 2022", text: "Q1 State", price: 423.29 },
-          {
-            icon: "bankNote",
-            date: "Due June 15 2022",
-            text: "Q2 Federal",
-            price: 5035.75,
-          },
-          {
-            icon: "bankNote",
-            date: "Due June 15 2022",
-            text: "Q2 State",
-            price: 423.29,
-          },
-          {
-            icon: "bankNote",
-            date: "Due Sept 15 2022",
-            text: "Q3 Federal",
-            price: 5035.75,
-          },
-          {
-            icon: "bankNote",
-            date: "Due Sept 15 2022",
-            text: "Q3 State",
-            price: 423.29,
-          },
-          {
-            icon: "bankNote",
-            date: "Due Jan 15 2023",
-            text: "Q4 Federal",
-            price: 5035.75,
-          },
-          {
-            icon: "bankNote",
-            date: "Due Jan 15 2023",
-            text: "Q4 State",
-            price: 423.29,
-          },
-    ],
-};
-
-const ToolTipProps = {
-    data: [
-      { item: "Qualified", value: 817 },
-      { item: "Non-Qualified", value: 121 },
-    ],
-};
-
-const dims = [
-    {
-        title: 'Long Term Taxes',
-        value: 7500,
-        info: 1,
-        subtitle: '',
-    },
-    {
-        title: 'Short Term Taxes',
-        value: 3225,
-        info: 1,
-        subtitle: '',
-    },
-    {
-        title: 'Dividend Taxes',
-        value: 4275,
-        info: 0,
-        subtitle: '',
-    },
-    {
-        title: 'Total Investment Taxes',
-        value: 4275,
-        info: 0,
-        subtitle: '',
-    },
-]
-
-const Taxes = () => {
+const Taxes = (props) => {
 
     return(
         <Grid container spacing={2} mb={15}>
             <Grid item xs={12} md={8}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Holdings</Typography>
+                        <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">2022 Taxes</Typography>
                     </Grid>
                     <Grid item xs={12}>
                         <Grid container spacing={0}
@@ -182,13 +43,13 @@ const Taxes = () => {
                             alignItems="center"
                         >
                             <Stack direction='column' spacing={1}>
-                                <PriceLabel>Total Equity Value</PriceLabel>
+                                <PriceLabel>{props.TotalTaxes[0].title}</PriceLabel>
                                 <Stack direction='row' alignItems='center' spacing={1}>
-                                    <Typography fontSize={48} lineHeight="58px">$197,294</Typography>
+                                    <Typography fontSize={48} lineHeight="58px">${props.TotalTaxes[0].value.toLocaleString('US-en')}</Typography>
                                     <HtmlTooltip
                                         title={
                                         <React.Fragment>
-                                            <ToolTip {...ToolTipProps} />
+                                            <ToolTip {...props.ToolTipProps} />
                                         </React.Fragment>
                                         }
                                     >
@@ -197,13 +58,13 @@ const Taxes = () => {
                                 </Stack>
                             </Stack>
                             <Stack direction='column' spacing={1}>
-                                <PriceLabel>Total Equity Value</PriceLabel>
+                                <PriceLabel>{props.TotalTaxes[1].title}</PriceLabel>
                                 <Stack direction='row' alignItems='center' spacing={1}>
-                                    <Typography fontSize={48} lineHeight="58px">36%</Typography>
+                                    <Typography fontSize={48} lineHeight="58px">{props.TotalTaxes[1].value}%</Typography>
                                     <HtmlTooltip
                                         title={
                                         <React.Fragment>
-                                            <ToolTip {...ToolTipProps} />
+                                            <ToolTip {...props.ToolTipProps} />
                                         </React.Fragment>
                                         }
                                     >
@@ -212,13 +73,13 @@ const Taxes = () => {
                                 </Stack>
                             </Stack>
                             <Stack direction='column' spacing={1}>
-                                <PriceLabel>Total Equity Value</PriceLabel>
+                                <PriceLabel>{props.TotalTaxes[2].title}</PriceLabel>
                                 <Stack direction='row' alignItems='center' spacing={1}>
-                                    <Typography fontSize={48} lineHeight="58px">$84,836</Typography>
+                                    <Typography fontSize={48} lineHeight="58px">${props.TotalTaxes[2].value.toLocaleString('US-en')}</Typography>
                                     <HtmlTooltip
                                         title={
                                         <React.Fragment>
-                                            <ToolTip {...ToolTipProps} />
+                                            <ToolTip {...props.ToolTipProps} />
                                         </React.Fragment>
                                         }
                                     >
@@ -229,21 +90,21 @@ const Taxes = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <HeatMap {...HeatMapProps} />
+                        <HeatMap {...props.HeatMapProps} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Title {...TitleProps} />
+                        <Title {...props.TaxesWageIncome} />
                     </Grid>
                     <Grid item xs={12}>
                         <BoxPanel p={2}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <Stack direction='row' spacing={2} className="align-items-center">
-                                        <TypoItem variant="subtitle2">Taxes on investment income</TypoItem>
+                                        <TypoItem variant="subtitle2">{props.TaxesInvestmentIncome.title}</TypoItem>
                                         <Stack direction='row' flexGrow='1' pt='5px'>
                                             <Stack direction='row' spacing='5px'>
                                                 <Typography fontSize='0.75rem' lineHeight="14.52px" color="#828282">
-                                                Last updated 15 days ago ·
+                                                Last updated {props.TaxesInvestmentIncome.updated} days ago ·
                                                 </Typography>
                                             </Stack>
                                             <Stack direction='row' color='#828282' >
@@ -259,7 +120,7 @@ const Taxes = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                 <Grid container spacing={2}>
-                                    {dims.map((list, index)=>(
+                                    {props.TaxesInvestmentIncome.data.map((list, index)=>(
                                     <Grid item xs md={3} key={index}>
                                         <Grid container spacing="4px">
                                         <Grid item xs={12}>
@@ -309,23 +170,24 @@ const Taxes = () => {
             <Grid item xs={12} md={4}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Upcoming Equity Events</Typography>
+                        <Typography color='#333333' fontSize={24} lineHeight="29px" fontWeight="bold">Estimated Tax Payments</Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <Grid container spacing="4px">
-                            <Grid item xs={12}>
-                                <PriceLabel>Underwithheld owed by year end</PriceLabel>
-                            </Grid>
-                            <Grid container item xs={12} spacing={1} alignItems="center">
-                                <Grid item>
-                                    <Typography fontSize={48} lineHeight="58px">$23,423</Typography>
-                                </Grid>
-                            </Grid>
+                        <Grid container spacing={0}
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center">
+                            <Stack direction='column' spacing={1}>
+                                <PriceLabel>{props.Underwithheld.title}</PriceLabel>
+                                <Stack direction='row' alignItems='center' spacing={1}>
+                                    <Typography fontSize={48} lineHeight="58px">${props.Underwithheld.value.toLocaleString('US-en')}</Typography>
+                                </Stack>
+                            </Stack>
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
                         <Grid container>
-                            <Quarterly {...QuarterlyProps} />
+                            <Quarterly {...props.QuarterlyProps} />
                         </Grid>
                     </Grid>
                 </Grid>

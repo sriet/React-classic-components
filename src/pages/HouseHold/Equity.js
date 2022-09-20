@@ -7,189 +7,7 @@ import Employer from "../../components/Employer";
 import StrokeGauge from "../../components/commons/strokeGauge";
 import ObliqueGauge from "../../components/commons/obliqueGauge";
 
-const totalEquityValue = 533242
-
-const GooglePlanProps = {
-    title:'Google Stock Plan',
-    logo: '',
-    price: [
-      { title: "Total Value", price: 405203 },
-      { title: "Current Value", price: 296250 },
-      { title: "$GOOG Price", price: 2370 },
-    ],
-    progressBarGroup: [
-      {
-        title: "250 RSUs, 1 Grant ->",
-        value: 376830,
-        data: {
-          min: 251,
-          max: 0,
-
-          status: [
-            {
-              pattern: 4,
-              value: 0,
-              label: "",
-            },
-            {
-              pattern: 3,
-              value: 19,
-              label: "19 sell on vest",
-            },
-            {
-              pattern: 5,
-              value: 53,
-              label: "34 Unvested",
-            },
-            {
-              pattern: 2,
-              value: 55,
-            },
-            {
-              pattern: 0,
-              value: 126,
-              label: "72 Sold",
-            },
-            {
-              pattern: 0,
-              value: 251,
-              label: "125 Held",
-            },
-          ],
-        },
-      },
-      {
-        title: "ESPP ->",
-        value: 28400,
-        data: {
-          min: 9,
-          max: 0,
-
-          status: [
-            {
-              pattern: 1,
-              value: 0,
-              label: "",
-            },
-            {
-              pattern: 0,
-              value: 3,
-              label: "3 Non-qualified",
-            },
-            {
-              pattern: 0,
-              value: 9,
-              label: "9 Qualified",
-            },
-          ],
-        },
-      },
-    ],
-    updated:23
-};
-const StripePlanProps = {
-    title:'Stripe Stock Plan',
-    logo: 'Stripe.png',
-    price: [
-      { title: "Total Value", price: 128012 },
-      { title: "Current Value", price: 128012 },
-      { title: "409A Value (Jun 2022)", price: 49.39 },
-    ],
-    progressBarGroup: [
-      {
-        title: "7,239 ISOs, 2 Grants ->",
-        value: 28400,
-        data: {
-          min: 5000,
-          max: 0,
-
-          status: [
-            {
-              pattern: 1,
-              value: 0,
-              label: "",
-            },
-            {
-              pattern: 0,
-              value: 1239,
-              label: "1,239 Unexercised",
-            },
-            {
-              pattern: 0,
-              value: 5000,
-              label: "5,000 Exercised",
-            },
-          ],
-        },
-      },
-    ],
-    updated:23
-};
-
-const EquityEventData = [
-    {
-        icon:'certificate_icon.png',
-        date:'June 15 2022',
-        shares:['3 Shares Held (3 Sold)','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'September 15 2022',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'alert_icon.png',
-        date:'September 30 2022',
-        shares:['1,283 shares Expire','Stripe NSOs']
-    },
-    {
-        icon:'sale_icon.png',
-        date:'Nov 15 2022',
-        shares:['5,000 shares qualified','Stripe ISOs']
-    },
-    {
-        icon:'sale_icon.png',
-        date:'Dec 1 2022',
-        shares:['Google Open Trading Window','Google Stock Plan']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'January 15 2023',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'April 15 2023',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'June 15 2023',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'September 15 2023',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'January 15 2024',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'April 15 2024',
-        shares:['6 Shares Vest','Google RSUs']
-    },
-    {
-        icon:'certificate_icon.png',
-        date:'June 15 2024',
-        shares:['5 Shares Vest (Final)','Google RSUs']
-    },
-]
-
-const Equity = () => {
+const Equity = (props) => {
     // console.log('======', new Date('Dec 1 2023').getFullYear());
     return(
         <Grid container spacing={2} mb={15}>
@@ -205,7 +23,7 @@ const Equity = () => {
                                     <PriceLabel>Total Equity Value</PriceLabel>
                                     <Stack direction='row' alignItems='center'>
                                         <Grid item>
-                                            <Typography fontSize={48} lineHeight="58px">${totalEquityValue.toLocaleString('en-US')}</Typography>
+                                            <Typography fontSize={48} lineHeight="58px">${props.totalEquityValue.toLocaleString('en-US')}</Typography>
                                         </Grid>
                                         <Grid item>
                                             <InfoOutlinedIcon sx={{fontSize:"18 px"}} />
@@ -245,17 +63,13 @@ const Equity = () => {
                                     />
                                 </Grid>
                             </Stack>
-                            {/* <Grid item xs={5}>
-                            </Grid> */}
-                            {/* <Grid item xs={7}>
-                            </Grid> */}
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <Employer {...GooglePlanProps} />
+                        <Employer {...props.GoogleStockPlan} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Employer {...StripePlanProps} />
+                        <Employer {...props.StripeStockPlan} />
                     </Grid>
                 </Grid>
             </Grid>
@@ -267,11 +81,11 @@ const Equity = () => {
                     <Grid item xs={12}>
                         <Grid container spacing={2}>
                             {
-                              EquityEventData.map((list, index)=>{
+                              props.EquityEventData.map((list, index)=>{
                                 if (index !== 0)
-                                  var year = new Date(EquityEventData[index-1].date).getFullYear();
+                                  var year = new Date(props.EquityEventData[index-1].date).getFullYear();
                                 return (
-                                new Date(list.date).getFullYear() > year && 
+                                    new Date(list.date).getFullYear() > year && 
                                     <Grid item xs={12} key={index}>
                                         <Grid container spacing={1} alignItems='center'>
                                             <Grid item xs={12}>
