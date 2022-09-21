@@ -2,10 +2,8 @@ import { Container, Grid, Stack, Typography } from "@mui/material"
 
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { PriceLabel, PriceValue } from "../../style/styledComponents";
-import Gauge from "../../components/Gauge";
 import Employer from "../../components/Employer";
-import StrokeGauge from "../../components/commons/strokeGauge";
-import ObliqueGauge from "../../components/commons/obliqueGauge";
+import Gauge from "../../components/commons/gauge";
 
 const Equity = (props) => {
     // console.log('======', new Date('Dec 1 2023').getFullYear());
@@ -32,35 +30,39 @@ const Equity = (props) => {
                                 </Stack>
                                 <Grid container justifyContent='center'>
                                     {/*<Gauge />*/}
-                                    <StrokeGauge
-                                        max={100}
-                                        min={0}
-                                        strokeValue={76}
+                                    <Gauge
                                         width={130}
                                         height={130}
-                                        part1={'Google'}
-                                        part2={'Stripe'}
+                                      data={[
+                                        {
+                                          name: 'RSUs',
+                                          value: 100
+                                        },
+                                        {
+                                          name: 'ISOs',
+                                          value: 60
+                                        },
+                                        {
+                                          name: 'ESPP',
+                                          value: 90
+                                        }
+                                      ]}
                                     />
-                                    <ObliqueGauge
-                                        max={100}
-                                        min={0}
-                                        strokeValue={42}
-                                        obliqueValue={66}
+                                    <Gauge
                                         width={130}
                                         height={130}
-                                        part1={'RSUs'}
-                                        part2={'ISOs'}
-                                        part3={'ESPP'}
+                                      data={[
+                                        {
+                                          name: 'Google',
+                                          value: 40
+                                        },
+                                        {
+                                          name: 'Stripe',
+                                          value: 120
+                                        },
+                                      ]}
                                     />
-                                    <StrokeGauge
-                                        max={100}
-                                        min={0}
-                                        strokeValue={84}
-                                        width={130}
-                                        height={130}
-                                        part1={'Held'}
-                                        part2={'Unvested'}
-                                    />
+                                    
                                 </Grid>
                             </Stack>
                         </Grid>
