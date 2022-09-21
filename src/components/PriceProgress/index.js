@@ -44,7 +44,7 @@ const PriceProgress = (props) => {
           <PriceLabel>{props.title} </PriceLabel>
         </Grid>
         <Grid py="4px" className="align-items-center" item xs={12}>
-          <PriceValue pr='5.5px' sx={{color:(props.price<0 && '#EB5757')}}>{((props.price<0 && '-')||'')+`$`+Math.abs(props.price).toLocaleString('en-US')}</PriceValue>
+          <PriceValue pr='5.5px' color={(props.price<0 && '#EB5757 !important')}>{((props.price<0 && '-')||'')+`$`+Math.abs(props.price).toLocaleString('en-US')}</PriceValue>
           { 
             (props.info === 1 &&
               
