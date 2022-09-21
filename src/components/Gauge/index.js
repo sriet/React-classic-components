@@ -2,11 +2,11 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { Box, Container, } from "@mui/material";
 
-import StrokeGauge from "../commons/strokeGauge";
-import ObliqueGauge from "../commons/obliqueGauge";
+//import StrokeGauge from "../commons/strokeGauge";
+import Gauge from "../commons/gauge";
 import { BoxPanel } from "../../style/styledComponents";
 
-const Gauge = () => {
+const Gauges = () => {
   const width = 170;
   const height = 170;
   const max = 100;
@@ -16,7 +16,7 @@ const Gauge = () => {
 
   return (
     <Box>
-      <StrokeGauge
+      {/*<StrokeGauge
         max={max}
         min={min}
         strokeValue={strokeValue}
@@ -24,8 +24,8 @@ const Gauge = () => {
         height={height}
         part1={'1'}
         part2={'2'}
-      />
-      <ObliqueGauge
+      />*/}
+      <Gauge
         max={max}
         min={min}
         strokeValue={strokeValue}
@@ -33,7 +33,7 @@ const Gauge = () => {
         width={width}
         height={height}
       />
-      <StrokeGauge
+      {/*<StrokeGauge
         max={max}
         min={min}
         strokeValue={75}
@@ -41,13 +41,13 @@ const Gauge = () => {
         height={height}
         part1={'1'}
         part2={'2'}
-      />
+      />*/}
     </Box>
   );
 };
 
-Gauge.propTypes = {
+Gauges.propTypes = {
   children: PropTypes.any,
 };
 
-export default Gauge;
+export default Gauges;

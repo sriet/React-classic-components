@@ -30,29 +30,26 @@ const useStyles = makeStyles({
   },
 });
 
-const ObliqueGauge = ({
-  max,
-  min,
+const Gauge = ({
   width,
   height,
-  strokeValue,
-  obliqueValue,
-  part1,
-  part2,
-  part3
+  data
 }) => {
-  const props = {
-    strokeValue,
-    obliqueValue,
+
+  let min = 0
+  let max = 0
+  data.map((val, ind) => max += val.value)
+  let strokeValue = data[0].value
+  let obliqueValue = data[2] ? data[0].value + data[2].value : 0
+  const styleProps = {
     width,
     height,
-    max,
-    min,
-    part1,
-    part2,
-    part3
+    data,
+    strokeValue,
+    obliqueValue
   };
-  const classes = useStyles(props);
+  const classes = useStyles(styleProps);
+
 
   return (
     <svg
@@ -87,18 +84,18 @@ const ObliqueGauge = ({
         d="M -33.588,33.587 A 47.5,47.5 0 1 1 33.588,33.588"
         pathLength="100"
       />
-      <rect x="-15%" y="-15%" width="10" height="10" fill="#333" />
+      <rect x="-20%" y="-15%" width="10" height="10" fill="#333" />
       <foreignObject
         className="gauge-font"
-        x="-3%"
+        x="-8%"
         y="-27.5%"
         width="260px"
         height="100px"
       >
-        <p>{part1}</p>
+        <p>{data[0]['name']}</p>
       </foreignObject>
       <rect
-        x="-14%"
+        x="-19%"
         y="0%"
         width="8"
         height="8"
@@ -108,31 +105,38 @@ const ObliqueGauge = ({
       />
       <foreignObject
         className="gauge-font"
-        x="-3%"
+        x="-8%"
         y="-13.5%"
         width="260px"
         height="100px"
       >
-        <p>{part2}</p>
+        <p>{data[1]['name']}</p>
       </foreignObject>
+      {
+        data[2] && (
+      <>
       <foreignObject
         className="gauge-font"
-        x="-15%"
+        x="-20%"
         y="3%"
         width="30"
         height="30"
       >
         <p className={classes.obliqueSquare}></p>
       </foreignObject>
-      <foreignObject
-        className="gauge-font"
-        x="-3%"
-        y="0.5%"
-        width="260px"
-        height="100px"
-      >
-        <p>{part3}</p>
-      </foreignObject>
+        <foreignObject
+          className="gauge-font"
+          x="-8%"
+          y="0.5%"
+          width="260px"
+          height="100px"
+        >
+          <p>{data[2]['name']}</p>
+        </foreignObject>
+      </>
+
+        )
+      }
       <g className={classes.stroke}>
         {/* static outer border  */}
         <path d="M -38.184,38.184 A 54,54 0 1 1 38.184,38.184 L 28.991,28.991 A 41,41 0 1 0 -28.991,28.991 Z" />
@@ -151,7 +155,7 @@ const ObliqueGauge = ({
   );
 };
 
-ObliqueGauge.propTypes = {
+Gauge.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
   strokeValue: PropTypes.number,
@@ -160,4 +164,4 @@ ObliqueGauge.propTypes = {
   height: PropTypes.number,
 };
 
-export default ObliqueGauge;
+export default Gauge;
